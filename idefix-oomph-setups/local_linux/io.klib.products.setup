@@ -117,8 +117,8 @@
         xsi:type="setup.p2:P2Task"
         label="JaCoCo">
       <requirement
-          name="com.amazonaws.eclipse.sdk.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          name="http://aws.amazon.com/eclipse/site.xml.com.amazonaws.category"
+          versionRange="[1.0.0,2.0.0)"/>
       <repository
           url="http://aws.amazon.com/eclipse"/>
       <description></description>
