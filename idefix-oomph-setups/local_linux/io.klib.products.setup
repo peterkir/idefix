@@ -70,7 +70,7 @@
           name="de.bastiankrol.startexplorer.feature.feature.group"
           versionRange="1.6.1"/>
       <repository
-          url="file:/media/peterkir/BTRFS/www//basti1302.github.com/startexplorer/update"/>
+          url="http://basti1302.github.com/startexplorer/update"/>
       <description>enables comfort functions to access native os environments</description>
     </setupTask>
     <setupTask
