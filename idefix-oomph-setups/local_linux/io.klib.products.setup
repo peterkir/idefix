@@ -118,7 +118,7 @@
         label="JaCoCo">
       <requirement
           name="com.amazonaws.eclipse.sdk.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          versionRange="[2.0.0,3.0.0)"/>
       <repository
           url="http://aws.amazon.com/eclipse"/>
       <description></description>
