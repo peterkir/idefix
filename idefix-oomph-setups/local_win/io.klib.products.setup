@@ -151,7 +151,7 @@
           versionRange="[2.0.0,3.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <repository
           url="http://aws.amazon.com/eclipse"/>
       <description></description>
