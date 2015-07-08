@@ -152,8 +152,13 @@
       <requirement
           name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"
           versionRange="[1.0.0,2.0.0)"/>
+      <requirement
+          name="org.eclipse.datatools.sqltools.sqlscrapbook"
+          versionRange="1.0.0"/>
       <repository
           url="http://aws.amazon.com/eclipse"/>
+      <repository
+          url="http://download.eclipse.org/releases/mars/201506241002"/>
       <description></description>
     </setupTask>
     <setupTask
