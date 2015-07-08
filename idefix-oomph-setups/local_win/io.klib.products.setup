@@ -118,31 +118,34 @@
         label="Amazon AWS">
       <requirement
           name="com.amazonaws.eclipse.cloudformation.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.codedeploy.feature.feature.group"
           versionRange="[2.0.0,3.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.core.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[2.3.0,3.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.dynamodb.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.ec2.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.lambda.feature.feature.group"
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.opsworks.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.rds.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.sdk.feature.feature.group"
           versionRange="[2.0.0,3.0.0)"/>
