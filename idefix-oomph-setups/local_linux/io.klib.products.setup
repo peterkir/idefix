@@ -115,9 +115,39 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="JaCoCo">
+        label="Amazon AWS">
+      <requirement
+          name="com.amazonaws.eclipse.cloudformation.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.codedeploy.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.core.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.dynamodb.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.ec2.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.opsworks.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.rds.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.sdk.feature.feature.group"
+          versionRange="[2.0.0,3.0.0)"/>
+      <requirement
+          name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"
           versionRange="[2.0.0,3.0.0)"/>
       <repository
           url="http://aws.amazon.com/eclipse"/>
