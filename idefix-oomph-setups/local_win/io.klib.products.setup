@@ -162,6 +162,16 @@
       <description></description>
     </setupTask>
     <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="EditBox">
+      <requirement
+          name="pm.eclipse.editbox.feature.feature.group"
+          versionRange="[0.60.0,1.0.0)"/>
+      <repository
+          url="file:///F:/www/www.nodeclipse.org/updates"/>
+      <description>http://editbox.sourceforge.net/</description>
+    </setupTask>
+    <setupTask
         xsi:type="jdt:JRETask"
         version="JavaSE-1.6"
         location="${jre.location-1.6}"/>
