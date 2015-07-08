@@ -121,7 +121,7 @@
           versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.codedeploy.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
+          versionRange="[1.0.0,2.0.0)"/>
       <requirement
           name="com.amazonaws.eclipse.core.feature.feature.group"
           versionRange="[2.3.0,3.0.0)"/>
