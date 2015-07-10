@@ -6,23 +6,75 @@
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
     name="ece2014"
     label="EclipseCon 2014">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Product Customization">
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        excludedTriggers="STARTUP MANUAL"
+        content="defaultPerspectiveId=bndtools.perspective&#xD;&#xA;"
+        targetURL="${installation.location|uri}/eclipse/plugin_customization.ini"
+        encoding="UTF-8">
+      <description>Customize eclipse product for startups</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-pluginCustomization"
+        value="plugin_customization.ini"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Github">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="github.user.id"
+        label="Github user ID">
+      <description>The Github user ID</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="github.author.name"
+        label="Github author name"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="github.author.email"
+        label="Github author email"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="github.remoteURIs"
+        label="Github repository">
+      <choice
+          value="${github.user.id|username}@github.com:@{remoteURI}.git"
+          label="Git (read-write)"/>
+      <choice
+          value="https://${github.user.id|username}@github.com/@{remoteURI}.git"
+          label="HTTPS (read-write)"/>
+      <choice
+          value="https://github.com/@{remoteURI}.git"
+          label="HTTPS (read-only, anonymous)"/>
+      <description>Choose from the available Github URIs</description>
+    </setupTask>
+  </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
       name="user.configured">
     <setupTask
         xsi:type="setup:VariableTask"
         name="workspace.name"
-        defaultValue="configureMe"
+        value=""
+        defaultValue="${scope.project.name}"
         storageURI="scope://Workspace"/>
     <setupTask
         xsi:type="setup:VariableTask"
-        name="string.valeu"
+        name="string.value"
         value=""
         defaultValue=""
         label="someStringValue">
@@ -33,17 +85,6 @@
           value="string2"
           label="string2"/>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="github.username"
-        value=""
-        defaultValue="peterkir"
-        label="GitHub username"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        type="PASSWORD"
-        name="github.password"
-        label="GitHub password"/>
   </setupTask>
   <setupTask
       xsi:type="setup:WorkspaceTask"
@@ -64,7 +105,7 @@
     <setupTask
         xsi:type="setup:PreferenceTask"
         key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
-        value="${workspace.name}"/>
+        value="${workspace.name}_${string.value}"/>
   </setupTask>
   <setupTask
       xsi:type="setup:EclipseIniTask"
@@ -93,34 +134,51 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone"
-      remoteURI="${github.username}/ece2014">
+      id="git.clone.ece2014"
+      remoteURI="https://github.com/peterkir/ece2014.git"
+      pushURI="">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
-      <detail
-          key="inherit">
-        <value>github.remoteURIs</value>
-      </detail>
       <detail
           key="label">
         <value>${scope.project.label} Github repository</value>
       </detail>
-      <detail
-          key="target">
-        <value>remoteURI</value>
-      </detail>
     </annotation>
     <description>${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="projects:ProjectsImportTask">
+    <sourceLocator
+        rootFolder="${git.clone.ece2014.location}"
+        locateNestedProjects="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">
     <workingSet
         name="${scope.project.name}">
       <predicate
-          xsi:type="predicates:AndPredicate">
+          xsi:type="predicates:RepositoryPredicate"
+          project="idefix-oomph-setups"/>
+    </workingSet>
+    <workingSet
+        name="bndtools">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern="examples\.bndtools.*"/>
+    </workingSet>
+    <workingSet
+        name="pde">
+      <predicate
+          xsi:type="predicates:NamePredicate"
+          pattern="examples\.pde.*"/>
+    </workingSet>
+    <workingSet
+        name="build">
+      <predicate
+          xsi:type="predicates:NotPredicate">
         <operand
-            xsi:type="predicates:RepositoryPredicate"
-            project="examples.ece2014.feature"/>
+            xsi:type="workingsets:InclusionPredicate"
+            includedWorkingSet="//@setupTasks.11/@workingSets.1 //@setupTasks.11/@workingSets.2"/>
       </predicate>
     </workingSet>
     <description>The dynamic working sets for ${scope.project.label}</description>
