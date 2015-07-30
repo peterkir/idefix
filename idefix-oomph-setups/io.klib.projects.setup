@@ -165,7 +165,7 @@
           name="bndtools.main.feature.feature.group"
           versionRange="[3.0.0,4.0.0)"/>
       <repository
-          url="file:///f:/www/bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+          url="http://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
       <description>Latest local bndtools version</description>
     </setupTask>
     <setupTask
