@@ -26,6 +26,20 @@
     <repository
         url="${oomph.update.url}"/>
   </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="repo.source"
+      label="repoSource">
+    <choice
+        value="file:/f:/www"
+        label="local Windows"/>
+    <choice
+        value="file:/media/peterkir/BTRFS/www"
+        label="local Linux"/>
+    <choice
+        value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+        label="AWS"/>
+  </setupTask>
   <product name="idefix"
       label="IDEfix - Eclipse Mars">
     <annotation
@@ -176,9 +190,9 @@
               name="org.eclipse.pde.feature.group"
               versionRange="[3.11.0,3.12.0)"/>
           <repository
-              url="http://download.eclipse.org/technology/epp/packages/mars/R"/>
+              url="${repo.source}/download.eclipse.org/technology/epp/packages/mars/R"/>
           <repository
-              url="http://download.eclipse.org/releases/mars/201506241002"/>
+              url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
         </setupTask>
         <setupTask
             xsi:type="setup.p2:P2Task"
@@ -187,7 +201,7 @@
               name="org.eclipse.sdk.examples.feature.group"
               versionRange="[3.5.0,4.0.0)"/>
           <repository
-              url="http://download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
+              url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
           <description></description>
         </setupTask>
         <setupTask
@@ -227,7 +241,7 @@
               name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"
               versionRange="[3.0.0,4.0.0)"/>
           <repository
-              url="http://findbugs.cs.umd.edu/eclipse/"/>
+              url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
           <description></description>
         </setupTask>
         <setupTask
@@ -239,20 +253,6 @@
           <repository
               url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
           <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="repo.source"
-            label="repoSource">
-          <choice
-              value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
-              label="AWS"/>
-          <choice
-              value="file:/f:/www/"
-              label="local Windows"/>
-          <choice
-              value="file:/media/peterkir/BTRFS/www"
-              label="local Linux"/>
         </setupTask>
       </setupTask>
       <setupTask
