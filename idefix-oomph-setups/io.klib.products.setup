@@ -31,6 +31,9 @@
       name="repo.source"
       label="repoSource">
     <choice
+        value="file:/i:/a-d/cec-build/repo"
+        label="internal Daimler"/>
+    <choice
         value="file:/f:/www"
         label="local Windows"/>
     <choice
