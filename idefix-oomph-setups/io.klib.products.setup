@@ -257,6 +257,36 @@
               url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
           <description></description>
         </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="OS Explorer">
+          <requirement
+              name="de.bastiankrol.startexplorer.feature.feature.group"
+              versionRange="1.6.1"/>
+          <repository
+              url="file:///F:/www/basti1302.github.com/startexplorer/update"/>
+          <description>enables comfort functions to access native os environments</description>
+        </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="bndtools (latest 3.x)">
+          <requirement
+              name="bndtools.main.feature.feature.group"
+              versionRange="[3.0.0,4.0.0)"/>
+          <repository
+              url="file:///f:/www/bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+          <description>Latest local bndtools version</description>
+        </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="EditBox">
+          <requirement
+              name="pm.eclipse.editbox.feature.feature.group"
+              versionRange="[0.60.0,1.0.0)"/>
+          <repository
+              url="file:///F:/www/www.nodeclipse.org/updates"/>
+          <description>http://editbox.sourceforge.net/</description>
+        </setupTask>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
