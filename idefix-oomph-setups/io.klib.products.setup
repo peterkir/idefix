@@ -42,6 +42,9 @@
     <choice
         value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
         label="AWS"/>
+    <choice
+        value="https://"
+        label="WorldWideWeb"/>
   </setupTask>
   <product name="idefix"
       label="IDEfix - Eclipse Mars">
@@ -75,9 +78,9 @@
             name="org.eclipse.pde.feature.group"
             versionRange="[3.11.0,3.12.0)"/>
         <repository
-            url="http://download.eclipse.org/technology/epp/packages/mars/R"/>
+            url="${repo.source}/download.eclipse.org/technology/epp/packages/mars/R"/>
         <repository
-            url="http://download.eclipse.org/releases/mars/201506241002"/>
+            url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -86,7 +89,7 @@
             name="org.eclipse.sdk.examples.feature.group"
             versionRange="[3.5.0,4.0.0)"/>
         <repository
-            url="http://download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
+            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -96,7 +99,7 @@
             name="de.bastiankrol.startexplorer.feature.feature.group"
             versionRange="1.6.1"/>
         <repository
-            url="file:///F:/www/basti1302.github.com/startexplorer/update"/>
+            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
         <description>enables comfort functions to access native os environments</description>
       </setupTask>
       <setupTask
@@ -106,7 +109,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[3.0.0,4.0.0)"/>
         <repository
-            url="file:///f:/www/bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
         <description>Latest local bndtools version</description>
       </setupTask>
       <setupTask
@@ -116,7 +119,7 @@
             name="markdown.editor.feature.feature.group"
             versionRange="[1.1.0,2.0.0)"/>
         <repository
-            url="file:///f:/www/dl.bintray.com/enide/Markdown/1.1.0/"/>
+            url="${repo.source}/dl.bintray.com/enide/Markdown/1.1.0/"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -126,7 +129,7 @@
             name="de.babe.eclipse.plugins.QuickREx"
             versionRange="[3.5.0,4.0.0)"/>
         <repository
-            url="file:///f:/www/_repo/idefix-other-tools"/>
+            url="${repo.source}/_repo/idefix-other-tools"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -136,7 +139,7 @@
             name="com.mountainminds.eclemma.feature.feature.group"
             versionRange="[2.3.0,3.0.0)"/>
         <repository
-            url="file:///f:/www/update.eclemma.org"/>
+            url="${repo.source}/update.eclemma.org"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -146,7 +149,7 @@
             name="pm.eclipse.editbox.feature.feature.group"
             versionRange="[0.60.0,1.0.0)"/>
         <repository
-            url="file:///F:/www/www.nodeclipse.org/updates"/>
+            url="${repo.source}/www.nodeclipse.org/updates"/>
         <description>http://editbox.sourceforge.net/</description>
       </setupTask>
       <setupTask
