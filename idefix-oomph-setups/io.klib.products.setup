@@ -303,41 +303,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
-          name="eclipse.ini DEV  win">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="rt.folder"
-            label="Runtime OS">
-          <choice
-              value="c:\_rt"
-              label="win"/>
-          <choice
-              value="/home/peterkir/rt"
-              label="linux"/>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Duser.home"
-            value="=${rt.folder}/USERPROFILE"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Djava.io.tmpdir"
-            value="=${rt.folder}/TEMP"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Doomph.update.url"
-            value="=file:/C:/pekirsc/oomphProducts/oomph-master/git/org.eclipse.oomph/sites/org.eclipse.oomph.site/target/repository"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Doomph.redirection.setups"
-            value="=file:/C:/pekirsc/_git/github.com/peterkir/idefix/idefix-oomph-setups"
-            vm="true"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
           name="J2SE">
         <setupTask
             xsi:type="jdt:JRETask"
@@ -418,6 +383,41 @@
           option="-Declipse.p2.unsignedPolicy"
           value="=ACCEPT"
           vm="true"/>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="eclipse.ini DEV  win">
+        <setupTask
+            xsi:type="setup:VariableTask"
+            name="rt.folder"
+            label="Runtime OS">
+          <choice
+              value="c:\_rt"
+              label="win"/>
+          <choice
+              value="/home/peterkir/rt"
+              label="linux"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Duser.home"
+            value="=${rt.folder}/USERPROFILE"
+            vm="true"/>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Djava.io.tmpdir"
+            value="=${rt.folder}/TEMP"
+            vm="true"/>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Doomph.update.url"
+            value="=file:/C:/pekirsc/oomphProducts/oomph-master/git/org.eclipse.oomph/sites/org.eclipse.oomph.site/target/repository"
+            vm="true"/>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Doomph.redirection.setups"
+            value="=file:/C:/pekirsc/_git/github.com/peterkir/idefix/idefix-oomph-setups"
+            vm="true"/>
+      </setupTask>
     </version>
     <description>IDEfix is a custom Eclipse IDE</description>
   </product>
