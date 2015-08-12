@@ -55,6 +55,40 @@
         <value>http://www.eclipse.org/downloads/images/modeling.png</value>
       </detail>
     </annotation>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="user.configured">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="repo.source"
+          label="repoSource">
+        <choice
+            value="file:/i:/a-d/cec-build/repo"
+            label="internal Daimler"/>
+        <choice
+            value="file:/f:/www"
+            label="local Windows"/>
+        <choice
+            value="file:/media/peterkir/BTRFS/www"
+            label="local Linux"/>
+        <choice
+            value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+            label="AWS"/>
+        <choice
+            value="https://"
+            label="WorldWideWeb"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="local.jdk.location">
+        <choice
+            value="${user.home}/jdk"
+            label="user.home"/>
+        <choice
+            value="${install.root}/jdk"
+            label="installation"/>
+      </setupTask>
+    </setupTask>
     <version
         name="latest"
         label="Latest Release peterkir"
@@ -290,6 +324,16 @@
               url="${repo.source}/www.nodeclipse.org/updates"/>
           <description>http://editbox.sourceforge.net/</description>
         </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="AJDT 4.4">
+          <requirement
+              name="org.eclipse.ajdt.feature.group"
+              versionRange="[2.2.4,2.3.0)"/>
+          <repository
+              url="${repo.source}/build.spring.io/browse/AJDT-AE44/latestSuccessful/artifact/shared/update-site/"/>
+          <description>SpringIO AJDT repo 4.4 dev with Java 8 support [spring.io]</description>
+        </setupTask>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -306,23 +350,137 @@
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
-          name="J2SE">
+          name="JDK">
         <setupTask
-            xsi:type="jdt:JRETask"
-            version="JavaSE-1.6"
-            location="${jre.location-1.6}"/>
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.8">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              predecessor="//@products[name='idefix']/@versions[name='daimler']/@setupTasks.2/@setupTasks.0/@setupTasks.0"
+              version="JavaSE-1.8"
+              location="${local.jdk.location}/jdk1.8.0_40"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.8.0_40  win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_40.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.8.0_40</description>
+          </setupTask>
+        </setupTask>
         <setupTask
-            xsi:type="jdt:JRETask"
-            version="JavaSE-1.7"
-            location="${jre.location-1.7}"/>
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.7">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.7"
+              location="${local.jdk.location}/jdk1.7.0_75"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.7.0_75 win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.7/win32.x86_64-jdk1.7.0_75.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.7.0_75</description>
+          </setupTask>
+        </setupTask>
         <setupTask
-            xsi:type="jdt:JRETask"
-            version="JavaSE-1.8"
-            location="${jre.location-1.8}"/>
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.6">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.6"
+              location="${local.jdk.location}/jdk1.6.0_45"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.6.0_45 win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.6/win32.x86_64-jdk1.6.0_45.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.6.0_45</description>
+          </setupTask>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="preference">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.core.resources">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.core.resources/refresh.enabled"
+              value="true"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.core.resources/encoding"
+              value="UTF-8"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.jdt.ui">
+          <setupTask
+              xsi:type="setup:ResourceCreationTask"
+              excludedTriggers="STARTUP MANUAL"
+              content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;section name=&quot;Workbench&quot;>&#xD;&#xA;&#x9;&lt;section name=&quot;org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart&quot;>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;true&quot; key=&quot;group_libraries&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;false&quot; key=&quot;linkWithEditor&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;layout&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;rootMode&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;packageExplorer configured=&amp;quot;true&amp;quot; group_libraries=&amp;quot;1&amp;quot; layout=&amp;quot;2&amp;quot; linkWithEditor=&amp;quot;0&amp;quot; rootMode=&amp;quot;2&amp;quot; sortWorkingSets=&amp;quot;false&amp;quot; workingSetName=&amp;quot;&amp;quot;&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;workingSet editPageId=&amp;quot;org.eclipse.jdt.internal.ui.OthersWorkingSet&amp;quot; factoryID=&amp;quot;org.eclipse.ui.internal.WorkingSetFactory&amp;quot; id=&amp;quot;1382792884467_1&amp;quot; label=&amp;quot;Other Projects&amp;quot; name=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;activeWorkingSet workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;allWorkingSets workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/packageExplorer&amp;gt;&quot; key=&quot;memento&quot;/>&#xD;&#xA;&#x9;&lt;/section>&#xD;&#xA;&lt;/section>&#xD;&#xA;"
+              targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml"
+              encoding="UTF-8">
+            <description>Initialize JDT's package explorer to show working sets as its root objects</description>
+          </setupTask>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.ui">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui/defaultPerspectiveId"
+              value="bndtools.perspective"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.ui.editors">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/spacesForTabs"
+              value="true"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/tabWidth"
+              value="4"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/lineNumberRuler"
+              value="true"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.ui.ide">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
+              value="${scope.project.name}"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.ajdt.ui">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+              value="ignore"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+              value="ignore"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="bndtools.core">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/bndtools.core/editorOpenSourceTab"
+              value="true"/>
+        </setupTask>
       </setupTask>
     </version>
     <version
-        name="sink">
+        name="store[not_for_installation]">
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Amazon AWS">
@@ -421,7 +579,70 @@
             value="=file:/C:/pekirsc/_git/github.com/peterkir/idefix/idefix-oomph-setups"
             vm="true"/>
       </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="JDK">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.8">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.8"
+              location="${local.jdk.location|uri}/jdk1.8.0_40/bin"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.8.0_40  win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_40.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.8.0_40</description>
+          </setupTask>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.7">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.7"
+              location="${local.jdk.location|uri}/jdk1.7.0_75/bin"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.7.0_75 win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.7/win32.x86_64-jdk1.7.0_75.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.7.0_75</description>
+          </setupTask>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.6">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.6"
+              location="${local.jdk.location|uri}/jdk1.6.0_45/bin"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.6.0_45 win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.6/win32.x86_64-jdk1.6.0_45.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.6.0_45</description>
+          </setupTask>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.5">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.5"
+              location="${local.jdk.location|uri}/jdk1.5.0_22/bin"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.5.0_22 win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.5/win32.x86_64-jdk1.5.0_22.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.5.0_22</description>
+          </setupTask>
+        </setupTask>
+      </setupTask>
     </version>
-    <description>IDEfix is a custom Eclipse IDE</description>
   </product>
 </setup:ProductCatalog>
