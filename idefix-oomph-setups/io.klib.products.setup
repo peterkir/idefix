@@ -213,9 +213,9 @@
           name="p2 Install">
         <setupTask
             xsi:type="setup.p2:P2Task"
-            label="epp.package.modeling (latest Mars Release)">
+            label="epp.package.rcp (latest Mars Release)">
           <requirement
-              name="epp.package.modeling"
+              name="epp.package.rcp"
               versionRange="[4.5.0,4.6.0)"/>
           <requirement
               name="org.eclipse.platform.feature.group"
@@ -311,18 +311,8 @@
               name="bndtools.main.feature.feature.group"
               versionRange="[3.0.0,4.0.0)"/>
           <repository
-              url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+              url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1514/artifact/build/generated/p2/"/>
           <description>Latest local bndtools version</description>
-        </setupTask>
-        <setupTask
-            xsi:type="setup.p2:P2Task"
-            label="EditBox">
-          <requirement
-              name="pm.eclipse.editbox.feature.feature.group"
-              versionRange="[0.60.0,1.0.0)"/>
-          <repository
-              url="${repo.source}/www.nodeclipse.org/updates"/>
-          <description>http://editbox.sourceforge.net/</description>
         </setupTask>
         <setupTask
             xsi:type="setup.p2:P2Task"
@@ -461,6 +451,16 @@
     </version>
     <version
         name="store[not_for_installation]">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="EditBox">
+        <requirement
+            name="pm.eclipse.editbox.feature.feature.group"
+            versionRange="[0.60.0,1.0.0)"/>
+        <repository
+            url="${repo.source}/www.nodeclipse.org/updates"/>
+        <description>http://editbox.sourceforge.net/</description>
+      </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Amazon AWS">
