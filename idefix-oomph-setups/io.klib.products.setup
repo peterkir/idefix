@@ -31,8 +31,11 @@
       name="repo.source"
       label="repoSource">
     <choice
+        value="file:/I:/A-D/CEC-Build/repo"
+        label="Daimler file"/>
+    <choice
         value="http://jazz01.rd.corpintra.net/web/repo"
-        label="Daimler"/>
+        label="Daimler Web"/>
     <choice
         value="file:/f:/www"
         label="local Windows"/>
