@@ -31,8 +31,8 @@
       name="repo.source"
       label="repoSource">
     <choice
-        value="file:/i:/a-d/cec-build/repo"
-        label="internal Daimler"/>
+        value="http://jazz01.rd.corpintra.net/web/repo"
+        label="Daimler"/>
     <choice
         value="file:/f:/www"
         label="local Windows"/>
@@ -42,9 +42,6 @@
     <choice
         value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
         label="AWS"/>
-    <choice
-        value="https://"
-        label="WorldWideWeb"/>
   </setupTask>
   <product name="idefix"
       label="IDEfix - Eclipse Mars">
@@ -143,7 +140,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[3.0.0,4.0.0)"/>
         <repository
-            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1514/artifact/build/generated/p2/"/>
         <description>Latest local bndtools version</description>
       </setupTask>
       <setupTask
