@@ -5,46 +5,21 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="index"
     label="Index">
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/Git.ecore#/"/>
-  <discoverablePackage
-      href="models/Launching.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/JDT.ecore#/"/>
-  <discoverablePackage
-      href="models/Maven.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/Mylyn.ecore#/"/>
-  <discoverablePackage
-      href="models/PDE.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/Predicates.ecore#/"/>
-  <discoverablePackage
-      href="models/Projects.ecore#/"/>
-  <discoverablePackage
-      href="models/ProjectSet.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/Resources.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/SetupTarglets.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/SetupWorkingSets.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/Targlets.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/Workbench.ecore#/"/>
-  <discoverablePackage
-      href="https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/models/WorkingSets.ecore#/"/>
-  <productCatalog
-      href="io.klib.products.setup#/"/>
-  <productCatalog
-      href="org.eclipse.products.setup#/"/>
-  <productCatalog
-      href="catalog:/self-product-catalog.setup#/"/>
-  <projectCatalog
-      href="io.klib.projects.setup#/"/>
-  <projectCatalog
-      href="org.eclipse.projects.setup#/"/>
-  <projectCatalog
-      href="com.github.projects.setup#/"/>
+  <discoverablePackage href="models/Git.ecore#/"/>
+  <discoverablePackage href="models/Launching.ecore#/"/>
+  <discoverablePackage href="models/JDT.ecore#/"/>
+  <discoverablePackage href="models/Maven.ecore#/"/>
+  <discoverablePackage href="models/Mylyn.ecore#/"/>
+  <discoverablePackage href="models/PDE.ecore#/"/>
+  <discoverablePackage href="models/Predicates.ecore#/"/>
+  <discoverablePackage href="models/Projects.ecore#/"/>
+  <discoverablePackage href="models/ProjectSet.ecore#/"/>
+  <discoverablePackage href="models/Resources.ecore#/"/>
+  <discoverablePackage href="models/SetupTarglets.ecore#/"/>
+  <discoverablePackage href="models/SetupWorkingSets.ecore#/"/>
+  <discoverablePackage href="models/Targlets.ecore#/"/>
+  <discoverablePackage href="models/Workbench.ecore#/"/>
+  <discoverablePackage href="models/WorkingSets.ecore#/"/>
+  <productCatalog href="io.klib.products.setup#/"/>
+  <projectCatalog href="io.klib.projects.setup#/"/>
 </setup:Index>
