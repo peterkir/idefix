@@ -214,6 +214,12 @@
             option="-Doomph.redirection.setups"
             value="=file:/C:/pekirsc/_git/github.com/peterkir/idefix/idefix-oomph-setups"
             vm="true"/>
+        <description>
+          This is used for development purposes only !!!
+
+          java.io.tmpdir and user.home can be remapped to rt.folder,
+          so that there is no interference with existion local oomph installations
+        </description>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -277,12 +283,28 @@
           </setupTask>
           <setupTask
               xsi:type="setup:CompoundTask"
+              name="org.eclipse.debug.ui">
+            <setupTask
+                xsi:type="setup:PreferenceTask"
+                key="/instance/org.eclipse.debug.ui/Console.limitConsoleOutput"
+                value="false"/>
+          </setupTask>
+          <setupTask
+              xsi:type="setup:CompoundTask"
               name="org.eclipse.ui">
             <setupTask
                 xsi:type="setup:PreferenceTask"
                 key="/instance/org.eclipse.ui/defaultPerspectiveId"
                 value="bndtools.perspective"/>
+            <setupTask
+                xsi:type="setup:PreferenceTask"
+                key="/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR"
+                value="true"/>
           </setupTask>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui/defaultPerspectiveId"
+              value="bndtools.perspective"/>
           <setupTask
               xsi:type="setup:CompoundTask"
               name="org.eclipse.ui.editors">
@@ -468,13 +490,21 @@
           <description></description>
         </setupTask>
         <setupTask
-            xsi:type="setup.p2:P2Task">
+            xsi:type="setup.p2:P2Task"
+            label="e4 Migration Support Tool">
           <requirement
               name="com.opcoach.e34tools.feature.feature.group"
               versionRange="[1.0.0,2.0.0)"/>
           <repository
-              url="jar:${repo.source}/_archives//opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+              url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
         </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="p2">
+        <setupTask
+            xsi:type="setup:ResourceCreationTask"
+            targetURL="${eclipse.p2.data.area}/"/>
       </setupTask>
     </version>
     <version
