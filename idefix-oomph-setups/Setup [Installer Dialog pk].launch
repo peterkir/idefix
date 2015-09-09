@@ -79,13 +79,6 @@
 <booleanAttribute key="includeOptional" value="true"/>
 <stringAttribute key="location" value="@none"/>
 <booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="false"/>
-<mapAttribute key="org.eclipse.debug.core.environmentVariables">
-<mapEntry key="JAVA_HOME" value="${ee_home:JavaSE-1.7}"/>
-<mapEntry key="Path" value="${ee_home:JavaSE-1.7}"/>
-<mapEntry key="SystemDrive" value="C:"/>
-<mapEntry key="TEMP" value="c:/_rt/TEMP"/>
-<mapEntry key="USERPROFILE" value="c:/_rt/USERPROFILE"/>
-</mapAttribute>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
