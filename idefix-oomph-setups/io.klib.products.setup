@@ -24,14 +24,14 @@
       name="repo.source"
       label="repoSource">
     <choice
-        value="file:/c:/pekirsc/www"
-        label="local Windows"/>
-    <choice
         value="file:/I:/A-D/CEC-Build/repo"
         label="Daimler"/>
     <choice
         value="http://jazz01.rd.corpintra.net/web/repo"
         label="Daimler Web"/>
+    <choice
+        value="file:/c:/pekirsc/www"
+        label="local Windows"/>
     <choice
         value="file:/media/peterkir/BTRFS/www"
         label="local Linux"/>
