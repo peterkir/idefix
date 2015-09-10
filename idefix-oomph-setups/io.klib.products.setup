@@ -79,12 +79,7 @@
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Doomph.update.url"
-          value="=file:/C:/pekirsc/oomphProducts/oomph-master/git/org.eclipse.oomph/sites/org.eclipse.oomph.site/target/repository"
-          vm="true"/>
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Doomph.redirection.setups"
-          value="=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->https://raw.githubusercontent.com/peterkir/idefix/master/idefix-oomph-setups/"
+          value="=${repo.source}/org.eclipse.oomph.site/target/repository"
           vm="true"/>
       <setupTask
           xsi:type="setup:CompoundTask"
