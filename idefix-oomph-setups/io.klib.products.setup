@@ -93,17 +93,17 @@
             <setupTask
                 xsi:type="setup:EclipseIniTask"
                 option="-vm"
-                value="${local.jdk.location}/jdk1.8.0_40/bin"/>
+                value="${local.jdk.location}/jdk1.8.0_60/bin"/>
             <description>configure this VM for Eclipse execution</description>
           </setupTask>
           <setupTask
               xsi:type="jdt:JRETask"
               version="JavaSE-1.8"
-              location="${local.jdk.location|path}/jdk1.8.0_40"/>
+              location="${local.jdk.location|path}/jdk1.8.0_60"/>
           <setupTask
               xsi:type="setup:ResourceExtractTask"
               id="JDK 1.8.0_40  win32.x86_64"
-              sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_40.zip"
+              sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_60.zip"
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.8.0_40</description>
           </setupTask>
@@ -506,13 +506,13 @@
             <setupTask
                 xsi:type="setup:EclipseIniTask"
                 option="-vm"
-                value="${local.jdk.location}/jdk1.8.0_40/bin"/>
+                value="${local.jdk.location}/jdk1.8.0_60/bin"/>
             <description>configure this VM for Eclipse execution</description>
           </setupTask>
           <setupTask
               xsi:type="jdt:JRETask"
               version="JavaSE-1.8"
-              location="${local.jdk.location|path}/jdk1.8.0_40"/>
+              location="${local.jdk.location|path}/jdk1.8.0_60"/>
         </setupTask>
       </setupTask>
       <setupTask
@@ -838,7 +838,7 @@
           <setupTask
               xsi:type="setup:ResourceExtractTask"
               id="JDK 1.8.0_40  win32.x86_64"
-              sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_40.zip"
+              sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_60.zip"
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.8.0_40</description>
           </setupTask>
