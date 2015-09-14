@@ -355,14 +355,6 @@
               url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
         </setupTask>
       </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="p2">
-        <setupTask
-            xsi:type="setup:ResourceCreationTask"
-            content="test"
-            targetURL="${eclipse.p2.data.area}/TESTFILE"/>
-      </setupTask>
     </version>
     <version
         name="latest"
