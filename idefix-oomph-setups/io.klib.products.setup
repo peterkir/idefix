@@ -360,7 +360,8 @@
           name="p2">
         <setupTask
             xsi:type="setup:ResourceCreationTask"
-            targetURL="${eclipse.p2.data.area}/"/>
+            content="test"
+            targetURL="${eclipse.p2.data.area}/TESTFILE"/>
       </setupTask>
     </version>
     <version
