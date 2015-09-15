@@ -102,10 +102,10 @@
               location="${local.jdk.location|path}/jdk1.8.0_60"/>
           <setupTask
               xsi:type="setup:ResourceExtractTask"
-              id="JDK 1.8.0_40  win32.x86_64"
+              id="JDK 1.8.0_60  win32.x86_64"
               sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_60.zip"
               targetURL="${local.jdk.location|uri}/">
-            <description>unzip JDK 1.8.0_40</description>
+            <description>unzip JDK 1.8.0_60</description>
           </setupTask>
         </setupTask>
       </setupTask>
