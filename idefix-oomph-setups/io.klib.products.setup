@@ -21,6 +21,12 @@
       id="installation"/>
   <setupTask
       xsi:type="setup:VariableTask"
+      name="install.type">
+    <choice
+        label="local root isolated"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
       name="repo.source"
       label="repoSource">
     <choice
@@ -46,11 +52,11 @@
       xsi:type="setup:VariableTask"
       name="local.jdk.location">
     <choice
-        value="${user.home}/jdk"
-        label="user.home"/>
-    <choice
         value="${install.root}/jdk"
         label="installation"/>
+    <choice
+        value="${user.home}/jdk"
+        label="user.home"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -107,7 +113,7 @@
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.8.0_60</description>
           </setupTask>
-        </setupTask>
+          </setupTask>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -402,7 +408,7 @@
           <setupTask
               xsi:type="jdt:JRETask"
               version="JavaSE-1.7"
-              location="${local.jdk.location|path}/jdk1.7.0_60"/>
+              location="${local.jdk.location|path}/jdk1.7.0_75"/>
           <setupTask
               xsi:type="setup:ResourceExtractTask"
               id="JDK 1.7.0_75 win32.x86_64"
@@ -424,6 +430,7 @@
               sourceURL="${repo.source}/_archives/java/zipped/1.6/win32.x86_64-jdk1.6.0_45.zip"
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.6.0_45</description>
+          </setupTask>
           </setupTask>
         </setupTask>
         <setupTask
