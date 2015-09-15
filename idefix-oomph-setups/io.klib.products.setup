@@ -21,12 +21,6 @@
       id="installation"/>
   <setupTask
       xsi:type="setup:VariableTask"
-      name="install.type">
-    <choice
-        label="local root isolated"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:VariableTask"
       name="repo.source"
       label="repoSource">
     <choice
@@ -52,11 +46,11 @@
       xsi:type="setup:VariableTask"
       name="local.jdk.location">
     <choice
-        value="${install.root}/jdk"
-        label="installation"/>
-    <choice
         value="${user.home}/jdk"
         label="user.home"/>
+    <choice
+        value="${install.root}/jdk"
+        label="installation"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -83,11 +77,6 @@
         label="Daimler Latest Release"
         requiredJavaVersion="1.8">
       <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Doomph.update.url"
-          value="=${repo.source}/org.eclipse.oomph.site/target/repository"
-          vm="true"/>
-      <setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
         <setupTask
@@ -113,7 +102,7 @@
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.8.0_60</description>
           </setupTask>
-          </setupTask>
+        </setupTask>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -238,7 +227,7 @@
               name="bndtools.main.feature.feature.group"
               versionRange="[3.0.0,4.0.0)"/>
           <repository
-              url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1514/artifact/build/generated/p2/"/>
+              url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1520/artifact/build/generated/p2/"/>
           <description>Latest local bndtools version</description>
         </setupTask>
       </setupTask>
@@ -371,11 +360,6 @@
         label="Daimler BuildEngine Release"
         requiredJavaVersion="1.8">
       <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Doomph.update.url"
-          value="=${repo.source}/org.eclipse.oomph.site/target/repository"
-          vm="true"/>
-      <setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
         <setupTask
@@ -431,174 +415,173 @@
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.6.0_45</description>
           </setupTask>
-          </setupTask>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Eclipse EPP package">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="eclipse.ini">
+          <setupTask
+              xsi:type="setup:EclipseIniTask"
+              option="-Xmx"
+              value="2048m"
+              vm="true"/>
+          <setupTask
+              xsi:type="setup:EclipseIniTask"
+              option="-Declipse.p2.unsignedPolicy"
+              value="=ACCEPT"
+              vm="true"/>
         </setupTask>
         <setupTask
             xsi:type="setup:CompoundTask"
-            name="Eclipse EPP package">
+            name="prefs">
           <setupTask
               xsi:type="setup:CompoundTask"
-              name="eclipse.ini">
+              name="org.eclipse.core.resources">
             <setupTask
-                xsi:type="setup:EclipseIniTask"
-                option="-Xmx"
-                value="2048m"
-                vm="true"/>
+                xsi:type="setup:PreferenceTask"
+                key="/instance/org.eclipse.core.resources/refresh.enabled"
+                value="true"/>
             <setupTask
-                xsi:type="setup:EclipseIniTask"
-                option="-Declipse.p2.unsignedPolicy"
-                value="=ACCEPT"
-                vm="true"/>
+                xsi:type="setup:PreferenceTask"
+                key="/instance/org.eclipse.core.resources/encoding"
+                value="UTF-8"/>
           </setupTask>
           <setupTask
               xsi:type="setup:CompoundTask"
-              name="prefs">
+              name="org.eclipse.debug.ui">
             <setupTask
-                xsi:type="setup:CompoundTask"
-                name="org.eclipse.core.resources">
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.core.resources/refresh.enabled"
-                  value="true"/>
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.core.resources/encoding"
-                  value="UTF-8"/>
-            </setupTask>
-            <setupTask
-                xsi:type="setup:CompoundTask"
-                name="org.eclipse.debug.ui">
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.debug.ui/Console.limitConsoleOutput"
-                  value="false"/>
-            </setupTask>
-            <setupTask
-                xsi:type="setup:CompoundTask"
-                name="org.eclipse.ui">
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.ui/defaultPerspectiveId"
-                  value="bndtools.perspective"/>
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR"
-                  value="true"/>
-            </setupTask>
-            <setupTask
-                xsi:type="setup:CompoundTask"
-                name="org.eclipse.ui.editors">
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.ui.editors/spacesForTabs"
-                  value="true"/>
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.ui.editors/tabWidth"
-                  value="4"/>
-              <setupTask
-                  xsi:type="setup:PreferenceTask"
-                  key="/instance/org.eclipse.ui.editors/lineNumberRuler"
-                  value="true"/>
-            </setupTask>
-          </setupTask>
-          <setupTask
-              xsi:type="setup.p2:P2Task"
-              label="epp.package.standard (latest Mars Release)">
-            <requirement
-                name="epp.package.rcp"
-                versionRange="[4.5.0,4.6.0)"/>
-            <requirement
-                name="org.eclipse.platform.feature.group"
-                versionRange="[4.5.0,4.6.0)"/>
-            <requirement
-                name="org.eclipse.rcp.feature.group"
-                versionRange="[4.5.0,4.6.0)"/>
-            <requirement
-                name="org.eclipse.jdt.feature.group"
-                versionRange="[3.11.0,3.12.0)"/>
-            <requirement
-                name="org.eclipse.pde.feature.group"
-                versionRange="[3.11.0,3.12.0)"/>
-            <repository
-                url="${repo.source}/download.eclipse.org/technology/epp/packages/mars/R"/>
-            <repository
-                url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
-          </setupTask>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:CompoundTask"
-            name="bndtools">
-          <setupTask
-              xsi:type="setup:CompoundTask"
-              name="eclipse.ini">
-            <setupTask
-                xsi:type="setup:EclipseIniTask"
-                option="-perspective"
-                value="bndtools.perspective"/>
+                xsi:type="setup:PreferenceTask"
+                key="/instance/org.eclipse.debug.ui/Console.limitConsoleOutput"
+                value="false"/>
           </setupTask>
           <setupTask
               xsi:type="setup:CompoundTask"
-              name="prefs">
+              name="org.eclipse.ui">
             <setupTask
                 xsi:type="setup:PreferenceTask"
                 key="/instance/org.eclipse.ui/defaultPerspectiveId"
                 value="bndtools.perspective"/>
             <setupTask
                 xsi:type="setup:PreferenceTask"
-                key="/instance/bndtools.core/editorOpenSourceTab"
+                key="/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR"
                 value="true"/>
           </setupTask>
           <setupTask
-              xsi:type="setup.p2:P2Task"
-              label="bndtools (latest 3.x)">
-            <requirement
-                name="bndtools.main.feature.feature.group"
-                versionRange="[3.0.0,4.0.0)"/>
-            <repository
-                url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1514/artifact/build/generated/p2/"/>
-            <description>Latest local bndtools version</description>
-          </setupTask>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:CompoundTask"
-            name="Jazz / IBM Rational Team Concert">
-          <setupTask
-              xsi:type="setup.p2:P2Task"
-              label="Jazz / IBM Rational Team Concert">
-            <requirement
-                name="com.ibm.team.rtc.client.feature.feature.group"
-                versionRange="[4.5.0,5.0.0)"/>
-            <repository
-                url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
-            <description></description>
-          </setupTask>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:CompoundTask"
-            name="AJDT">
-          <setupTask
               xsi:type="setup:CompoundTask"
-              name="prefs">
+              name="org.eclipse.ui.editors">
             <setupTask
                 xsi:type="setup:PreferenceTask"
-                key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
-                value="ignore"/>
+                key="/instance/org.eclipse.ui.editors/spacesForTabs"
+                value="true"/>
             <setupTask
                 xsi:type="setup:PreferenceTask"
-                key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
-                value="ignore"/>
+                key="/instance/org.eclipse.ui.editors/tabWidth"
+                value="4"/>
+            <setupTask
+                xsi:type="setup:PreferenceTask"
+                key="/instance/org.eclipse.ui.editors/lineNumberRuler"
+                value="true"/>
           </setupTask>
+        </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="epp.package.standard (latest Mars Release)">
+          <requirement
+              name="epp.package.rcp"
+              versionRange="[4.5.0,4.6.0)"/>
+          <requirement
+              name="org.eclipse.platform.feature.group"
+              versionRange="[4.5.0,4.6.0)"/>
+          <requirement
+              name="org.eclipse.rcp.feature.group"
+              versionRange="[4.5.0,4.6.0)"/>
+          <requirement
+              name="org.eclipse.jdt.feature.group"
+              versionRange="[3.11.0,3.12.0)"/>
+          <requirement
+              name="org.eclipse.pde.feature.group"
+              versionRange="[3.11.0,3.12.0)"/>
+          <repository
+              url="${repo.source}/download.eclipse.org/technology/epp/packages/mars/R"/>
+          <repository
+              url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="bndtools">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="eclipse.ini">
           <setupTask
-              xsi:type="setup.p2:P2Task"
-              label="AJDT 4.4">
-            <requirement
-                name="org.eclipse.ajdt.feature.group"
-                versionRange="[2.2.4,2.3.0)"/>
-            <repository
-                url="${repo.source}/build.spring.io/browse/AJDT-AE44/latestSuccessful/artifact/shared/update-site/"/>
-            <description>SpringIO AJDT repo 4.4 dev with Java 8 support [spring.io]</description>
-          </setupTask>
+              xsi:type="setup:EclipseIniTask"
+              option="-perspective"
+              value="bndtools.perspective"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="prefs">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui/defaultPerspectiveId"
+              value="bndtools.perspective"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/bndtools.core/editorOpenSourceTab"
+              value="true"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="bndtools (latest 3.x)">
+          <requirement
+              name="bndtools.main.feature.feature.group"
+              versionRange="[3.0.0,4.0.0)"/>
+          <repository
+              url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1520/artifact/build/generated/p2/"/>
+          <description>Latest local bndtools version</description>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Jazz / IBM Rational Team Concert">
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="Jazz / IBM Rational Team Concert">
+          <requirement
+              name="com.ibm.team.rtc.client.feature.feature.group"
+              versionRange="[4.5.0,5.0.0)"/>
+          <repository
+              url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
+          <description></description>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="AJDT">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="prefs">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+              value="ignore"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+              value="ignore"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="AJDT 4.4">
+          <requirement
+              name="org.eclipse.ajdt.feature.group"
+              versionRange="[2.2.4,2.3.0)"/>
+          <repository
+              url="${repo.source}/build.spring.io/browse/AJDT-AE44/latestSuccessful/artifact/shared/update-site/"/>
+          <description>SpringIO AJDT repo 4.4 dev with Java 8 support [spring.io]</description>
         </setupTask>
       </setupTask>
     </version>
