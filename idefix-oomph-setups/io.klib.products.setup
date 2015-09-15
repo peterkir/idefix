@@ -72,6 +72,37 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         name="user.configured"/>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini DEV  win">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="rt.folder"
+          label="Runtime OS">
+        <choice
+            value="c:/_rt"
+            label="win"/>
+        <choice
+            value="/home/peterkir/rt"
+            label="linux"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Duser.home"
+          value="=${rt.folder}/USERPROFILE"
+          vm="true"/>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Djava.io.tmpdir"
+          value="=${rt.folder}/TEMP"
+          vm="true"/>
+      <description>
+        This is used for development purposes only !!!
+
+        java.io.tmpdir and user.home can be remapped to rt.folder,
+        so that there is no interference with existion local oomph installations
+      </description>
+    </setupTask>
     <version
         name="daimler"
         label="Daimler Latest Release"
@@ -388,7 +419,7 @@
         </setupTask>
         <setupTask
             xsi:type="setup:CompoundTask"
-            name="J2SE 1.7">
+            name="J2SE 1.7 [ win32, x86_64 ]">
           <setupTask
               xsi:type="jdt:JRETask"
               version="JavaSE-1.7"
@@ -403,7 +434,7 @@
         </setupTask>
         <setupTask
             xsi:type="setup:CompoundTask"
-            name="J2SE 1.6">
+            name="J2SE 1.6 [ win32, x86_64 ]">
           <setupTask
               xsi:type="jdt:JRETask"
               version="JavaSE-1.6"
@@ -414,6 +445,21 @@
               sourceURL="${repo.source}/_archives/java/zipped/1.6/win32.x86_64-jdk1.6.0_45.zip"
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.6.0_45</description>
+          </setupTask>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="J2SE 1.5 [ win32, x86_64 ]">
+          <setupTask
+              xsi:type="jdt:JRETask"
+              version="JavaSE-1.5"
+              location="${local.jdk.location|path}/jdk1.5.0_22"/>
+          <setupTask
+              xsi:type="setup:ResourceExtractTask"
+              id="JDK 1.5.0_22 win32.x86_64"
+              sourceURL="${repo.source}/_archives/java/zipped/1.5/win32.x86_64-jdk1.5.0_22.zip"
+              targetURL="${local.jdk.location|uri}/">
+            <description>unzip JDK 1.5.0_22</description>
           </setupTask>
         </setupTask>
       </setupTask>
@@ -583,6 +629,67 @@
               url="${repo.source}/build.spring.io/browse/AJDT-AE44/latestSuccessful/artifact/shared/update-site/"/>
           <description>SpringIO AJDT repo 4.4 dev with Java 8 support [spring.io]</description>
         </setupTask>
+      </setupTask>
+    </version>
+    <version
+        name="store[not_for_installation]">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Amazon AWS">
+        <requirement
+            name="com.amazonaws.eclipse.cloudformation.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.codedeploy.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.core.feature.feature.group"
+            versionRange="[2.3.0,3.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.dynamodb.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.ec2.feature.group"
+            versionRange="[1.1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.lambda.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.opsworks.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.rds.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.sdk.feature.feature.group"
+            versionRange="[2.0.0,3.0.0)"/>
+        <requirement
+            name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <requirement
+            name="org.eclipse.datatools.sqldevtools.feature.feature.group"
+            versionRange="[1.12.0,2.0.0)"/>
+        <repository
+            url="http://aws.amazon.com/eclipse"/>
+        <repository
+            url="http://download.eclipse.org/releases/mars/201506241002"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="PDE Graph Dep Visualization [Incubator]">
+        <requirement
+            name=" org.eclipse.pde.visualization.dependency_feature.feature.group"
+            versionRange="[0.5.0,1.0.0)"/>
+        <repository
+            url="http://download.eclipse.org/eclipse/pde/incubator/visualization/site/"/>
+        <description></description>
       </setupTask>
     </version>
   </product>
