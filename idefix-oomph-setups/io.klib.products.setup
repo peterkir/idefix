@@ -72,37 +72,6 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         name="user.configured"/>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini DEV  win">
-      <setupTask
-          xsi:type="setup:VariableTask"
-          name="rt.folder"
-          label="Runtime OS">
-        <choice
-            value="c:/_rt"
-            label="win"/>
-        <choice
-            value="/home/peterkir/rt"
-            label="linux"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Duser.home"
-          value="=${rt.folder}/USERPROFILE"
-          vm="true"/>
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Djava.io.tmpdir"
-          value="=${rt.folder}/TEMP"
-          vm="true"/>
-      <description>
-        This is used for development purposes only !!!
-
-        java.io.tmpdir and user.home can be remapped to rt.folder,
-        so that there is no interference with existion local oomph installations
-      </description>
-    </setupTask>
     <version
         name="daimler"
         label="Daimler Latest Release"
@@ -690,6 +659,37 @@
         <repository
             url="http://download.eclipse.org/eclipse/pde/incubator/visualization/site/"/>
         <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="eclipse.ini DEV  win">
+        <setupTask
+            xsi:type="setup:VariableTask"
+            name="rt.folder"
+            label="Runtime OS">
+          <choice
+              value="c:/_rt"
+              label="win"/>
+          <choice
+              value="/home/peterkir/rt"
+              label="linux"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Duser.home"
+            value="=${rt.folder}/USERPROFILE"
+            vm="true"/>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Djava.io.tmpdir"
+            value="=${rt.folder}/TEMP"
+            vm="true"/>
+        <description>
+          This is used for development purposes only !!!
+
+          java.io.tmpdir and user.home can be remapped to rt.folder,
+          so that there is no interference with existion local oomph installations
+        </description>
       </setupTask>
     </version>
   </product>
