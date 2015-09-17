@@ -151,7 +151,7 @@
           <setupTask
               xsi:type="setup:EclipseIniTask"
               option="-Declipse.p2.unsignedPolicy"
-              value="=ACCEPT"
+              value="=allow"
               vm="true"/>
         </setupTask>
         <setupTask
