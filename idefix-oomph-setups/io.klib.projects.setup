@@ -63,7 +63,9 @@
         encoding="UTF-8"/>
   </setupTask>
   <project href="project/default.setup#/"/>
+<!--
   <project href="project/ece2014.setup#/"/>
   <project href="project/sink.setup#/"/>
+-->
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
