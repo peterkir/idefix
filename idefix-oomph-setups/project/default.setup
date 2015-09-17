@@ -3,9 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="default"
     label="Default">
   <setupTask
@@ -33,55 +31,6 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
           value="${scope.project.name}"/>
-    </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="JDK">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="J2SE 1.8 [ win32, x86_64 ]">
-      <setupTask
-          xsi:type="jdt:JRETask"
-          version="JavaSE-1.8"
-          location="${local.jdk.location|path}/jdk1.8.0_40"/>
-      <setupTask
-          xsi:type="setup:ResourceExtractTask"
-          id="JDK 1.8.0_40  win32.x86_64"
-          sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_40.zip"
-          targetURL="${local.jdk.location|uri}/">
-            <description>unzip JDK 1.8.0_40</description>
-          </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="J2SE 1.7 [ win32, x86_64 ]">
-      <setupTask
-          xsi:type="jdt:JRETask"
-          version="JavaSE-1.7"
-          location="${local.jdk.location|path}/jdk1.7.0_75"/>
-      <setupTask
-          xsi:type="setup:ResourceExtractTask"
-          id="JDK 1.7.0_75 win32.x86_64"
-          sourceURL="${repo.source}/_archives/java/zipped/1.7/win32.x86_64-jdk1.7.0_75.zip"
-          targetURL="${local.jdk.location|uri}/">
-            <description>unzip JDK 1.7.0_75</description>
-          </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="J2SE 1.6 [ win32, x86_64 ]">
-      <setupTask
-          xsi:type="jdt:JRETask"
-          version="JavaSE-1.6"
-          location="${local.jdk.location|path}/jdk1.6.0_45"/>
-      <setupTask
-          xsi:type="setup:ResourceExtractTask"
-          id="JDK 1.6.0_45 win32.x86_64"
-          sourceURL="${repo.source}/_archives/java/zipped/1.6/win32.x86_64-jdk1.6.0_45.zip"
-          targetURL="${local.jdk.location|uri}/">
-            <description>unzip JDK 1.6.0_45</description>
-          </setupTask>
     </setupTask>
   </setupTask>
   <setupTask
