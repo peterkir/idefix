@@ -46,9 +46,6 @@
       xsi:type="setup:VariableTask"
       name="local.jdk.location">
     <choice
-        value="${user.dir}/../jdk"
-        label="user.dir/../jdk"/>
-    <choice
         value="${user.home}/jdk"
         label="user.home"/>
     <choice
@@ -385,6 +382,15 @@
               versionRange="[1.0.0,2.0.0)"/>
           <repository
               url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="targetreloader">
+          <requirement
+              name="eclipse.pde.targetreloader"
+              versionRange="(1.0.0,2.0.0]"/>
+          <repository
+              url="${repo.source}/_repo/p2/eclipse.pde.targetreloader"/>
         </setupTask>
       </setupTask>
     </version>
