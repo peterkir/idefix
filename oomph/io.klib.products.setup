@@ -46,11 +46,11 @@
       xsi:type="setup:VariableTask"
       name="local.jdk.location">
     <choice
-        value="${user.home}/jdk"
-        label="user.home"/>
-    <choice
         value="${install.root}/jdk"
         label="installation"/>
+    <choice
+        value="${user.home}/jdk"
+        label="user.home"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
