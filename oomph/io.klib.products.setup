@@ -226,6 +226,15 @@
           <repository
               url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
         </setupTask>
+        <setupTask
+            xsi:type="setup.p2:P2Task"
+            label="SWT Tools">
+          <requirement
+              name="org.eclipse.swt.spy"
+              versionRange="[4.5.0,4.6.0)"/>
+          <repository
+              url="${repo.source}/download.eclipse.org/eclipse/updates/4.5"/>
+        </setupTask>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
