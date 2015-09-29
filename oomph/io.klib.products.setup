@@ -46,10 +46,10 @@
       xsi:type="setup:VariableTask"
       name="local.jdk.location">
     <choice
-        value="${install.root}/jdk"
+        value="${oomph.home}/java"
         label="installation"/>
     <choice
-        value="${user.home}/jdk"
+        value="${user.home}/java"
         label="user.home"/>
   </setupTask>
   <setupTask
@@ -69,9 +69,6 @@
         <value>http://www.eclipse.org/downloads/images/modeling.png</value>
       </detail>
     </annotation>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="user.configured"/>
     <version
         name="daimler"
         label="Daimler Latest Release"
