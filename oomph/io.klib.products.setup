@@ -72,7 +72,7 @@
     <version
         name="daimler"
         label="Daimler Latest Release"
-        requiredJavaVersion="1.8">
+        requiredJavaVersion="1.6">
       <setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
@@ -129,6 +129,19 @@
               targetURL="${local.jdk.location|uri}/">
             <description>unzip JDK 1.6.0_45</description>
           </setupTask>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="oomph">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="eclipse.ini">
+          <setupTask
+              xsi:type="setup:EclipseIniTask"
+              option="-Doomph.home"
+              value="=${oomph.home}"
+              vm="true"/>
         </setupTask>
       </setupTask>
       <setupTask
@@ -223,15 +236,6 @@
           <repository
               url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
         </setupTask>
-        <setupTask
-            xsi:type="setup.p2:P2Task"
-            label="SWT Tools">
-          <requirement
-              name="org.eclipse.swt.spy"
-              versionRange="[4.5.0,4.6.0)"/>
-          <repository
-              url="${repo.source}/download.eclipse.org/eclipse/updates/4.5"/>
-        </setupTask>
       </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -298,13 +302,13 @@
         </setupTask>
         <setupTask
             xsi:type="setup.p2:P2Task"
-            label="AJDT 4.4">
+            label="AJDT 2.24 for Eclipse 4.5">
           <requirement
               name="org.eclipse.ajdt.feature.group"
-              versionRange="[2.2.4,2.3.0)"/>
+              versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
           <repository
-              url="${repo.source}/build.spring.io/browse/AJDT-AE44/latestSuccessful/artifact/shared/update-site/"/>
-          <description>SpringIO AJDT repo 4.4 dev with Java 8 support [spring.io]</description>
+              url="${repo.source}/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
+          <description></description>
         </setupTask>
       </setupTask>
       <setupTask
@@ -403,7 +407,7 @@
     <version
         name="daimler.jbe"
         label="Daimler BuildEngine Release"
-        requiredJavaVersion="1.8">
+        requiredJavaVersion="1.6">
       <setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
@@ -635,18 +639,27 @@
         </setupTask>
         <setupTask
             xsi:type="setup.p2:P2Task"
-            label="AJDT 4.4">
+            label="AJDT 2.24 for Eclipse 4.5">
           <requirement
               name="org.eclipse.ajdt.feature.group"
-              versionRange="[2.2.4,2.3.0)"/>
+              versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
           <repository
-              url="${repo.source}/build.spring.io/browse/AJDT-AE44/latestSuccessful/artifact/shared/update-site/"/>
-          <description>SpringIO AJDT repo 4.4 dev with Java 8 support [spring.io]</description>
+              url="${repo.source}/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
+          <description></description>
         </setupTask>
       </setupTask>
     </version>
     <version
         name="store[not_for_installation]">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="SWT Tools">
+        <requirement
+            name="org.eclipse.swt.spy"
+            versionRange="[4.5.0,4.6.0)"/>
+        <repository
+            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5"/>
+      </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Amazon AWS">
