@@ -74,7 +74,7 @@
         <requirement
             name="target.eclipse.framework.feature.feature.group"/>
         <repositoryList
-            name="file:///I:/A-D/CEC-Build/release/target/16.1/${tstamp.target}/repo_eclipseTargets"/>
+            name="http://jazz01.rd.corpintra.net/web/release/target/16.1/${tstamp.target}/repo_eclipseTargets"/>
       </targlet>
       <targlet
           name="target.internal"
@@ -90,7 +90,7 @@
         <repositoryList
             name="target.internal">
           <repository
-              url="file:///I:/A-D/CEC-Build/release/target.libs/16.1/${tstamp.target.internal}/repo_target.internal/"/>
+              url="http://jazz01.rd.corpintra.net/web/release/target.libs/16.1/${tstamp.target.internal}/repo_target.internal/"/>
         </repositoryList>
       </targlet>
       <targlet
@@ -99,7 +99,7 @@
             name="org.eclipse.e4.tools.spies.feature.feature.group"
             optional="true"/>
         <repositoryList
-            name="file:///I:/A-D/CEC-Build/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
+            name="http://jazz01.rd.corpintra.net/web/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
       </targlet>
     </setupTask>
   </stream>
