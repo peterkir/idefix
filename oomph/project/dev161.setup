@@ -96,7 +96,8 @@
       <targlet
           name="e4 spies">
         <requirement
-            name="org.eclipse.e4.tools.spies.feature.feature.group"/>
+            name="org.eclipse.e4.tools.spies.feature.feature.group"
+            optional="true"/>
         <repositoryList
             name="file:///I:/A-D/CEC-Build/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
       </targlet>
