@@ -6,8 +6,8 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
-    name="cec"
-    label="CEC">
+    name="idefix"
+    label="IDEfix">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
@@ -58,7 +58,7 @@
         label="target.internal TIMESTAMP"/>
     <setupTask
         xsi:type="setup:VariableTask"
-        name="tstamp.target"
+        name="tstamp.target.cec"
         value="R20150803-112054"
         defaultValue="latest"
         storageURI="scope://Workspace"
@@ -70,15 +70,19 @@
         architecture="x86_64"
         locale="en_US">
       <targlet
-          name="target">
+          name="target"
+          activeRepositoryList="target.cec">
         <requirement
             name="target.eclipse.framework.feature.feature.group"/>
         <repositoryList
-            name="http://jazz01.rd.corpintra.net/web/release/target/16.1/${tstamp.target}/repo_eclipseTargets"/>
+            name="target.cec">
+          <repository
+              url="http://jazz01.rd.corpintra.net/web/release/target/16.1/tstamp.target.cec/repo_eclipseTargets/"/>
+        </repositoryList>
       </targlet>
       <targlet
           name="target.internal"
-          activeRepositoryList=" ">
+          activeRepositoryList="target.internal">
         <requirement
             name="container.target.internal.feature.group"/>
         <requirement
@@ -94,12 +98,15 @@
         </repositoryList>
       </targlet>
       <targlet
-          name="e4 spies">
+          name="e4 spies"
+          activeRepositoryList="spies_e4">
         <requirement
-            name="org.eclipse.e4.tools.spies.feature.feature.group"
-            optional="true"/>
+            name="org.eclipse.e4.tools.spies.feature.feature.group"/>
         <repositoryList
-            name="http://jazz01.rd.corpintra.net/web/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
+            name="spies_e4">
+          <repository
+              url="http://jazz01.rd.corpintra.net/web/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
+        </repositoryList>
       </targlet>
     </setupTask>
   </stream>
