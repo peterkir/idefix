@@ -61,13 +61,13 @@
         name="org.eclipse.pde.api.tools.ee.feature.feature.group"
         optional="true"/>
     <repository
-        url="http://download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
+        url="${repo.source}/download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
     <repository
-        url="http://download.eclipse.org/egit/updates-stable-nightly"/>
+        url="${repo.source}/download.eclipse.org/egit/updates-stable-nightly"/>
     <repository
-        url="http://download.eclipse.org/mylyn/snapshots/weekly"/>
+        url="${repo.source}/download.eclipse.org/mylyn/snapshots/weekly"/>
     <repository
-        url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+        url="${repo.source}/download.eclipse.org/technology/swtbot/releases/latest"/>
     <repository
         url="${oomph.update.url}"/>
   </setupTask>
@@ -220,7 +220,7 @@
           </detail>
           <detail
               key="preferredRepositories">
-            <value>${repo.source}/download.eclipse.org/eclipse/updates/</value>
+            <value>http://download.eclipse.org/eclipse/updates/</value>
           </detail>
           <detail
               key="includeAllPlatforms">
