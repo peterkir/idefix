@@ -220,7 +220,7 @@
           </detail>
           <detail
               key="preferredRepositories">
-            <value>http://download.eclipse.org/eclipse/updates/</value>
+            <value>${repo.source}/download.eclipse.org/eclipse/updates/</value>
           </detail>
           <detail
               key="includeAllPlatforms">
@@ -267,57 +267,40 @@
         <sourceLocator
             rootFolder="${git.clone.oomph.location}"/>
         <repositoryList
-            name="Neon">
-          <repository
-              url="http://download.eclipse.org/modeling/emf/emf/updates/2.11"/>
-          <repository
-              url="http://download.eclipse.org/egit/updates"/>
-          <repository
-              url="http://download.eclipse.org/mylyn/snapshots/weekly"/>
-          <repository
-              url="http://download.eclipse.org/technology/m2e/releases/1.6"/>
-          <repository
-              url="http://download.eclipse.org/webtools/downloads/drops/R3.7.0/R-3.7.0-20150609111814/repository"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
-        </repositoryList>
-        <repositoryList
             name="Mars">
           <repository
-              url="http://download.eclipse.org/releases/mars"/>
+              url="${repo.source}/download.eclipse.org/releases/mars"/>
           <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+              url="${repo.source}/download.eclipse.org/technology/swtbot/releases/latest"/>
           <repository
-              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+              url="${repo.source}/download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
         </repositoryList>
         <repositoryList
             name="Luna">
           <repository
-              url="http://download.eclipse.org/releases/luna"/>
+              url="${repo.source}/download.eclipse.org/releases/luna"/>
           <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+              url="${repo.source}/download.eclipse.org/technology/swtbot/releases/latest"/>
           <repository
-              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+              url="${repo.source}/download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
         </repositoryList>
         <repositoryList
             name="Kepler">
           <repository
-              url="http://download.eclipse.org/releases/kepler"/>
+              url="${repo.source}/download.eclipse.org/releases/kepler"/>
           <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+              url="${repo.source}/download.eclipse.org/technology/swtbot/releases/latest"/>
           <repository
-              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+              url="${repo.source}/download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
         </repositoryList>
         <repositoryList
             name="Juno">
           <repository
-              url="http://download.eclipse.org/releases/juno"/>
+              url="${repo.source}/download.eclipse.org/releases/juno"/>
           <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+              url="${repo.source}/download.eclipse.org/technology/swtbot/releases/latest"/>
           <repository
-              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+              url="${repo.source}/download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
         </repositoryList>
       </targlet>
     </setupTask>
