@@ -61,11 +61,11 @@
         name="org.eclipse.pde.api.tools.ee.feature.feature.group"
         optional="true"/>
     <repository
-        url="${repo.source}/download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
+        url="http://download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
     <repository
-        url="${repo.source}/download.eclipse.org/egit/updates-stable-nightly"/>
+        url="http://download.eclipse.org/egit/updates-stable-nightly"/>
     <repository
-        url="${repo.source}/download.eclipse.org/mylyn/snapshots/weekly"/>
+        url="http://download.eclipse.org/mylyn/snapshots/weekly"/>
     <repository
         url="${repo.source}/download.eclipse.org/technology/swtbot/releases/latest"/>
     <repository
