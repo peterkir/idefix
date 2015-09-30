@@ -6,8 +6,8 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
-    name="idefix"
-    label="IDEfix">
+    name="cec161"
+    label="CEC 16.1">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
@@ -48,21 +48,7 @@
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
-  <stream name="dev161">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="tstamp.target.internal"
-        value="20150928-093611"
-        defaultValue="latest"
-        storageURI="scope://Workspace"
-        label="target.internal TIMESTAMP"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="tstamp.target.cec"
-        value="R20150803-112054"
-        defaultValue="latest"
-        storageURI="scope://Workspace"
-        label="target.internal TIMESTAMP"/>
+  <stream name="dev">
     <setupTask
         xsi:type="setup.targlets:TargletTask"
         operatingSystem="win32"
@@ -77,7 +63,7 @@
         <repositoryList
             name="target.cec">
           <repository
-              url="http://jazz01.rd.corpintra.net/web/release/target/16.1/tstamp.target.cec/repo_eclipseTargets/"/>
+              url="http://jazz01.rd.corpintra.net/web/release/target/16.1/R20150803-112054/repo_eclipseTargets/"/>
         </repositoryList>
       </targlet>
       <targlet
@@ -94,7 +80,7 @@
         <repositoryList
             name="target.internal">
           <repository
-              url="http://jazz01.rd.corpintra.net/web/release/target.libs/16.1/${tstamp.target.internal}/repo_target.internal/"/>
+              url="http://jazz01.rd.corpintra.net/web/release/target.libs/16.1/20150928-093611/repo_target.internal/"/>
         </repositoryList>
       </targlet>
       <targlet
