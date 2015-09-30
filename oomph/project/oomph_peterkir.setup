@@ -145,8 +145,8 @@
       name="eclipse.target.platform"
       defaultValue="Mars"
       storageURI="scope://Workspace"/>
-  <stream name="master"
-      label="Master">
+  <stream name="pk"
+      label="pk">
     <setupTask
         xsi:type="jdt:JRETask"
         version="J2SE-1.5"
