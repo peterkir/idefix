@@ -63,6 +63,7 @@
         encoding="UTF-8"/>
   </setupTask>
   <project href="project/dev161.setup#/"/>
+  <project href="project/oomph_peterkir.setup#/"/>
 <!--
   <project href="project/default.setup#/"/>
   <project href="project/ece2014.setup#/"/>

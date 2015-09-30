@@ -4,8 +4,10 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="dev161"
-    label="dev16.1">
+    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
+    name="cec"
+    label="CEC">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
@@ -46,6 +48,59 @@
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
-  <stream name="master"/>
+  <stream name="dev161">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="tstamp.target.internal"
+        value="20150928-093611"
+        defaultValue="latest"
+        storageURI="scope://Workspace"
+        label="target.internal TIMESTAMP"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="tstamp.target"
+        value="R20150803-112054"
+        defaultValue="latest"
+        storageURI="scope://Workspace"
+        label="target.internal TIMESTAMP"/>
+    <setupTask
+        xsi:type="setup.targlets:TargletTask"
+        operatingSystem="win32"
+        windowingSystem="win32"
+        architecture="x86_64"
+        locale="en_US">
+      <targlet
+          name="target">
+        <requirement
+            name="target.eclipse.framework.feature.feature.group"/>
+        <repositoryList
+            name="file:///I:/A-D/CEC-Build/release/target/16.1/${tstamp.target}/repo_eclipseTargets"/>
+      </targlet>
+      <targlet
+          name="target.internal"
+          activeRepositoryList=" ">
+        <requirement
+            name="container.target.internal.feature.group"/>
+        <requirement
+            name="com.daimler.cec.feature.target.internal.source.feature.group"/>
+        <requirement
+            name="com.daimler.cec.feature.org.eclipse.aspectj.runtime.feature.group"/>
+        <requirement
+            name="com.daimler.cec.feature.filetransfer.feature.group"/>
+        <repositoryList
+            name="target.internal">
+          <repository
+              url="file:///I:/A-D/CEC-Build/release/target.libs/16.1/${tstamp.target.internal}/repo_target.internal/"/>
+        </repositoryList>
+      </targlet>
+      <targlet
+          name="e4 spies">
+        <requirement
+            name="org.eclipse.e4.tools.spies.feature.feature.group"/>
+        <repositoryList
+            name="file:///I:/A-D/CEC-Build/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
+      </targlet>
+    </setupTask>
+  </stream>
   <description></description>
 </setup:Project>
