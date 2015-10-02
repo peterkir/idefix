@@ -22,6 +22,7 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="repo.source"
+      defaultValue="file:/I:/A-D/CEC-Build/repo"
       label="repoSource">
     <choice
         value="file:/I:/A-D/CEC-Build/repo"
@@ -44,7 +45,8 @@
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
-      name="local.jdk.location">
+      name="local.jdk.location"
+      defaultValue="${oomph.home}/java">
     <choice
         value="${oomph.home}/java"
         label="installation"/>
