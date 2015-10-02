@@ -4,8 +4,6 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
     name="cec161"
     label="CEC 16.1">
   <setupTask
@@ -48,53 +46,6 @@
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
-  <stream name="dev">
-    <setupTask
-        xsi:type="setup.targlets:TargletTask"
-        operatingSystem="win32"
-        windowingSystem="win32"
-        architecture="x86_64"
-        locale="en_US">
-      <targlet
-          name="target"
-          activeRepositoryList="target.cec">
-        <requirement
-            name="target.eclipse.framework.feature.feature.group"/>
-        <repositoryList
-            name="target.cec">
-          <repository
-              url="http://jazz01.rd.corpintra.net/web/release/target/16.1/R20150803-112054/repo_eclipseTargets/"/>
-        </repositoryList>
-      </targlet>
-      <targlet
-          name="target.internal"
-          activeRepositoryList="target.internal">
-        <requirement
-            name="container.target.internal.feature.group"/>
-        <requirement
-            name="com.daimler.cec.feature.target.internal.source.feature.group"/>
-        <requirement
-            name="com.daimler.cec.feature.org.eclipse.aspectj.runtime.feature.group"/>
-        <requirement
-            name="com.daimler.cec.feature.filetransfer.feature.group"/>
-        <repositoryList
-            name="target.internal">
-          <repository
-              url="http://jazz01.rd.corpintra.net/web/release/target.libs/16.1/20150928-093611/repo_target.internal/"/>
-        </repositoryList>
-      </targlet>
-      <targlet
-          name="e4 spies"
-          activeRepositoryList="spies_e4">
-        <requirement
-            name="org.eclipse.e4.tools.spies.feature.feature.group"/>
-        <repositoryList
-            name="spies_e4">
-          <repository
-              url="http://jazz01.rd.corpintra.net/web/repo/download.eclipse.org/e4/downloads/drops/S-0.17-201501051100"/>
-        </repositoryList>
-      </targlet>
-    </setupTask>
-  </stream>
+  <stream name="dev"/>
   <description></description>
 </setup:Project>

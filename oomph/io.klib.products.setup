@@ -403,6 +403,17 @@
               url="${repo.source}/_repo/p2/eclipse.pde.targetreloader"/>
         </setupTask>
       </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask">
+        <setupTask
+            xsi:type="setup.p2:P2Task">
+          <requirement
+              name="com.google.eclipse.mechanic.feature.group"
+              versionRange="[0.4.0,0.5.0)"/>
+          <repository
+              url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+        </setupTask>
+      </setupTask>
     </version>
     <version
         name="daimler.jbe"
