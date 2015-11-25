@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<setup:ProductCatalog
+<setup:Product
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
-    name="io.klib.products"
-    label="klib.io">
+    name="idefix.daimler"
+    label="IDEfix for Daimler CEC">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
-        key="readmePath">
-      <value>readme/readme_eclipse.html</value>
+        key="folderName">
+      <value>eclipse</value>
+    </detail>
+    <detail
+        key="folderName.macosx">
+      <value>Eclipse</value>
+      <detail
+          key="imageURI">
+        <value>http://www.eclipse.org/downloads/images/modeling.png</value>
+      </detail>
     </detail>
   </annotation>
   <setupTask
@@ -62,15 +68,6 @@
     <repository
         url="${oomph.update.url}"/>
   </setupTask>
-  <product name="idefix"
-      label="IDEfix - Eclipse Mars">
-    <annotation
-        source="http://www.eclipse.org/oomph/setup/BrandingInfo">
-      <detail
-          key="imageURI">
-        <value>http://www.eclipse.org/downloads/images/modeling.png</value>
-      </detail>
-    </annotation>
     <version
         name="daimler"
         label="Daimler Latest Release"

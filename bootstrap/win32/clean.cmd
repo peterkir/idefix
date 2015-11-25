@@ -26,14 +26,13 @@ SET EXECUTABLE=^
 ::	%prgPath%\.p2
 	
 SET INSTALLED_ARTIFACTS=^
-	%prgPath%\agent^
-	%prgPath%\java^
-	%prgPath%\instRoot^
-	%prgPath%\wrkRoot^
-	%prgPath%\workspace
+	%prgPath%\oomphInstaller^
+	%prgPath%\install^
+	%prgPath%\wrkspc^
+    %prgPath%\oomph
 
-	
 SET LOCAL_OOMPH_PREFS=^
+	%USERPROFILE%\.eclipse\org.eclipse.oomph.setup.installer^
 	%USERPROFILE%\.eclipse\org.eclipse.oomph.jreinfo^
 	%USERPROFILE%\.eclipse\org.eclipse.oomph.p2^
 	%USERPROFILE%\.eclipse\org.eclipse.oomph.setup^
