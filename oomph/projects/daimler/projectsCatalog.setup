@@ -7,7 +7,7 @@
     name="com.daimler.cec"
     label="Daimler CEC projects">
   
-  <project href="project/daimler/dev161.setup#/"/>
+  <project href="dev161.setup#/"/>
 
   <description>All projects for Daimler CEC</description>
 </setup:ProjectCatalog>

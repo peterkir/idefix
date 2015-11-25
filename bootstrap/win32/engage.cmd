@@ -88,7 +88,7 @@ ECHO -Declipse.p2.max.threads=4  >> %OOMPH_INI%
 ECHO -Declipse.p2.force.threading=true >> %OOMPH_INI%
 ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
 
-ECHO -Doomph.setup.product.catalog.filter=org.eclipse.applications >> %OOMPH_INI%
+ECHO -Doomph.setup.product.catalog.filter=org\\.eclipse\\.applications >> %OOMPH_INI%
 ECHO -Doomph.setup.product.filter=none >> %OOMPH_INI%
 ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
 
