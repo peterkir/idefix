@@ -62,12 +62,17 @@
         targetURL="${installation.location|uri}/oomphVariables.txt"
         encoding="UTF-8"/>
   </setupTask>
-  <project href="project/dev161.setup#/"/>
-  <project href="project/oomph_peterkir.setup#/"/>
-<!--
+  
   <project href="project/default.setup#/"/>
-  <project href="project/ece2014.setup#/"/>
-  <project href="project/sink.setup#/"/>
--->
+  
+  <project href="project/daimler/dev161.setup#/"/>
+
+  <project href="project/peterkir/org.eclipse.oomph.setup#/"/>
+  <project href="project/peterkir/ece2014#/"/>
+  <project href="project/peterkir/sink.setup#/"/>
+
+  <project href="project/osgi/bnd#/"/>
+  <project href="project/osgi/bndtools#/"/>
+
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>

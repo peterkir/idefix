@@ -7,8 +7,8 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
-    name="io.klib.products"
-    label="klib.io">
+    name="com.daimler.cec.oomph.products"
+    label="Daimler CEC products">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -16,7 +16,6 @@
       <value>readme/readme_eclipse.html</value>
     </detail>
   </annotation>
-  <product href="daimler/IDEfix_Daimler_cec.setup#/"/>
-  <product href="IDEfix_osgi.setup#/"/>
-  <description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/products/'>IDEfix&lt;/a> at klib.io</description>
+  <product href="IDEfix_Daimler_cec.setup#/"/>
+  <description>The catalog of products used for Daimler CEC</description>
 </setup:ProductCatalog>
