@@ -68,11 +68,11 @@
   <project href="projects/daimler/dev161.setup#/"/>
 
   <project href="projects/peterkir/org.eclipse.oomph.setup#/"/>
-  <project href="projects/peterkir/ece2014#/"/>
+  <project href="projects/peterkir/ece2014.setup#/"/>
   <project href="projects/peterkir/sink.setup#/"/>
 
-  <project href="projects/osgi/bnd#/"/>
-  <project href="projects/osgi/bndtools#/"/>
+  <project href="projects/osgi/bnd.setup#/"/>
+  <project href="projects/osgi/bndtools.setup#/"/>
 
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
