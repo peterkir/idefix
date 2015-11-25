@@ -80,10 +80,10 @@ ECHO -Doomph.home=%OOMPH_HOME% >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
 ::ECHO -Dworkspace.container.root=%WRKSPC_ROOT% >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
 
 ECHO adding klib.io Products
-ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/products/_productsCatalog.setup >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/products/productsCatalog.setup >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
 
 ECHO adding klib.io Projects
-ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/projects/_projectsCatalog.setup >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/projects/projectsCatalog.setup >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
 
 ECHO.
 ECHO # launching %OOMPH_NAME%
