@@ -67,24 +67,36 @@ SET "OOMPH_HOME=%SCRIPT_PATH%\oomph"
 
 MKDIR %OOMPH_HOME% 2>&1 > NUL
 SET OOMPH_HOME=%OOMPH_HOME:\=/%
-ECHO -Doomph.home=%OOMPH_HOME% >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+SET OOMPH_INI=%SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+
+ECHO -Doomph.home=%OOMPH_HOME% >> %OOMPH_INI%
 
 ::SET INSTALL_ROOT=%SCRIPT_PATH%\install
 ::MKDIR %INSTALL_ROOT% 2>&1 > NUL
 ::SET INSTALL_ROOT=%INSTALL_ROOT:\=/%
-::ECHO -Dinstall.root=%INSTALL_ROOT% >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+::ECHO -Dinstall.root=%INSTALL_ROOT% >> %OOMPH_INI%
 
 ::SET WRKSPC_ROOT=%SCRIPT_PATH%\wrkspc
 ::MKDIR %WRKSPC_ROOT% 2>&1 > NUL
 ::SET WRKSPC_ROOT=%WRKSPC_ROOT:\=/%
-::ECHO -Dworkspace.container.root=%WRKSPC_ROOT% >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+::ECHO -Dworkspace.container.root=%WRKSPC_ROOT% >> %OOMPH_INI%
 
 ECHO adding vmArgs to ini file
-ECHO -Declipse.p2.unsignedPolicy=allow >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
-ECHO -Doomph.installer.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/oomph
-ECHO -Doomph.setup.installer.mode=advanced >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
-ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/products/productsCatalog.setup >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
-ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/projects/projectsCatalog.setup >> %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
+ECHO -Declipse.p2.unsignedPolicy=allow >> %OOMPH_INI%
+# hidden p2 options (configured to default)
+ECHO -Declipse.p2.max.threads=4  >> %OOMPH_INI%
+ECHO -Declipse.p2.force.threading=true >> %OOMPH_INI%
+ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
+
+ECHO -Doomph.setup.product.catalog.filter=org.eclipse.applications >> %OOMPH_INI%
+ECHO -Doomph.setup.product.filter=none >> %OOMPH_INI%
+ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
+
+ECHO -Doomph.setup.jre.choice=false >> %OOMPH_INI%
+ECHO -Doomph.installer.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/oomph >> %OOMPH_INI%
+ECHO -Doomph.setup.installer.mode=advanced >> %OOMPH_INI%
+ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/products/productsCatalog.setup >> %OOMPH_INI%
+ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/projects/projectsCatalog.setup >> %OOMPH_INI%
 
 ECHO.
 ECHO # launching %OOMPH_NAME%

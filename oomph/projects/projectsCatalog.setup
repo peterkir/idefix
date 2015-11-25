@@ -63,16 +63,16 @@
         encoding="UTF-8"/>
   </setupTask>
   
-  <project href="project/default.setup#/"/>
+  <project href="projects/default.setup#/"/>
   
-  <project href="project/daimler/dev161.setup#/"/>
+  <project href="projects/daimler/dev161.setup#/"/>
 
-  <project href="project/peterkir/org.eclipse.oomph.setup#/"/>
-  <project href="project/peterkir/ece2014#/"/>
-  <project href="project/peterkir/sink.setup#/"/>
+  <project href="projects/peterkir/org.eclipse.oomph.setup#/"/>
+  <project href="projects/peterkir/ece2014#/"/>
+  <project href="projects/peterkir/sink.setup#/"/>
 
-  <project href="project/osgi/bnd#/"/>
-  <project href="project/osgi/bndtools#/"/>
+  <project href="projects/osgi/bnd#/"/>
+  <project href="projects/osgi/bndtools#/"/>
 
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
