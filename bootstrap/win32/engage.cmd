@@ -64,12 +64,17 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 
 SET JAVA_HOME=%SCRIPT_PATH%\%OOMPH_NAME%\jre
 SET "OOMPH_HOME=%SCRIPT_PATH%\oomph"
+SET "P2_HOME=%SCRIPT_PATH%\p2"
 
 MKDIR %OOMPH_HOME% 2>&1 > NUL
 SET OOMPH_HOME=%OOMPH_HOME:\=/%
 SET OOMPH_INI=%SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
 
+ECHO adding vmArgs to ini file
+
+:: custom added parameters
 ECHO -Doomph.home=%OOMPH_HOME% >> %OOMPH_INI%
+ECHO -Doomph.p2.agent.path=%P2_HOME% >> %OOMPH_INI%
 
 ::SET INSTALL_ROOT=%SCRIPT_PATH%\install
 ::MKDIR %INSTALL_ROOT% 2>&1 > NUL
@@ -80,8 +85,6 @@ ECHO -Doomph.home=%OOMPH_HOME% >> %OOMPH_INI%
 ::MKDIR %WRKSPC_ROOT% 2>&1 > NUL
 ::SET WRKSPC_ROOT=%WRKSPC_ROOT:\=/%
 ::ECHO -Dworkspace.container.root=%WRKSPC_ROOT% >> %OOMPH_INI%
-
-ECHO adding vmArgs to ini file
 
 :: allow installation of unsigned bundles
 ECHO -Declipse.p2.unsignedPolicy=allow >> %OOMPH_INI%

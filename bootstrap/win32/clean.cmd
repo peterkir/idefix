@@ -49,10 +49,10 @@ ECHO.
 
 ECHO # delete all patterns for directories
 ECHO.
-FOR %%d IN (%DELETE_PATTERNS%) DO ECHO RMDIR /Q /S "%%d" & RMDIR /Q /S "%%d" 2>&1 NUL & ECHO.
+FOR %%d IN (%DELETE_PATTERNS%) DO ECHO execute RMDIR /Q /S "%%d" & RMDIR /Q /S "%%d" > NUL 2>&1
 
 ECHO # delete all patterns for files
 ECHO.
-FOR %%f IN (%DELETE_PATTERNS%) DO ECHO DEL /Q /S /F "%%f" & DEL /Q /S /F "%%f" 2>&1 NUL & ECHO.
+FOR %%f IN (%DELETE_PATTERNS%) DO ECHO execute DEL /Q /S /F "%%f" & DEL /Q /S /F "%%f" > NUL 2>&1
 
 ECHO cleanup completed
