@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:ProductCatalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    name="io.klib.products"
+    label="klib.io">
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+    <detail
+        key="readmePath">
+      <value>readme/readme_eclipse.html</value>
+    </detail>
+  </annotation>
+  <setupTask
+      xsi:type="setup:InstallationTask"
+      id="installation"/>
+  <product href="IDEfix_osgi.setup#/"/>
+  <description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/products/'>IDEfix&lt;/a> at klib.io</description>
+</setup:ProductCatalog>

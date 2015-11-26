@@ -82,12 +82,16 @@ ECHO -Doomph.home=%OOMPH_HOME% >> %OOMPH_INI%
 ::ECHO -Dworkspace.container.root=%WRKSPC_ROOT% >> %OOMPH_INI%
 
 ECHO adding vmArgs to ini file
+
+:: allow installation of unsigned bundles
 ECHO -Declipse.p2.unsignedPolicy=allow >> %OOMPH_INI%
-# hidden p2 options (configured to default)
+
+:: hidden p2 options (configured to default)
 ECHO -Declipse.p2.max.threads=4  >> %OOMPH_INI%
 ECHO -Declipse.p2.force.threading=true >> %OOMPH_INI%
 ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
 
+:: filtering user displayed catalogs/products/versions
 ECHO -Doomph.setup.product.catalog.filter=org\\.eclipse\\.applications >> %OOMPH_INI%
 ECHO -Doomph.setup.product.filter=none >> %OOMPH_INI%
 ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
