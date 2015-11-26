@@ -95,9 +95,9 @@ ECHO -Declipse.p2.force.threading=true >> %OOMPH_INI%
 ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
 
 :: filtering user displayed catalogs/products/versions
-ECHO -Doomph.setup.product.catalog.filter=org\\.eclipse\\.applications >> %OOMPH_INI%
-ECHO -Doomph.setup.product.filter=none >> %OOMPH_INI%
-ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
+::ECHO -Doomph.setup.product.catalog.filter=org\\.eclipse\\.applications >> %OOMPH_INI%
+::ECHO -Doomph.setup.product.filter=none >> %OOMPH_INI%
+::ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
 
 ECHO -Doomph.setup.jre.choice=false >> %OOMPH_INI%
 ECHO -Doomph.installer.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/oomph >> %OOMPH_INI%
