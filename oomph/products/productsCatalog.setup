@@ -9,9 +9,9 @@
     name="io.klib.products"
     label="klib.io">
 
-	<product href="MyProduct.setup#/"/>
-	<product href="IDEfix_osgi.setup#/"/>
-	<product href="daimler/IDEfix_CEC.setup#/"/>
+	<product href="http://peterkir.github.io/idefix/oomph/products/MyProduct.setup#/"/>
+	<product href="http://peterkir.github.io/idefix/oomph/products/IDEfix_osgi.setup#/"/>
+	<product href="http://peterkir.github.io/idefix/oomph/products/daimler/IDEfix_CEC.setup#/"/>
 
 	<description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/products/'>IDEfix&lt;/a> at klib.io</description>
 </setup:ProductCatalog>
