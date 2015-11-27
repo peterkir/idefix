@@ -71,8 +71,7 @@
 	</setupTask>
 	<version
         name="daimler"
-        label="Daimler Latest Release"
-        requiredJavaVersion="1.6">
+        label="Daimler Latest Release">
 		<setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
@@ -417,8 +416,7 @@
 	</version>
 	<version
         name="daimler.jbe"
-        label="Daimler BuildEngine Release"
-        requiredJavaVersion="1.6">
+        label="Daimler BuildEngine Release">
 		<setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">

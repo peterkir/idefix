@@ -58,8 +58,7 @@
         url="http://download.eclipse.org/technology/epp/packages/mars"/>
   </setupTask>
   <version name="bndtools.latest"
-      label="IDEfix - bndtools.latest ( cloudbees )"
-      requiredJavaVersion="1.7">
+      label="IDEfix - bndtools.latest ( cloudbees )">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="bndtools latest">
@@ -73,8 +72,7 @@
     <description>IDEfix based on Eclipse Mars epp.package.java and latest bndtools build.</description>
   </version>
   <version name="bndtools_3.0.0"
-      label="IDEfix - bndtools 3.0.0 REL ( bintray )"
-      requiredJavaVersion="1.7">
+      label="IDEfix - bndtools 3.0.0 REL ( bintray )">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="bndtools 3.0.0 REL">
@@ -88,8 +86,7 @@
     <description>IDEfix based on Eclipse Mars epp.package.java and bndtools 3.0 REL</description>
   </version>
   <version name="bndtools_2.4.0"
-      label="IDEfix - bndtools 2.4.0 REL ( s3 )"
-      requiredJavaVersion="1.7">
+      label="IDEfix - bndtools 2.4.0 REL ( s3 )">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="bndtools 2.4.0 REL">
