@@ -71,7 +71,8 @@
 	</setupTask>
 	<version
         name="daimler"
-        label="Daimler Latest Release">
+        label="Daimler Latest Release"
+        requiredJavaVersion="1.8">
 		<setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
@@ -416,7 +417,8 @@
 	</version>
 	<version
         name="daimler.jbe"
-        label="Daimler BuildEngine Release">
+        label="Daimler BuildEngine Release"
+        requiredJavaVersion="1.8">
 		<setupTask
           xsi:type="setup:CompoundTask"
           name="JDK">
@@ -605,7 +607,8 @@
 		</setupTask>
 	</version>
 	<version
-        name="store[not_for_installation]">
+        name="store[not_for_installation]"
+        requiredJavaVersion="1.8">
 		<setupTask
           xsi:type="setup.p2:P2Task"
           label="SWT Tools">
