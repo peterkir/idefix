@@ -4,8 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="io.klib"
-    label="klib.io">
+    name="io.klib.projects"
+    label="Projects of klib.io">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Global Variables">
