@@ -993,4 +993,5 @@
       </description>
     </setupTask>
   </version>
+  <description>IDE configurations used inside Daimler</description>
 </setup:Product>
