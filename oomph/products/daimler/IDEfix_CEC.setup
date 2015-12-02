@@ -64,7 +64,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="oomph">
+      label="oomph.setup">
     <requirement
         name="org.eclipse.oomph.setup.feature.group"/>
     <repository
@@ -426,6 +426,11 @@
           name="eclipse.ini">
         <setupTask
             xsi:type="setup:EclipseIniTask"
+            option="-Declipse.p2.unsignedPolicy"
+            value="=allow"
+            vm="true"/>
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
             option="-Doomph.home"
             value="=${oomph.home}"
             vm="true"/>
@@ -441,11 +446,6 @@
             xsi:type="setup:EclipseIniTask"
             option="-Xmx"
             value="2048m"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Declipse.p2.unsignedPolicy"
-            value="=allow"
             vm="true"/>
       </setupTask>
       <setupTask
