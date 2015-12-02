@@ -100,7 +100,8 @@ ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
 ::ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
 
 ECHO -Doomph.setup.jre.choice=false >> %OOMPH_INI%
-ECHO -Doomph.installer.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/oomph >> %OOMPH_INI%
+ECHO -Doomph.installer.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/installer >> %OOMPH_INI%
+ECHO -Doomph.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/oomph >> %OOMPH_INI%
 ECHO -Doomph.setup.installer.mode=advanced >> %OOMPH_INI%
 ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/products/productsCatalog.setup >> %OOMPH_INI%
 ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/projects/projectsCatalog.setup >> %OOMPH_INI%
