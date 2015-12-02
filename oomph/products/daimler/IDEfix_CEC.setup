@@ -63,12 +63,37 @@
         label="user.home"/>
   </setupTask>
   <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="oomph.setup">
-    <requirement
-        name="org.eclipse.oomph.setup.feature.group"/>
-    <repository
-        url="${oomph.update.url}"/>
+      xsi:type="setup:CompoundTask"
+      name="oomph runtime">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="oomph.setup">
+      <requirement
+          name="org.eclipse.oomph.setup.feature.group"/>
+      <repository
+          url="${oomph.update.url}"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          excludedTriggers="MANUAL"
+          predecessor="//@setupTasks.3/@setupTasks.0"
+          option="-Doomph.installer.update.url"
+          value="=${oomph.udate.url}"
+          vm="true"/>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Doomph.home"
+          value="=${oomph.home}"
+          vm="true"/>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Declipse.p2.unsignedPolicy"
+          value="=allow"
+          vm="true"/>
+    </setupTask>
   </setupTask>
   <version name="latest"
       label="IDEfix CEC latest"
@@ -133,19 +158,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="oomph">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="eclipse.ini">
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Doomph.home"
-            value="=${oomph.home}"
-            vm="true"/>
-      </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="Eclipse EPP package">
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -154,11 +166,6 @@
             xsi:type="setup:EclipseIniTask"
             option="-Xmx"
             value="2048m"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Declipse.p2.unsignedPolicy"
-            value="=allow"
             vm="true"/>
       </setupTask>
       <setupTask
@@ -418,24 +425,6 @@
   <version name="161"
       label="IDEfix CEC 16.1"
       requiredJavaVersion="1.8">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="oomph">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="eclipse.ini">
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Declipse.p2.unsignedPolicy"
-            value="=allow"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Doomph.home"
-            value="=${oomph.home}"
-            vm="true"/>
-      </setupTask>
-    </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Eclipse EPP package">
@@ -734,11 +723,6 @@
             xsi:type="setup:EclipseIniTask"
             option="-Xmx"
             value="2048m"
-            vm="true"/>
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Declipse.p2.unsignedPolicy"
-            value="=ACCEPT"
             vm="true"/>
       </setupTask>
       <setupTask
