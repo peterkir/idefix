@@ -78,10 +78,8 @@
         name="eclipse.ini">
       <setupTask
           xsi:type="setup:EclipseIniTask"
-          excludedTriggers="MANUAL"
-          predecessor="//@setupTasks.3/@setupTasks.0"
-          option="-Doomph.installer.update.url"
-          value="=${oomph.udate.url}"
+          option="-Declipse.p2.unsignedPolicy"
+          value="=allow"
           vm="true"/>
       <setupTask
           xsi:type="setup:EclipseIniTask"
@@ -90,8 +88,10 @@
           vm="true"/>
       <setupTask
           xsi:type="setup:EclipseIniTask"
-          option="-Declipse.p2.unsignedPolicy"
-          value="=allow"
+          excludedTriggers="MANUAL"
+          predecessor="//@setupTasks.3/@setupTasks.0"
+          option="-Doomph.update.url"
+          value="=${oomph.udate.url}"
           vm="true"/>
     </setupTask>
   </setupTask>
