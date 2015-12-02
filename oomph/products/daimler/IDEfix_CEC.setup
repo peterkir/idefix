@@ -411,7 +411,8 @@
       </setupTask>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask">
+        xsi:type="setup:CompoundTask"
+        name="workspace mechanic">
       <setupTask
           xsi:type="setup.p2:P2Task">
         <requirement
@@ -678,9 +679,17 @@
         <repository
             url="${repo.source}/_repo/p2/eclipse.pde.targetreloader"/>
       </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="201511100835.rcptt"/>
+        <repository
+            url="http://download.eclipse.org/rcptt/release/2.0.2/repository/"/>
+      </setupTask>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask">
+        xsi:type="setup:CompoundTask"
+        name="workspace mechanic">
       <setupTask
           xsi:type="setup.p2:P2Task">
         <requirement
