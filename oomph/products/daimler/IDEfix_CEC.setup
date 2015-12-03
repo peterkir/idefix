@@ -95,6 +95,30 @@
           vm="true"/>
     </setupTask>
   </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="utils">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="OS Explorer">
+      <requirement
+          name="de.bastiankrol.startexplorer.feature.feature.group"
+          versionRange="1.6.1"/>
+      <repository
+          url="${repo.source}/basti1302.github.com/startexplorer/update"/>
+      <description>enables comfort functions to access native os environments</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="QuickREx - regexp">
+      <requirement
+          name="de.babe.eclipse.plugins.QuickREx"
+          versionRange="[3.5.0,4.0.0)"/>
+      <repository
+          url="${repo.source}/_repo/idefix-other-tools"/>
+      <description></description>
+    </setupTask>
+  </setupTask>
   <version name="latest"
       label="IDEfix CEC latest"
       requiredJavaVersion="1.8">
@@ -332,30 +356,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="utils">
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="QuickREx - regexp">
-        <requirement
-            name="de.babe.eclipse.plugins.QuickREx"
-            versionRange="[3.5.0,4.0.0)"/>
-        <repository
-            url="${repo.source}/_repo/idefix-other-tools"/>
-        <description></description>
-      </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="utils.dev">
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -443,12 +443,12 @@
       </setupTask>
     </setupTask>
   </version>
-  <version name="161"
-      label="IDEfix CEC 16.1"
+  <version name="161.slim"
+      label="IDEfix CEC 16.1 slim"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="Eclipse EPP package">
+        name="Eclipse EPP rcp">
       <setupTask
           xsi:type="setup:CompoundTask"
           name="eclipse.ini">
@@ -622,26 +622,260 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="utils">
+        name="utils.dev">
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
+          label="Markdown Editor">
         <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
+            name="markdown.editor.feature.feature.group"
+            versionRange="[1.1.0,2.0.0)"/>
         <repository
-            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
+            url="${repo.source}/dl.bintray.com/enide/Markdown/1.1.0/"/>
+        <description></description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="QuickREx - regexp">
+          label="EditBox">
         <requirement
-            name="de.babe.eclipse.plugins.QuickREx"
+            name="pm.eclipse.editbox.feature.feature.group"
+            versionRange="[0.60.0,1.0.0)"/>
+        <repository
+            url="${repo.source}/www.nodeclipse.org/updates"/>
+        <description>http://editbox.sourceforge.net/</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="targetreloader">
+        <requirement
+            name="eclipse.pde.targetreloader"
+            versionRange="(1.0.0,2.0.0]"/>
+        <repository
+            url="${repo.source}/_repo/p2/eclipse.pde.targetreloader"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils.eclipse">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Eclipse SDK examples">
+        <requirement
+            name="org.eclipse.sdk.examples.feature.group"
             versionRange="[3.5.0,4.0.0)"/>
         <repository
-            url="${repo.source}/_repo/idefix-other-tools"/>
+            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
         <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="e4 Migration Support Tool">
+        <requirement
+            name="com.opcoach.e34tools.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <repository
+            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils.qa">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="JaCoCo">
+        <requirement
+            name="com.mountainminds.eclemma.feature.feature.group"
+            versionRange="[2.3.0,3.0.0)"/>
+        <repository
+            url="${repo.source}/update.eclemma.org"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="FindBugs">
+        <requirement
+            name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"
+            versionRange="[3.0.0,4.0.0)"/>
+        <repository
+            url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+  </version>
+  <version name="161.full"
+      label="IDEfix CEC 16.1 full"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Eclipse EPP modeling">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="eclipse.ini">
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Xmx"
+            value="2048m"
+            vm="true"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.core.resources">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.core.resources/refresh.enabled"
+              value="true"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.core.resources/encoding"
+              value="UTF-8"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.debug.ui">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.debug.ui/Console.limitConsoleOutput"
+              value="false"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.ui">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui/defaultPerspectiveId"
+              value="bndtools.perspective"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR"
+              value="true"/>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="org.eclipse.ui.editors">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/spacesForTabs"
+              value="true"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/tabWidth"
+              value="4"/>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/lineNumberRuler"
+              value="true"/>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="epp.package.rcp (latest Mars Release)">
+        <requirement
+            name="epp.package.modeling"
+            versionRange="[4.5.0,4.6.0)"/>
+        <requirement
+            name="org.eclipse.platform.feature.group"
+            versionRange="[4.5.0,4.6.0)"/>
+        <requirement
+            name="org.eclipse.rcp.feature.group"
+            versionRange="[4.5.0,4.6.0)"/>
+        <requirement
+            name="org.eclipse.jdt.feature.group"
+            versionRange="[3.11.0,3.12.0)"/>
+        <requirement
+            name="org.eclipse.pde.feature.group"
+            versionRange="[3.11.0,3.12.0)"/>
+        <repository
+            url="${repo.source}/download.eclipse.org/technology/epp/packages/mars/R"/>
+        <repository
+            url="${repo.source}/download.eclipse.org/releases/mars/201506241002"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="bndtools">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="eclipse.ini">
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-perspective"
+            value="bndtools.perspective"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui/defaultPerspectiveId"
+            value="bndtools.perspective"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/editorOpenSourceTab"
+            value="true"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="bndtools (latest 3.x)">
+        <requirement
+            name="bndtools.main.feature.feature.group"
+            versionRange="[3.0.0,4.0.0)"/>
+        <repository
+            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1520/artifact/build/generated/p2/"/>
+        <description>Latest local bndtools version</description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Jazz / IBM Rational Team Concert">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Jazz / IBM Rational Team Concert">
+        <requirement
+            name="com.ibm.team.rtc.client.feature.feature.group"
+            versionRange="[4.5.0,5.0.0)"/>
+        <repository
+            url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="AJDT">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+            value="ignore"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="AJDT 2.24 for Eclipse 4.5">
+        <requirement
+            name="org.eclipse.ajdt.feature.group"
+            versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
+        <repository
+            url="${repo.source}/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="workspace mechanic">
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="com.google.eclipse.mechanic.feature.group"
+            versionRange="[0.4.0,0.5.0)"/>
+        <repository
+            url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
       </setupTask>
     </setupTask>
     <setupTask
