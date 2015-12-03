@@ -320,16 +320,28 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="other IUs">
+        name="workspace mechanic">
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="com.google.eclipse.mechanic.feature.group"
+            versionRange="[0.4.0,0.5.0)"/>
+        <repository
+            url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils">
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Eclipse SDK examples">
+          label="OS Explorer">
         <requirement
-            name="org.eclipse.sdk.examples.feature.group"
-            versionRange="[3.5.0,4.0.0)"/>
+            name="de.bastiankrol.startexplorer.feature.feature.group"
+            versionRange="1.6.1"/>
         <repository
-            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
-        <description></description>
+            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
+        <description>enables comfort functions to access native os environments</description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -341,36 +353,10 @@
             url="${repo.source}/_repo/idefix-other-tools"/>
         <description></description>
       </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="JaCoCo">
-        <requirement
-            name="com.mountainminds.eclemma.feature.feature.group"
-            versionRange="[2.3.0,3.0.0)"/>
-        <repository
-            url="${repo.source}/update.eclemma.org"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="FindBugs">
-        <requirement
-            name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"
-            versionRange="[3.0.0,4.0.0)"/>
-        <repository
-            url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils.dev">
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Markdown Editor">
@@ -393,15 +379,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="e4 Migration Support Tool">
-        <requirement
-            name="com.opcoach.e34tools.feature.feature.group"
-            versionRange="[1.0.0,2.0.0)"/>
-        <repository
-            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="targetreloader">
         <requirement
             name="eclipse.pde.targetreloader"
@@ -412,14 +389,57 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="workspace mechanic">
+        name="utils.eclipse">
       <setupTask
-          xsi:type="setup.p2:P2Task">
+          xsi:type="setup.p2:P2Task"
+          label="Eclipse SDK examples">
         <requirement
-            name="com.google.eclipse.mechanic.feature.group"
-            versionRange="[0.4.0,0.5.0)"/>
+            name="org.eclipse.sdk.examples.feature.group"
+            versionRange="[3.5.0,4.0.0)"/>
         <repository
-            url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="e4 Migration Support Tool">
+        <requirement
+            name="com.opcoach.e34tools.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <repository
+            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils.qa">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="JaCoCo">
+        <requirement
+            name="com.mountainminds.eclemma.feature.feature.group"
+            versionRange="[2.3.0,3.0.0)"/>
+        <repository
+            url="${repo.source}/update.eclemma.org"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="FindBugs">
+        <requirement
+            name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"
+            versionRange="[3.0.0,4.0.0)"/>
+        <repository
+            url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="RCPTT">
+        <requirement
+            name="201511100835.rcptt"/>
+        <repository
+            url="http://download.eclipse.org/rcptt/release/2.0.2/repository/"/>
       </setupTask>
     </setupTask>
   </version>
@@ -590,16 +610,28 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="other IUs">
+        name="workspace mechanic">
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="com.google.eclipse.mechanic.feature.group"
+            versionRange="[0.4.0,0.5.0)"/>
+        <repository
+            url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils">
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Eclipse SDK examples">
+          label="OS Explorer">
         <requirement
-            name="org.eclipse.sdk.examples.feature.group"
-            versionRange="[3.5.0,4.0.0)"/>
+            name="de.bastiankrol.startexplorer.feature.feature.group"
+            versionRange="1.6.1"/>
         <repository
-            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
-        <description></description>
+            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
+        <description>enables comfort functions to access native os environments</description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -611,36 +643,10 @@
             url="${repo.source}/_repo/idefix-other-tools"/>
         <description></description>
       </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="JaCoCo">
-        <requirement
-            name="com.mountainminds.eclemma.feature.feature.group"
-            versionRange="[2.3.0,3.0.0)"/>
-        <repository
-            url="${repo.source}/update.eclemma.org"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="FindBugs">
-        <requirement
-            name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"
-            versionRange="[3.0.0,4.0.0)"/>
-        <repository
-            url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="${repo.source}/basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils.dev">
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Markdown Editor">
@@ -663,15 +669,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="e4 Migration Support Tool">
-        <requirement
-            name="com.opcoach.e34tools.feature.feature.group"
-            versionRange="[1.0.0,2.0.0)"/>
-        <repository
-            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="targetreloader">
         <requirement
             name="eclipse.pde.targetreloader"
@@ -679,24 +676,60 @@
         <repository
             url="${repo.source}/_repo/p2/eclipse.pde.targetreloader"/>
       </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="utils.eclipse">
       <setupTask
-          xsi:type="setup.p2:P2Task">
+          xsi:type="setup.p2:P2Task"
+          label="Eclipse SDK examples">
         <requirement
-            name="201511100835.rcptt"/>
+            name="org.eclipse.sdk.examples.feature.group"
+            versionRange="[3.5.0,4.0.0)"/>
         <repository
-            url="http://download.eclipse.org/rcptt/release/2.0.2/repository/"/>
+            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="e4 Migration Support Tool">
+        <requirement
+            name="com.opcoach.e34tools.feature.feature.group"
+            versionRange="[1.0.0,2.0.0)"/>
+        <repository
+            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
       </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="workspace mechanic">
+        name="utils.qa">
       <setupTask
-          xsi:type="setup.p2:P2Task">
+          xsi:type="setup.p2:P2Task"
+          label="JaCoCo">
         <requirement
-            name="com.google.eclipse.mechanic.feature.group"
-            versionRange="[0.4.0,0.5.0)"/>
+            name="com.mountainminds.eclemma.feature.feature.group"
+            versionRange="[2.3.0,3.0.0)"/>
         <repository
-            url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+            url="${repo.source}/update.eclemma.org"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="FindBugs">
+        <requirement
+            name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"
+            versionRange="[3.0.0,4.0.0)"/>
+        <repository
+            url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="RCPTT">
+        <requirement
+            name="201511100835.rcptt"/>
+        <repository
+            url="http://download.eclipse.org/rcptt/release/2.0.2/repository/"/>
       </setupTask>
     </setupTask>
   </version>
