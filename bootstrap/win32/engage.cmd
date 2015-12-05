@@ -17,12 +17,12 @@ SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
 SET OOMPH_NAME=oomphInstaller
 SET DOWNLOAD_LOCATION=%SCRIPT_PATH%\download
 
-SET ECLIPSE_INSTALLER_WEB=http://peterkir.github.io/org.eclipse.oomph/peterkir/products
+SET ECLIPSE_INSTALLER_WEB=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/peterkir/164/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
 SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
-::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
-SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
+SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
+::SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
 SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
 SET JAVA=%JAVA_ARCHIVE:~13,-4%
 
