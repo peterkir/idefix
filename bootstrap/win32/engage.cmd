@@ -17,14 +17,9 @@ SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
 SET OOMPH_NAME=oomphInstaller
 SET DOWNLOAD_LOCATION=%SCRIPT_PATH%\download
 
-SET ECLIPSE_INSTALLER_WEB=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/peterkir/164/products
-SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
-SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
-
-SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
-::SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
-SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
-SET JAVA=%JAVA_ARCHIVE:~13,-4%
+SET BRANCH=peterkir
+SET GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph/
+SET GITHUB_IO_LATEST=latest
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
@@ -43,8 +38,18 @@ ECHO.
 ECHO # downloading and preparing %ECLIPSE_INSTALLER%
 ECHO.
 
-:: download of a file with powershell - http://superuser.com/a/423789/344922
 MKDIR %SCRIPT_PATH%\download 2>&1 > NUL
+
+:: download of a file with powershell - http://superuser.com/a/423789/344922
+ECHO retriving latest build 
+powershell -nologo -noprofile -command "%POWERSHELL_TITLE%; (New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DOWNLOAD_LOCATION%\%BRANCH%_%GITHUB_IO_LATEST%')"
+SET /P LATEST=<%DOWNLOAD_LOCATION%\%BRANCH%_%GITHUB_IO_LATEST%
+
+SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/%BRANCH%/%LATEST%
+
+SET ECLIPSE_INSTALLER_WEB=%BINTRAY_BUILD_ROOT%/products
+SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
+SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
 ECHO downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
 powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
@@ -55,6 +60,11 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 ECHO.
 ECHO # downloading and configuring %JAVA_ARCHIVE%
 ECHO.
+
+SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
+::SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
+SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
+SET JAVA=%JAVA_ARCHIVE:~13,-4%
 
 ECHO downloading archive %JAVA_WEB%/%JAVA_ARCHIVE%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%JAVA_WEB%/%JAVA_ARCHIVE%','%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%')}"
@@ -100,8 +110,8 @@ ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
 ::ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
 
 ECHO -Doomph.setup.jre.choice=false >> %OOMPH_INI%
-ECHO -Doomph.installer.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/installer >> %OOMPH_INI%
-ECHO -Doomph.update.url=http://peterkir.github.io/org.eclipse.oomph/peterkir/repo/oomph >> %OOMPH_INI%
+ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %OOMPH_INI%
+ECHO -Doomph.update.url=%BINTRAY_BUILD_ROOT%/p2/oomph >> %OOMPH_INI%
 ECHO -Doomph.setup.installer.mode=advanced >> %OOMPH_INI%
 ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/products/productsCatalog.setup >> %OOMPH_INI%
 ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/projects/projectsCatalog.setup >> %OOMPH_INI%
