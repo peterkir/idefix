@@ -41,7 +41,7 @@ ECHO.
 MKDIR %SCRIPT_PATH%\download 2>&1 > NUL
 
 :: download of a file with powershell - http://superuser.com/a/423789/344922
-ECHO retriving latest build 
+ECHO retrieving latest build 
 powershell -nologo -noprofile -command "%POWERSHELL_TITLE%; (New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DOWNLOAD_LOCATION%\%BRANCH%_%GITHUB_IO_LATEST%')"
 SET /P LATEST=<%DOWNLOAD_LOCATION%\%BRANCH%_%GITHUB_IO_LATEST%
 
