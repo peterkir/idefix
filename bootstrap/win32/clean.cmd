@@ -6,7 +6,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 :: ### Version History - x.y.z_<timestamp YYYYMMDD-hhmm> Author Description
 :: !! For a new version entry, copy the last entry down and modify Date, Author and Description
-SET version=1.0.0_20130x08-1500 &: Peter Kirschner   initial version of the script
+SET version=1.0.0_20151210-1042 &: Peter Kirschner   initial version of the script
 
 SET version=%version: =%
 SET title=%~nx0 - version %version%
