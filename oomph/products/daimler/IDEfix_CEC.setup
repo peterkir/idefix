@@ -91,7 +91,7 @@
           excludedTriggers="MANUAL"
           predecessor="//@setupTasks.3/@setupTasks.0"
           option="-Doomph.update.url"
-          value="=${oomph.udate.url}"
+          value="=${oomph.update.url}"
           vm="true"/>
     </setupTask>
   </setupTask>
