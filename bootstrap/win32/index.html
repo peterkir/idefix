@@ -4,14 +4,22 @@
 		<h1>Execute the following inside a cmd window</h1>
 		<ol>
 			<li>downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Simple Mode</br>
-			<code>cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/engage_simple.cmd','engage_simple.cmd')}" & engage_simple.cmd</code>
-		</li>
-		<li>downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
-			<code>cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/engage.cmd','engage.cmd')}" & engage.cmd</code>
-		</li>
-		<li>cleans all locally used directories (only bunlde pool remains)</br>
-			<code>cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/clean.cmd','clean.cmd')}" & clean.cmd</code>
-		</li>
-	</ol>
-</body>
+			    <code>cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/engage_simple.cmd','engage_simple.cmd')}" & engage_simple.cmd</code>
+		    </li>
+		    <li>downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
+		    	<code>cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/engage.cmd','engage.cmd')}" & engage.cmd</code>
+		    </li>
+		    <li>cleans all locally used directories (only bunlde pool remains)</br>
+		    	<code>cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/clean.cmd','clean.cmd')}" & clean.cmd</code>
+		    </li>
+	    </ol>
+	    <h1>FAQ</h1>
+		<ul>
+            <li>
+            <p><b>Problem: </b>Exception calling "DownloadFile" with "2" argument(s): "The remote server returned an error: (407) Proxy Authentication Required."</p>
+            <img src="proxyFailure.png">
+            <p><b>Solution: <b>open InternetExplorer and goto a Internet Site (not Intranet). After site is loaded do the cmd execution again.</p>
+            </li>
+		</ul>
+    </body>
 </html>
