@@ -16,7 +16,7 @@ IF "%1"=="" (
 )
 
 IF "%2"=="" (
-	SET JAVA_WEB=http://www.klib.io/_archives/java/
+	SET JAVA_WEB=http://www.klib.io/_archives/java/1.8/
 ) ELSE (
 	::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
 	SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
