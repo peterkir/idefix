@@ -30,12 +30,9 @@ SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
 SET OOMPH_NAME=oomphInstaller
 SET DOWNLOAD_LOCATION=%SCRIPT_PATH%\download
 
-SET ECLIPSE_INSTALLER_WEB=http://peterkir.github.io/org.eclipse.oomph/peterkir/products
-SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
-SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
-
-SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
-SET JAVA=%JAVA_ARCHIVE:~13,-4%
+SET BRANCH=peterkir
+SET GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph/
+SET GITHUB_IO_LATEST=latest
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
@@ -54,11 +51,25 @@ ECHO.
 ECHO # downloading and preparing %ECLIPSE_INSTALLER%
 ECHO.
 
-:: download of a file with powershell - http://superuser.com/a/423789/344922
 MKDIR %SCRIPT_PATH%\download 2>&1 > NUL
+
+:: download of a file with powershell - http://superuser.com/a/423789/344922
+ECHO retrieving latest build 
+powershell -nologo -noprofile -command "%POWERSHELL_TITLE%; (New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DOWNLOAD_LOCATION%\%BRANCH%_%GITHUB_IO_LATEST%')"
+SET /P LATEST=<%DOWNLOAD_LOCATION%\%BRANCH%_%GITHUB_IO_LATEST%
+
+SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/%BRANCH%/%LATEST%
+
+SET ECLIPSE_INSTALLER_WEB=%BINTRAY_BUILD_ROOT%/products
+SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
+SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
 ECHO downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
 powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
+IF "%ERRORLEVEL%"=="" (
+	ECHO failing downloading file %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
+	GOTO END
+)
 
 ECHO extracting ECLIPSE_INSTALLER archive to %ECLIPSE_INSTALLER%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%OOMPH_NAME%' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%OOMPH_NAME%' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%OOMPH_NAME%')}"
@@ -67,8 +78,17 @@ ECHO.
 ECHO # downloading and configuring %JAVA_ARCHIVE%
 ECHO.
 
+SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
+::SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
+SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
+SET JAVA=%JAVA_ARCHIVE:~13,-4%
+
 ECHO downloading archive %JAVA_WEB%/%JAVA_ARCHIVE%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%JAVA_WEB%/%JAVA_ARCHIVE%','%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%')}"
+IF "%ERRORLEVEL%"=="" (
+	ECHO failing downloading file %JAVA_WEB%/%JAVA_ARCHIVE%
+	GOTO END
+)
 
 ECHO extracting %ECLIPSE_INSTALLER% archive to %ECLIPSE_INSTALLER%/%JAVA%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%OOMPH_NAME%\jre' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%OOMPH_NAME%\jre' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%', '%SCRIPT_PATH%\download');Move-Item %DOWNLOAD_LOCATION%\%JAVA% %SCRIPT_PATH%\%OOMPH_NAME%\jre}"
@@ -126,3 +146,5 @@ ECHO.
 ECHO # clean-up
 ECHO.
 RMDIR /Q /S %DOWNLOAD_LOCATION%
+
+:END
