@@ -9,6 +9,19 @@ SET title=oomphInstaller script %~nx0 - version %version%
 TITLE %title%
 SET POWERSHELL_TITLE=$Host.UI.RawUI.WindowTitle='%title%'
 
+IF "%1"=="" (
+	SET BRANCH=peterkir
+) ELSE (
+	SET BRANCH=%1
+)
+
+IF "%2"=="" (
+	SET JAVA_WEB=http://www.klib.io/_archives/java/
+) ELSE (
+	::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
+	SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
+)
+
 :: ###########################################################
 SET SCRIPTNAME=%~n0
 SET SCRIPT_PATH=%~dp0
