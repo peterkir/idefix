@@ -21,6 +21,8 @@ IF "%2"=="" (
 	::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
 	SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
 )
+SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
+SET JAVA=%JAVA_ARCHIVE:~13,-4%
 
 :: ###########################################################
 SET SCRIPTNAME=%~n0
@@ -77,12 +79,6 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 ECHO.
 ECHO # downloading and configuring %JAVA_ARCHIVE%
 ECHO.
-
-SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
-::SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
-SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
-SET JAVA=%JAVA_ARCHIVE:~13,-4%
-
 ECHO downloading archive %JAVA_WEB%/%JAVA_ARCHIVE%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%JAVA_WEB%/%JAVA_ARCHIVE%','%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%')}"
 IF "%ERRORLEVEL%"=="" (
