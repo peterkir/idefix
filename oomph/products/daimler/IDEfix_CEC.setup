@@ -30,14 +30,11 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="repo.source"
-      defaultValue="file:/I:/A-D/CEC-Build/repo"
+      defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
       label="repoSource">
     <choice
-        value="file:/I:/A-D/CEC-Build/repo"
-        label="Daimler"/>
-    <choice
-        value="http://jazz01.rd.corpintra.net/web/repo"
-        label="Daimler Web"/>
+        value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+        label="AWS"/>
     <choice
         value="file:/c:/pekirsc/www"
         label="local Windows"/>
@@ -45,8 +42,11 @@
         value="file:/media/peterkir/BTRFS/www"
         label="local Linux"/>
     <choice
-        value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
-        label="AWS"/>
+        value="file:/I:/A-D/CEC-Build/repo"
+        label="Daimler"/>
+    <choice
+        value="http://jazz01.rd.corpintra.net/web/repo"
+        label="Daimler Web"/>
     <choice
         value="http:/"
         label="www"/>
