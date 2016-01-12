@@ -298,7 +298,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[3.0.0,4.0.0)"/>
         <repository
-            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1691/artifact/build/generated/p2/"/>
+            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1728/artifact/build/generated/p2/"/>
         <description>Latest local bndtools version</description>
       </setupTask>
     </setupTask>
@@ -407,7 +407,7 @@
             name="com.opcoach.e34tools.feature.feature.group"
             versionRange="[1.0.0,2.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+            url="${repo.source}/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -673,7 +673,7 @@
             name="com.opcoach.e34tools.feature.feature.group"
             versionRange="[1.0.0,2.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+            url="${repo.source}/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -931,7 +931,7 @@
             name="com.opcoach.e34tools.feature.feature.group"
             versionRange="[1.0.0,2.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT.zip!/"/>
+            url="${repo.source}/opcoach.github.io/E34MigrationTooling/com.opcoach.e34tools.repository-1.0.0-SNAPSHOT"/>
       </setupTask>
     </setupTask>
     <setupTask
