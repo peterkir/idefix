@@ -312,7 +312,7 @@
             name="com.ibm.team.rtc.client.feature.feature.group"
             versionRange="[4.5.0,5.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
+            url="${repo.source}/jazz.net/5.x/RTC-Client-p2Repo-5.0.2"/>
         <description></description>
       </setupTask>
     </setupTask>
@@ -578,7 +578,7 @@
             name="com.ibm.team.rtc.client.feature.feature.group"
             versionRange="[4.5.0,5.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
+            url="${repo.source}/jazz.net/5.x/RTC-Client-p2Repo-5.0.2"/>
         <description></description>
       </setupTask>
     </setupTask>
@@ -836,7 +836,7 @@
             name="com.ibm.team.rtc.client.feature.feature.group"
             versionRange="[4.5.0,5.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
+            url="${repo.source}/jazz.net/5.x/RTC-Client-p2Repo-5.0.2"/>
         <description></description>
       </setupTask>
     </setupTask>
@@ -1121,7 +1121,7 @@
             name="com.ibm.team.rtc.client.feature.feature.group"
             versionRange="[4.5.0,5.0.0)"/>
         <repository
-            url="jar:${repo.source}/_archives/jazz.net/5.x/RTC-Client-p2Repo-5.0.2.zip!/"/>
+            url="${repo.source}/jazz.net/5.x/RTC-Client-p2Repo-5.0.2"/>
         <description></description>
       </setupTask>
     </setupTask>
