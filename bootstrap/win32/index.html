@@ -18,7 +18,8 @@
 		<p>open a command window e.g. via Windows + R and cmd</p>
 
 		<h1>Execute the following inside a cmd window</h1>
-		<ol>
+		<ul>
+		<!--
 			<li>downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Simple Mode</br>
 				<code><textarea class="js-copytextarea1" cols=188 rows=1 >cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/engage_simple.cmd','engage_simple.cmd')}" & engage_simple.cmd</textarea></code>
 			    <button class="js-textareacopybtn1">clipboard</button></br>
@@ -35,7 +36,8 @@
 					});
 				</script>
 		    </li>
-		    <li>downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
+		    -->
+		    <li><b>installation</b></b> - downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
 				<code><textarea class="js-copytextarea2" cols=188 rows=1 >cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
 			    <button class="js-textareacopybtn2">clipboard</button></br>
 				<script type="text/javascript">
@@ -51,7 +53,7 @@
 					});
 				</script>
 		    </li>
-		    <li>cleans all locally used directories (only bunlde pool remains)</br>
+		    <li><b></b>clean-up</b> - cleans all locally used directories (only bunlde pool remains)</br>
 				<code><textarea class="js-copytextarea3" cols=188 rows=1 >cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/win32/clean.cmd','clean.cmd')}" & clean.cmd</textarea></code>
 			    <button class="js-textareacopybtn3">clipboard</button></br>
 				<script type="text/javascript">
@@ -67,7 +69,7 @@
 					});
 				</script>
 		    </li>
-	    </ol>
+	    </ul>
 	    <h1>FAQ</h1>
 		<ul>
             <li>
