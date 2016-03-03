@@ -64,6 +64,7 @@
   </setupTask>
   
   <project href="default.setup#/"/>
+  <project href="idefix.setup#/"/>
   <project href="org.eclipse.oomph.setup#/"/>
   <project href="ece2014.setup#/"/>
   <project href="sink.setup#/"/>
