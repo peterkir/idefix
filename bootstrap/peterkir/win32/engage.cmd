@@ -16,12 +16,12 @@ IF "%1"=="" (
 )
 
 IF "%2"=="" (
-	SET JAVA_WEB=http://www.klib.io/_archives/java/1.8/
+	SET JAVA_WEB=http://www.klib.io/_archives/java/1.8
 ) ELSE (
 	::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
 	SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
 )
-SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_60.zip
+SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_74.zip
 SET JAVA=%JAVA_ARCHIVE:~13,-4%
 
 :: ###########################################################
@@ -77,7 +77,7 @@ ECHO extracting ECLIPSE_INSTALLER archive to %ECLIPSE_INSTALLER%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%OOMPH_NAME%' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%OOMPH_NAME%' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%OOMPH_NAME%')}"
 
 ECHO.
-ECHO # downloading and configuring %JAVA_ARCHIVE%
+ECHO # downloading and configuring Java - %JAVA%
 ECHO.
 ECHO downloading archive %JAVA_WEB%/%JAVA_ARCHIVE%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%JAVA_WEB%/%JAVA_ARCHIVE%','%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%')}"
