@@ -90,9 +90,9 @@ ECHO extracting %ECLIPSE_INSTALLER% archive to %ECLIPSE_INSTALLER%/%JAVA%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%OOMPH_NAME%\jre' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%OOMPH_NAME%\jre' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%', '%SCRIPT_PATH%\download');Move-Item %DOWNLOAD_LOCATION%\%JAVA% %SCRIPT_PATH%\%OOMPH_NAME%\jre}"
 
 SET JAVA_HOME=%SCRIPT_PATH%\%OOMPH_NAME%\jre
-SET "OOMPH_HOME=%SCRIPT_PATH%\oomph"
-
+SET "OOMPH_HOME=%SCRIPT_PATH%"
 MKDIR %OOMPH_HOME% 2>&1 > NUL
+
 SET OOMPH_HOME=%OOMPH_HOME:\=/%
 SET OOMPH_INI=%SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.ini
 

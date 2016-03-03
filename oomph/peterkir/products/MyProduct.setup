@@ -33,8 +33,6 @@
           name="org.eclipse.platform.feature.group"/>
       <requirement
           name="org.eclipse.rcp.feature.group"/>
-      <requirement
-          name="my.product.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/mars"/>
     </setupTask>
