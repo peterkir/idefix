@@ -34,7 +34,7 @@ IF "%1"=="" (
 	SET JAVA=%SCRIPT_PATH%\java
 	ECHO using default Java root in !JAVA!
 ) ELSE (
-	SET JAVA=%1
+	SET JAVA=%1\java
 	ECHO using Java root in !JAVA!
 )
 
