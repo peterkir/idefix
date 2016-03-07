@@ -60,7 +60,7 @@ CALL %DL%\%JAVA_CMD% %SCRIPT_PATH%
 FOR /F %%a IN ('DIR /B %SCRIPT_PATH%\java\1.8') DO SET JAVA8=%SCRIPT_PATH%\java\1.8\%%a
 
 ECHO.
-ECHO # setup local %ECLIPSE_INSTALLER%
+ECHO # setup local %IDEFIX_NAME%
 ECHO.
 
 :: download of a file with powershell - http://superuser.com/a/423789/344922
@@ -84,7 +84,7 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 
 ECHO.
 ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
-IF NOT EXISTS %SCRIPT_PATH%\%IDEFIX_NAME%\jre\NUL (
+IF NOT EXIST %SCRIPT_PATH%\%IDEFIX_NAME%\jre\NUL (
 	XCOPY /Y /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre 2>&1 > NUL
 )
 
