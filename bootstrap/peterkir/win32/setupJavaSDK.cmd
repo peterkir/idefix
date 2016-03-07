@@ -1,30 +1,18 @@
+:: this script will use defaults if no parameter is given.
+:: available paramters are
+:: 1. <full_windows_path> as root install location
+:: 2. Java version to install (csv 5,6,7,8)
+
 @ECHO off
 SETLOCAL EnableExtensions
 SETLOCAL EnableDelayedExpansion
 
 :: ### Version History -- X.Y.Z_YYYYMMDD-hhmm Author Description
-SET version=1.0.0_20150930-0600 &: Peter Kirschner   downloading,extract,configure latest Java SDK
+SET version=1.0.0_20160307 &: Peter Kirschner   downloading,extract,configure latest Java SDK 
 SET version=%version: =%
 SET title=Java SDK setup script %~nx0 - version %version%
 TITLE %title%
 SET POWERSHELL_TITLE=$Host.UI.RawUI.WindowTitle='%title%'
-
-:: ###########################################################
-SET SCRIPTNAME=%~n0
-SET SCRIPT_PATH=%~dp0
-SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
-
-:: these are configuration parameter
-
-SET JAVA_VERSIONS=5,6
-
-:: local Java storage root path
-IF "%1"=="" (
-	SET JAVA=%SCRIPT_PATH%\java
-	ECHO using default Java runtimes root in %JAVA%
-) ELSE (
-	SET JAVA=%1
-)
 
 :: source archives location
 SET JAVA_WEB=http://www.klib.io/_archives/java
@@ -35,35 +23,45 @@ SET JAVA6_ARCHIVE=win32.x86_64-jdk1.6.0_45.zip
 SET JAVA7_ARCHIVE=win32.x86_64-jdk1.7.0_75.zip
 SET JAVA8_ARCHIVE=win32.x86_64-jdk1.8.0_74.zip
 
-:: do not edit
+
+:: ###########################################################
+SET SCRIPTNAME=%~n0
+SET SCRIPT_PATH=%~dp0
+SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
+
+:: local Java storage root path
+IF "%1"=="" (
+	SET JAVA=%SCRIPT_PATH%\java
+	ECHO using default Java root in !JAVA!
+) ELSE (
+	SET JAVA=%1
+	ECHO using Java root in !JAVA!
+)
+
+:: these are configuration parameter
+IF "%2" == "" (
+	SET JAVA_VERSIONS=5,6,7,8
+) ELSE (
+	SET JAVA_VERSIONS=%2
+)
+ECHO.
+ECHO installing java version %JAVA_VERSIONS%
 
 SET DL=%SCRIPT_PATH%\.download
 :: folder must exists for powershell download requests
-MKDIR %DL% 2>&1 > NUL
+MKDIR %DL% 1> NUL 2>&1
 
-FOR /F "tokens=1* delims=," %%a IN ("%JAVA_VERSIONS%") DO (
-	ECHO %%a
-	SET JAVA_MAJOR=%%a
-	ECHO JAVA_MAJOR=%JAVA_MAJOR%
+FOR %%a IN (%JAVA_VERSIONS%) DO (
+	SET CURR_JAVA=JAVA%%a_ARCHIVE
+	CALL :downloadAndExtract !CURR_JAVA!
 )
-
-PAUSE
-
-CALL :downloadAndExtract %JAVA5_ARCHIVE%
-CALL :downloadAndExtract %JAVA6_ARCHIVE%
-CALL :downloadAndExtract %JAVA7_ARCHIVE%
-CALL :downloadAndExtract %JAVA8_ARCHIVE%
 
 GOTO :END
 
-::ECHO.
-::ECHO # clean-up
-::ECHO.
-::RMDIR /Q /S %DOWNLOAD_LOCATION%
-
 :downloadAndExtract
 
-SET JAVA_ARCHIVE=%~1
+:: processing with the value of the passed parameter
+SET JAVA_ARCHIVE=!%~1!
 
 :: Java Name (includes version)
 SET JAVA_VERSION=%JAVA_ARCHIVE:~16,-9%
@@ -107,4 +105,5 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%JAV
 GOTO :EOF
 
 :END
+ECHO.
 ECHO done
