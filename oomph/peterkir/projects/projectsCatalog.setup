@@ -65,9 +65,8 @@
   <!-- peterkir -->  
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/default.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2014.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix-oomph-setup.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/org.eclipse.oomph.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/sink.setup#/"/>
   
   <!-- bndtools -->  
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
