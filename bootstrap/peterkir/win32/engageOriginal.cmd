@@ -84,7 +84,7 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 
 ECHO.
 ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
-XCOPY /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre
+XCOPY /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 
 SET "IDEFIX_HOME=%SCRIPT_PATH%"
 MKDIR %IDEFIX_HOME% 2>&1 > NUL
