@@ -57,7 +57,7 @@ IF "%ERRORLEVEL%"=="" (
 :: installing JDKs into %SCRIPT_PATH%/java
 CALL %DL%\%JAVA_CMD% %SCRIPT_PATH%
 
-FOR %%a IN ('DIR /B %SCRIPT_PATH%\java\1.8') do SET JAVA1.8=%SCRIPT_PATH%\java\1.8\%%a
+FOR %%a IN ('DIR /B %SCRIPT_PATH%\java\1.8') do SET JAVA8=%SCRIPT_PATH%\java\1.8\%%a
 
 ECHO.
 ECHO # downloading and preparing %ECLIPSE_INSTALLER%
@@ -84,7 +84,8 @@ IF "%ERRORLEVEL%"=="" (
 ECHO extracting ECLIPSE_INSTALLER archive to %ECLIPSE_INSTALLER%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
 
-XCOPY /E /H %SCRIPT_PATH%\java\1.8\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre
+ECHO copying latest java into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
+XCOPY /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 
 SET "IDEFIX_HOME=%SCRIPT_PATH%"
 MKDIR %IDEFIX_HOME% 2>&1 > NUL
