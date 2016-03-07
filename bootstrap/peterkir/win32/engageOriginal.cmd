@@ -103,7 +103,6 @@ ECHO -Declipse.p2.force.threading=true >> %IDEFIX_INI%
 ECHO -Declipse.p2.mirrors=true         >> %IDEFIX_INI%
 
 :: filtering user displayed catalogs/products/versions
-@ECHO on
 ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products) >> %IDEFIX_INI%
 ECHO -Doomph.setup.product.filter=(idefix\.base) >> %IDEFIX_INI%
 ECHO -Doomph.setup.product.version.filter=(Mars) >> %IDEFIX_INI%
