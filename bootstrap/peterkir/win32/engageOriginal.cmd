@@ -104,9 +104,9 @@ ECHO -Declipse.p2.mirrors=true         >> %IDEFIX_INI%
 
 :: filtering user displayed catalogs/products/versions
 @ECHO on
-ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products) >> %OOMPH_INI%
-ECHO -Doomph.setup.product.filter=(idefix\.base) >> %OOMPH_INI%
-ECHO -Doomph.setup.product.version.filter=(Mars) >> %OOMPH_INI%
+ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products) >> %IDEFIX_INI%
+ECHO -Doomph.setup.product.filter=(idefix\.base) >> %IDEFIX_INI%
+ECHO -Doomph.setup.product.version.filter=(Mars) >> %IDEFIX_INI%
 
 ECHO -Doomph.setup.jre.choice=false                                 >> %IDEFIX_INI%
 ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %IDEFIX_INI%
