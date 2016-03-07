@@ -122,9 +122,9 @@ ECHO # launching %OOMPH_NAME%
 ECHO.
 START /B %SCRIPT_PATH%\%OOMPH_NAME%\eclipse-inst.exe
 
-ECHO.
-ECHO # clean-up
-ECHO.
-RMDIR /Q /S %DOWNLOAD_LOCATION%
+::ECHO.
+::ECHO # clean-up
+::ECHO.
+::RMDIR /Q /S %DOWNLOAD_LOCATION%
 
 :END
