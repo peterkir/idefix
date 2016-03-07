@@ -82,7 +82,6 @@ IF "%ERRORLEVEL%"=="" (
 
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else { Write-Output '   - extracting ECLIPSE_INSTALLER archive to %SCRIPT_PATH%\%IDEFIX_NAME%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
 
-ECHO.
 ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 IF NOT EXIST %SCRIPT_PATH%\%IDEFIX_NAME%\jre\NUL (
 	XCOPY /Y /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre 2>&1 > NUL
@@ -94,14 +93,14 @@ MKDIR %IDEFIX_HOME% 2>&1 > NUL
 SET IDEFIX_HOME=%IDEFIX_HOME:\=/%
 SET IDEFIX_INI=%SCRIPT_PATH%\%IDEFIX_NAME%\eclipse-inst.ini
 
-ECHO adding vmArgs to ini file
+ECHO    - adding vmArgs to ini file
 :: allow installation of unsigned bundles
 ECHO -Declipse.p2.unsignedPolicy=allow >> %IDEFIX_INI%
 
 :: hidden p2 options (configured to default)
-ECHO -Declipse.p2.max.threads=4  >> %IDEFIX_INI%
+ECHO -Declipse.p2.max.threads=4        >> %IDEFIX_INI%
 ECHO -Declipse.p2.force.threading=true >> %IDEFIX_INI%
-ECHO -Declipse.p2.mirrors=true >> %IDEFIX_INI%
+ECHO -Declipse.p2.mirrors=true         >> %IDEFIX_INI%
 
 :: filtering user displayed catalogs/products/versions
 ECHO -Doomph.setup.product.catalog.filter=io.klib.products >> %IDEFIX_INI%
