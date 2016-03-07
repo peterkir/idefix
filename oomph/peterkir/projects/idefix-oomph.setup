@@ -28,7 +28,8 @@
       xsi:type="git:GitCloneTask"
       id="git.clone"
       remoteURI="https://github.com/peterkir/idefix.git"
-      pushURI="https://github.com/${github.user.id}/idefix.git">
+      pushURI="https://github.com/${github.user.id}/idefix.git"
+      checkoutBranch="gh-pages">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -45,7 +46,8 @@
   <setupTask
       xsi:type="projects:ProjectsImportTask">
     <sourceLocator
-        rootFolder="${git.clone.location}"/>
+        rootFolder="${git.clone.location}"
+        locateNestedProjects="true"/>
   </setupTask>
   <stream name="master"
       label="Master"/>
