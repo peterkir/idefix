@@ -26,7 +26,7 @@ SET EXECUTABLE=^
 ::	%prgPath%\.p2
 	
 SET INSTALLED_ARTIFACTS=^
-	%prgPath%\oomphInstaller^
+	%prgPath%\idefixInstaller^
 	%prgPath%\install^
 	%prgPath%\wrkspc^
     %prgPath%\oomph
