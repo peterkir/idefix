@@ -1,4 +1,4 @@
-@ECHO off
+@ECHO on
 SETLOCAL EnableExtensions
 SETLOCAL EnableDelayedExpansion
 
