@@ -1,4 +1,4 @@
-@ECHO on
+@ECHO off
 SETLOCAL EnableExtensions
 SETLOCAL EnableDelayedExpansion
 
@@ -103,6 +103,7 @@ ECHO -Declipse.p2.force.threading=true >> %IDEFIX_INI%
 ECHO -Declipse.p2.mirrors=true         >> %IDEFIX_INI%
 
 :: filtering user displayed catalogs/products/versions
+@ECHO on
 ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products) >> %OOMPH_INI%
 ECHO -Doomph.setup.product.filter=(idefix\.base) >> %OOMPH_INI%
 ECHO -Doomph.setup.product.version.filter=(Mars) >> %OOMPH_INI%
