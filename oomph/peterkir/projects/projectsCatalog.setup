@@ -63,15 +63,15 @@
         encoding="UTF-8"/>
   </setupTask>
   
-  <project href="default.setup#/"/>
-  <project href="org.eclipse.oomph.setup#/"/>
-  <project href="ece2014.setup#/"/>
-  <project href="sink.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/default.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/org.eclipse.oomph.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2014.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/sink.setup#/"/>
   
-  <project href="../../bndtools/projects/bnd.setup#/"/>
-  <project href="../../bndtools/projects/bndtools.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
 
-  <project href="../../daimler/projects/dev161.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/daimler/projects/dev161.setup#/"/>
 
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
