@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.base"
-    label="IDEfix base">
+    name="idefix.bndtools"
+    label="IDEfix bndtools">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -16,10 +16,6 @@
     <detail
         key="folderName.macosx">
       <value>Eclipse</value>
-      <detail
-          key="imageURI">
-				<value>http://www.eclipse.org/downloads/images/modeling.png</value>
-			</detail>
     </detail>
   </annotation>
   <setupTask
@@ -283,6 +279,7 @@
       <repository
           url="http://download.eclipse.org/modeling/emf/emf/updates/2.10.x/core/S201501230452"/>
     </setupTask>
+    <description>IDEfix based on Eclipse Mars epp.package.java and bndtools 3.0 REL</description>
   </version>
   <description>IDEfix base package contains the minimal set of plugins</description>
 </setup:Product>
