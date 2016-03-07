@@ -60,29 +60,27 @@ CALL %DL%\%JAVA_CMD% %SCRIPT_PATH%
 FOR %%a IN ('DIR /B %SCRIPT_PATH%\java\1.8') do SET JAVA8=%SCRIPT_PATH%\java\1.8\%%a
 
 ECHO.
-ECHO # downloading and preparing %ECLIPSE_INSTALLER%
+ECHO # setup local %ECLIPSE_INSTALLER%
 ECHO.
 
 :: download of a file with powershell - http://superuser.com/a/423789/344922
-ECHO retrieving latest build 
 powershell -nologo -noprofile -command "%POWERSHELL_TITLE%; (New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DL%\%BRANCH%_%GITHUB_IO_LATEST%')"
 SET /P LATEST=<%DL%\%BRANCH%_%GITHUB_IO_LATEST%
+ECHO retrieving latest build nr %LATEST% from %GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%
 
 SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/%BRANCH%/%LATEST%
-
 SET ECLIPSE_INSTALLER_WEB=%BINTRAY_BUILD_ROOT%/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
 SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
-ECHO downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
-powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DL%\%ECLIPSE_INSTALLER_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DL%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
+ECHO.
+powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output '   - skipping download, cause file exists - %DL%\%ECLIPSE_INSTALLER_ARCHIVE%' } else { Write-Output '   - downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%';(New-Object System.Net.WebClient).DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DL%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
 IF "%ERRORLEVEL%"=="" (
 	ECHO failing downloading file %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
 	GOTO END
 )
 
-ECHO extracting ECLIPSE_INSTALLER archive to %ECLIPSE_INSTALLER%
-powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
+powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else { Write-Output '   - extracting ECLIPSE_INSTALLER archive to %SCRIPT_PATH%\%IDEFIX_NAME%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
 
 ECHO copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 XCOPY /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre
