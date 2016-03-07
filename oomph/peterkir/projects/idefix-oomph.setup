@@ -5,36 +5,49 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
+    xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 index:/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="idefix-oomph-setup"
     label="IDEfix-Oomph-Setup">
-  <annotation
-      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
-    <detail
-        key="imageURI">
-      <value>http://www.eclipse.org/downloads/images/oomph-42x42.png</value>
-    </detail>
-    <detail
-        key="siteURI">
-      <value>https://projects.eclipse.org/projects/tools.oomph</value>
-    </detail>
-  </annotation>
   <setupTask
-      xsi:type="setup:StringSubstitutionTask"
-      name="git.clone.oomph"
-      value="${git.clone.oomph.location}"
-      documentation="The location of Oomph's Git clone."/>
+      xsi:type="setup.workingsets:WorkingSetTask">
+    <workingSet
+        name="${scope.project.name}">
+      <predicate
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="bndtools.core"/>
+      </predicate>
+    </workingSet>
+    <description>The dynamic working sets for ${scope.project.label}</description>
+  </setupTask>
   <setupTask
-      xsi:type="setup:StringSubstitutionTask"
-      name="launcher.setup.ide.ws"
-      value=""
-      documentation="The folder location of the workspace for the self hosting setup IDE."/>
+      xsi:type="git:GitCloneTask"
+      id="git.clone"
+      remoteURI="https://github.com/peterkir/idefix.git"
+      pushURI="https://github.com/${github.user.id}/bnd.git">
+    <annotation
+        source="http://www.eclipse.org/oomph/setup/InducedChoices">
+      <detail
+          key="label">
+        <value>${scope.project.label} GitHub repository</value>
+      </detail>
+      <detail
+          key="target">
+        <value>remoteURI</value>
+      </detail>
+    </annotation>
+    <description>${scope.project.label}</description>
+  </setupTask>
   <setupTask
-      xsi:type="setup:StringSubstitutionTask"
-      name="launcher.setup.ide.installation"
-      value=""
-      documentation="The folder location of the installation for the self hosting setup IDE."/>
+      xsi:type="projects:ProjectsImportTask">
+    <sourceLocator
+        rootFolder="${git.clone.location}"/>
+  </setupTask>
   <stream name="master"
       label="Master">
     <setupTask
@@ -49,14 +62,6 @@
         xsi:type="jdt:JRETask"
         version="JavaSE-1.8"
         location="${jre.location-1.8}"/>
-    <setupTask
-        xsi:type="git:GitCloneTask"
-        id="git.clone.oomph"
-        remoteURI="https://github.com/peterkir/idefix.git"
-        checkoutBranch="gh-pages"
-        userID="">
-      <description>oomph-idefix-setup</description>
-    </setupTask>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:Project"
