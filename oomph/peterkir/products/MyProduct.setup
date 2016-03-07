@@ -23,7 +23,7 @@
       id="installation"/>
   <version name="mars"
       label="Mars"
-      requiredJavaVersion="1.7">
+      requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="${scope.product.label} (${scope.product.version.label})">
