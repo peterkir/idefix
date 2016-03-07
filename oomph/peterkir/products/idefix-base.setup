@@ -16,6 +16,10 @@
     <detail
         key="folderName.macosx">
       <value>Eclipse</value>
+      <detail
+          key="imageURI">
+				<value>http://www.eclipse.org/downloads/images/modeling.png</value>
+			</detail>
     </detail>
   </annotation>
   <setupTask

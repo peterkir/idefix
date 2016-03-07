@@ -15,15 +15,6 @@ IF "%1"=="" (
 	SET BRANCH=%1
 )
 
-IF "%2"=="" (
-	SET JAVA_WEB=http://www.klib.io/_archives/java/1.8
-) ELSE (
-	::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
-	SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
-)
-SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_74.zip
-SET JAVA=%JAVA_ARCHIVE:~13,-4%
-
 :: ###########################################################
 SET SCRIPTNAME=%~n0
 SET SCRIPT_PATH=%~dp0
@@ -35,6 +26,8 @@ SET DOWNLOAD_LOCATION=%SCRIPT_PATH%\download
 SET BRANCH=master
 SET GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph/
 SET GITHUB_IO_LATEST=latest
+
+SET GITHUB_IO_BOOT=http://peterkir.github.io/idefix/bootstrap/peterkir/win32
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
@@ -48,6 +41,22 @@ SET GITHUB_IO_LATEST=latest
 ::)
 ::ECHO browser launched with PID %IE_PID%
 :: TODO search an kill the IE if not previously open WMIC process %IE_PID% delete
+
+ECHO.
+ECHO # downloading and configuring Java via %GITHUB_IO_BOOT%/%JAVA_CMD%
+ECHO.
+
+SET JAVA_CMD=setupJavaSDK.cmd
+ECHO downloading and execute %GITHUB_IO_BOOT%/%JAVA_CMD%
+powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%JAVA_CMD% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%JAVA_CMD%' } else {(New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO_BOOT%/%JAVA_CMD%','%DOWNLOAD_LOCATION%\%JAVA_CMD%')}"
+IF "%ERRORLEVEL%"=="" (
+	ECHO failing downloading file %GITHUB_IO_BOOT%/%JAVA_CMD%
+	GOTO END
+)
+
+CALL %DOWNLOAD_LOCATION%\%JAVA_CMD% %SCRIPT_PATH%
+
+PAUSE
 
 ECHO.
 ECHO # downloading and preparing %ECLIPSE_INSTALLER%
@@ -76,15 +85,8 @@ IF "%ERRORLEVEL%"=="" (
 ECHO extracting ECLIPSE_INSTALLER archive to %ECLIPSE_INSTALLER%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DOWNLOAD_LOCATION%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
 
-ECHO.
-ECHO # downloading and configuring Java - %JAVA%
-ECHO.
-ECHO downloading archive %JAVA_WEB%/%JAVA_ARCHIVE%
-powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE% ) { Write-Output 'skipping download, cause file exists - %DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%' } else {(New-Object System.Net.WebClient).DownloadFile('%JAVA_WEB%/%JAVA_ARCHIVE%','%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%')}"
-IF "%ERRORLEVEL%"=="" (
-	ECHO failing downloading file %JAVA_WEB%/%JAVA_ARCHIVE%
-	GOTO END
-)
+:: do here something
+
 
 ECHO extracting %ECLIPSE_INSTALLER% archive to %ECLIPSE_INSTALLER%/%JAVA%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%\jre' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%\jre' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DOWNLOAD_LOCATION%\%JAVA_ARCHIVE%', '%SCRIPT_PATH%\download');Move-Item %DOWNLOAD_LOCATION%\%JAVA% %SCRIPT_PATH%\%IDEFIX_NAME%\jre}"

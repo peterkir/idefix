@@ -19,7 +19,12 @@ SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
 SET JAVA_VERSIONS=5,6
 
 :: local Java storage root path
-SET JAVA=%SCRIPT_PATH%\java
+IF "%1"=="" (
+	SET JAVA=%SCRIPT_PATH%\java
+	ECHO using default Java runtimes root in %JAVA%
+) ELSE (
+	SET JAVA=%1
+)
 
 :: source archives location
 SET JAVA_WEB=http://www.klib.io/_archives/java
@@ -29,8 +34,6 @@ SET JAVA5_ARCHIVE=win32.x86_64-jdk1.5.0_22.zip
 SET JAVA6_ARCHIVE=win32.x86_64-jdk1.6.0_45.zip
 SET JAVA7_ARCHIVE=win32.x86_64-jdk1.7.0_75.zip
 SET JAVA8_ARCHIVE=win32.x86_64-jdk1.8.0_74.zip
-
-
 
 :: do not edit
 
