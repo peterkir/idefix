@@ -84,7 +84,7 @@ IF "%ERRORLEVEL%"=="" (
 ECHO extracting ECLIPSE_INSTALLER archive to %ECLIPSE_INSTALLER%
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output 'skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else {Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
 
-ECHO copying latest java into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
+ECHO copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 XCOPY /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 
 SET "IDEFIX_HOME=%SCRIPT_PATH%"
