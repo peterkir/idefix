@@ -106,13 +106,13 @@ ECHO -Declipse.p2.force.threading=true >> %OOMPH_INI%
 ECHO -Declipse.p2.mirrors=true >> %OOMPH_INI%
 
 :: filtering user displayed catalogs/products/versions
-::ECHO -Doomph.setup.product.catalog.filter=io.klib.products >> %OOMPH_INI%
+ECHO -Doomph.setup.product.catalog.filter=io.klib.products >> %OOMPH_INI%
 ::ECHO -Doomph.setup.product.filter=idefix.cec.161 >> %OOMPH_INI%
 ::ECHO -Doomph.setup.product.version.filter=none >> %OOMPH_INI%
 
 ECHO -Doomph.setup.jre.choice=false >> %OOMPH_INI%
-ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %OOMPH_INI%
-ECHO -Doomph.update.url=%BINTRAY_BUILD_ROOT%/p2/oomph >> %OOMPH_INI%
+::ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %OOMPH_INI%
+::ECHO -Doomph.update.url=%BINTRAY_BUILD_ROOT%/p2/oomph >> %OOMPH_INI%
 ECHO -Doomph.setup.installer.mode=advanced >> %OOMPH_INI%
 ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/peterkir/products/productsCatalog.setup >> %OOMPH_INI%
 ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/peterkir/projects/projectsCatalog.setup >> %OOMPH_INI%
