@@ -20,7 +20,7 @@ SET DL=%prgPath%\.download
 
 SET DOWNLOAD=^
 	%DL%\org.eclipse.oomph.setup.installer.product-*^
-	%DL%\setupJavaSD.cmd^
+	%DL%\setupJavaSDK.cmd^
 	master_latest
 
 SET EXECUTABLE=^
