@@ -114,7 +114,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.idefix.location}"
+          rootFolder="${git.clone.idefix-oomph.location}"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
