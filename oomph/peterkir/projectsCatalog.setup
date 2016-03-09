@@ -188,19 +188,19 @@
         targetURL="${installation.location|uri}/oomphVariables.txt"
         encoding="UTF-8"/>
   </setupTask>
-  <!-- peterkir   
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/default.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/org.eclipse.oomph.setup#/"/>
--->
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.klibProductCatalog"
+      value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup"
+      vm="true"/>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.klibProjectCatalog"
+      value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup"
+      vm="true"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2014.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix-oomph.setup#/"/>
-  
-  <!-- bndtools -->   
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
-
-  <!-- daimler   
-  <project href="http://peterkir.github.io/idefix/oomph/daimler/projects/dev161.setup#/"/>
--->
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
