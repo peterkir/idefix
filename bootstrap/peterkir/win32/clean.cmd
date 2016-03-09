@@ -25,7 +25,8 @@ SET DOWNLOAD=^
 
 SET EXECUTABLE=^
 	%prgPath%\org.eclipse.oomph.setup.installer.product-win32.win32.x86_64\*^
-	%prgPath%\.eclipse
+	%prgPath%\.eclipse^
+	%prgPath%\engage*
 
 ::	%prgPath%\.p2
 
