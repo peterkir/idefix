@@ -78,9 +78,6 @@
         url="${oomph.update.url}"/>
   </setupTask>
   <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"/>
-  <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Xmx"
       value="2048m"
