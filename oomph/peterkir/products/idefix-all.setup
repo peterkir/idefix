@@ -204,7 +204,7 @@
         xsi:type="setup.p2:P2Task"
         label="PDE Graph Dep Visualization [Incubator]">
       <requirement
-          name=" org.eclipse.pde.visualization.dependency_feature.feature.group"
+          name="org.eclipse.pde.visualization.dependency_feature.feature.group"
           versionRange="[0.5.0,1.0.0)"/>
       <repository
           url="http://download.eclipse.org/eclipse/pde/incubator/visualization/site/"/>
