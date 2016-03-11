@@ -102,7 +102,7 @@
   <setupTask
       xsi:type="projects:ProjectsImportTask">
     <sourceLocator
-        rootFolder="${git.clone.location}"/>
+        rootFolder="${git.clone.osgi.enroute}"/>
   </setupTask>
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">
@@ -123,7 +123,7 @@
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']/@projects[name='user.project']"/>
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='redirectable']"/>
   <description>OSGi enRoute Base Profile</description>
 </setup:Project>
