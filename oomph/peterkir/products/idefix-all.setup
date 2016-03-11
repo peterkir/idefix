@@ -156,48 +156,27 @@
         xsi:type="setup.p2:P2Task"
         label="Amazon AWS">
       <requirement
-          name="com.amazonaws.eclipse.cloudformation.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.android.sdk.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.codedeploy.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.cloudformation.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.core.feature.feature.group"
-          versionRange="[2.3.0,3.0.0)"/>
+          name="com.amazonaws.eclipse.codedeploy.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.core.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.dynamodb.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.ec2.feature.group"
-          versionRange="[1.1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.lambda.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.lambda.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.opsworks.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.opsworks.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.rds.feature.feature.group"/>
       <requirement
-          name="com.amazonaws.eclipse.rds.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.sdk.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="org.eclipse.datatools.sqldevtools.feature.feature.group"
-          versionRange="[1.12.0,2.0.0)"/>
+          name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"/>
       <repository
           url="http://aws.amazon.com/eclipse"/>
-      <repository
-          url="http://download.eclipse.org/releases/mars/201506241002"/>
       <description></description>
     </setupTask>
     <setupTask
