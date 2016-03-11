@@ -147,8 +147,6 @@
         xsi:type="setup.p2:P2Task"
         label="Amazon AWS">
       <requirement
-          name="com.amazonaws.eclipse.android.sdk.feature.feature.group"/>
-      <requirement
           name="com.amazonaws.eclipse.cloudformation.feature.feature.group"/>
       <requirement
           name="com.amazonaws.eclipse.codedeploy.feature.feature.group"/>
