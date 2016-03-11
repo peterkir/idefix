@@ -8,6 +8,9 @@
     name="all"
     label="IDEfix Eierlegende Wollmilchsau">
   <setupTask
+      xsi:type="setup:InstallationTask"
+      id="installation"/>
+  <setupTask
       xsi:type="setup.p2:P2Task">
     <requirement
         name="org.eclipse.oomph.setup.feature.group"/>
