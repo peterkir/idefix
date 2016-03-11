@@ -145,15 +145,6 @@
       name="others">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="SWT Tools">
-      <requirement
-          name="org.eclipse.swt.spy"
-          versionRange="[4.5.0,4.6.0)"/>
-      <repository
-          url="${repo.source}/download.eclipse.org/eclipse/updates/4.5"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
         label="Amazon AWS">
       <requirement
           name="com.amazonaws.eclipse.android.sdk.feature.feature.group"/>
