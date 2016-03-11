@@ -2,16 +2,12 @@
 <setup:ProductCatalog
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="io.klib.products"
     label="IDEfix for klib.io">
-
-	<product href="http://peterkir.github.io/idefix/oomph/peterkir/products/idefix-base.setup#/"/>
-	<product href="http://peterkir.github.io/idefix/oomph/daimler/products/idefix-cec.setup#/"/>
-	<product href="http://peterkir.github.io/idefix/oomph/bndtools/products/idefix-bndtools.setup#/"/>
-
-	<description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/peterkir/product/'>IDEfix&lt;/a> at klib.io</description>
+  <product href="http://peterkir.github.io/idefix/oomph/peterkir/products/idefix-base.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/oomph/daimler/products/idefix-cec.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/oomph/bndtools/products/idefix-bndtools.setup#/"/>
+  <product href="products/idefix-all.setup#/"/>
+  <description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/peterkir/product/'>IDEfix&lt;/a> at klib.io</description>
 </setup:ProductCatalog>
