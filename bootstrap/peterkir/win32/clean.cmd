@@ -16,17 +16,22 @@ TITLE %title%
 SET prgPath=%~dp0
 SET prgPath=%prgPath:~0,-1%
 
+SET DL=%prgPath%\.download
+
 SET DOWNLOAD=^
-	%prgPath%\download
+	%DL%\org.eclipse.oomph.setup.installer.product-*^
+	%DL%\setupJavaSDK.cmd^
+	master_latest
 
 SET EXECUTABLE=^
 	%prgPath%\org.eclipse.oomph.setup.installer.product-win32.win32.x86_64\*^
-	%prgPath%\.eclipse
+	%prgPath%\.eclipse^
+	%prgPath%\engage*
 
 ::	%prgPath%\.p2
-	
+
 SET INSTALLED_ARTIFACTS=^
-	%prgPath%\oomphInstaller^
+	%prgPath%\idefixInstaller^
 	%prgPath%\install^
 	%prgPath%\wrkspc^
     %prgPath%\oomph

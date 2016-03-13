@@ -8,7 +8,7 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="idefix.cec"
-    label="IDEfix for Daimler">
+    label="IDEfix CEC">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -1155,73 +1155,6 @@
   <version name="store[not_for_installation]"
       requiredJavaVersion="1.8">
     <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="SWT Tools">
-      <requirement
-          name="org.eclipse.swt.spy"
-          versionRange="[4.5.0,4.6.0)"/>
-      <repository
-          url="${repo.source}/download.eclipse.org/eclipse/updates/4.5"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Amazon AWS">
-      <requirement
-          name="com.amazonaws.eclipse.cloudformation.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.codedeploy.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.core.feature.feature.group"
-          versionRange="[2.3.0,3.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.dynamodb.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.ec2.feature.group"
-          versionRange="[1.1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.lambda.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.opsworks.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.rds.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.sdk.feature.feature.group"
-          versionRange="[2.0.0,3.0.0)"/>
-      <requirement
-          name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"
-          versionRange="[1.0.0,2.0.0)"/>
-      <requirement
-          name="org.eclipse.datatools.sqldevtools.feature.feature.group"
-          versionRange="[1.12.0,2.0.0)"/>
-      <repository
-          url="http://aws.amazon.com/eclipse"/>
-      <repository
-          url="http://download.eclipse.org/releases/mars/201506241002"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="PDE Graph Dep Visualization [Incubator]">
-      <requirement
-          name=" org.eclipse.pde.visualization.dependency_feature.feature.group"
-          versionRange="[0.5.0,1.0.0)"/>
-      <repository
-          url="http://download.eclipse.org/eclipse/pde/incubator/visualization/site/"/>
-      <description></description>
-    </setupTask>
-    <setupTask
         xsi:type="setup:CompoundTask"
         name="eclipse.ini DEV  win">
       <setupTask
@@ -1253,5 +1186,5 @@
       </description>
     </setupTask>
   </version>
-  <description>IDE configurations used inside Daimler</description>
+  <description>IDEfix package for Daimler CEC project</description>
 </setup:Product>
