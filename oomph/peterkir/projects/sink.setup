@@ -4,11 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
-    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
-    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="sink"
     label="sink">
   <setupTask
@@ -16,28 +14,48 @@
       id="workspace"/>
   <setupTask
       xsi:type="jdt:JRETask"
-      version="JavaSE-1.7"
-      location="${jre.location-1.7}">
+      version="JavaSE-1.8"
+      location="${jre.location-1.8}">
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="preference"/>
-  <setupTask
-      xsi:type="projects:ProjectsImportTask">
-    <sourceLocator
-        rootFolder="${git.clone.ece2014.location}"
-        locateNestedProjects="true"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.workingsets:WorkingSetTask">
-    <workingSet
-        name="${scope.project.name}">
-      <predicate
-          xsi:type="predicates:RepositoryPredicate"
-          project="idefix-oomph-setups"/>
-    </workingSet>
-    <description>The dynamic working sets for ${scope.project.label}</description>
+      name="others">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Amazon AWS">
+      <requirement
+          name="com.amazonaws.eclipse.cloudformation.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.codedeploy.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.core.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.lambda.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.opsworks.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.rds.feature.feature.group"/>
+      <requirement
+          name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"/>
+      <repository
+          url="http://aws.amazon.com/eclipse"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="PDE Graph Dep Visualization [Incubator]">
+      <requirement
+          name="org.eclipse.pde.visualization.dependency_feature.feature.group"
+          versionRange="[0.5.0,1.0.0)"/>
+      <repository
+          url="http://download.eclipse.org/eclipse/pde/incubator/visualization/site/"/>
+      <description></description>
+    </setupTask>
   </setupTask>
   <stream name="master"/>
   <logicalProjectContainer

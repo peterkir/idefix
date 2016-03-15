@@ -52,6 +52,58 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
+      name="preferences">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.core.resources">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/encoding"
+          value="UTF-8"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/refresh.enabled"
+          value="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.debug.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.debug.ui/Console.console_tab_width"
+          value="4"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.debug.ui/Console.limitConsoleOutput"
+          value="false"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR"
+          value="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.ui.editors">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.editors/spacesForTabs"
+          value="true"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.editors/tabWidth"
+          value="4"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.editors/lineNumberRuler"
+          value="true"/>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
       name="utils">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -137,45 +189,6 @@
           versionRange="[3.0.0,4.0.0)"/>
       <repository
           url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
-      <description></description>
-    </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="others">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Amazon AWS">
-      <requirement
-          name="com.amazonaws.eclipse.cloudformation.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.codedeploy.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.core.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.elasticbeanstalk.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.lambda.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.opsworks.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.rds.feature.feature.group"/>
-      <requirement
-          name="com.amazonaws.eclipse.simpleworkflow.feature.feature.group"/>
-      <repository
-          url="http://aws.amazon.com/eclipse"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="PDE Graph Dep Visualization [Incubator]">
-      <requirement
-          name="org.eclipse.pde.visualization.dependency_feature.feature.group"
-          versionRange="[0.5.0,1.0.0)"/>
-      <repository
-          url="http://download.eclipse.org/eclipse/pde/incubator/visualization/site/"/>
       <description></description>
     </setupTask>
   </setupTask>

@@ -70,6 +70,7 @@ ECHO found latest build ^<%LATEST%^> from %GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST
 ECHO.
 
 SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/%BRANCH%/%LATEST%
+
 SET ECLIPSE_INSTALLER_WEB=%BINTRAY_BUILD_ROOT%/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
 SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
@@ -104,8 +105,8 @@ ECHO -Declipse.p2.mirrors=true         >> %IDEFIX_INI%
 
 :: filtering user displayed catalogs/products/versions
 ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products) >> %IDEFIX_INI%
-ECHO -Doomph.setup.product.filter=(idefix\.base) >> %IDEFIX_INI%
-ECHO -Doomph.setup.product.version.filter=(Mars) >> %IDEFIX_INI%
+ECHO -Doomph.setup.product.filter=(idefix\.base)               >> %IDEFIX_INI%
+ECHO -Doomph.setup.product.version.filter=(Mars)               >> %IDEFIX_INI%
 
 ECHO -Doomph.setup.jre.choice=false                                 >> %IDEFIX_INI%
 ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %IDEFIX_INI%
