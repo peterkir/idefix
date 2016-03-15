@@ -206,7 +206,7 @@
           url="http://download.eclipse.org/rcptt/release/2.0.2/repository/"/>
     </setupTask>
   </setupTask>
-  <version name="mars"
+  <version name="latest.released"
       label="Latest Release (Mars)"
       requiredJavaVersion="1.7">
     <annotation
@@ -234,7 +234,7 @@
           url="http://download.eclipse.org/releases/mars/201602261000"/>
     </setupTask>
   </version>
-  <version name="neon"
+  <version name="latest"
       label="Latest (Neon)"
       requiredJavaVersion="1.8">
     <annotation
