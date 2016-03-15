@@ -26,6 +26,7 @@ SET DL=%SCRIPT_PATH%\.download
 MKDIR %DL% 2>&1 > NUL
 
 SET BRANCH=master
+SET VERSION=1.4.0
 SET GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph/
 SET GITHUB_IO_LATEST=latest
 
@@ -69,7 +70,7 @@ SET /P LATEST=<%DL%\%BRANCH%_%GITHUB_IO_LATEST%
 ECHO found latest build ^<%LATEST%^> from %GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%
 ECHO.
 
-SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/%BRANCH%/%LATEST%
+SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/%VERSION%/%BRANCH%/%LATEST%
 
 SET ECLIPSE_INSTALLER_WEB=%BINTRAY_BUILD_ROOT%/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
