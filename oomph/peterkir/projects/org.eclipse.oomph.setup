@@ -27,7 +27,7 @@
   </annotation>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="Oomph">
+      label="Oomph Pre-Requisites">
     <requirement
         name="org.eclipse.emf.sdk.feature.group"/>
     <requirement
@@ -57,6 +57,8 @@
     <requirement
         name="org.eclipse.oomph.projectcopy.feature.group"/>
     <requirement
+        name="org.eclipse.oomph.setup.feature.group"/>
+    <requirement
         name="org.eclipse.oomph.version.feature.group"/>
     <requirement
         name="org.eclipse.emf.ecoretools.sdk.feature.group"/>
@@ -72,9 +74,9 @@
     <repository
         url="http://download.eclipse.org/egit/updates-stable-nightly"/>
     <repository
-        url="http://download.eclipse.org/mylyn/snapshots/weekly"/>
+        url="http://download.eclipse.org/mylyn/snapshots/3.19"/>
     <repository
-        url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+        url="http://download.eclipse.org/technology/swtbot/snapshots"/>
     <repository
         url="${oomph.update.url}"/>
   </setupTask>
@@ -171,10 +173,9 @@
         location="${jre.location-1.8}"/>
     <setupTask
         xsi:type="git:GitCloneTask"
-        id="git.clone.oomph"
+        id="git.clone.oomph.master"
         remoteURI="https://github.com/peterkir/org.eclipse.oomph.git"
-        checkoutBranch="peterkir"
-        userID="">
+        pushURI="https://github.com/${github.user.id}/org.eclipse.oomph.git">
       <description>Oomph</description>
     </setupTask>
     <setupTask
@@ -458,7 +459,310 @@
       </workingSet>
     </setupTask>
   </stream>
+  <stream name="peterkir"
+      label="peterkir">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="eclipse.target.platform"
+        defaultValue="Mars"
+        storageURI="scope://Workspace"
+        label="Target Platform">
+      <description>Choose the compatibility level of the target platform</description>
+    </setupTask>
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.8"
+        location="${jre.location-1.8}"/>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.oomph.peterkir"
+        remoteURI="https://github.com/peterkir/org.eclipse.oomph.git"
+        pushURI="https://github.com/${github.user.id}/org.eclipse.oomph.git"
+        userID="">
+      <description>Oomph</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.targlets:TargletTask">
+      <targlet
+          name="Oomph"
+          activeRepositoryList="${eclipse.target.platform}"
+          includeAllPlatforms="true">
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/PomArtifactUpdater">
+          <detail
+              key="skipArtifactIDs">
+            <value>false</value>
+          </detail>
+          <detail
+              key="skipVersions">
+            <value>false</value>
+          </detail>
+        </annotation>
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/PomModulesUpdater">
+          <detail
+              key="location">
+            <value>${git.clone.oomph.location/releng/org.eclipse.oomph.parent/plugins/pom.xml}</value>
+          </detail>
+          <detail
+              key="moduleRoots">
+            <value>${git.clone.oomph.location/plugins}</value>
+          </detail>
+        </annotation>
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/PomModulesUpdater">
+          <detail
+              key="location">
+            <value>${git.clone.oomph.location/releng/org.eclipse.oomph.parent/features/pom.xml}</value>
+          </detail>
+          <detail
+              key="moduleRoots">
+            <value>${git.clone.oomph.location/features}</value>
+          </detail>
+        </annotation>
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
+          <detail
+              key="location">
+            <value>${git.clone.oomph.location/releng/org.eclipse.oomph.releng/org.eclipse.oomph.releng.target}</value>
+          </detail>
+          <detail
+              key="extraUnits">
+            <value>org.eclipse.equinox.executable.feature.group</value>
+          </detail>
+          <detail
+              key="preferredRepositories">
+            <value>http://download.eclipse.org/eclipse/updates/</value>
+          </detail>
+          <detail
+              key="includeAllPlatforms">
+            <value>false</value>
+          </detail>
+          <detail
+              key="includeSource">
+            <value>false</value>
+          </detail>
+        </annotation>
+        <requirement
+            name="org.eclipse.userstorage.sdk.feature.group"/>
+        <requirement
+            name="*"/>
+        <sourceLocator
+            rootFolder="${git.clone.oomph.location}">
+          <predicate
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:FilePredicate"
+                filePattern="prototype.txt"/>
+          </predicate>
+        </sourceLocator>
+        <repositoryList
+            name="Neon">
+          <repository
+              url="http://download.eclipse.org/oomph/uss/updates/latest"/>
+          <repository
+              url="http://download.eclipse.org/egit/updates"/>
+          <repository
+              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+          <repository
+              url="http://download.eclipse.org/modeling/emf/emf/updates/2.11"/>
+          <repository
+              url="http://download.eclipse.org/mylyn/snapshots/weekly"/>
+          <repository
+              url="http://download.eclipse.org/technology/m2e/releases/1.6"/>
+          <repository
+              url="http://download.eclipse.org/technology/nebula/snapshot"/>
+          <repository
+              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+          <repository
+              url="http://download.eclipse.org/webtools/downloads/drops/R3.7.0/R-3.7.0-20150609111814/repository"/>
+        </repositoryList>
+        <repositoryList
+            name="Mars">
+          <repository
+              url="http://download.eclipse.org/releases/mars"/>
+          <repository
+              url="http://download.eclipse.org/technology/nebula/snapshot"/>
+          <repository
+              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+          <repository
+              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+          <repository
+              url="http://download.eclipse.org/oomph/uss/updates/latest"/>
+        </repositoryList>
+        <repositoryList
+            name="Luna">
+          <repository
+              url="http://download.eclipse.org/releases/luna"/>
+          <repository
+              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+          <repository
+              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+          <repository
+              url="http://download.eclipse.org/oomph/uss/updates/latest"/>
+        </repositoryList>
+        <repositoryList
+            name="Kepler">
+          <repository
+              url="http://download.eclipse.org/releases/kepler"/>
+          <repository
+              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+          <repository
+              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+          <repository
+              url="http://download.eclipse.org/oomph/uss/updates/latest"/>
+        </repositoryList>
+        <repositoryList
+            name="Juno">
+          <repository
+              url="http://download.eclipse.org/releases/juno"/>
+          <repository
+              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+          <repository
+              url="http://download.eclipse.org/modeling/emf/cdo/orbit/latest-R"/>
+          <repository
+              url="http://download.eclipse.org/oomph/uss/updates/latest"/>
+        </repositoryList>
+      </targlet>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="Oomph Setup">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.oomph\.setup.*"/>
+          <operand
+              xsi:type="workingsets:ExclusionPredicate"
+              excludedWorkingSet="//@streams[name='peterkir']/@setupTasks.4/@workingSets.1"/>
+        </predicate>
+      </workingSet>
+      <workingSet
+          name="Oomph Setup Extensions">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="org\.eclipse\.oomph\.setup.*"/>
+          <operand
+              xsi:type="predicates:FilePredicate"
+              filePattern="build.properties"
+              contentPattern="oomph\.setup\.extension=true"/>
+        </predicate>
+      </workingSet>
+      <workingSet
+          name="Oomph Setup Models">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="setups.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Targlets">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.targlets.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph P2 Management">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.p2.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Project Configuration">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.projectconfig.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Version Management">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.version.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Dynamic Working Sets">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.workingsets.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Preferences Management">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.preferences.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Utilities">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.util.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.ui.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.base.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.jreinfo.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.predicates.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.resources.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.tests.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Tools">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.gitbash.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.launches.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.manifests.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.projectcopy.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.ostools.*"/>
+      </workingSet>
+      <workingSet
+          name="Oomph Releng">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.simrel\.build"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.all-feature"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.license-feature"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.extractor.*"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.parent"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.site"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="org\.eclipse\.oomph\.releng.*"/>
+      </workingSet>
+    </setupTask>
+  </stream>
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']/@projects[name='user.project']"/>
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
 </setup:Project>
