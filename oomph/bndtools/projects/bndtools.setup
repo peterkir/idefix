@@ -169,7 +169,7 @@
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']/@projects[name='user.project']"/>
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
   <description>The easy, powerful and productive way to develop with OSGi. Based on bnd and Eclipse.</description>
 </setup:Project>

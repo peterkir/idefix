@@ -143,6 +143,6 @@
   <stream name="master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='redirectable']"/>
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
   <description></description>
 </setup:Project>

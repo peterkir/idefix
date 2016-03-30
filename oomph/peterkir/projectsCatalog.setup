@@ -199,7 +199,7 @@
       value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup"
       vm="true"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2014.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix-oomph.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
