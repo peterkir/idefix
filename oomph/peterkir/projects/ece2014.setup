@@ -15,13 +15,78 @@
     name="ece2014"
     label="EclipseCon 2014 - An epic split between OSGi tooling Eclipse PDE and BndTools">
   <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"/>
+      xsi:type="setup.p2:P2Task"
+      label="Oomph Pre-Requisites">
+    <requirement
+        name="org.eclipse.emf.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.ide_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.java_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.pde_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.team_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.git.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.builds.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.hudson.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.projectcopy.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.version.feature.group"/>
+    <requirement
+        name="org.eclipse.emf.ecoretools.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.swtbot.ide.feature.group"/>
+    <requirement
+        name="org.eclipse.swtbot.eclipse.test.junit.feature.group"/>
+    <requirement
+        name="org.eclipse.pde.api.tools.ee.feature.feature.group"
+        optional="true"/>
+    <repository
+        url="http://download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
+    <repository
+        url="http://download.eclipse.org/egit/updates-stable-nightly"/>
+    <repository
+        url="http://download.eclipse.org/mylyn/snapshots/3.19"/>
+    <repository
+        url="http://download.eclipse.org/technology/swtbot/snapshots"/>
+    <repository
+        url="${oomph.update.url}"/>
+  </setupTask>
   <setupTask
-      xsi:type="jdt:JRETask"
-      version="JavaSE-1.7"
-      location="${jre.location-1.7}">
-    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+      xsi:type="setup.p2:P2Task"
+      label="bndtools 3.0.0 REL">
+    <requirement
+        name="bndtools.main.feature.feature.group"
+        versionRange="[3.0.0,4.0.0)"/>
+    <repository
+        url="http://dl.bintray.com/bndtools/bndtools/latest/"/>
+    <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="eclipse.ini">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Xmx"
+        value="1024m"
+        vm="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -80,16 +145,6 @@
     </setupTask>
   </setupTask>
   <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="bndtools 3.0.0 REL">
-    <requirement
-        name="bndtools.main.feature.feature.group"
-        versionRange="[3.0.0,4.0.0)"/>
-    <repository
-        url="http://dl.bintray.com/bndtools/bndtools/latest/"/>
-    <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
-  </setupTask>
-  <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.ece2014"
       remoteURI="https://github.com/peterkir/ece2014.git"
@@ -103,44 +158,71 @@
     </annotation>
     <description>${scope.project.label}</description>
   </setupTask>
-  <setupTask
-      xsi:type="projects:ProjectsImportTask">
-    <sourceLocator
-        rootFolder="${git.clone.ece2014.location}"
-        locateNestedProjects="true"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.workingsets:WorkingSetTask">
-    <workingSet
-        name="${scope.project.name}">
-      <predicate
-          xsi:type="predicates:RepositoryPredicate"
-          project="idefix-oomph-setups"/>
-    </workingSet>
-    <workingSet
-        name="bndtools">
-      <predicate
-          xsi:type="predicates:NamePredicate"
-          pattern="examples\.bndtools.*"/>
-    </workingSet>
-    <workingSet
-        name="pde">
-      <predicate
-          xsi:type="predicates:NamePredicate"
-          pattern="examples\.pde.*"/>
-    </workingSet>
-    <workingSet
-        name="build">
-      <predicate
-          xsi:type="predicates:NotPredicate">
-        <operand
-            xsi:type="workingsets:InclusionPredicate"
-            includedWorkingSet="//@setupTasks.6/@workingSets.1 //@setupTasks.6/@workingSets.2"/>
-      </predicate>
-    </workingSet>
-    <description>The dynamic working sets for ${scope.project.label}</description>
-  </setupTask>
-  <stream name="master"/>
+  <stream name="master">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="AJDT">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+            value="ignore"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="AJDT 2.24 for Eclipse 4.5">
+        <requirement
+            name="org.eclipse.ajdt.feature.group"
+            versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
+        <repository
+            url="${repo.source}/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.7"
+        location="${jre.location-1.7}">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.ece2014.location}"
+          locateNestedProjects="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="bndtools">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="examples\.bndtools.*"/>
+      </workingSet>
+      <workingSet
+          name="pde">
+        <predicate
+            xsi:type="predicates:NamePredicate"
+            pattern="examples\.pde.*"/>
+      </workingSet>
+      <workingSet
+          name="build">
+        <predicate
+            xsi:type="predicates:NotPredicate">
+          <operand
+              xsi:type="workingsets:InclusionPredicate"
+              includedWorkingSet="//@streams[name='master']/@setupTasks.3/@workingSets.0 //@streams[name='master']/@setupTasks.3/@workingSets.1"/>
+        </predicate>
+      </workingSet>
+      <description>The dynamic working sets for ${scope.project.label}</description>
+    </setupTask>
+  </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
