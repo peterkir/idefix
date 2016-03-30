@@ -148,7 +148,7 @@
       xsi:type="git:GitCloneTask"
       id="git.clone.ece2014"
       remoteURI="https://github.com/peterkir/ece2014.git"
-      pushURI="">
+      pushURI="https://github.com/${github.user.id}/ece2014.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -158,7 +158,8 @@
     </annotation>
     <description>${scope.project.label}</description>
   </setupTask>
-  <stream name="master">
+  <stream name="master"
+      label="">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="AJDT">

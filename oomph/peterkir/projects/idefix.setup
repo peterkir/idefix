@@ -160,7 +160,7 @@
     <description>${scope.project.label}</description>
   </setupTask>
   <stream name="gh-pages"
-      label="Github Pages">
+      label="">
     <setupTask
         xsi:type="jdt:JRETask"
         version="JavaSE-1.8"
