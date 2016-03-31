@@ -144,11 +144,6 @@
       documentation="Initialize the Package Explorer to display workings sets."/>
   <setupTask
       xsi:type="setup:StringSubstitutionTask"
-      name="git.clone.oomph"
-      value="${git.clone.oomph.location}"
-      documentation="The location of Oomph's Git clone."/>
-  <setupTask
-      xsi:type="setup:StringSubstitutionTask"
       name="launcher.setup.ide.ws"
       value=""
       documentation="The folder location of the workspace for the self hosting setup IDE."/>
@@ -159,6 +154,11 @@
       documentation="The folder location of the installation for the self hosting setup IDE."/>
   <stream name="master"
       label="Master">
+    <setupTask
+        xsi:type="setup:StringSubstitutionTask"
+        name="git.clone.oomph"
+        value="${git.clone.oomph-master.location}"
+        documentation="The location of Oomph's Git clone."/>
     <setupTask
         xsi:type="setup:VariableTask"
         name="eclipse.target.platform"
@@ -173,7 +173,7 @@
         location="${jre.location-1.8}"/>
     <setupTask
         xsi:type="git:GitCloneTask"
-        id="git.clone.oomph.master"
+        id="git.clone.oomph-master"
         remoteURI="https://github.com/peterkir/org.eclipse.oomph.git"
         pushURI="https://github.com/${github.user.id}/org.eclipse.oomph.git">
       <description>Oomph</description>
@@ -333,7 +333,7 @@
               pattern="org\.eclipse\.oomph\.setup.*"/>
           <operand
               xsi:type="workingsets:ExclusionPredicate"
-              excludedWorkingSet="//@streams[name='master']/@setupTasks.4/@workingSets.1"/>
+              excludedWorkingSet="//@streams[name='master']/@setupTasks.5/@workingSets.1"/>
         </predicate>
       </workingSet>
       <workingSet
@@ -461,6 +461,10 @@
   </stream>
   <stream name="peterkir"
       label="peterkir">
+    <setupTask
+        xsi:type="setup:StringSubstitutionTask"
+        name="git.clone.oomph"
+        value="${git.clone.oomph-peterkir.location}"/>
     <setupTask
         xsi:type="setup:VariableTask"
         name="eclipse.target.platform"
@@ -636,7 +640,7 @@
               pattern="org\.eclipse\.oomph\.setup.*"/>
           <operand
               xsi:type="workingsets:ExclusionPredicate"
-              excludedWorkingSet="//@streams[name='peterkir']/@setupTasks.4/@workingSets.1"/>
+              excludedWorkingSet="//@streams[name='peterkir']/@setupTasks.5/@workingSets.1"/>
         </predicate>
       </workingSet>
       <workingSet
