@@ -4,7 +4,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Oomph Links</title>
-    <link rel="shortcut icon" href="icons/k.png">
 	<style>
 table, th , td {
   border: 1px solid grey;
@@ -21,7 +20,7 @@ table tr:nth-child(even) {
 </style>
 </head>
 <body ng-app="indexApp">
-
+	<h1>Links</h1>
 	<div ng-controller="indexCtrl"> 
 	<ul ng-repeat="x">
 		<li>x</li>
@@ -31,7 +30,7 @@ table tr:nth-child(even) {
 <script>
 var app = angular.module('indexApp', []);
 app.controller('indexCtrl', function($scope, $http) {
-    $http.get("https://peterkir.github.io/oomph/index.json")
+    $http.get("https://peterkir.github.io/idefix/oomph/index.json")
 	.then (function (response) {
 		$scope.date = response.data;
 	});
