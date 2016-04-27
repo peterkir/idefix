@@ -1,0 +1,41 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Oomph Links</title>
+    <link rel="shortcut icon" href="icons/k.png">
+	<style>
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+</head>
+<body ng-app="indexApp">
+
+	<div ng-controller="indexCtrl"> 
+	<ul ng-repeat="x">
+		<li>x</li>
+	</ul>
+	</div>
+		
+<script>
+var app = angular.module('indexApp', []);
+app.controller('indexCtrl', function($scope, $http) {
+    $http.get("https://peterkir.github.io/oomph/index.json")
+	.then (function (response) {
+		$scope.date = response.data;
+	});
+});
+</script>
+</body>
+</html>
