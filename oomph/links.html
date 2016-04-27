@@ -22,8 +22,17 @@ table tr:nth-child(even) {
 <body ng-app="indexApp">
 	<h1>Links</h1>
 	<div ng-controller="indexCtrl"> 
-	<ul ng-repeat="x">
-		<li>x</li>
+	<h2>oomph setups files</h2>
+	<ul ng-repeat="x in links | filter : '.setup'">
+		<li><a href=".{{x}}">{{x}}</a></li>
+	</ul>
+	<h2>html</h2>
+	<ul ng-repeat="x in links | filter : '.html'">
+		<li><a href=".{{x}}">{{x}}</a></li>
+	</ul>
+	<h2>other files</h2>
+	<ul ng-repeat="x in links | filter : '!'+'.setup' | filter : '!'+'.html'">
+		<li><a href=".{{x}}">{{x}}</a></li>
 	</ul>
 	</div>
 		
@@ -32,7 +41,7 @@ var app = angular.module('indexApp', []);
 app.controller('indexCtrl', function($scope, $http) {
     $http.get("https://peterkir.github.io/idefix/oomph/index.json")
 	.then (function (response) {
-		$scope.date = response.data;
+		$scope.links = response.data;
 	});
 });
 </script>
