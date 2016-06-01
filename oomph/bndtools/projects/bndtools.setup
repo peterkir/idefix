@@ -233,6 +233,12 @@
                 xsi:type="predicates:NamePredicate"
                 pattern="_project_"/>
           </operand>
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern="launch.*"/>
+          </operand>
         </predicate>
       </sourceLocator>
     </setupTask>
