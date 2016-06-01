@@ -177,9 +177,6 @@
         activeRepositoryList="${eclipse.target.platform}">
       <requirement
           name="org.eclipse.sdk.feature.group"/>
-      <sourceLocator
-          rootFolder="${git.clone.location}"
-          locateNestedProjects="true"/>
       <repositoryList
           name="Mars">
         <repository
@@ -201,7 +198,8 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.bndtools}"/>
+          rootFolder="${git.clone.bndtools.location}"
+          locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
