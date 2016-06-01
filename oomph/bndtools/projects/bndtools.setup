@@ -167,17 +167,8 @@
           key="label">
         <value>${scope.project.label} GitHub repository</value>
       </detail>
-      <detail
-          key="target">
-        <value>remoteURI</value>
-      </detail>
     </annotation>
     <description>${scope.project.label}</description>
-  </setupTask>
-  <setupTask
-      xsi:type="projects:ProjectsImportTask">
-    <sourceLocator
-        rootFolder="${git.clone.bndtools}"/>
   </setupTask>
   <setupTask
       xsi:type="setup.targlets:TargletTask">
@@ -203,40 +194,29 @@
         <repository
             url="http://download.eclipse.org/cbi/updates/license"/>
       </repositoryList>
-      <repositoryList
-          name="Kepler">
-        <repository
-            url="http://download.eclipse.org/releases/kepler"/>
-        <repository
-            url="http://download.eclipse.org/cbi/updates/license"/>
-      </repositoryList>
-      <repositoryList
-          name="Juno">
-        <repository
-            url="http://download.eclipse.org/releases/juno"/>
-        <repository
-            url="http://download.eclipse.org/cbi/updates/license"/>
-      </repositoryList>
     </targlet>
   </setupTask>
-  <setupTask
-      xsi:type="setup.workingsets:WorkingSetTask">
-    <workingSet
-        name="${scope.project.name}">
-      <predicate
-          xsi:type="predicates:AndPredicate">
-        <operand
-            xsi:type="predicates:RepositoryPredicate"
-            project="bndtools.core"/>
-      </predicate>
-    </workingSet>
-    <description>The dynamic working sets for ${scope.project.label}</description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"/>
   <stream name="master"
-      label="Master"/>
+      label="Master">
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.bndtools}"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="${scope.project.name}">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:RepositoryPredicate"
+              project="bndtools.core"/>
+        </predicate>
+      </workingSet>
+      <description>The dynamic working sets for ${scope.project.label}</description>
+    </setupTask>
+  </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
