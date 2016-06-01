@@ -177,7 +177,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="AJDT 2.24 for Eclipse 4.5">
+          label="AJDT 2.2.4 for Eclipse 4.5">
         <requirement
             name="org.eclipse.ajdt.feature.group"
             versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
