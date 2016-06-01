@@ -18,6 +18,8 @@
 	</annotation>
 
 	<product href="http://peterkir.github.io/idefix/oomph/daimler/products/idefix-162.setup#/"/>
+    <product href="http://peterkir.github.io/idefix/oomph/daimler/products/idefix-171.setup#/"/>
+    <product href="http://peterkir.github.io/idefix/oomph/daimler/products/idefix-cec.setup#/"/>
 
 	<description>The catalog of products used for Daimler CEC</description>
 </setup:ProductCatalog>
