@@ -177,7 +177,7 @@
           name="bundlewrap">
         <predicate
             xsi:type="predicates:RepositoryPredicate"
-            project="bundleWrap"/>
+            project="cnf"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
