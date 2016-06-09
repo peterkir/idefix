@@ -181,7 +181,7 @@
             name="org.eclipse.ajdt.feature.group"
             versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
         <repository
-            url="http:/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
+            url="http://download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
         <description></description>
       </setupTask>
     </setupTask>
