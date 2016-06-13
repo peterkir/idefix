@@ -104,12 +104,12 @@ else
    echo "-Declipse.p2.mirrors=true"         >> "$ECL_INST_INI_BAK"
 
    # filtering user displayed catalogs/products/versions
-   echo "-Doomph.setup.product.catalog.filter=io\\.klib\\.products"    >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.filter=idefix\\.bndtools"               >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.version.filter=bndtools_latest_bintray" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.filter=idefix\\\\.bndtools"              >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.version.filter=bndtools_latest_bintray"  >> "$ECL_INST_INI_BAK"
 
-   echo "-Doomph.setup.jre.choice=false"                                 >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.installer.mode=advanced"                          >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.jre.choice=false"                                >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.installer.mode=advanced"                         >> "$ECL_INST_INI_BAK"
    echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->https://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup" >> "$ECL_INST_INI_BAK"
    echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->https://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup" >> "$ECL_INST_INI_BAK"
 
