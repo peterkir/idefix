@@ -104,14 +104,14 @@ else
    echo "-Declipse.p2.mirrors=true"         >> "$ECL_INST_INI_BAK"
 
    # filtering user displayed catalogs/products/versions
-   echo "-Doomph.setup.product.catalog.filter=osgi\\\\.products"  >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.filter=osgi\\\\.bndtools"          >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.version.filter=osgi\\\\.ide_3.2.0" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.catalog.filter=org\\\\.osgi\\\\.products"  >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.filter=osgi\\\\.bndtools"                  >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.version.filter=osgi\\\\.ide_3.2.0"         >> "$ECL_INST_INI_BAK"
 
    echo "-Doomph.setup.jre.choice=false"                                >> "$ECL_INST_INI_BAK"
    echo "-Doomph.setup.installer.mode=advanced"                         >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->https://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup" >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->https://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->https://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->https://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup" >> "$ECL_INST_INI_BAK"
 
    #INSTALL_ROOT=$SCRIPT_PATH/install
    #mkdir ${INSTALL_ROOT} > /dev/null 2>&1
