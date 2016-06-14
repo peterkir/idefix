@@ -17,7 +17,7 @@
 		</detail>
 	</annotation>
 
-	<product href="https://peterkir.github.io/idefix/oomph/osgi/products/osgi.ide.setup#/"/>
+	<product href="https://peterkir.github.io/idefix/oomph/osgi/products/osgi.idefix.setup#/"/>
 
 	<description>The catalog of products used for OSGi</description>
 </setup:ProductCatalog>
