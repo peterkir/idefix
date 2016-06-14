@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="osgi.idefix"
-    label="OSGi IDEfix">
+    name="osgi.idefix.mars"
+    label="OSGi IDEfix Mars">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -71,6 +71,20 @@
           key="/instance/org.eclipse.ui/defaultPerspectiveId"
           value="bndtools.perspective"/>
     </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="REDIRECT klib.io ">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProductCatalog"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup"
+        vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProjectCatalog"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup"
+        vm="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"

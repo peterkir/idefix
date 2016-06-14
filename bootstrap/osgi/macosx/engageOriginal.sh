@@ -105,7 +105,7 @@ else
 
    # filtering user displayed catalogs/products/versions
    echo "-Doomph.setup.product.catalog.filter=osgi\\\\.products"                >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.filter=osgi\\\\.idefix"                          >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.filter=osgi\\\\.idefix\\\\.mars"                 >> "$ECL_INST_INI_BAK"
    echo "-Doomph.setup.product.version.filter=latest\\\\.bndtools\\\\.bintray"  >> "$ECL_INST_INI_BAK"
 
    echo "-Doomph.setup.jre.choice=false"                                >> "$ECL_INST_INI_BAK"
