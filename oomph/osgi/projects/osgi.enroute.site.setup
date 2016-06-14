@@ -99,8 +99,8 @@
     </annotation>
     <description>${scope.project.label}</description>
   </setupTask>
-  <stream name="master"
-      label="Master">
+  <stream name="gh-pages"
+      label="gh-pages">
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
