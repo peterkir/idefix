@@ -92,11 +92,6 @@
   <stream name="master"
       label="Master">
     <setupTask
-        xsi:type="projects:ProjectsImportTask">
-      <sourceLocator
-          rootFolder="${git.clone.osgi-design.location}"/>
-    </setupTask>
-    <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
       <workingSet
           name="${scope.project.name}">
@@ -108,6 +103,11 @@
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.osgi-design.location}"/>
     </setupTask>
   </stream>
   <logicalProjectContainer
