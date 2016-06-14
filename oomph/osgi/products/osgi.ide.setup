@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="osgi.bndtools"
-    label="OSGi bndtools">
+    name="osgi.idefix"
+    label="OSGi IDEfix">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -35,27 +35,6 @@
         vm="true">
       <description>Set the heap space needed to work with the projects</description>
     </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="${scope.product.label} (${scope.product.version.label})">
-    <requirement
-        name="epp.package.java"
-        versionRange="[4.5.0,4.6.0)"/>
-    <requirement
-        name="org.eclipse.platform.feature.group"
-        versionRange="[4.5.0,4.6.0)"/>
-    <requirement
-        name="org.eclipse.rcp.feature.group"
-        versionRange="[4.5.0,4.6.0)"
-        filter=""/>
-    <requirement
-        name="org.eclipse.jdt.feature.group"
-        versionRange="[3.11.0,3.12.0)"/>
-    <repository
-        url="http://download.eclipse.org/releases/mars"/>
-    <repository
-        url="http://download.eclipse.org/technology/epp/packages/mars"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -93,7 +72,28 @@
           value="bndtools.perspective"/>
     </setupTask>
   </setupTask>
-  <version name="osgi.ide.latest.cloudbees"
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="${scope.product.label} (${scope.product.version.label})">
+    <requirement
+        name="epp.package.java"
+        versionRange="[4.5.0,4.6.0)"/>
+    <requirement
+        name="org.eclipse.platform.feature.group"
+        versionRange="[4.5.0,4.6.0)"/>
+    <requirement
+        name="org.eclipse.rcp.feature.group"
+        versionRange="[4.5.0,4.6.0)"
+        filter=""/>
+    <requirement
+        name="org.eclipse.jdt.feature.group"
+        versionRange="[3.11.0,3.12.0)"/>
+    <repository
+        url="http://download.eclipse.org/releases/mars"/>
+    <repository
+        url="http://download.eclipse.org/technology/epp/packages/mars"/>
+  </setupTask>
+  <version name="latest.bndtools.cloudbees"
       label="OSGi IDE - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
     <setupTask
@@ -107,7 +107,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and latest bndtools build.</description>
   </version>
-  <version name="osgi.ide.latest.bintray"
+  <version name="latest.bndtools.bintray"
       label="OSGi IDE - bndtools latest ( bintray REL )"
       requiredJavaVersion="1.7">
     <setupTask
@@ -121,7 +121,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
   </version>
-  <version name="osgi.ide_3.2.0"
+  <version name="bndtools.3.2.0"
       label="OSGi IDE - bndtools 3.2.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -136,7 +136,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
   </version>
-  <version name="osgi.ide_3.1.1"
+  <version name="bndtools.3.1.1"
       label="OSGi IDE - bndtools 3.1.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -151,7 +151,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
   </version>
-  <version name="osgi.ide_3.1.0"
+  <version name="bndtools.3.1.0"
       label="OSGi IDE - bndtools 3.1.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -166,7 +166,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
   </version>
-  <version name="osgi.ide_3.0.0"
+  <version name="bndtools.3.0.0"
       label="OSGi IDE - bndtools 3.0.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -181,7 +181,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
   </version>
-  <version name="osgi.ide_2.4.1"
+  <version name="bndtools.2.4.1"
       label="OSGi IDE - bndtools 2.4.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -196,7 +196,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
   </version>
-  <version name="osgi.ide_2.4.0"
+  <version name="bndtools.2.4.0"
       label="OSGi IDE - bndtools 2.4.0 REL"
       requiredJavaVersion="1.7">
     <setupTask

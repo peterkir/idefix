@@ -104,9 +104,9 @@ else
    echo "-Declipse.p2.mirrors=true"         >> "$ECL_INST_INI_BAK"
 
    # filtering user displayed catalogs/products/versions
-   echo "-Doomph.setup.product.catalog.filter=osgi\\\\.products"           >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.filter=osgi\\\\.bndtools"                   >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.version.filter=osgi\\\\.ide_3\\\\.2\\\\.0"  >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.catalog.filter=osgi\\\\.products"                >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.filter=osgi\\\\.bndtools"                        >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.version.filter=latest\\\\.bndtools\\\\.bintray"  >> "$ECL_INST_INI_BAK"
 
    echo "-Doomph.setup.jre.choice=false"                                >> "$ECL_INST_INI_BAK"
    echo "-Doomph.setup.installer.mode=advanced"                         >> "$ECL_INST_INI_BAK"
