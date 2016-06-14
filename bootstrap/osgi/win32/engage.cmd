@@ -45,18 +45,33 @@ SET GITHUB_IO_BOOT=http://peterkir.github.io/idefix/bootstrap/peterkir/win32
 ::ECHO browser launched with PID %IE_PID%
 :: TODO search an kill the IE if not previously open WMIC process %IE_PID% delete
 
-SET JAVA_CMD=setupJavaSDK.cmd
+
+
+:: source archives location
+SET JAVA_WEB=http://www.klib.io/_archives/java
+
+:: concrete version names for the Java Archives
+SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_74.zip
+
+:: Java Name (includes version)
+SET JAVA_VERSION=%JAVA_ARCHIVE:~16,-9%
+SET JAVA_NAME=%JAVA_ARCHIVE:~13,-4%
+SET JAVA_WEB_DL=%JAVA_WEB%/%JAVA_VERSION%/%JAVA_ARCHIVE%
+SET JAVA_DL=%DL%\%JAVA_ARCHIVE%
+
+:: extract locations
+SET JAVA_EXTRACT=%JAVA%\%JAVA_VERSION%
+
 ECHO.
-ECHO # downloading and configuring Java via %GITHUB_IO_BOOT%/%JAVA_CMD%
+ECHO # setup local JDK %JAVA_VERSION% in version %JAVA_NAME%
 ECHO.
-powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%JAVA_CMD% ) { Write-Output 'skipping download, cause file exists - %DL%\%JAVA_CMD%' } else {(New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO_BOOT%/%JAVA_CMD%','%DL%\%JAVA_CMD%')}"
+powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%JAVA_DL%' ) { Write-Output '   - skipping download,   cause file exists   - %JAVA_DL%' } else { Write-Output '   - downloading archive %JAVA_ARCHIVE%';(New-Object System.Net.WebClient).DownloadFile('%JAVA_WEB_DL%','%JAVA_DL%')}"
 IF "%ERRORLEVEL%"=="" (
-	ECHO failing downloading file %GITHUB_IO_BOOT%/%JAVA_CMD%
+	ECHO failing downloading file %JAVA_WEB%/%JAVA_ARCHIVE%
 	GOTO END
 )
 
-:: installing JDKs into %SCRIPT_PATH%/java
-CALL %DL%\%JAVA_CMD% %SCRIPT_PATH%
+powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%JAVA_EXTRACT%\%JAVA_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %JAVA_EXTRACT%\%JAVA_NAME%' } else { Write-Output '   - extracting %JAVA_DL% archive to %JAVA_EXTRACT%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%JAVA_DL%', '%JAVA_EXTRACT%')}"
 
 FOR /F %%a IN ('DIR /B %SCRIPT_PATH%\java\1.8') DO SET JAVA8=%SCRIPT_PATH%\java\1.8\%%a
 
@@ -113,8 +128,8 @@ ECHO -Doomph.setup.jre.choice=false                                 >> %IDEFIX_I
 ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %IDEFIX_INI%
 ECHO -Doomph.update.url=%BINTRAY_BUILD_ROOT%/p2/oomph               >> %IDEFIX_INI%
 ECHO -Doomph.setup.installer.mode=advanced                          >> %IDEFIX_INI%
-ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup >> %IDEFIX_INI%
-ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup >> %IDEFIX_INI%
+ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup >> %IDEFIX_INI%
+ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup >> %IDEFIX_INI%
 
 ECHO.
 ECHO # launching %IDEFIX_NAME%
