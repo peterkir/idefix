@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="org.osgi"
-    label="Projects of OSGi">
+    label="OSGi Projects">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -203,7 +203,7 @@
         vm="true"/>
   </setupTask>
 
-  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/osgi.design.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.design.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.examples.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.site.setup#/"/>

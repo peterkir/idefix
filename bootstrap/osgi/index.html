@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>IDEfix - bootstrap win32 oomph setup calls</title>
+	<title>OSGi IDEfix - bootstrap</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <!--
@@ -14,50 +14,77 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<h1>pre-requisite</h1>
+		<h1>OSGi IDE and project setups</h1>
+		<p>This page describes the process of consuming the projects provided by the OSGi Alliance from their <a href="https://github.com/osgi">Github site</a>.</p>
+		<p>It consists of 2 phased process, which involves interactions on the github.com website and on your local machine.</p>
+		<h2>Setup local IDE for the creation of a PR - PullRequest</h2>
+		<p>Probably you have got an anwser from Peter Kriens including an invitation for a PR. Then this process describes how to accept this invitation ;-)</p>
 		<ol>
-			<li>open a terminal</li>
-			<li>create a directory for the installation e.g. mkdir ~/idefix</li>
-			<li>enter newly created folder e.g. cd ~/idefix</li>
-			<li>proceed with the installation sections</li>
+			<li>GitHub: create a fork of a project</li>
+			<li>local: execute the engage[.sh|.cmd]</li>
+			<li>local: select OSGi IDE product and project you forked on GitHub</li>
+			<li>local: edit the project inside the IDE instance and commit your changes to your GitHub fork</li>
+			<li>GitHub: create pull request for the changes you made</li>
 		</ol>
 
-		<h1>installation</h1>
-		<ol>
-			<li>execute the following line inside terminal in the folder you want to install</li>
-		    <li><b>installation</b></b> - downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
-				<code><textarea class="js-copytextarea2" cols=188 rows=1 >curl https://peterkir.github.io/idefix/bootstrap/osgi/macosx/engageOriginal.sh >engageOriginal.sh && chmod +x ./engageOriginal.sh && ./engageOriginal.sh</textarea></code>
-			    <button class="js-textareacopybtn2">clipboard</button></br>
-				<script type="text/javascript">
-					var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
-					copyTextareaBtn.addEventListener('click', function(event) {
-						var copyTextarea = document.querySelector('.js-copytextarea2');
-						copyTextarea.select();
-						try {
-							var successful = document.execCommand('copy');
-						} catch (err) {
-							console.log('Oops, unable to copy');
-						}
-					});
-				</script>
-		    </li>
-	    </ol>
-	    <h1>eclipseInstaller - oomph</h1>
+		<h2>EclipseInstaller</h2> 
+		<h3>Pre-Requisite</h2>
+			<p>open a terminal/shell create a installation directory &lt;instDir&gt; e.g. mkdir ~/&lt;instDir&gt;</p>
+		<h3>Installation</h3>
+			<li>copy the following line and execute it inside &lt;instDir&gt;
+				<ul>
+					<li> <img src="../../icons/win32logo48.png"/><img src="../../icons/win64logo48.png"/>
+						<button class="js-textareacopybtn2">copy to clipboard</button></br>
+						<code><textarea class="js-copytextarea2" cols=80 rows=3 >powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/osgi/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
+						<script type="text/javascript">
+							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
+							copyTextareaBtn.addEventListener('click', function(event) {
+								var copyTextarea = document.querySelector('.js-copytextarea2');
+								copyTextarea.select();
+								try {
+									var successful = document.execCommand('copy');
+								} catch (err) {
+									console.log('Oops, unable to copy');
+								}
+							});
+						</script>
+					</li>
+					<li> <img src="../../icons/MacOSX.png"/><img src="../../icons/Linux_64bit.png"/>
+						<button class="js-textareacopybtn2">copy to clipboard</button></br>
+						<code><textarea class="js-copytextarea2" cols=80 rows=2 >curl https://peterkir.github.io/idefix/bootstrap/osgi/macosx/engage.sh >engage.sh && chmod +x ./engage.sh && ./engage.sh</textarea></code>
+						<script type="text/javascript">
+							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
+							copyTextareaBtn.addEventListener('click', function(event) {
+								var copyTextarea = document.querySelector('.js-copytextarea2');
+								copyTextarea.select();
+								try {
+									var successful = document.execCommand('copy');
+								} catch (err) {
+									console.log('Oops, unable to copy');
+								}
+							});
+						</script>
+					</li>
+				</ul>
+			</li>
+	    <h2>IDE and Project selection</h2>
 	    <ol>
-	    	<li>select from the section <code>IDEfix klib.io</code> the product you want to install via double-click</li>
-	    	<li>scroll down to <code>Projects of klib.io</code> and select <code>CEC 16.1</code> via double-click. It must appear inside the table at the bottom of the window. -> Next</li>
-	    	<li>Next</li>
-	    	<li>Finish</li>
+			<li>on the top-right folder icon mark the <code>OSGi products</code> [required only after initial installation]</li>
+	    	<li>select from the section at the bottom<code>OSGi products</code> the product you want to install e.g. <code>OSGi IDEfix Mars</code> and press <code>Next</code></li>
+			<li>on the top-right folder icon mark the <code>OSGi projects [required only after initial installation]</code></li>
+	    	<li>scroll down to <code>OSGi projects</code> and check the projects you want to work e.g. <code>osgi.design</code> on and press <code>Next</code></li>
+	    	<li>configure the variables and press <code>Next</code></li>
+	    	<li>review the tasks and if satisfied press <code>Finish</code></li>
 	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
-	    	<li>IDEfix Window should appear with the "Bndtools - Eclipse" perspective open.</li>
-	    	<li>eclipseInstaller can be closed</li>
+	    	<li>Eclipse IDE should appear with the "Bndtools - Eclipse" perspective open.</li>
+	    	<li>Eclipse Installer can be closed now and IDE with your project is ready.</li>
 	    </ol>
-	    <h1>Startup of IDEfix installations</h1>
+	    <h2>Startup of IDEfix installations</h2>
 	    <ul>
 	    	<li>IDEfix can be started from now via &lt;installDir&gt;\Eclipse Installer.app</li>
 	    </ul>
 
-	    <h1>clean-up</h1>
+	    <h2>clean-up</h2>
 	    <ol>
 			<li>execute the following line inside the cmd window in the folder you have the installation</li>
 	    		    <li>cleans all locally used directories (only bundle pool remains)</br>
@@ -78,7 +105,7 @@
 		    </li>
 	    </ol>
 
-	<h1>Problems/FAQ</h1>
+	<h2>Problems/FAQ</h2>
 	<ul>
             <li>
             <p><b>Problem: </b>tbd</p>
