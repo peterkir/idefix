@@ -202,8 +202,14 @@
         value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup"
         vm="true"/>
   </setupTask>
+
+  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/osgi.design.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.examples.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.site.setup#/"/>
+
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
+
   <description>All the projects at OSGi that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
