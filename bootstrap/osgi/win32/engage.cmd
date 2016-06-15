@@ -101,7 +101,7 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 
 ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
 IF NOT EXIST %SCRIPT_PATH%\%IDEFIX_NAME%\jre\NUL (
-	XCOPY /Y /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre 2>&1 > NUL
+	XCOPY /Y /I /E /H %JAVA%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre 2>&1 > NUL
 )
 
 SET "IDEFIX_HOME=%SCRIPT_PATH%"
@@ -125,8 +125,8 @@ ECHO -Doomph.setup.product.filter=osgi\.idefix\.mars                >> %IDEFIX_I
 ECHO -Doomph.setup.product.version.filter=latest\.bndtools\.bintray >> %IDEFIX_INI%
 
 ECHO -Doomph.setup.jre.choice=false                                 >> %IDEFIX_INI%
-ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %IDEFIX_INI%
-ECHO -Doomph.update.url=%BINTRAY_BUILD_ROOT%/p2/oomph               >> %IDEFIX_INI%
+::ECHO -Doomph.installer.update.url=%BINTRAY_BUILD_ROOT%/p2/installer >> %IDEFIX_INI%
+::ECHO -Doomph.update.url=%BINTRAY_BUILD_ROOT%/p2/oomph               >> %IDEFIX_INI%
 ECHO -Doomph.setup.installer.mode=advanced                          >> %IDEFIX_INI%
 ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>http://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup >> %IDEFIX_INI%
 ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>http://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup >> %IDEFIX_INI%
