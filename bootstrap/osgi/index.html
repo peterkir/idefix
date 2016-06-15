@@ -35,7 +35,7 @@
 				<ul>
 					<li> <img src="../../icons/win32logo48.png"/><img src="../../icons/win64logo48.png"/>
 						<button class="js-textareacopybtn2">copy to clipboard</button></br>
-						<code><textarea class="js-copytextarea2" cols=80 rows=3 >powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/osgi/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
+						<code><textarea class="js-copytextarea2" cols=80 rows=4 >powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/osgi/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
 						<script type="text/javascript">
 							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
 							copyTextareaBtn.addEventListener('click', function(event) {
@@ -51,7 +51,7 @@
 					</li>
 					<li> <img src="../../icons/MacOSX.png"/><img src="../../icons/Linux_64bit.png"/>
 						<button class="js-textareacopybtn2">copy to clipboard</button></br>
-						<code><textarea class="js-copytextarea2" cols=80 rows=2 >curl https://peterkir.github.io/idefix/bootstrap/osgi/macosx/engage.sh >engage.sh && chmod +x ./engage.sh && ./engage.sh</textarea></code>
+						<code><textarea class="js-copytextarea2" cols=80 rows=3 >curl https://peterkir.github.io/idefix/bootstrap/osgi/macosx/engage.sh >engage.sh && chmod +x ./engage.sh && ./engage.sh</textarea></code>
 						<script type="text/javascript">
 							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
 							copyTextareaBtn.addEventListener('click', function(event) {
@@ -73,7 +73,11 @@
 	    	<li>select from the section at the bottom<code>OSGi products</code> the product you want to install e.g. <code>OSGi IDEfix Mars</code> and press <code>Next</code></li>
 			<li>on the top-right folder icon mark the <code>OSGi projects [required only after initial installation]</code></li>
 	    	<li>scroll down to <code>OSGi projects</code> and check the projects you want to work e.g. <code>osgi.design</code> on and press <code>Next</code></li>
-	    	<li>configure the variables and press <code>Next</code></li>
+	    	<li>configure the variables and press <code>Next</code>
+				<ul>
+					<li>tbd</li>
+				</ul>
+			</li>
 	    	<li>review the tasks and if satisfied press <code>Finish</code></li>
 	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
 	    	<li>Eclipse IDE should appear with the "Bndtools - Eclipse" perspective open.</li>
@@ -85,6 +89,12 @@
 	    </ul>
 
 	    <h2>clean-up</h2>
+		<p>the installation creates (additionally to the &lt;installDir&gt; folder) following directories (<code>~</code> means <code>%USERPROFILE%</code> on windows)</p>
+		<ol>
+			<li><code>~/.eclipse/org.eclipse.oomph.*</code> containing the oomph preferences and user-specified variables</li>
+			<li><code>~/.p2</code> containing the shared bundle pool for all oomph installations</li>
+		</ol>
+<!--
 	    <ol>
 			<li>execute the following line inside the cmd window in the folder you have the installation</li>
 	    		    <li>cleans all locally used directories (only bundle pool remains)</br>
@@ -104,7 +114,8 @@
 				</script>
 		    </li>
 	    </ol>
-
+-->
+<!--
 	<h2>Problems/FAQ</h2>
 	<ul>
             <li>
@@ -113,6 +124,7 @@
             <p><b>Solution:</b>tbd</p>
             </li>
  	</ul>
+-->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
