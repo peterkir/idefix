@@ -10,7 +10,7 @@ TITLE %title%
 SET POWERSHELL_TITLE=$Host.UI.RawUI.WindowTitle='%title%'
 
 IF "%1"=="" (
-    SET BRANCH=peterkir
+	SET BRANCH=master
 ) ELSE (
     SET BRANCH=%1
 )
@@ -25,12 +25,11 @@ SET DL=%SCRIPT_PATH%\.download
 :: folder must exists for powershell download requests
 MKDIR %DL% 2>&1 > NUL
 
-SET BRANCH=master
-SET VERSION=1.4.0
 SET GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph/
 SET GITHUB_IO_LATEST=latest
 
 SET GITHUB_IO_BOOT=http://peterkir.github.io/idefix/bootstrap/peterkir/win32
+SET OOMPH_VERSION=1.4.0
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE

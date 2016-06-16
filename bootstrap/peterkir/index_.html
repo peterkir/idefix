@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>IDEfix - bootstrap win32 oomph setup calls</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<h1>pre-requisite</h1>
+		<ol>
+			<li>Powershell version &gt; 3.0 </br><a href="https://www.microsoft.com/en-us/download/details.aspx?id=34595">Download Powershell 3.0</a></a></li>
+			<li>open a command window e.g. via Windows + R and cmd</li>
+			<li>create a directory for the installation (avoid spaces in directory path) e.g. mkdir c:\eclipseInstaller</li>
+			<li>enter newly created folder e.g. cd /d c:\eclipseInstaller</li>
+			<li>proceed with the installation sections</li>
+		</ol>
+
+		<h1>installation</h1>
+		<ol>
+			<li>execute the following line inside the cmd window in the folder you want to install</li>
+		    <li><b>installation</b></b> - downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
+				<code><textarea class="js-copytextarea2" cols=80 rows=4 >cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/peterkir/win32/engageOriginal.cmd','engageOriginal.cmd')}" & engageOriginal.cmd</textarea></code>
+			    <button class="js-textareacopybtn2">clipboard</button></br>
+				<script type="text/javascript">
+					var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
+					copyTextareaBtn.addEventListener('click', function(event) {
+						var copyTextarea = document.querySelector('.js-copytextarea2');
+						copyTextarea.select();
+						try {
+							var successful = document.execCommand('copy');
+						} catch (err) {
+							console.log('Oops, unable to copy');
+						}
+					});
+				</script>
+		    </li>
+	    </ol>
+	    <h1>eclipseInstaller - oomph</h1>
+	    <ol>
+	    	<li>scroll down to <code>klib.io</code> and select <code>IDEfix for Daimler</code> via double-click</li>
+	    	<li>scroll down to <code>Projects of klib.io</code> and select <code>CEC 16.1</code> via double-click. It must appear inside the table at the bottom of the window. -> Next</li>
+	    	<li>Next</li>
+	    	<li>Finish</li>
+	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
+	    	<li>IDEfix Window should appear with the "Bndtools - Eclipse" perspective open.</li>
+	    	<li>eclipseInstaller can be closed</li>
+	    	<li>continue with the setup via "Team Artifacts" view - servername <code>https://jazz10.rd.corpintra.net:9443/ccm</code></li>
+	    </ol>
+	    <h1>Startup of IDEfix installations</h1>
+	    <ul>
+	    	<li>IDEfix can be started from now via &lt;installDir&gt;\oomph\cec161-dev\eclipse\eclipse.exe</li>
+	    </ul>
+
+	    <h1>clean-up</h1>
+	    <ol>
+			<li>execute the following line inside the cmd window in the folder you have the installation</li>
+	    		    <li>cleans all locally used directories (only bunlde pool remains)</br>
+				<code><textarea class="js-copytextarea3" cols=188 rows=1 >cls & powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/peterkir/win32/clean.cmd','clean.cmd')}" & clean.cmd</textarea></code>
+			    <button class="js-textareacopybtn3">clipboard</button></br>
+				<script type="text/javascript">
+					var copyTextareaBtn = document.querySelector('.js-textareacopybtn3');
+					copyTextareaBtn.addEventListener('click', function(event) {
+						var copyTextarea = document.querySelector('.js-copytextarea3');
+						copyTextarea.select();
+						try {
+							var successful = document.execCommand('copy');
+						} catch (err) {
+							console.log('Oops, unable to copy');
+						}
+					});
+				</script>
+		    </li>
+	    </ol>
+
+	<h1>Problems/FAQ</h1>
+	<ul>
+            <li>
+            <p><b>Problem: </b>Installer fails during download<!--<img src="proxyFailure.png">-->
+            <p><b>Reason:  </b>network problems due to e.g. time-out, proxies, ssl-accelerator, ...</p>
+            <p><b>Solution:</b>try "Back" and "Next" once or twice. It will try to reload. If error persists contact admin.</p>
+            </li>
+            <li>
+            <p><b>Problem: </b>Exception calling "DownloadFile" with "2" argument(s): "The remote server returned an error: (407) Proxy Authentication Required."</p>
+            <img src="../images/proxyFailure.png">
+            <p><b>Solution: </b>open InternetExplorer and goto a Internet Site (not Intranet). After site is loaded do the cmd execution again.</p>
+            </li>
+	</ul>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+    </body>
+</html>

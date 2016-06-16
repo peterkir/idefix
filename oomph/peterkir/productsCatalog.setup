@@ -4,10 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="io.klib.products"
-    label="IDEfix for klib.io">
+    label="klib.io Products">
   <product href="http://peterkir.github.io/idefix/oomph/peterkir/products/idefix-base.setup#/"/>
   <product href="http://peterkir.github.io/idefix/oomph/peterkir/products/idefix-all.setup#/"/>
-  <product href="http://peterkir.github.io/idefix/oomph/daimler/products/idefix-cec.setup#/"/>
-  <product href="http://peterkir.github.io/idefix/oomph/bndtools/products/idefix-bndtools.setup#/"/>
   <description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/peterkir/product/'>IDEfix&lt;/a> at klib.io</description>
 </setup:ProductCatalog>
