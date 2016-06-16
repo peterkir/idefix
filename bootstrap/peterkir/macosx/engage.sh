@@ -1,134 +1,132 @@
 #!/bin/bash
 echo -e "\n###------------------------------------------------------------------------------"
-echo "# oomphInstaller "
+echo "# Eclipse Installer "
 echo "###------------------------------------------------------------------------------"
 
-SCRIPT_PATH=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph
-GITHUB_IO_LATEST=latest
-BRANCH=peterkir
-LATEST_URL=$GITHUB_IO/$BRANCH/$GITHUB_IO_LATEST
+DL="$SCRIPT_PATH/download"
+echo "creating download folder $DL"
+mkdir $DL > /dev/null 2>&1
+pushd $DL > /dev/null 2>&1
 
-OOMPH_NAME=oomphInstaller
-DOWNLOAD_LOCATION=$SCRIPT_PATH/download
-mkdir $DOWNLOAD_LOCATION > /dev/null 2>&1
-pushd $DOWNLOAD_LOCATION > /dev/null 2>&1
-
-echo "###"
-echo "# retrieving latest build from $LATEST_URL"
-echo "###"
-LATEST=`curl -L -\# -O $LATEST_URL && cat $DOWNLOAD_LOCATION/$GITHUB_IO_LATEST`
-BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/1.3.0/$BRANCH/$LATEST
-
-ECLIPSE_INSTALLER_WEB=$BINTRAY_BUILD_ROOT/products
-ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-macosx.cocoa.x86_64.zip
-ECLIPSE_INSTALLER=${ECLIPSE_INSTALLER_ARCHIVE%.zip}
+ECL_INST_ARCHIVE=eclipse-inst-mac64.tar.gz
+ECL_INST_WEB="http://www.eclipse.org/downloads/download.php?file=/oomph/products/${ECL_INST_ARCHIVE}&r=1"
+ECL_INST_APP=Eclipse\ Installer.app
+ECL_INST=eclipseInstaller
 echo -e "\n###------------------------------------------------------------------------------"
-echo "# downloading and preparing $ECLIPSE_INSTALLER"
+echo "# downloading and preparing $ECL_INST_APP"
 echo "###------------------------------------------------------------------------------"
 
-if [ -e $DOWNLOAD_LOCATION/$ECLIPSE_INSTALLER_ARCHIVE ]
+if [ -e $DL/$ECL_INST_ARCHIVE ]
 then
-   echo "skipping download - file already exists"
+   echo "   - skipping download - file already exists"
 else
-   echo "downloading archive $ECLIPSE_INSTALLER_WEB/$ECLIPSE_INSTALLER_ARCHIVE"
-   curl -L -\# -O $ECLIPSE_INSTALLER_WEB/$ECLIPSE_INSTALLER_ARCHIVE
+   echo "   - downloading archive $ECL_INST_WEB"
+   curl -L -\# -o $DL/$ECL_INST_ARCHIVE ${ECL_INST_WEB}
 fi
 
-OOMPH_LOC=$SCRIPT_PATH/Eclipse\ Installer.app
-OOMPH_ECLIPSE_LOC=$OOMPH_LOC/Contents/Eclipse
+ECL_INST_LOC=$SCRIPT_PATH/$ECL_INST_APP
+ECL_INST_ECLIPSE_LOC=$ECL_INST_LOC/Contents/Eclipse
 
-echo extracting ECLIPSE_INSTALLER archive to $OOMPH_LOC
-if [ -e "$OOMPH_LOC" ]
+if [ -e "$ECL_INST_LOC" ]
 then
-   echo "skipping unzipping "$OOMPH_LOC" - folder already exists"
+   echo "   - skipping unzipping "$ECL_INST_LOC" - folder already exists"
 else
-   unzip -d $SCRIPT_PATH $DOWNLOAD_LOCATION/$ECLIPSE_INSTALLER_ARCHIVE \
-   >  ${ECLIPSE_INSTALLER}_unzip_stdout.log \
-   2> ${ECLIPSE_INSTALLER}_unzip_stderr.log
+   echo "   - extracting $DL/$ECL_INST_ARCHIVE to $ECL_INST_LOC"
+   tar -xzf $DL/$ECL_INST_ARCHIVE -C $SCRIPT_PATH \
+   >  ${ECL_INST}_unzip_stdout.log \
+   2> ${ECL_INST}_unzip_stderr.log
 fi
 
-JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
+#JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
+JAVA_WEB=http://www.klib.io/_archives/java/1.8
 JAVA_ARCHIVE=macosx.x86_64-jre1.8.0_66.zip
-JAVA=${JAVA_ARCHIVE%.zip}
+JAVA=${JAVA_ARCHIVE:0:25}
 echo -e "\n###------------------------------------------------------------------------------"
-echo "# downloading and preparing jre $JAVA"
+echo "# downloading and preparing Java $JAVA"
 echo "###------------------------------------------------------------------------------"
 
 if [ -e $JAVA_ARCHIVE ]
 then
-   echo "skipping download - file $JAVA_ARCHIVE already exists"
+   echo "   - skipping download - file $JAVA_ARCHIVE already exists"
 else
-   echo "downloading java archive $JAVA_WEB/$JAVA_ARCHIVE"
+   echo "   - downloading java archive $JAVA_WEB/$JAVA_ARCHIVE"
    curl -L -\# -O $JAVA_WEB/$JAVA_ARCHIVE
 fi
 
-echo "extracting $JAVA archive to $OOMPH_ECLIPSE_LOC/jre"
-if [ -e "$OOMPH_ECLIPSE_LOC/jre" ]
+if [ -d "$DL/$JAVA" ]
 then
-   echo 'skipping jre preparation - folder already exists'
+   echo "   - skipping extraction - already existing folder $DL/$JAVA"
 else
-   unzip -d $DOWNLOAD_LOCATION $DOWNLOAD_LOCATION/$JAVA_ARCHIVE \
+   echo "   - extracting archive $JAVA_ARCHIVE to $ECL_INST_ECLIPSE_LOC/jre"
+   unzip -d $DL $DL/$JAVA_ARCHIVE \
    >  ${JAVA_ARCHIVE}_unzip_stdout.log \
    2> ${JAVA_ARCHIVE}_unzip_stderr.log
-
-   mv "$DOWNLOAD_LOCATION/$JAVA" "$OOMPH_ECLIPSE_LOC/jre"
 fi
 
-JAVA_HOME=$OOMPH_ECLIPSE_LOC/jre
-OOMPH_HOME=$SCRIPT_PATH/oomph
-P2_HOME=$SCRIPT_PATH/p2
+if [ -d "$ECL_INST_ECLIPSE_LOC/jre" ]
+then
+   echo "   - skipping jre preparation - already existing folder $ECL_INST_ECLIPSE_LOC/jre"
+else
+   echo "   - copy JRE to $ECL_INST_ECLIPSE_LOC/jre"
+   cp -r  "$DL/$JAVA" "$ECL_INST_ECLIPSE_LOC/jre"
+fi
+
+JAVA_HOME=$ECL_INST_ECLIPSE_LOC/jre
 
 echo "###------------------------------------------------------------------------------"
-echo '# configuring oomph installer'
-echo "###------------------------------------------------------------------------------"
-OOMPH_HOME=$SCRIPT_PATH/oomph
-OOMPH_ECLIPSE_INI=$OOMPH_ECLIPSE_LOC/eclipse-inst.ini
-
-mkdir ${OOMPH_HOME} > /dev/null 2>&1
-
-JVM=`echo -vm'\n'$JAVA_HOME/bin'\n'-vmargs`
-sed -i 's/-vmargs/${JVM}/' ${OOMPH_ECLIPSE_INI}
-
-echo adding vmArgs to ini file
-
-# custom added parameters
-echo "-Doomph.home=$OOMPH_HOME"          >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.p2.agent.path=$P2_HOME"    >> "$OOMPH_ECLIPSE_INI"
-
-# allow installation of unsigned bundles
-echo "-Declipse.p2.unsignedPolicy=allow" >> "$OOMPH_ECLIPSE_INI"
-
-# hidden p2 options (configured to default)
-echo "-Declipse.p2.max.threads=4"        >> "$OOMPH_ECLIPSE_INI"
-echo "-Declipse.p2.force.threading=true" >> "$OOMPH_ECLIPSE_INI"
-echo "-Declipse.p2.mirrors=true"         >> "$OOMPH_ECLIPSE_INI"
-
-# filtering user displayed catalogs/products/versions
-echo "-Doomph.setup.product.catalog.filter=io.klib.products" >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.setup.product.filter=idefix.cec"               >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.setup.product.version.filter=161.slim"         >> "$OOMPH_ECLIPSE_INI"
-
-echo "-Doomph.setup.jre.choice=false"                                 >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.installer.update.url=$BINTRAY_BUILD_ROOT/p2/installer"  >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.update.url=$BINTRAY_BUILD_ROOT/p2/oomph"                >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.setup.installer.mode=advanced"                          >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/products/productsCatalog.setup" >> "$OOMPH_ECLIPSE_INI"
-echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/projects/projectsCatalog.setup" >> "$OOMPH_ECLIPSE_INI"
-
-#INSTALL_ROOT=$SCRIPT_PATH/install
-#mkdir ${INSTALL_ROOT} > /dev/null 2>&1
-#echo "-Dinstall.root=$INSTALL_ROOT" >> "$OOMPH_ECLIPSE_INI"
-
-#WRKSPC_ROOT=$SCRIPT_PATH/wrkspc
-#mkdir ${WRKSPC_ROOT} > /dev/null 2>&1
-#echo "-Dworkspace.container.root=$WRKSPC_ROOT" >> "$OOMPH_ECLIPSE_INI"
-
-echo "###------------------------------------------------------------------------------"
-echo "# launching oomph app"
+echo '# configuring Eclipse Installer'
 echo "###------------------------------------------------------------------------------"
 
+ECL_INST_INI=$ECL_INST_ECLIPSE_LOC/eclipse-inst.ini
+
+if grep -q peterkir.github.io "$ECL_INST_INI"; then
+   echo "skipping vmArgs cause already contained"
+else
+   ECL_INST_INI_ORG=$DL/eclipse-inst_ORIGINAL.ini
+   ECL_INST_INI_BAK=$DL/eclipse-inst.ini
+
+   cp -f "$ECL_INST_INI" "$ECL_INST_INI_ORG"
+   cp -f "$ECL_INST_INI" "$ECL_INST_INI_BAK"
+
+   #JVM=`echo -vm'\n'$JAVA_HOME/bin'\n'-vmargs`
+   #sed -i 's/-vmargs/${JVM}/' "${ECL_INST_INI}"
+
+   echo adding vmArgs to ini file
+
+   # allow installation of unsigned bundles
+   echo "-Declipse.p2.unsignedPolicy=allow" >> "$ECL_INST_INI_BAK"
+
+   # hidden p2 options (configured to default)
+   echo "-Declipse.p2.max.threads=4"        >> "$ECL_INST_INI_BAK"
+   echo "-Declipse.p2.force.threading=true" >> "$ECL_INST_INI_BAK"
+   echo "-Declipse.p2.mirrors=true"         >> "$ECL_INST_INI_BAK"
+
+   # filtering user displayed catalogs/products/versions
+   echo "-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.filter=idefix\\\\.cec"                   >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.version.filter=161\\\\.slim"             >> "$ECL_INST_INI_BAK"
+
+   echo "-Doomph.setup.jre.choice=false"                                 >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.installer.mode=advanced"                          >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup" >> "$ECL_INST_INI_BAK"
+
+   #INSTALL_ROOT=$SCRIPT_PATH/install
+   #mkdir ${INSTALL_ROOT} > /dev/null 2>&1
+   #echo "-Dinstall.root=$INSTALL_ROOT" >> "$ECL_INST_INI_BAK"
+
+   #WRKSPC_ROOT=$SCRIPT_PATH/wrkspc
+   #mkdir ${WRKSPC_ROOT} > /dev/null 2>&1
+   #echo "-Dworkspace.container.root=$WRKSPC_ROOT" >> "$ECL_INST_INI_BAK"
+
+   cp -f "$ECL_INST_INI_BAK" "$ECL_INST_INI"
+fi
+
+echo "###------------------------------------------------------------------------------"
+echo "# launching Eclipse Installer"
+echo "###------------------------------------------------------------------------------"
 echo "open $SCRIPT_PATH/Eclipse\ Installer.app"
 open "$SCRIPT_PATH/Eclipse Installer.app"
 
