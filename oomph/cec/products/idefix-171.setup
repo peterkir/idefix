@@ -181,6 +181,8 @@
             versionRange="[3.11.0,3.12.0)"/>
         <repository
             url="http://download.eclipse.org/releases/mars/201602261000"/>
+        <repository
+            url="http://download.eclipse.org/technology/epp/packages/mars"/>
       </setupTask>
     </setupTask>
     <setupTask
