@@ -55,6 +55,10 @@
         vm="true">
       <description>Set the heap space needed to work with the projects of ${scope.project.label}</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-perspective"
+        value="bndtools.perspective"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -86,6 +90,10 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         name="org.eclipse.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui/defaultPerspectiveId"
+          value="bndtools.perspective"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui/SHOW_MEMORY_MONITOR"

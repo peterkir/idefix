@@ -7,10 +7,6 @@
 
 	<title>IDEfix peterkir - bootstrap</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<h1>IDEfix product and project setups</h1>
@@ -43,9 +39,17 @@
 			<li>copy the following line and execute it inside &lt;eclipseInstallerDir&gt;
 				<ul>
 					<li> <img src="../../icons/win32logo48.png"/><img src="../../icons/win64logo48.png"/>
-						<button class="js-textareacopybtn2">copy to clipboard</button></br>
-						<code><textarea class="js-copytextarea2" cols=80 rows=4 >powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/peterkir/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
+					
+					<div>
+						<button onclick="copyToClipboard(this)" class="js-textareacopybtn2">copy to clipboard</button></br>
+						<code><textarea class="js-copytextarea2" cols=80 rows=4 >powershell -command "& {(New-ObjectSystem.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/peterkir/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
+						
+					<div>
 						<script type="text/javascript">
+							function copyToClipboard(element) {
+								console.log(element.parent.childNodes[1].childNodes[0].getText());
+							}
+						
 							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
 							copyTextareaBtn.addEventListener('click', function(event) {
 								var copyTextarea = document.querySelector('.js-copytextarea2');
@@ -104,9 +108,10 @@
 			</li>
 	    	<li>select from the section at the bottom<code>klib.io Products</code> the product you want to install e.g. <code>OSGi IDEfix Mars</code> and press <code>Next</code></li>
 	    	<li>scroll down to <code>klib.io Projects</code> and check the projects you want to work e.g. <code>example.aspectj</code> on and press <code>Next</code></li>
-	    	<li>configure the variables and press <code>Next</code>
+	    	<li>configure the following variables and press <code>Next</code>
 				<ul>
-					<li>tbd</li>
+					<li><code>Root install folder</code>0</li>
+					<li><code>GitHub user ID</code></li>
 				</ul>
 			</li>
 	    	<li>review the tasks and if satisfied press <code>Finish</code></li>
@@ -169,8 +174,4 @@
             </li>
  	</ul>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
 </html>

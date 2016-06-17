@@ -29,7 +29,7 @@ SET SCRIPTNAME=%~n0
 SET SCRIPT_PATH=%~dp0
 SET SCRIPT_PATH=%SCRIPT_PATH:~0,-1%
 
-SET IDEFIX_NAME=idefixInstaller
+SET ECL_INST_NAME=idefixInstaller
 SET DL=%SCRIPT_PATH%\.download
 :: folder must exists for powershell download requests
 MKDIR %DL% 2>&1 > NUL
@@ -72,7 +72,7 @@ CALL %DL%\%JAVA_CMD% %SCRIPT_PATH%
 FOR /F %%a IN ('DIR /B %SCRIPT_PATH%\java\1.8') DO SET JAVA8=%SCRIPT_PATH%\java\1.8\%%a
 
 ECHO.
-ECHO # setup local %IDEFIX_NAME%
+ECHO # download and extract into %SCRIPT_PATH%\%ECL_INST_NAME%
 ECHO.
 
 :: download of a file with powershell - http://superuser.com/a/423789/344922
@@ -93,49 +93,45 @@ IF "%ERRORLEVEL%"=="" (
 	GOTO END
 )
 
-powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%IDEFIX_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %SCRIPT_PATH%\%IDEFIX_NAME%' } else { Write-Output '   - extracting ECLIPSE_INSTALLER archive to %SCRIPT_PATH%\%IDEFIX_NAME%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%IDEFIX_NAME%')}"
+powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%ECL_INST_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %SCRIPT_PATH%\%ECL_INST_NAME%' } else { Write-Output '   - extracting ECLIPSE_INSTALLER archive to %SCRIPT_PATH%\%ECL_INST_NAME%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%ECL_INST_NAME%')}"
 
-ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%IDEFIX_NAME%\jre
-IF NOT EXIST %SCRIPT_PATH%\%IDEFIX_NAME%\jre\NUL (
-	XCOPY /Y /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%IDEFIX_NAME%\jre 2>&1 > NUL
+ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%ECL_INST_NAME%\jre
+IF NOT EXIST %SCRIPT_PATH%\%ECL_INST_NAME%\jre\NUL (
+	XCOPY /Y /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%ECL_INST_NAME%\jre 2>&1 > NUL
 )
 
-SET "IDEFIX_HOME=%SCRIPT_PATH%"
-MKDIR %IDEFIX_HOME% 2>&1 > NUL
+SET ECL_INST_INI=%SCRIPT_PATH%\%ECL_INST_NAME%\eclipse-inst.ini
 
-SET IDEFIX_HOME=%IDEFIX_HOME:\=/%
-SET IDEFIX_INI=%SCRIPT_PATH%\%IDEFIX_NAME%\eclipse-inst.ini
-
-FINDSTR peterkir.github.io %IDEFIX_INI% 2>&1 > NUL
+FINDSTR peterkir.github.io %ECL_INST_INI% 2>&1 > NUL
 IF "%ERRORLEVEL%"=="" (
     ECHO    - skipping vmArgs addition, cause already inside
 ) ELSE (
     ECHO    - adding vmArgs to ini file
     :: allow installation of unsigned bundles
-    ECHO -Declipse.p2.unsignedPolicy=allow >> %IDEFIX_INI%
+    ECHO -Declipse.p2.unsignedPolicy=allow >> %ECL_INST_INI%
     
     :: hidden p2 options (configured to default)
-    ECHO -Declipse.p2.max.threads=4        >> %IDEFIX_INI%
-    ECHO -Declipse.p2.force.threading=true >> %IDEFIX_INI%
-    ECHO -Declipse.p2.mirrors=true         >> %IDEFIX_INI%
+    ECHO -Declipse.p2.max.threads=4        >> %ECL_INST_INI%
+    ECHO -Declipse.p2.force.threading=true >> %ECL_INST_INI%
+    ECHO -Declipse.p2.mirrors=true         >> %ECL_INST_INI%
     
     :: filtering user displayed catalogs/products/versions
-    ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products)>> %IDEFIX_INI%
-    ECHO -Doomph.setup.product.filter=(idefix\.base)>> %IDEFIX_INI%
-    ECHO -Doomph.setup.product.version.filter=(mars)>> %IDEFIX_INI%
+    ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products\)>> %ECL_INST_INI%
+    ECHO -Doomph.setup.product.filter=(idefix\.base)>> %ECL_INST_INI%
+    ECHO -Doomph.setup.product.version.filter=(mars)>> %ECL_INST_INI%
     
-    ECHO -Doomph.setup.jre.choice=false                          >> %IDEFIX_INI%
-    ECHO -Doomph.installer.update.url=%BUILD_STORE%/p2/installer >> %IDEFIX_INI%
-    ECHO -Doomph.update.url=%BUILD_STORE%/p2/oomph               >> %IDEFIX_INI%
-    ECHO -Doomph.setup.installer.mode=advanced                   >> %IDEFIX_INI%
-    ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>https://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup >> %IDEFIX_INI%
-    ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>https://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup >> %IDEFIX_INI%
+    ECHO -Doomph.setup.jre.choice=false                          >> %ECL_INST_INI%
+    ECHO -Doomph.installer.update.url=%BUILD_STORE%/p2/installer >> %ECL_INST_INI%
+    ECHO -Doomph.update.url=%BUILD_STORE%/p2/oomph               >> %ECL_INST_INI%
+    ECHO -Doomph.setup.installer.mode=advanced                   >> %ECL_INST_INI%
+    ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>https://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup >> %ECL_INST_INI%
+    ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>https://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup >> %ECL_INST_INI%
 )
 
 ECHO.
-ECHO # launching %IDEFIX_NAME%
+ECHO # launching %ECL_INST_NAME%
 ECHO.
-START /B %SCRIPT_PATH%\%IDEFIX_NAME%\eclipse-inst.exe
+START /B %SCRIPT_PATH%\%ECL_INST_NAME%\eclipse-inst.exe
 
 ::ECHO.
 ::ECHO # clean-up

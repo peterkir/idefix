@@ -6,7 +6,7 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="idefix.cec"
-    label="IDEfix CEC">
+    label="IDEfix CEC 171">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -208,13 +208,12 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="bndtools (latest 3.x)">
+          label="bndtools latest">
         <requirement
-            name="bndtools.main.feature.feature.group"
-            versionRange="[3.0.0,4.0.0)"/>
+            name="bndtools.main.feature.feature.group"/>
         <repository
-            url="${repo.source}/dl.bintray.com/bndtools/bndtools/3.2.0"/>
-        <description>Latest local bndtools version</description>
+            url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+        <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
     </setupTask>
     <setupTask
