@@ -224,7 +224,7 @@
           label="Jazz / IBM Rational Team Concert">
         <requirement
             name="com.ibm.team.rtc.client.feature.feature.group"
-            versionRange="[6.0.0,7.0.0)"/>
+            versionRange="[4.5.0,5.0.0)"/>
         <repository
             url="${repo.source}/jazz.net/6.x/RTC-Client-p2Repo-6.0.1"/>
         <description></description>
