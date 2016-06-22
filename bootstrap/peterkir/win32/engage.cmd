@@ -116,9 +116,9 @@ IF "%ERRORLEVEL%"=="" (
     ECHO -Declipse.p2.mirrors=true         >> %ECL_INST_INI%
     
     :: filtering user displayed catalogs/products/versions
-    ECHO -Doomph.setup.product.catalog.filter=(io\.klib\.products\)>> %ECL_INST_INI%
-    ECHO -Doomph.setup.product.filter=(idefix\.base)>> %ECL_INST_INI%
-    ECHO -Doomph.setup.product.version.filter=(mars)>> %ECL_INST_INI%
+    ECHO -Doomph.setup.product.catalog.filter=io\.klib\.products>> %ECL_INST_INI%
+    ECHO -Doomph.setup.product.filter=idefix\.base>> %ECL_INST_INI%
+    ECHO -Doomph.setup.product.version.filter=mars>> %ECL_INST_INI%
     
     ECHO -Doomph.setup.jre.choice=false                          >> %ECL_INST_INI%
     ECHO -Doomph.installer.update.url=%BUILD_STORE%/p2/installer >> %ECL_INST_INI%
