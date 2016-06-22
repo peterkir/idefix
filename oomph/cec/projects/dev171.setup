@@ -47,5 +47,8 @@
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
   <stream name="dev"/>
-  <description></description>
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']/@projects[name='io.klib.tools']"/>
+  <description>IDE configurations used inside Daimler CEC project</description>
 </setup:Project>
