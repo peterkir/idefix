@@ -5,34 +5,129 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>IDEfix - bootstrap win32 oomph setup calls</title>
+	<title>IDEfix CEC - bootstrap</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<!--
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
--->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<h1>pre-requisite</h1>
-		<ol>
-			<li>Powershell version &gt; 3.0 </br><a href="https://www.microsoft.com/en-us/download/details.aspx?id=34595">Download Powershell 3.0</a></a></li>
-			<li>open a command window e.g. via Windows + R and cmd</li>
-			<li>create a directory for the installation (avoid spaces in directory path) e.g. mkdir c:\eclipseInstaller</li>
-			<li>enter newly created folder e.g. cd /d c:\eclipseInstaller</li>
-			<li>proceed with the installation sections</li>
-		</ol>
+		<h1>IDEfix product and project setups</h1>
+		<p>This page describes the process of consuming the projects provided by peterkir from <a href="https://github.com/peterkir">Github site</a>.</p>
+		<p>Mind the copy to clipboard links with the icon <img src="../../icons/copy16.png"/></p>
+		
 
-		<h1>installation</h1>
+		<h2 id="TOC">TOC</h1>
+		<ul>
+			<li><a href="#virgin">First-time/virgin installation</a>
+				<ul>
+					<li><a href="#virgin-prereq">Pre-requisites</a></li>
+					<li><a href="#virgin-install">Installation</a></li>
+					<li><a href="#virgin-config">Configuration</a></li>
+				</ul>
+			</li>
+				
+			<li><a href="#install">Installing products and/or projects</a></li>
+			<li><a href="#launch">Launching already installed products and/or projects</a></li>
+			<li><a href="#invite">Invitation for contributions</a></li>
+			<li><a href="#FAQ">FAQ and Known Issues</a></li>
+		</ul>
+
+		<h2 id="virgin">First-time/virgin installation</h2>
+			<p>This sections describes the initial process on a machine to setup the eclipseInstaller and allow installation of products and projects</p>
+		<h3 id="virgin-prereq">Pre-Requisite</h2>
+			<p><img src="../../icons/win32logo48.png"/><img src="../../icons/win64logo48.png"/><b>Powershell version 3.0</b> is the minimal supported version.
+			You can test your version in a cmd shell by executing 
+				<div>
+					<code><textarea cols=60>powershell -command "$PSVersionTable" | FINDSTR PSVersion</textarea></code><button onclick="copyToClipboard(this)"><img src="../../icons/copy16.png"/></button></br>
+				</div>
+			</p>
+			<p><img src="../../icons/MacOSX.png"/><img src="../../icons/Linux_64bit.png"/><b>curl</b> must be available. Test with 
+							<div>
+					<code><textarea cols=60>curl --version</textarea></code><button onclick="copyToClipboard(this)"><img src="../../icons/copy16.png"/></button></br>
+				</div>
+			</p>
+			<p>open a terminal/shell create a installation directory <code>&lt;eclipseInstallerDir&gt;</code> e.g. <code>mkdir ~/&lt;eclipseInstallerDir&gt;</code></p>
+		<h3  id="virgin-install">Installation</h3>
+			<li>copy the following line and execute it inside &lt;eclipseInstallerDir&gt;
+				<ul>
+					<li>							
+						<img src="../../icons/win32logo48.png"/>
+						<img src="../../icons/win64logo48.png"/>
+						<div>
+							<button onclick="copyToClipboard(this)"><img src="../../icons/copy16.png"/></button></br>
+							<code><textarea cols=80 rows=4>powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/cec/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
+						</div>
+					</li>
+					<li>
+						<img src="../../icons/MacOSX.png"/>
+						<img src="../../icons/Linux_64bit.png"/>
+						<div>
+							<button onclick="copyToClipboard(this)"><img src="../../icons/copy16.png"/></button></br>
+							<code><textarea cols=80 rows=3>curl https://peterkir.github.io/idefix/bootstrap/cec/macosx/engage.sh >engage.sh && chmod +x ./engage.sh && ./engage.sh</textarea></code>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>eclipseInstaller window shows up</li>
+		<h3  id="virgin-config">Configuration</h3>
+			<li>on the top-right folder icon mark the <code>klib.io Products</code> [required only after initial installation]</li>
+	    	<li>select from the section at the bottom<code>klib.io Products</code> the product you want to install e.g. <code>OSGi IDEfix Mars</code> and press <code>Next</code></li>
+			<li>on the top-right folder icon mark the <code>klib.io Projects</code> [required only after initial installation]</li>
+	    	<li>scroll down to <code>klib.io Projects</code> and check the projects you want to work e.g. <code>example.aspectj</code> on and press <code>Next</code></li>
+	    	<li>configure the variables and press <code>Next</code>
+				<ul>
+					<li>tbd</li>
+				</ul>
+			</li>
+	    	<li>review the tasks and if satisfied press <code>Finish</code></li>
+	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
+	    	<li>IDEfix Eclipse should open up</li>
+	    	<li>Eclipse Installer can be closed now and IDE with your project is ready.</li>
+
+	<h2 id="install">Installing products and/or projects</h2>
+		<p>You already completed the <a href="virgin">First-time/virgin installation"</a> and want to install additonal products and/or projects.</p>
+		<p>This sections describes the installation of products and projects. Keep in mind that you can also just install a product and skip the project installation.</p>
+	    <ol>
+			<li>launch eclipseInstaller
+			<ul>
+				<li><img src="../../icons/win32logo48.png"/><img src="../../icons/win64logo48.png"/><code>&lt;eclipseInstallerDir&gt;\eclipse\eclipse.exe</code></li>
+				<li><img src="../../icons/MacOSX.png"/><img src="../../icons/Linux_64bit.png"/><code>&lt;eclipseInstallerDir&gt;\Eclipse Installer.app</code></li>
+			</ul>
+			</li>
+	    	<li>select from the section at the bottom<code>klib.io Products</code> the product you want to install e.g. <code>OSGi IDEfix Mars</code> and press <code>Next</code></li>
+	    	<li>scroll down to <code>klib.io Projects</code> and check the projects you want to work e.g. <code>example.aspectj</code> on and press <code>Next</code></li>
+	    	<li>configure the following variables and press <code>Next</code>
+				<ul>
+					<li><code>Root install folder</code>0</li>
+					<li><code>GitHub user ID</code></li>
+				</ul>
+			</li>
+	    	<li>review the tasks and if satisfied press <code>Finish</code></li>
+	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
+	    	<li>IDEfix Eclipse should open up</li>
+	    	<li>Eclipse Installer can be closed now and IDE with your project is ready.</li>
+	    </ol>
+	    <h2>Startup of IDEfix products</h2>
+		<p>The products you installed are as default all located in a common <code>&lt;instDir&gt;</code>. They have either the product name (product only installation) or the project and branch name.<code>&lt;product_or_project_branch&gt;</code>. You can startup your product via the following cmd lines</p>
+	    <ul>
+	    	<li><img src="../../icons/win32logo48.png"/><img src="../../icons/win64logo48.png"/><code>&lt;installDir&gt;\&lt;product_or_project_branch&gt;\eclipse\eclipse.exe</code></li>
+	    	<li><img src="../../icons/MacOSX.png"/><img src="../../icons/Linux_64bit.png"/><code>&lt;installDir&gt;/&lt;product_or_project_branch&gt;/Eclipse Installer.app</code></li>
+	    </ul>
+
+	    <h2>clean-up</h2>
+		<p>the installation creates (additionally to the &lt;installDir&gt; folder) following directories (<code>~</code> means <code>%USERPROFILE%</code> on windows)</p>
 		<ol>
-			<li>execute the following line inside the cmd window in the folder you want to install</li>
-		    <li><b>installation</b></b> - downloads, and installs the EclipseInstaller into the directory where the call is made and launches it in Advanced Mode</br>
-				<code><textarea class="js-copytextarea2" cols=188 rows=1 >powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/cec/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
-			    <button class="js-textareacopybtn2">clipboard</button></br>
+			<li><code>~/.eclipse/org.eclipse.oomph.*</code> containing the oomph preferences and user-specified variables</li>
+			<li><code>~/.p2</code> containing the shared bundle pool for all oomph installations</li>
+		</ol>
+<!--
+	    <ol>
+			<li>execute the following line inside the cmd window in the folder you have the installation</li>
+	    		    <li>cleans all locally used directories (only bundle pool remains)</br>
+				<code><textarea class="js-copytextarea3" cols=188 rows=1 >tbd</textarea></code>
+			    <button class="js-textareacopybtn3">clipboard</button></br>
 				<script type="text/javascript">
-					var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
+					var copyTextareaBtn = document.querySelector('.js-textareacopybtn3');
 					copyTextareaBtn.addEventListener('click', function(event) {
-						var copyTextarea = document.querySelector('.js-copytextarea2');
+						var copyTextarea = document.querySelector('.js-copytextarea3');
 						copyTextarea.select();
 						try {
 							var successful = document.execCommand('copy');
@@ -43,38 +138,37 @@
 				</script>
 		    </li>
 	    </ol>
-	    <h1>eclipseInstaller - oomph</h1>
-	    <ol>
-	    	<li>scroll down to <code>klib.io</code> and select <code>IDEfix for Daimler</code> via double-click</li>
-	    	<li>scroll down to <code>Projects of klib.io</code> and select <code>CEC 16.1</code> via double-click. It must appear inside the table at the bottom of the window. -> Next</li>
-	    	<li>Next</li>
-	    	<li>Finish</li>
-	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
-	    	<li>IDEfix Window should appear with the "Bndtools - Eclipse" perspective open.</li>
-	    	<li>eclipseInstaller can be closed</li>
-	    	<li>continue with the setup via "Team Artifacts" view - servername <code>https://jazz10.rd.corpintra.net:9443/ccm</code></li>
-	    </ol>
-	    <h1>Startup of IDEfix installations</h1>
-	    <ul>
-	    	<li>IDEfix can be started from now via &lt;installDir&gt;\oomph\cec161-dev\eclipse\eclipse.exe</li>
-	    </ul>
+-->
 
-	<h1>Problems/FAQ</h1>
+		<h2 id="invite">Invitation for contributions</h2>
+		<p>you are invited to consume and/or improve the things you find via a <a href="https://help.github.com/articles/creating-a-pull-request/">PullRequest</a>;-)</p>
+		<p>It consists of 2 phased process, which involves interactions on the github.com website and on your local machine.</p>
+		<ol>
+			<li>GitHub: create a fork of a project</li>
+			<li>local: execute the engage[.sh|.cmd]</li>
+			<li>local: select IDEfix product and project you forked on GitHub</li>
+			<li>local: edit the project inside the IDE instance and commit your changes to your GitHub fork</li>
+			<li>GitHub: create pull request for the changes you made</li>
+		</ol>
+		
+	<h2 id="FAQ">FAQ and Known Issues</h2>
 	<ul>
             <li>
-            <p><b>Problem: </b>Installer fails during download<!--<img src="proxyFailure.png">-->
-            <p><b>Reason:  </b>network problems due to e.g. time-out, proxies, ssl-accelerator, ...</p>
-            <p><b>Solution:</b>try "Back" and "Next" once or twice. It will try to reload. If error persists contact admin.</p>
+            <p><b>Problem: </b>tbd</p>
+            <p><b>Reason:  </b>tbd</p>
+            <p><b>Solution:</b>tbd</p>
             </li>
-            <li>
-            <p><b>Problem: </b>Exception calling "DownloadFile" with "2" argument(s): "The remote server returned an error: (407) Proxy Authentication Required."</p>
-            <img src="../images/proxyFailure.png">
-            <p><b>Solution: </b>open InternetExplorer and goto a Internet Site (not Intranet). After site is loaded do the cmd execution again.</p>
-            </li>
-	</ul>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
-    </body>
+ 	</ul>
+
+	<script type="text/javascript">
+		function copyToClipboard(element) {
+		    var copyTextarea = element.parentNode.getElementsByTagName("code")[0].getElementsByTagName("textarea")[0];
+			copyTextarea.select();
+			try {
+				var successful = document.execCommand('copy');
+			} catch (err) {
+				console.log('Oops, unable to copy');
+			}
+		}
+	</script>
 </html>
