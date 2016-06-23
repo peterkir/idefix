@@ -225,6 +225,16 @@
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="jdt+pde">
+      <requirement
+          name="org.eclipse.jdt.feature.group"
+          versionRange="3.11.0"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"
+          versionRange="3.11.0"/>
+    </setupTask>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

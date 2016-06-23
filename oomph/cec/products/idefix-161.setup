@@ -3,12 +3,10 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
-    name="idefix.cec"
-    label="IDEfix CEC">
+    name="IDEfix"
+    label="cec161.setup">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -18,10 +16,6 @@
     <detail
         key="folderName.macosx">
       <value>Eclipse</value>
-      <detail
-          key="imageURI">
-				<value>http://www.eclipse.org/downloads/images/modeling.png</value>
-			</detail>
     </detail>
   </annotation>
   <setupTask
@@ -51,123 +45,9 @@
         value="http:/"
         label="www"/>
   </setupTask>
-  <setupTask
-      xsi:type="setup:VariableTask"
-      name="local.jdk.location"
-      defaultValue="">
-    <choice
-        value="${oomph.home}/java"
-        label="installation"/>
-    <choice
-        value="${user.home}/java"
-        label="user.home"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="oomph runtime">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="oomph.setup">
-      <requirement
-          name="org.eclipse.oomph.setup.feature.group"/>
-      <repository
-          url="${oomph.update.url}"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini">
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Declipse.p2.unsignedPolicy"
-          value="=allow"
-          vm="true"/>
-    </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="utils">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="OS Explorer">
-      <requirement
-          name="de.bastiankrol.startexplorer.feature.feature.group"
-          versionRange="1.6.1"/>
-      <repository
-          url="${repo.source}/basti1302.github.com/startexplorer/update"/>
-      <description>enables comfort functions to access native os environments</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="QuickREx - regexp">
-      <requirement
-          name="de.babe.eclipse.plugins.QuickREx"
-          versionRange="[3.5.0,4.0.0)"/>
-      <repository
-          url="${repo.source}/_repo/idefix-other-tools"/>
-      <description></description>
-    </setupTask>
-  </setupTask>
-  <version name="162.0.0"
-      label="IDEfix for CEC 162"
+  <version name="mars"
+      label="IDEfix for CEC 161"
       requiredJavaVersion="1.8">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="JDK">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="J2SE 1.8 [ win32, x86_64 ]">
-        <setupTask
-            xsi:type="setup:CompoundTask"
-            name="eclipse.ini">
-          <setupTask
-              xsi:type="setup:EclipseIniTask"
-              option="-vm"
-              value="${local.jdk.location}/jdk1.8.0_60/bin"/>
-          <description>configure this VM for Eclipse execution</description>
-        </setupTask>
-        <setupTask
-            xsi:type="jdt:JRETask"
-            version="JavaSE-1.8"
-            location="${local.jdk.location|path}/jdk1.8.0_60"/>
-        <setupTask
-            xsi:type="setup:ResourceExtractTask"
-            id="extract_jdk1.8.0_60_win32.x86_64"
-            sourceURL="${repo.source}/_archives/java/zipped/1.8/win32.x86_64-jdk1.8.0_60.zip"
-            targetURL="${local.jdk.location|uri}/">
-					<description>unzip JDK 1.8.0_60</description>
-				</setupTask>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="J2SE 1.7 [ win32, x86_64 ]">
-        <setupTask
-            xsi:type="jdt:JRETask"
-            version="JavaSE-1.7"
-            location="${local.jdk.location|path}/jdk1.7.0_75"/>
-        <setupTask
-            xsi:type="setup:ResourceExtractTask"
-            id="extract_jdk1.7.0_75_win32.x86_64"
-            sourceURL="${repo.source}/_archives/java/zipped/1.7/win32.x86_64-jdk1.7.0_75.zip"
-            targetURL="${local.jdk.location|uri}/">
-					<description>unzip JDK 1.7.0_75</description>
-				</setupTask>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="J2SE 1.6 [ win32, x86_64 ]">
-        <setupTask
-            xsi:type="jdt:JRETask"
-            version="JavaSE-1.6"
-            location="${local.jdk.location|path}/jdk1.6.0_45"/>
-        <setupTask
-            xsi:type="setup:ResourceExtractTask"
-            id="extract_jdk1.6.0_45_win32.x86_64"
-            sourceURL="${repo.source}/_archives/java/zipped/1.6/win32.x86_64-jdk1.6.0_45.zip"
-            targetURL="${local.jdk.location|uri}/">
-					<description>unzip JDK 1.6.0_45</description>
-				</setupTask>
-      </setupTask>
-    </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Eclipse EPP package">
@@ -252,6 +132,8 @@
             versionRange="[3.11.0,3.12.0)"/>
         <repository
             url="http://download.eclipse.org/releases/mars/201602261000"/>
+        <repository
+            url="http://download.eclipse.org/technology/epp/packages/mars"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -279,13 +161,12 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="bndtools (latest 3.x)">
+          label="bndtools latest">
         <requirement
-            name="bndtools.main.feature.feature.group"
-            versionRange="[3.0.0,4.0.0)"/>
+            name="bndtools.main.feature.feature.group"/>
         <repository
-            url="${repo.source}/bndtools.ci.cloudbees.com/job/bndtools.master/1728/artifact/build/generated/p2/"/>
-        <description>Latest local bndtools version</description>
+            url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+        <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
     </setupTask>
     <setupTask
@@ -296,7 +177,7 @@
           label="Jazz / IBM Rational Team Concert">
         <requirement
             name="com.ibm.team.rtc.client.feature.feature.group"
-            versionRange="[6.0.0,7.0.0)"/>
+            versionRange="[4.5.0,5.0.0)"/>
         <repository
             url="${repo.source}/jazz.net/6.x/RTC-Client-p2Repo-6.0.1"/>
         <description></description>
@@ -332,16 +213,13 @@
         xsi:type="setup:CompoundTask"
         name="workspace mechanic">
       <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="Workspace Mechanic">
+          xsi:type="setup.p2:P2Task">
         <requirement
             name="com.google.eclipse.mechanic.feature.group"
             versionRange="[0.4.0,0.5.0)"/>
         <repository
             url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
       </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -379,6 +257,16 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         name="utils.eclipse">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Eclipse SDK examples">
+        <requirement
+            name="org.eclipse.sdk.examples.feature.group"
+            versionRange="[3.5.0,4.0.0)"/>
+        <repository
+            url="${repo.source}/download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000"/>
+        <description></description>
+      </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="e4 Migration Support Tool">
@@ -421,6 +309,7 @@
             url="http://download.eclipse.org/rcptt/release/2.0.2/repository/"/>
       </setupTask>
     </setupTask>
+    <description>cec161.setup for Mars.</description>
   </version>
-  <description>IDEfix package for Daimler CEC project</description>
+  <description>cec161.setup provides cool stuff.</description>
 </setup:Product>
