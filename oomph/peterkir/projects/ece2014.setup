@@ -161,32 +161,6 @@
   <stream name="master"
       label="">
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="AJDT">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="prefs">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
-            value="ignore"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
-            value="ignore"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="AJDT 2.2.4 for Eclipse 4.5">
-        <requirement
-            name="org.eclipse.ajdt.feature.group"
-            versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
-        <repository
-            url="${repo.source}/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
-        <description></description>
-      </setupTask>
-    </setupTask>
-    <setupTask
         xsi:type="jdt:JRETask"
         version="JavaSE-1.7"
         location="${jre.location-1.7}">
@@ -218,7 +192,7 @@
             xsi:type="predicates:NotPredicate">
           <operand
               xsi:type="workingsets:InclusionPredicate"
-              includedWorkingSet="//@streams[name='master']/@setupTasks.3/@workingSets.0 //@streams[name='master']/@setupTasks.3/@workingSets.1"/>
+              includedWorkingSet="//@streams[name='master']/@setupTasks.2/@workingSets.0 //@streams[name='master']/@setupTasks.2/@workingSets.1"/>
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
