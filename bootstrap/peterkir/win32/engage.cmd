@@ -87,7 +87,7 @@ SET ECLIPSE_INSTALLER_WEB=%BUILD_STORE%/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
 SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
-powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output '   - skipping download, cause file exists - %DL%\%ECLIPSE_INSTALLER_ARCHIVE%' } else { Write-Output '   - downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%';$browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser..DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DL%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
+powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output '   - skipping download, cause file exists - %DL%\%ECLIPSE_INSTALLER_ARCHIVE%' } else { Write-Output '   - downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%';$browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DL%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
 IF "%ERRORLEVEL%"=="" (
 	ECHO failing downloading file %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
 	GOTO END
