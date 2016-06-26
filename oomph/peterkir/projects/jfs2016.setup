@@ -10,7 +10,7 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
-    name="jfs2016-slides"
+    name="jfs2016"
     label="JavaForum Stuttgart 2016 - slides">
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -122,28 +122,28 @@
           key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
           value="${scope.project.name}"/>
     </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="git:GitCloneTask"
-      id="git.clone.jfs2016-slides"
-      remoteURI="https://github.com/peterkir/jfs2016-slides.git"
-      pushURI="https://github.com/${github.user.id}/jfs2016-slides.git"
-      checkoutBranch="gh-pages">
-    <annotation
-        source="http://www.eclipse.org/oomph/setup/InducedChoices">
-      <detail
-          key="label">
-        <value>${scope.project.label} Github repository</value>
-      </detail>
-    </annotation>
-    <description>${scope.project.label}</description>
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.jfs2016"
+        remoteURI="https://github.com/peterkir/jfs2016.git"
+        pushURI="https://github.com/${github.user.id}/jfs2016.git"
+        checkoutBranch="gh-pages">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InducedChoices">
+        <detail
+            key="label">
+          <value>${scope.project.label} Github repository</value>
+        </detail>
+      </annotation>
+      <description>${scope.project.label}</description>
+    </setupTask>
   </setupTask>
   <stream name="gh-pages"
       label="">
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.jfs2016-slides.location}"
+          rootFolder="${git.clone.jfs2016.location}"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
@@ -152,7 +152,7 @@
           name="${scope.project.name}">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern="${git.clone.jfs2016-slides.location}"/>
+            pattern="${git.clone.jfs2016.location}"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
