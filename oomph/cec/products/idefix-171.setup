@@ -297,7 +297,7 @@
         name="Jazz / IBM Rational Team Concert">
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Jazz / IBM Rational Team Concert">
+          label="Jazz / IBM Rational Team Concert 6.0.x">
         <requirement
             name="com.ibm.team.rtc.client.feature.feature.group"
             versionRange="[4.5.0,5.0.0)"/>
@@ -510,9 +510,9 @@
             name="org.eclipse.pde.feature.group"
             versionRange="[3.11.0,3.12.0)"/>
         <repository
-            url="http://download.eclipse.org/releases/mars/201602261000"/>
-        <repository
             url="http://download.eclipse.org/technology/epp/packages/mars"/>
+        <repository
+            url="http://download.eclipse.org/releases/mars/201602261000"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -544,7 +544,7 @@
         <requirement
             name="bndtools.main.feature.feature.group"/>
         <repository
-            url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+            url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
     </setupTask>
