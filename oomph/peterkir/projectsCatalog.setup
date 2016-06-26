@@ -205,15 +205,20 @@
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/bundlewrap.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2014.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ee.j2se-1.8.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/eval.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/example.aspectj.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/io.klib.tools.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/eval.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/peterkir.github.io.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/jfs2016-slides.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/org.eclipse.oomph.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/peterkir.github.io.setup#/"/>
+
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
+
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
+
   <project href="http://peterkir.github.io/idefix/oomph/cec/projects/dev171.setup#/"/>
+
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
