@@ -176,11 +176,8 @@
       <workingSet
           name="${scope.project.name}">
         <predicate
-            xsi:type="predicates:AndPredicate">
-          <operand
-              xsi:type="predicates:RepositoryPredicate"
-              project="bootstrap"/>
-        </predicate>
+            xsi:type="predicates:RepositoryPredicate"
+            project="bootstrap"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
