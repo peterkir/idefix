@@ -151,8 +151,8 @@
       <workingSet
           name="${scope.project.name}">
         <predicate
-            xsi:type="predicates:LocationPredicate"
-            pattern="${git.clone.jfs2016.location}"/>
+            xsi:type="predicates:RepositoryPredicate"
+            project="jfs2016-slides"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
