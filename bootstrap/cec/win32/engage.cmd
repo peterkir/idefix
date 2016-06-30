@@ -124,8 +124,8 @@ IF "%ERRORLEVEL%"=="" (
     ECHO -Doomph.installer.update.url=%BUILD_STORE%/p2/installer >> %ECL_INST_INI%
     ECHO -Doomph.update.url=%BUILD_STORE%/p2/oomph               >> %ECL_INST_INI%
     ECHO -Doomph.setup.installer.mode=advanced                   >> %ECL_INST_INI%
-    ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>https://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup >> %ECL_INST_INI%
-    ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>https://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup >> %ECL_INST_INI%
+    ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>https://peterkir.github.io/idefix/oomph/cec/productsCatalog.setup >> %ECL_INST_INI%
+    ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>https://peterkir.github.io/idefix/oomph/cec/projectsCatalog.setup >> %ECL_INST_INI%
 )
 
 ECHO.

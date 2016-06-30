@@ -94,7 +94,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="171.0.0"
+  <version name="171.neon"
       label="IDEfix for CEC 171 (Neon based)"
       requiredJavaVersion="1.8">
     <setupTask
@@ -323,12 +323,12 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="AJDT 2.24 for Eclipse 4.5">
+          label="AJDT 2.2.4 for Eclipse 4.6">
         <requirement
             name="org.eclipse.ajdt.feature.group"
-            versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
+            versionRange="[2.2.4.201512160910,2.2.4.201512160910]"/>
         <repository
-            url="${repo.source}/download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
+            url="${repo.source}/build.spring.io/browse/AJDT-AFE46T-4/artifact/shared/update-site/ajdt-e46x-2.2.4.zip!/"/>
         <description></description>
       </setupTask>
     </setupTask>
@@ -424,7 +424,7 @@
       </setupTask>
     </setupTask>
   </version>
-  <version name="171.0.0"
+  <version name="171.mars"
       label="IDEfix for CEC 171 (Mars based)"
       requiredJavaVersion="1.8">
     <setupTask
@@ -579,7 +579,7 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="AJDT 2.24 for Eclipse 4.5">
+          label="AJDT 2.2.4 for Eclipse 4.5">
         <requirement
             name="org.eclipse.ajdt.feature.group"
             versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
