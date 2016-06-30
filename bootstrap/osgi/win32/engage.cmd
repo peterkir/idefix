@@ -84,8 +84,8 @@ SET /P LATEST=<%DL%\%BRANCH%_%GITHUB_IO_LATEST%
 ECHO found latest build ^<%LATEST%^> from %GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%
 ECHO.
 
-::SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/%VERSION%/%BRANCH%/%LATEST%
-SET BINTRAY_BUILD_ROOT=http://klib.io/org.eclipse.oomph/%VERSION%/%BRANCH%/%LATEST%
+::SET BINTRAY_BUILD_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph/%OOMPH_VERSION%/%BRANCH%/%LATEST%
+SET BINTRAY_BUILD_ROOT=http://klib.io/org.eclipse.oomph/%OOMPH_VERSION%/%BRANCH%/%LATEST%
 
 SET ECLIPSE_INSTALLER_WEB=%BINTRAY_BUILD_ROOT%/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
