@@ -213,6 +213,7 @@
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/jfs2016.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/org.eclipse.oomph.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/peterkir.github.io.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/reveal.js.setup#/"/>
 
   <!-- osgi -->
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.design.setup#/"/>
