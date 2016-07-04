@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="osgi.idefix.mars"
-    label="OSGi IDEfix Mars">
+    name="osgi.idefix.neon"
+    label="OSGi IDEfix Neon">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
