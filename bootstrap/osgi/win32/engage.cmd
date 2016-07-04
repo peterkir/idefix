@@ -117,7 +117,7 @@ powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCR
 
 ECHO    - copying latest java %JAVA%\jre into %SCRIPT_PATH%\%ECL_INST_NAME%\jre
 IF NOT EXIST %SCRIPT_PATH%\%ECL_INST_NAME%\jre\NUL (
-    XCOPY /Y /I /E /H %JAVA8%\jre %SCRIPT_PATH%\%ECL_INST_NAME%\jre 2>&1 > NUL
+    XCOPY /Y /I /E /H %JAVA8% %SCRIPT_PATH%\%ECL_INST_NAME%\jre 2>&1 > NUL
 )
 
 SET ECL_INST_INI=%SCRIPT_PATH%\%ECL_INST_NAME%\eclipse-inst.ini
