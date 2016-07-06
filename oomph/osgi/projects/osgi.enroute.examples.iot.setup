@@ -87,7 +87,7 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.osgi-enroute"
+      id="git.clone.osgi-enroute-examples"
       remoteURI="https://github.com/osgi/osgi.enroute.git"
       pushURI="https://github.com/${github.user.id}/osgi.enroute.git">
     <annotation
@@ -104,13 +104,16 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.osgi-enroute.location}">
+          rootFolder="${git.clone.osgi-enroute-examples.location}">
         <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="cnf"/>
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="osgi.enroute.iot.domotica.application"/>
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="cnf"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="osgi.enroute.iot.domotica.application"/>
+        </predicate>
       </sourceLocator>
     </setupTask>
     <setupTask
