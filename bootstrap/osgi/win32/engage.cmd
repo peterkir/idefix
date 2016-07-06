@@ -44,9 +44,9 @@ SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
 SET OOMPH_VERSION=1.4.0
 
 SET CUSTOM=osgi
-SET PROD_CAT_FILTER=osgi\.products
-SET PROD_FILTER=osgi\.idefix\.mars
-SET PROD_VERSION=latest\.bndtools\.bintray
+SET PROD_CAT_FILTER=osgi\\.products
+SET PROD_FILTER=osgi\\.idefix\\.neon
+SET PROD_VERSION=latest\\.bndtools\\.bintray
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
