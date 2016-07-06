@@ -88,8 +88,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.osgi-enroute-examples"
-      remoteURI="https://github.com/osgi/osgi.enroute.git"
-      pushURI="https://github.com/${github.user.id}/osgi.enroute.git">
+      remoteURI="https://github.com/osgi/osgi.enroute.examples.git"
+      pushURI="https://github.com/${github.user.id}/osgi.enroute.examples.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
