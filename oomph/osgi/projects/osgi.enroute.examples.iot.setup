@@ -112,7 +112,7 @@
               pattern="cnf"/>
           <operand
               xsi:type="predicates:NamePredicate"
-              pattern="osgi.enroute.iot.domotica.application"/>
+              pattern="osgi\.enroute\.iot\.domotica\.application"/>
         </predicate>
       </sourceLocator>
     </setupTask>
