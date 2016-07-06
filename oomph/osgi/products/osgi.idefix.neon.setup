@@ -141,7 +141,7 @@
     <repository
         url="http://download.eclipse.org/releases/neon"/>
   </setupTask>
-  <version name="latest.bndtools.cloudbees"
+  <version name="latest.dev.bndtools.cloudbees"
       label="OSGi IDE - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
     <setupTask
@@ -155,7 +155,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Mars epp.package.java and latest bndtools build.</description>
   </version>
-  <version name="latest.bndtools.bintray"
+  <version name="latest.release.bndtools.bintray"
       label="OSGi IDE - bndtools latest ( bintray REL )"
       requiredJavaVersion="1.7">
     <setupTask
