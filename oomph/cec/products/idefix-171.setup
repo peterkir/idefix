@@ -328,7 +328,7 @@
             name="org.eclipse.ajdt.feature.group"
             versionRange="[2.2.4.201512160910,2.2.4.201512160910]"/>
         <repository
-            url="${repo.source}/build.spring.io/browse/AJDT-AFE46T-4/artifact/shared/update-site/ajdt-e46x-2.2.4.zip!/"/>
+            url="jar:${repo.source}/build.spring.io/browse/AJDT-AFE46T-4/artifact/shared/update-site/ajdt-e46x-2.2.4.zip!/"/>
         <description></description>
       </setupTask>
     </setupTask>
