@@ -420,7 +420,7 @@
         <requirement
             name="201606221733.rcptt"/>
         <repository
-            url="http://download.eclipse.org/rcptt/release/2.1.0/repository/"/>
+            url="${repo.source}/download.eclipse.org/rcptt/release/2.1.0/repository/"/>
       </setupTask>
     </setupTask>
   </version>
