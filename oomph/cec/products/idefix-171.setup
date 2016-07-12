@@ -253,8 +253,6 @@
             name="org.eclipse.wst.web_ui.feature.feature.group"/>
         <requirement
             name="org.eclipse.wst.xml_ui.feature.feature.group"/>
-        <requirement
-            name="201606221733.rcptt"/>
         <repository
             url="http://download.eclipse.org/technology/epp/packages/neon"/>
         <repository
@@ -415,6 +413,14 @@
         <repository
             url="${repo.source}/findbugs.cs.umd.edu/eclipse/"/>
         <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="RCPTT">
+        <requirement
+            name="201511100835.rcptt"/>
+        <repository
+            url="http://download.eclipse.org/rcptt/release/2.1.0/repository/"/>
       </setupTask>
     </setupTask>
   </version>
