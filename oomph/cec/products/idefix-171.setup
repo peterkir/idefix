@@ -288,7 +288,7 @@
         <requirement
             name="bndtools.main.feature.feature.group"/>
         <repository
-            url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+            url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
     </setupTask>
