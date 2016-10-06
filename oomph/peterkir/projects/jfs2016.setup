@@ -144,11 +144,7 @@
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
           rootFolder="${git.clone.jfs2016.location}"
-          locateNestedProjects="true">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="osgi.enroute.iot.domotica.application"/>
-      </sourceLocator>
+          locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">

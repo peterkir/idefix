@@ -104,7 +104,17 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.osgi-enroute-examples.location}"/>
+          rootFolder="${git.clone.osgi-enroute-examples.location}">
+        <predicate
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="cnf"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="osgi.enroute.iot.domotica.application"/>
+        </predicate>
+      </sourceLocator>
     </setupTask>
     <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
