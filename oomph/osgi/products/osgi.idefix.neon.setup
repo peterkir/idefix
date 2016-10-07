@@ -179,7 +179,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/latest"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="latest.dev.bndtools.cloudbees"
       label="OSGi IDE - bndtools.latest ( cloudbees )"
@@ -193,7 +193,7 @@
           url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and latest bndtools build.</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and latest bndtools build.</description>
   </version>
   <version name="bndtools.3.2.0"
       label="OSGi IDE - bndtools 3.2.0 REL"
@@ -208,7 +208,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.1"
       label="OSGi IDE - bndtools 3.1.1 REL"
@@ -223,7 +223,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.0"
       label="OSGi IDE - bndtools 3.1.0 REL"
@@ -238,7 +238,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.0.0"
       label="OSGi IDE - bndtools 3.0.0 REL"
@@ -253,7 +253,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.0.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.1"
       label="OSGi IDE - bndtools 2.4.1 REL"
@@ -268,7 +268,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.0"
       label="OSGi IDE - bndtools 2.4.0 REL"
@@ -283,7 +283,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Mars epp.package.java and bndtools</description>
+    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <description>IDE for OSGi development</description>
 </setup:Product>
