@@ -43,7 +43,7 @@ SET BUILD_SERVER_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph
 SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
 SET OOMPH_VERSION=1.4.0
 
-SET CUSTOM=osgi
+SET CUSTOM=public/ece2016
 SET PROD_CAT_FILTER=osgi\\.products
 SET PROD_FILTER=osgi\\.idefix\\.neon
 SET PROD_VERSION=latest\\.release\\.bndtools\\.bintray
@@ -144,8 +144,8 @@ IF "%ERRORLEVEL%"=="" (
     ECHO -Doomph.installer.update.url=%BUILD_STORE%/p2/installer >> %ECL_INST_INI%
     ECHO -Doomph.update.url=%BUILD_STORE%/p2/oomph               >> %ECL_INST_INI%
     ECHO -Doomph.setup.installer.mode=advanced                   >> %ECL_INST_INI%
-    ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>https://peterkir.github.io/idefix/oomph/%CUSTOM%/productsCatalog.setup >> %ECL_INST_INI%
-    ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>https://peterkir.github.io/idefix/oomph/%CUSTOM%/projectsCatalog.setup >> %ECL_INST_INI%
+    ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>https://peterkir.github.io/idefix/oomph/%CUSTOM%/catalogProducts.setup >> %ECL_INST_INI%
+    ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>https://peterkir.github.io/idefix/oomph/%CUSTOM%/catalogProjects.setup >> %ECL_INST_INI%
 )
 
 ECHO.

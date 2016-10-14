@@ -123,13 +123,22 @@
           name="bndtools">
         <predicate
             xsi:type="predicates:NamePredicate"
+            pattern="cnf"/>
+        <predicate
+            xsi:type="predicates:NamePredicate"
             pattern="examples\.bndtools.*"/>
       </workingSet>
       <workingSet
           name="pde">
         <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="examples\.pde.*"/>
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="examples\.pde.*"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="target\..*"/>
+        </predicate>
       </workingSet>
       <workingSet
           name="build">
