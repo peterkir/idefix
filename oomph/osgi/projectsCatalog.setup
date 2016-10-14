@@ -203,15 +203,20 @@
         vm="true"/>
   </setupTask>
 
+  <!-- OSGi projects -->
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.design.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.examples.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.examples.iot.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.site.setup#/"/>
 
+  <!-- bndtools projects -->
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.manual.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
+
+  <!-- conference projects -->
+  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2016.setup#/"/>
 
   <description>All the projects at OSGi that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
