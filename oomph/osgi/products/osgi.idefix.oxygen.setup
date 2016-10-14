@@ -90,7 +90,7 @@
       xsi:type="setup.p2:P2Task"
       label="Eclipse IDE for Java Developers (Oxygen)">
     <requirement
-        name="epp.package.package.committers.feature.group"
+        name="org.eclipse.epp.package.package.committers.feature.group"
         versionRange="[4.7.0,5.0.0)"/>
     <repository
         url="http://download.eclipse.org/technology/epp/packages/oxygen/M2"/>
