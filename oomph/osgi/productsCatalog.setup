@@ -17,6 +17,7 @@
 		</detail>
 	</annotation>
 
+    <product href="https://peterkir.github.io/idefix/oomph/osgi/products/osgi.idefix.oxygen.setup#/"/>
 	<product href="https://peterkir.github.io/idefix/oomph/osgi/products/osgi.idefix.neon.setup#/"/>
     <product href="https://peterkir.github.io/idefix/oomph/osgi/products/osgi.idefix.mars.setup#/"/>
 

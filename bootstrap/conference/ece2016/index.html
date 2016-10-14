@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>EclipseCon Europe 2016 - IDEfix - Building Nano Services with OSGi Declarative Services</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+	</head>
+	<body>
+		<h1>IDEfix - Building Nano Services with OSGi Declarative Services - ece2016</h1>
+        <p>This pages supplements the presentation <a href="https://peterkir.github.io/ece2016/">Building Nano Services with OSGi Declarative Services</a> at EclipseCon Europe 2016</p>
+		<p>It contains product and project configurations for Eclipse Oomph Installer.</p>
+		<p>If you have questions you can use the <a href="https://gitter.im/peterkir/ece2016?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge">Gitter Chat room</a>
+		
+		<h2>EclipseInstaller</h2> 
+		<h3>Pre-Requisite</h2>
+			<p>open a terminal/shell create a installation directory &lt;instDir&gt; e.g. mkdir ~/ece2016-nanoservices</p>
+		<h3>Installation</h3>
+			<li>copy the following line and execute it inside &lt;instDir&gt;
+				<ul>
+					<li> <img src="../../../icons/win32logo48.png"/><img src="../../../icons/win64logo48.png"/>
+						<button class="js-textareacopybtn2">copy to clipboard</button></br>
+						<code><textarea class="js-copytextarea2" cols=80 rows=4 >powershell -command "& {(New-Object System.Net.WebClient).DownloadFile('http://peterkir.github.io/idefix/bootstrap/osgi/win32/engage.cmd','engage.cmd')}" & engage.cmd</textarea></code>
+						<script type="text/javascript">
+							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
+							copyTextareaBtn.addEventListener('click', function(event) {
+								var copyTextarea = document.querySelector('.js-copytextarea2');
+								copyTextarea.select();
+								try {
+									var successful = document.execCommand('copy');
+								} catch (err) {
+									console.log('Oops, unable to copy');
+								}
+							});
+						</script>
+					</li>
+					<li> <img src="../../../icons/MacOSX.png"/><!--<img src="../../../icons/Linux_64bit.png"/>-->
+						<button class="js-textareacopybtn2">copy to clipboard</button></br>
+						<code><textarea class="js-copytextarea2" cols=80 rows=3 >curl https://peterkir.github.io/idefix/bootstrap/osgi/macosx/engage.sh >engage.sh && chmod +x ./engage.sh && ./engage.sh</textarea></code>
+						<script type="text/javascript">
+							var copyTextareaBtn = document.querySelector('.js-textareacopybtn2');
+							copyTextareaBtn.addEventListener('click', function(event) {
+								var copyTextarea = document.querySelector('.js-copytextarea2');
+								copyTextarea.select();
+								try {
+									var successful = document.execCommand('copy');
+								} catch (err) {
+									console.log('Oops, unable to copy');
+								}
+							});
+						</script>
+					</li>
+				</ul>
+			</li>
+	    <h2>IDE and Project selection</h2>
+	    <ol>
+			<li>on the top-right folder icon mark the <code>OSGi products</code> [required only after initial installation]</li>
+	    	<li>select from the section at the bottom<code>OSGi products</code> the product you want to install <code>OSGi IDEfix Neon</code> and press <code>Next</code><br/>
+			<img src="img/01_product-selection.png"/>
+			</li>
+			<li>on the top-right folder icon mark the <code>OSGi projects [required only after initial installation]</code></li>
+	    	<li>scroll down to <code>OSGi projects</code> and check the project <code>ece2016</code> on and press <code>Next</code><br/>
+			<img src="img/02_project-selection.png"/>
+			</li>
+	    	<li>configure the variables you want to adapt and press <code>Next</code><br/>
+			<img src="img/03_variable-configuration.png"/>
+			</li>
+	    	<li>review the tasks and if satisfied press <code>Finish</code></li>
+	    	<li>Press "Accept" in the appearing "Licenses" pop-up window</li>
+	    	<li>EclipseInstaller is installing the Eclipse IDE. A new Window with IDE should appear with the Welome screen open. When you close it you see the "Bndtools - Eclipse" perspective open. Wait a little bit for the EclipseInstaller to complete the check-out and import tasks for the project setup within the IDE.</li>
+	    	<li>The Eclipse Installer window can be closed now and the development IDE with your project is ready.</li>
+	    </ol>
+	    <h2>Subsequent Startups of installed OSGi IDE</h2>
+	    <ul>
+	    	<li><img src="../../../icons/win32logo48.png"/><img src="../../../icons/win64logo48.png"/>OSGi IDE can be started from now via <code>&lt;githubProject-branchname&gt;\eclipseInstaller\eclipse.exe</code></li>
+	    	<li><img src="../../../icons/MacOSX.png"/><img src="../../../icons/Linux_64bit.png"/>OSGi IDE can be started from now via <code>&lt;githubProject-branchname&gt;\Eclipse.app</code></li>
+	    </ul>
+	    <h2>Subsequent Startups of eclipseInstaller</h2>
+	    <ul>
+	    	<li><img src="../../../icons/win32logo48.png"/><img src="../../../icons/win64logo48.png"/>eclipseInstaller can be started from now via <code>&lt;installDir&gt;\eclipseInstaller\eclipse.exe</code></li>
+	    	<li><img src="../../../icons/MacOSX.png"/><img src="../../../icons/Linux_64bit.png"/>eclipseInstaller can be started from now via <code>&lt;installDir&gt;\Eclipse Installer.app</code></li>
+	    </ul>
+
+	    <h2>clean-up</h2>
+		<p>the installation creates (additionally to the &lt;installDir&gt; folder) following directories (<code>~</code> means <code>%USERPROFILE%</code> on windows)</p>
+		<ol>
+			<li><code>~/.eclipse/org.eclipse.oomph.*</code> containing the oomph preferences and user-specified variables</li>
+			<li><code>~/.p2</code> containing the shared bundle pool for all oomph installations</li>
+		</ol>
+<!--
+	    <ol>
+			<li>execute the following line inside the cmd window in the folder you have the installation</li>
+	    		    <li>cleans all locally used directories (only bundle pool remains)</br>
+				<code><textarea class="js-copytextarea3" cols=188 rows=1 >tbd</textarea></code>
+			    <button class="js-textareacopybtn3">clipboard</button></br>
+				<script type="text/javascript">
+					var copyTextareaBtn = document.querySelector('.js-textareacopybtn3');
+					copyTextareaBtn.addEventListener('click', function(event) {
+						var copyTextarea = document.querySelector('.js-copytextarea3');
+						copyTextarea.select();
+						try {
+							var successful = document.execCommand('copy');
+						} catch (err) {
+							console.log('Oops, unable to copy');
+						}
+					});
+				</script>
+		    </li>
+	    </ol>
+-->
+<!--
+	<h2>Problems/FAQ</h2>
+	<ul>
+            <li>
+            <p><b>Problem: </b>tbd</p>
+            <p><b>Reason:  </b>tbd</p>
+            <p><b>Solution:</b>tbd</p>
+            </li>
+ 	</ul>
+-->
+       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <!-- Include all compiled plugins (below), or include individual files as needed -->
+       <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
