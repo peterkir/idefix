@@ -16,7 +16,7 @@
     label="EclipseCon 2014 - Demo">
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="bndtools 3.0.0 REL">
+      label="bndtools 3.2.0 REL">
     <requirement
         name="bndtools.main.feature.feature.group"
         versionRange="[3.0.0,4.0.0)"/>
