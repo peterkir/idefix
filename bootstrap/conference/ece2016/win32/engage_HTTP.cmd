@@ -46,7 +46,7 @@ SET OOMPH_VERSION=1.4.0
 SET CUSTOM=public/ece2016
 SET PROD_CAT_FILTER=ece2016\\.products
 SET PROD_FILTER=osgi\\.idefix\\.oyygen
-SET PROD_VERSION=osgi\\.idefix\\.oyygen\\.bndtools\\3\\.3\\.0
+SET PROD_VERSION=osgi\\.idefix\\.oyygen\\.bndtools\\.3\\.3\\.0
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
