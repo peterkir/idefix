@@ -121,25 +121,22 @@
       <workingSet
           name="bndtools">
         <predicate
-            xsi:type="predicates:OrPredicate">
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="cnf"/>
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="examples\.bndtools.*"/>
-        </predicate>
+            xsi:type="predicates:NamePredicate"
+            pattern="examples\.bndtools.*"/>
       </workingSet>
       <workingSet
           name="pde">
         <predicate
-            xsi:type="predicates:OrPredicate">
+            xsi:type="predicates:NamePredicate"
+            pattern="examples\.pde.*"/>
+      </workingSet>
+      <workingSet
+          name="build">
+        <predicate
+            xsi:type="predicates:NotPredicate">
           <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="examples\.pde.*"/>
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="target\..*"/>
+              xsi:type="workingsets:InclusionPredicate"
+              includedWorkingSet="//@streams[name='master']/@setupTasks.2/@workingSets.0 //@streams[name='master']/@setupTasks.2/@workingSets.1"/>
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
