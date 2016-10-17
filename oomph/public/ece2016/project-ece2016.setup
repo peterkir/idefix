@@ -10,18 +10,17 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="ece2016"
-    label="EclipseCon 2014 - Demo">
+    label="ece2016 - Building Nano Services with OSGi Declarative Services">
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="bndtools 3.2.0 REL">
+      label="bndtools 3.3.0 REL">
     <requirement
         name="bndtools.main.feature.feature.group"
         versionRange="[3.0.0,4.0.0)"/>
     <repository
-        url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
+        url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -91,9 +90,9 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.ece2014"
-      remoteURI="https://github.com/peterkir/ece2014.git"
-      pushURI="https://github.com/${github.user.id}/ece2014.git">
+      id="git.clone.ece2016"
+      remoteURI="https://github.com/peterkir/ece2016.git"
+      pushURI="https://github.com/${github.user.id}/ece2016.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -107,14 +106,14 @@
       label="">
     <setupTask
         xsi:type="jdt:JRETask"
-        version="JavaSE-1.7"
-        location="${jre.location-1.7}">
+        version="JavaSE-1.8"
+        location="${jre.location-1.8}">
       <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.ece2014.location}"
+          rootFolder="${git.clone.ece2016.location}"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
@@ -122,29 +121,29 @@
       <workingSet
           name="bndtools">
         <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="examples\.bndtools.*"/>
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="cnf"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="examples\.bndtools.*"/>
+        </predicate>
       </workingSet>
       <workingSet
           name="pde">
         <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="examples\.pde.*"/>
-      </workingSet>
-      <workingSet
-          name="build">
-        <predicate
-            xsi:type="predicates:NotPredicate">
+            xsi:type="predicates:OrPredicate">
           <operand
-              xsi:type="workingsets:InclusionPredicate"
-              includedWorkingSet="//@streams[name='master']/@setupTasks.2/@workingSets.0 //@streams[name='master']/@setupTasks.2/@workingSets.1"/>
+              xsi:type="predicates:NamePredicate"
+              pattern="examples\.pde.*"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="target\..*"/>
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
   </stream>
-  <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
-  <description>EclipseCon 2014 - An epic split between OSGi tooling Eclipse PDE and BndTools</description>
+  <description>EclipseCon Europe 2016 - Building Nano Services with OSGi Declarative Services</description>
 </setup:Project>
