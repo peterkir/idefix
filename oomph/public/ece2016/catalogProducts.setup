@@ -12,7 +12,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/osgi/catalogProducts.setup"
         vm="true"/>
   </setupTask>
 

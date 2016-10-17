@@ -194,7 +194,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/public/ece2016/projectsCatalog.setup"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/public/ece2016/catalogProjetcs.setup"
         vm="true"/>
   </setupTask>
 
