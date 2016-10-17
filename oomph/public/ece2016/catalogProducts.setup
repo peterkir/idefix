@@ -6,6 +6,16 @@
     name="ece2016.products"
     label="ece2016 Products">
 
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="REDIRECT klib.io ">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProductCatalog"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup"
+        vm="true"/>
+  </setupTask>
+
   <product href="http://peterkir.github.io/idefix/oomph/public/ece2016/product-osgi.idefix.oxygen-ece2016.setup#/"/>
   
   <description>The catalog of products available as &lt;a href='http://peterkir.github.io/idefix/oomph/peterkir/product/'>IDEfix&lt;/a> at klib.io</description>

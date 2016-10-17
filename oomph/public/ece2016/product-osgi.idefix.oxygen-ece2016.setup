@@ -73,20 +73,6 @@
     </setupTask>
   </setupTask>
   <setupTask
-      xsi:type="setup:CompoundTask"
-      name="REDIRECT klib.io ">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup"
-        vm="true"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup"
-        vm="true"/>
-  </setupTask>
-  <setupTask
       xsi:type="setup.p2:P2Task"
       label="Eclipse IDE for Eclipse Committers (Oxygen)">
     <requirement

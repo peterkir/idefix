@@ -193,13 +193,8 @@
       name="REFERENCE klib.io ">
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/peterkir/productsCatalog.setup"
-        vm="true"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/peterkir/projectsCatalog.setup"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/public/ece2016/projectsCatalog.setup"
         vm="true"/>
   </setupTask>
 
