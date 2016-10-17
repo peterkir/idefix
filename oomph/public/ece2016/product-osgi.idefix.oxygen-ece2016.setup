@@ -189,7 +189,7 @@
           name="bndtools.main.feature.feature.group"
           versionRange="[3.3.0,4.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.3.0/"/>
+          url="http://dl.bintray.com/bndtools/bndtools/3.3.0/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
