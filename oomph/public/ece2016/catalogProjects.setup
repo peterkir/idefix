@@ -203,7 +203,7 @@
         vm="true"/>
   </setupTask>
 
-  <project href="http://peterkir.github.io/idefix/oomph/public/project-ece2016.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/public/ece2016/project-ece2016.setup#/"/>
 
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
