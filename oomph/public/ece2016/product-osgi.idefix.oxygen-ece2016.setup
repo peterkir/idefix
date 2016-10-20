@@ -193,8 +193,6 @@
     <requirement
         name="org.apache.felix.webconsole"/>
     <requirement
-        name="org.apache.felix.webconsole.plugins.ds"/>
-    <requirement
         name="org.apache.felix.webconsole.plugins.event"/>
     <requirement
         name="org.apache.felix.webconsole.plugins.memoryusage"/>
