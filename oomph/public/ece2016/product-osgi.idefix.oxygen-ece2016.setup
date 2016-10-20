@@ -173,7 +173,7 @@
         versionRange="3.12.0"/>
     <requirement
         name="org.eclipse.equinox.sdk.feature.group"
-        versionRange="3.13.2"/>
+        versionRange="3.12.0"/>
     <repository
         url="http://download.eclipse.org/releases/oxygen/201609231000"/>
   </setupTask>
