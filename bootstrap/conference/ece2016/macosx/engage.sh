@@ -14,6 +14,12 @@ ECL_INST_ARCHIVE=eclipse-inst-mac64.tar.gz
 ECL_INST_WEB="http://www.eclipse.org/downloads/download.php?file=/oomph/products/${ECL_INST_ARCHIVE}&r=1"
 ECL_INST_APP=Eclipse\ Installer.app
 ECL_INST=eclipseInstaller
+
+CUSTOM=public/ece2016
+PROD_CAT_FILTER=ece2016\\.products
+PROD_FILTER=osgi\\.idefix\\.oyygen
+PROD_VERSION=osgi\\.idefix\\.oyygen\\.bndtools\\.3\\.3\\.0
+
 echo -e "\n###------------------------------------------------------------------------------"
 echo "# downloading and preparing $ECL_INST_APP"
 echo "###------------------------------------------------------------------------------"
@@ -104,14 +110,14 @@ else
    echo "-Declipse.p2.mirrors=true"         >> "$ECL_INST_INI_BAK"
 
    # filtering user displayed catalogs/products/versions
-   echo "-Doomph.setup.product.catalog.filter=osgi\\\\.products"                >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.filter=osgi\\\\.idefix\\\\.mars"                 >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.product.version.filter=latest\\\\.bndtools\\\\.bintray"  >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.catalog.filter=${PROD_CAT_FILTER}"  >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.filter=${PROD_FILTER}"              >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.product.version.filter=${PROD_VERSION}"     >> "$ECL_INST_INI_BAK"
 
-   echo "-Doomph.setup.jre.choice=false"                                >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.setup.installer.mode=advanced"                         >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->https://peterkir.github.io/idefix/oomph/osgi/productsCatalog.setup" >> "$ECL_INST_INI_BAK"
-   echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->https://peterkir.github.io/idefix/oomph/osgi/projectsCatalog.setup" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.jre.choice=false"                           >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.setup.installer.mode=advanced"                    >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/oomph/${CUSTOM}/catalogProducts.setup" >> "$ECL_INST_INI_BAK"
+   echo "-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/${CUSTOM}/catalogProjects.setup" >> "$ECL_INST_INI_BAK"
 
    #INSTALL_ROOT=$SCRIPT_PATH/install
    #mkdir ${INSTALL_ROOT} > /dev/null 2>&1
