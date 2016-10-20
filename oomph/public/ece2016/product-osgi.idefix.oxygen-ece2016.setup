@@ -203,8 +203,6 @@
     <requirement
         name="org.apache.felix.webconsole.plugins.scriptconsole"/>
     <requirement
-        name="org.apache.felix.webconsole.plugins.subsystems"/>
-    <requirement
         name="org.apache.felix.webconsole.plugins.upnp"/>
     <requirement
         name="org.apache.felix.webconsole.plugins.useradmin"/>
