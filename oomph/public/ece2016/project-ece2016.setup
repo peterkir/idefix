@@ -91,8 +91,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.ece2016"
-      remoteURI="http://github.com/peterkir/ece2016.git"
-      pushURI="http://github.com/${github.user.id}/ece2016.git">
+      remoteURI="https://github.com/peterkir/ece2016.git"
+      pushURI="https://github.com/${github.user.id}/ece2016.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
