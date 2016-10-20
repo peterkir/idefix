@@ -16,9 +16,9 @@ ECL_INST_APP=Eclipse\ Installer.app
 ECL_INST=eclipseInstaller
 
 CUSTOM=public/ece2016
-PROD_CAT_FILTER=ece2016\\.products
-PROD_FILTER=osgi\\.idefix\\.oyygen
-PROD_VERSION=osgi\\.idefix\\.oyygen\\.bndtools\\.3\\.3\\.0
+PROD_CAT_FILTER=ece2016\\\\.products
+PROD_FILTER=osgi\\\\.idefix\\\\.oxygen
+PROD_VERSION=osgi\\\\.idefix\\\\.oxygen\\\\.bndtools\\\\.3\\\\.3\\\\.0
 
 echo -e "\n###------------------------------------------------------------------------------"
 echo "# downloading and preparing $ECL_INST_APP"
