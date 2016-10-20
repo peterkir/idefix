@@ -174,6 +174,44 @@
     <requirement
         name="org.eclipse.equinox.sdk.feature.group"
         versionRange="3.13.2"/>
+    <repository
+        url="http://download.eclipse.org/releases/oxygen/201609231000"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Apache Felix Webconsole">
+    <requirement
+        name="aQute.xray.plugin"/>
+    <requirement
+        name="javax.servlet-api"/>
+    <requirement
+        name="org.apache.felix.http.api"/>
+    <requirement
+        name="org.apache.felix.http.jetty"/>
+    <requirement
+        name="org.apache.felix.servicediagnostics.plugin"/>
+    <requirement
+        name="org.apache.felix.webconsole"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.ds"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.event"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.memoryusage"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.obr"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.packageadmin"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.scriptconsole"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.subsystems"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.upnp"/>
+    <requirement
+        name="org.apache.felix.webconsole.plugins.useradmin"/>
+    <repository
+        url="http://peterkir.github.io/static/osgi-debug/repo/"/>
   </setupTask>
   <version name="bndtools.3.3.0"
       label="OSGi IDE - bndtools 3.3.0 REL"
