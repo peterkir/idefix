@@ -170,7 +170,7 @@
       label="additionally required to avoid PDE Target configuration">
     <requirement
         name="org.eclipse.ecf.remoteservice.sdk.feature.feature.group"
-        versionRange="3.12.0"/>
+        versionRange="3.13.2"/>
     <requirement
         name="org.eclipse.equinox.sdk.feature.group"
         versionRange="3.12.0"/>
