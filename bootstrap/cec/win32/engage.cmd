@@ -44,8 +44,8 @@ SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
 SET OOMPH_VERSION=1.4.0
 
 SET CUSTOM=cec
-SET PROD_CAT_FILTER=io\.klib\.products
-SET PROD_FILTER=idefix\.base
+SET PROD_CAT_FILTER=io\\.klib\\.products
+SET PROD_FILTER=idefix\\.base
 SET PROD_VERSION=mars
 
 ::ECHO.
