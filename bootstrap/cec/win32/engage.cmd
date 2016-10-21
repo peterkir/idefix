@@ -65,7 +65,7 @@ SET JAVA_CMD=setupJavaSDK.cmd
 ECHO.
 ECHO # downloading and configuring Java via %GITHUB_IO_BOOT%/%JAVA_CMD%
 ECHO.
-powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%JAVA_CMD% ) { Write-Output 'skipping download, cause file exists - %DL%\%JAVA_CMD%' } else {(New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO_BOOT%/%JAVA_CMD%','%DL%\%JAVA_CMD%')}"
+powershell -ExecutionPolicy UnRestricted -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%JAVA_CMD% ) { Write-Output 'skipping download, cause file exists - %DL%\%JAVA_CMD%' } else {(New-Object System.Net.WebClient).DownloadFile('%GITHUB_IO_BOOT%/%JAVA_CMD%','%DL%\%JAVA_CMD%')}"
 IF "%ERRORLEVEL%"=="" (
     ECHO failing downloading file %GITHUB_IO_BOOT%/%JAVA_CMD%
     GOTO END
@@ -81,7 +81,7 @@ ECHO # download and extract into %SCRIPT_PATH%\%ECL_INST_NAME%
 ECHO.
 
 :: download of a file with powershell - http://superuser.com/a/423789/344922
-powershell -nologo -noprofile -command "%POWERSHELL_TITLE%; $browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DL%\%BRANCH%_%GITHUB_IO_LATEST%')"
+powershell -ExecutionPolicy UnRestricted -nologo -noprofile -command "%POWERSHELL_TITLE%; $browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DL%\%BRANCH%_%GITHUB_IO_LATEST%')"
 SET /P LATEST=<%DL%\%BRANCH%_%GITHUB_IO_LATEST%
 ECHO found latest build ^<%LATEST%^> from %GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%
 ECHO.
@@ -92,13 +92,13 @@ SET ECLIPSE_INSTALLER_WEB=%BUILD_STORE%/products
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
 SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
-powershell -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output '   - skipping download, cause file exists - %DL%\%ECLIPSE_INSTALLER_ARCHIVE%' } else { Write-Output '   - downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%';$browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DL%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
+powershell -ExecutionPolicy UnRestricted -nologo -noprofile -command "%POWERSHELL_TITLE%;if ( Test-Path %DL%\%ECLIPSE_INSTALLER_ARCHIVE% ) { Write-Output '   - skipping download, cause file exists - %DL%\%ECLIPSE_INSTALLER_ARCHIVE%' } else { Write-Output '   - downloading archive %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%';$browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%','%DL%\%ECLIPSE_INSTALLER_ARCHIVE%')}"
 IF "%ERRORLEVEL%"=="" (
     ECHO failing downloading file %ECLIPSE_INSTALLER_WEB%/%ECLIPSE_INSTALLER_ARCHIVE%
     GOTO END
 )
 
-powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%ECL_INST_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %SCRIPT_PATH%\%ECL_INST_NAME%' } else { Write-Output '   - extracting ECLIPSE_INSTALLER archive to %SCRIPT_PATH%\%ECL_INST_NAME%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%ECL_INST_NAME%')}"
+powershell -ExecutionPolicy UnRestricted -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%SCRIPT_PATH%\%ECL_INST_NAME%' -PathType Container )  { Write-Output '   - skipping extraction, cause folder exists - %SCRIPT_PATH%\%ECL_INST_NAME%' } else { Write-Output '   - extracting ECLIPSE_INSTALLER archive to %SCRIPT_PATH%\%ECL_INST_NAME%'; Add-Type -A System.IO.Compression.FileSystem; [IO.Compression.ZipFile]::ExtractToDirectory('%DL%\%ECLIPSE_INSTALLER_ARCHIVE%', '%SCRIPT_PATH%\%ECL_INST_NAME%')}"
 
 ECHO    - copying latest java %JAVA8%\jre into %SCRIPT_PATH%\%ECL_INST_NAME%\jre
 IF NOT EXIST %SCRIPT_PATH%\%ECL_INST_NAME%\jre\NUL (
