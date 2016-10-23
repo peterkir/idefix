@@ -79,7 +79,7 @@ SET JAVA_DL=%DL%\%JAVA_ARCHIVE%
 SET JAVA_EXTRACT=%JAVA%\%JAVA_VERSION%
 
 ECHO.
-ECHO # setup local JDK %JAVA_VERSION% in version %JAVA_NAME%
+ECHO # setup local JRE %JAVA_VERSION% in version %JAVA_NAME%
 ECHO.
 powershell -nologo -noprofile  -command "%POWERSHELL_TITLE%;if ( Test-Path '%JAVA_DL%' ) { Write-Output '   - skipping download,   cause file exists   - %JAVA_DL%' } else { Write-Output '   - downloading archive %JAVA_ARCHIVE%';[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}; $browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%JAVA_WEB_DL%','%JAVA_DL%')}"
 IF "%ERRORLEVEL%"=="" (
