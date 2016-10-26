@@ -34,6 +34,9 @@ SET PROD_VERSION=osgi\\.idefix\\.neon\\.bndtools\\.3\\.3\\.0
 SET productSetup=https://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup
 SET projectSetup=https://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup
 
+SET INSTALLER_UPDATE_URL=http://www.klib.io/org.eclipse.oomph/%OOMPH_VERSION%/installer
+SET UPDATE_URL=http://www.klib.io/org.eclipse.oomph/%OOMPH_VERSION%/product
+
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
 ::ECHO.
@@ -104,8 +107,8 @@ IF "%ERRORLEVEL%"=="" (
     ECHO -Doomph.setup.product.version.filter=%PROD_VERSION%>>    %ECL_INST_INI%
 
     ECHO -Doomph.setup.jre.choice=false                          >> %ECL_INST_INI%
-    ECHO -Doomph.installer.update.url=%BUILD_STORE%/p2/installer >> %ECL_INST_INI%
-    ECHO -Doomph.update.url=%BUILD_STORE%/p2/oomph               >> %ECL_INST_INI%
+    ECHO -Doomph.installer.update.url=%INSTALLER_UPDATE_URL%    >> %ECL_INST_INI%
+    ECHO -Doomph.update.url=%UPDATE_URL%                         >> %ECL_INST_INI%
     ECHO -Doomph.setup.installer.mode=advanced                   >> %ECL_INST_INI%
     ECHO -Doomph.redirection.klibProductCatalog=index:/redirectable.products.setup-^>%productSetup% >> %ECL_INST_INI%
     ECHO -Doomph.redirection.klibProjectCatalog=index:/redirectable.projects.setup-^>%projectSetup% >> %ECL_INST_INI%
