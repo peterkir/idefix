@@ -45,7 +45,7 @@ SET OOMPH_VERSION=1.6.0
 
 SET CUSTOM=peterkir
 SET PROD_CAT_FILTER=io\\.klib\\.products
-SET PROD_FILTER=idefix\\.base
+SET PROD_FILTER=osgi\\.idefix\\.neon
 SET PROD_VERSION=osgi\\.idefix\\.neon\\.bndtools\\.3\\.3\\.0
 
 ::ECHO.
