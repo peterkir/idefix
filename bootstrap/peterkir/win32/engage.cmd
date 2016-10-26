@@ -2,25 +2,12 @@
 SETLOCAL EnableExtensions
 SETLOCAL EnableDelayedExpansion
 
-:: ### Version History -- X.Y.Z_YYYYMMDD-hhmm Author Description
-SET version=1.0.0_20160616-0600 &: Peter Kirschner   downloading,extract,configure and launch eclipse-installer with jre
-SET version=%version: =%
+SET version=1.0.0_20160616-0600
 SET title=idefixInstaller script %~nx0 - version %version%
 TITLE %title%
 SET POWERSHELL_TITLE=$Host.UI.RawUI.WindowTitle='%title%'
 
-IF "%1"=="" (
-    SET BRANCH=master
-) ELSE (
-    SET BRANCH=%1
-)
-
-IF "%2"=="" (
-    SET JAVA_WEB=http://www.klib.io/_archives/java/1.8
-) ELSE (
-    ::SET JAVA_WEB=https://s3-eu-west-1.amazonaws.com/klib.io/www/_archives/java/zipped/1.8
-    SET JAVA_WEB=http://jazz01.rd.corpintra.net/web/repo/_archives/java/zipped/1.8
-)
+SET JAVA_WEB=http://www.klib.io/_archives/java/1.8
 SET JAVA_ARCHIVE=win32.x86_64-jre1.8.0_74.zip
 SET JAVA=%JAVA_ARCHIVE:~13,-4%
 
@@ -34,13 +21,10 @@ SET DL=%SCRIPT_PATH%\.download
 :: folder must exists for powershell download requests
 MKDIR %DL% 2>&1 > NUL
 
-SET GITHUB_IO=http://peterkir.github.io/org.eclipse.oomph/
-SET GITHUB_IO_LATEST=latest
-
 SET GITHUB_IO_BOOT=http://peterkir.github.io/idefix/bootstrap/peterkir/win32
 
 SET BUILD_SERVER_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph
-SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
+#SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
 SET OOMPH_VERSION=1.6.0
 
 SET CUSTOM=peterkir
