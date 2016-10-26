@@ -228,7 +228,7 @@ s  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/examp
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.site.setup#/"/>
 
   <!-- bndtools -->
-  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.manual.setup#/"/>
 
