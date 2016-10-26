@@ -169,6 +169,21 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Oxygen epp.package.java and latest bndtools build.</description>
   </version>
+  <version name="bndtools.3.3.0"
+      label="OSGi IDE - bndtools 3.3.0 REL"
+      requiredJavaVersion="1.7">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.2.0 REL">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.2.0,4.0.0)"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+  </version>
   <version name="bndtools.3.2.0"
       label="OSGi IDE - bndtools 3.2.0 REL"
       requiredJavaVersion="1.7">

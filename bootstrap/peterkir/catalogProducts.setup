@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:ProductCatalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    name="io.klib.products"
+    label="klib.io Products">
+
+  <product href="http://peterkir.github.io/idefix/oomph/peterkir/products/idefix.neon.setup#/"/>
+
+</setup:ProductCatalog>

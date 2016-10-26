@@ -41,12 +41,12 @@ SET GITHUB_IO_BOOT=http://peterkir.github.io/idefix/bootstrap/peterkir/win32
 
 SET BUILD_SERVER_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph
 SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
-SET OOMPH_VERSION=1.4.0
+SET OOMPH_VERSION=1.6.0
 
 SET CUSTOM=peterkir
-SET PROD_CAT_FILTER=io\.klib\.products
-SET PROD_FILTER=idefix\.base
-SET PROD_VERSION=mars
+SET PROD_CAT_FILTER=io\\.klib\\.products
+SET PROD_FILTER=idefix\\.base
+SET PROD_VERSION=osgi\\.idefix\\.neon\\.bndtools\\.3\\.3\\.0
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
@@ -80,15 +80,7 @@ ECHO.
 ECHO # download and extract into %SCRIPT_PATH%\%ECL_INST_NAME%
 ECHO.
 
-:: download of a file with powershell - http://superuser.com/a/423789/344922
-powershell -nologo -noprofile -command "%POWERSHELL_TITLE%; $browser = New-Object System.Net.WebClient; $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials; $browser.DownloadFile('%GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%','%DL%\%BRANCH%_%GITHUB_IO_LATEST%')"
-SET /P LATEST=<%DL%\%BRANCH%_%GITHUB_IO_LATEST%
-ECHO found latest build ^<%LATEST%^> from %GITHUB_IO%/%BRANCH%/%GITHUB_IO_LATEST%
-ECHO.
-
-SET BUILD_STORE=%BUILD_SERVER_ROOT%/%OOMPH_VERSION%/%BRANCH%/%LATEST%
-
-SET ECLIPSE_INSTALLER_WEB=%BUILD_STORE%/products
+SET ECLIPSE_INSTALLER_WEB=%BUILD_SERVER_ROOT%/%OOMPH_VERSION%/
 SET ECLIPSE_INSTALLER_ARCHIVE=org.eclipse.oomph.setup.installer.product-win32.win32.x86_64.zip
 SET ECLIPSE_INSTALLER=%ECLIPSE_INSTALLER_ARCHIVE:~0,-4%
 
