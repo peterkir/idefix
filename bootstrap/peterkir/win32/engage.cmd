@@ -31,8 +31,8 @@ SET PROD_CAT_FILTER=io\\.klib\\.products
 SET PROD_FILTER=osgi\\.idefix\\.neon
 SET PROD_VERSION=osgi\\.idefix\\.neon\\.bndtools\\.3\\.3\\.0
 
-SET productSetup=https://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup
-SET projectSetup=https://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup
+SET productSetup=http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup
+SET projectSetup=http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup
 
 SET INSTALLER_UPDATE_URL=http://www.klib.io/org.eclipse.oomph/%OOMPH_VERSION%/installer
 SET UPDATE_URL=http://www.klib.io/org.eclipse.oomph/%OOMPH_VERSION%/product
