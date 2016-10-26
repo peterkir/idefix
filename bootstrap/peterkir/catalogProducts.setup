@@ -6,6 +6,6 @@
     name="io.klib.products"
     label="klib.io Products">
 
-  <product href="http://peterkir.github.io/idefix/oomph/peterkir/products/idefix.neon.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.neon.setup#/"/>
 
 </setup:ProductCatalog>
