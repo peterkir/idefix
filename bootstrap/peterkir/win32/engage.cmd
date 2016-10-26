@@ -24,15 +24,15 @@ MKDIR %DL% 2>&1 > NUL
 SET GITHUB_IO_BOOT=http://peterkir.github.io/idefix/bootstrap/peterkir/win32
 
 SET BUILD_SERVER_ROOT=https://dl.bintray.com/peterkir/generic/org.eclipse.oomph
-#SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
+::SET BUILD_SERVER_ROOT=http://www.klib.io/org.eclipse.oomph
 SET OOMPH_VERSION=1.6.0
 
 SET PROD_CAT_FILTER=io\\.klib\\.products
 SET PROD_FILTER=osgi\\.idefix\\.neon
 SET PROD_VERSION=osgi\\.idefix\\.neon\\.bndtools\\.3\\.3\\.0
 
-SET productSetup=https://peterkir.github.io/idefix/oomph/peterkir/catalogProducts.setup
-SET projectSetup=https://peterkir.github.io/idefix/oomph/peterkir/catalogProjects.setup
+SET productSetup=https://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup
+SET projectSetup=https://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup
 
 ::ECHO.
 ::ECHO # workaroung for NTLMv2 ProxyAuth - starting IE
