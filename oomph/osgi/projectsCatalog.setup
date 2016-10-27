@@ -218,5 +218,8 @@
   <!-- conference projects -->
   <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2016.setup#/"/>
 
+  <!-- eclipse projects -->
+  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/concierge.setup#/"/>
+
   <description>All the projects at OSGi that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
