@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="osgi.idefix.neon"
-    label="OSGi IDEfix Neon">
+    name="osgi.idefix.oxygen"
+    label="OSGi IDEfix Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -109,18 +109,20 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="Eclipse IDE for Java Developers (Neon)">
+      label="Eclipse IDE for Java Developers (Oxygen)">
     <requirement
         name="epp.package.java"
-        versionRange="[4.6.0,4.7.0)"/>
+        versionRange="[4.7.0,5.0.0)"/>
     <requirement
         name="org.eclipse.platform.feature.group"
-        versionRange="[4.6.0,4.7.0)"/>
+        versionRange="[4.7.0,5.0.0)"/>
     <requirement
         name="org.eclipse.rcp.feature.group"
-        versionRange="[4.6.0,4.7.0)"/>
+        versionRange="[4.7.0,5.0.0)"/>
     <requirement
         name="org.eclipse.buildship.feature.group"/>
+    <requirement
+        name="org.eclipse.eclemma.feature.feature.group"/>
     <requirement
         name="org.eclipse.egit.feature.group"/>
     <requirement
@@ -158,9 +160,9 @@
     <requirement
         name="org.eclipse.wst.xml_ui.feature.feature.group"/>
     <repository
-        url="http://download.eclipse.org/technology/epp/packages/neon"/>
+        url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
     <repository
-        url="http://download.eclipse.org/releases/neon/201610111000"/>
+        url="http://download.eclipse.org/releases/oxygen"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
