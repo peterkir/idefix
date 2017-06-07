@@ -11,4 +11,6 @@
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.neon.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.oxygen.setup#/"/>
 
+  <product href="http://peterkir.github.io/idefix/bootstrap/cec/products/idefix.172.setup#/"/>
+
 </setup:ProductCatalog>
