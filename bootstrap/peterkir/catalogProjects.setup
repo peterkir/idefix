@@ -204,20 +204,20 @@
   </setupTask>
 
   <!-- conferences -->
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2016.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/jfs2016.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ece2014.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ece2016.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/jfs2016.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ece2014.setup#/"/>
 
   <!-- GitHub projects -->
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/bundlewrap.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/ee.j2se-1.8.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/eval.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/example.aspectj.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/idefix.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/io.klib.tools.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/org.eclipse.oomph.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/peterkir.github.io.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/reveal.js.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/bundlewrap.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ee.j2se-1.8.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/eval.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/example.aspectj.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/idefix.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/io.klib.tools.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/org.eclipse.oomph.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/peterkir.github.io.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/reveal.js.setup#/"/>
 
   <!-- osgi -->
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.design.setup#/"/>
