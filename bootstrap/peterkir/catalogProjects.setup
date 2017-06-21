@@ -232,8 +232,9 @@
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.manual.setup#/"/>
 
-  <!-- cec -->
+  <!-- Daimler CEC -->
   <project href="http://peterkir.github.io/idefix/bootstrap/cec/projects/dev172.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/duke.setup#/"/>
 
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
