@@ -215,7 +215,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="latest.release"
+  <version name="latest.release.20170621"
       label="IDEfix - DukE"
       requiredJavaVersion="1.7">
     <setupTask
