@@ -215,7 +215,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="latest.release.bndtools.bintray"
+  <version name="latest.bintray"
       label="OSGi IDE - bndtools latest ( bintray REL )"
       requiredJavaVersion="1.7">
     <setupTask
@@ -229,7 +229,7 @@
     </setupTask>
     <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
-  <version name="latest.dev.bndtools.cloudbees"
+  <version name="latest.cloudbees"
       label="OSGi IDE - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
     <setupTask
