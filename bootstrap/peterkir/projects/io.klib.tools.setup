@@ -8,66 +8,10 @@
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="io.klib.tools"
     label="io.klib.tools">
-  <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="Oomph Pre-Requisites">
-    <requirement
-        name="org.eclipse.emf.sdk.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.ide_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.java_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.pde_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.team_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.git.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.builds.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.hudson.feature.group"/>
-    <requirement
-        name="org.eclipse.egit.feature.group"/>
-    <requirement
-        name="org.eclipse.egit.mylyn.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.projectcopy.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.version.feature.group"/>
-    <requirement
-        name="org.eclipse.emf.ecoretools.sdk.feature.group"/>
-    <requirement
-        name="org.eclipse.swtbot.ide.feature.group"/>
-    <requirement
-        name="org.eclipse.swtbot.eclipse.test.junit.feature.group"/>
-    <requirement
-        name="org.eclipse.pde.api.tools.ee.feature.feature.group"
-        optional="true"/>
-    <repository
-        url="http://download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
-    <repository
-        url="http://download.eclipse.org/egit/updates-stable-nightly"/>
-    <repository
-        url="http://download.eclipse.org/mylyn/snapshots/3.19"/>
-    <repository
-        url="http://download.eclipse.org/technology/swtbot/snapshots"/>
-    <repository
-        url="${oomph.update.url}"/>
-  </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
       name="eclipse.ini">
