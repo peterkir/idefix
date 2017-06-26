@@ -196,7 +196,7 @@
     </setupTask>
   </setupTask>
   <version name="bndtools.3.4.0"
-      label="IDEfix - bndtools 3.4.0.RC1"
+      label="IDEfix - developer"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -208,7 +208,111 @@
           url="https://bndtools.ci.cloudbees.com/job/bndtools.next/104/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>IDEfix based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>
+      based on Eclipse Oxygen epp.package.java
+      bndtools 3.4.0.RC1
+    </description>
+  </version>
+  <version name="bndtools.3.4.0"
+      label="IDEfix - modeling"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0.RC1">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.4.0,4.0.0)"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/104/artifact/build/generated/p2/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Eclipse Modeling Tools (Oxygen)">
+      <requirement
+          name="epp.package.modeling"
+          versionRange="[4.7.0,4.8.0)"/>
+      <requirement
+          name="org.eclipse.platform.feature.group"
+          versionRange="[4.7.0,4.8.0)"/>
+      <requirement
+          name="org.eclipse.rcp.feature.group"
+          versionRange="[4.7.0,4.8.0)"/>
+      <requirement
+          name="org.eclipse.amalgam.discovery.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.cdo.epp.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.diagram.sirius.source.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.ide.ui.source.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.compare.source.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.ecoretools.design.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.ecoretools.explorer.contextual.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.ecp.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.emfstore.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.parsley.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.parsley.sdk.source.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.query.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.transaction.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.validation.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.gef.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.gmf.runtime.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.context_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.ide_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.java_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.pde_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.ocl.all.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.uml2.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.xsd.sdk.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
+      <repository
+          url="http://download.eclipse.org/releases/oxygen"/>
+    </setupTask>
+    <description>
+      based on Eclipse Oxygen epp.package.java
+      bndtools 3.4.0.RC1
+    </description>
   </version>
   <version name="bndtools.3.3.0"
       label="IDEfix - bndtools 3.3.0 REL"
