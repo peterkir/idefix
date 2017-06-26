@@ -195,6 +195,12 @@
       <description></description>
     </setupTask>
   </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      id="install.root"
+      name="install.root"
+      defaultValue="c:/oomph"
+      label="Root Installation Folder"/>
   <version name="developer"
       label="IDEfix - developer"
       requiredJavaVersion="1.8">
