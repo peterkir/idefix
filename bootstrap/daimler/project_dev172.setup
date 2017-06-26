@@ -4,8 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
     name="cec172"
     label="CEC 172">
   <setupTask
@@ -54,11 +55,20 @@
       name="install.root"
       defaultValue="c:/oomph"
       label="Installation Root"/>
+  <setupTask
+      xsi:type="git:GitCloneTask"
+      id="git.clone.cec172"
+      remoteURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV"
+      pushURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV">
+    <description>${scope.project.label}</description>
+  </setupTask>
   <stream name="master">
     <setupTask
-        xsi:type="git:GitCloneTask"
-        remoteURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV"
-        pushURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV"/>
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.cec172}"
+          locateNestedProjects="true"/>
+    </setupTask>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
