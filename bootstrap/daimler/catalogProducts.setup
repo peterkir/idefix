@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:ProductCatalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    name="com.daimler.products"
+    label="Daimler Products">
+
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="REDIRECTION catalogProduct">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProductCatalog"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProducts.setup"
+        vm="true"/>
+  </setupTask>
+  
+  <product href="product_idefix.oxygen.setup#/"/>
+
+</setup:ProductCatalog>

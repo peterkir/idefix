@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Product
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    name="idefix.oxygen"
+    label="IDEfix Oxygen">
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+    <detail
+        key="folderName">
+      <value>eclipse</value>
+    </detail>
+    <detail
+        key="folderName.macosx">
+      <value>Eclipse</value>
+    </detail>
+  </annotation>
+  <setupTask
+      xsi:type="setup:InstallationTask"
+      id="installation"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="eclipse.ini">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-perspective"
+        value="bndtools.perspective"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Xmx"
+        value="1024m"
+        vm="true">
+      <description>Set the heap space needed to work with the projects</description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="preferences">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.core.resources">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/refresh.enabled"
+          value="true"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/encoding"
+          value="UTF-8"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.ui.editors">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.editors/spacesForTabs"
+          value="true"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.editors/tabWidth"
+          value="4"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui/defaultPerspectiveId"
+          value="bndtools.perspective"/>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="oomph - runtime and redirect klib.io ">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="oomph runtime">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="oomph.setup">
+        <requirement
+            name="org.eclipse.oomph.setup.feature.group"/>
+        <repository
+            url="${oomph.update.url}"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="eclipse.ini">
+        <setupTask
+            xsi:type="setup:EclipseIniTask"
+            option="-Declipse.p2.unsignedPolicy"
+            value="=allow"
+            vm="true"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProductCatalog"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup"
+        vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProjectCatalog"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
+        vm="true"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Eclipse IDE for Java Developers (Oxygen)">
+    <requirement
+        name="epp.package.java"
+        versionRange="[4.7.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.platform.feature.group"
+        versionRange="[4.7.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.rcp.feature.group"
+        versionRange="[4.7.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.buildship.feature.group"/>
+    <requirement
+        name="org.eclipse.eclemma.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
+        name="org.eclipse.jdt.feature.group"/>
+    <requirement
+        name="org.eclipse.jgit.feature.group"/>
+    <requirement
+        name="org.eclipse.m2e.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.m2e.logback.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.recommenders.rcp.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.recommenders.snipmatch.rcp.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.wst.xml_ui.feature.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
+    <repository
+        url="http://download.eclipse.org/releases/oxygen"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="misc">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="QuickREx - regexp">
+      <requirement
+          name="de.babe.eclipse.plugins.QuickREx"
+          versionRange="[3.5.0,4.0.0)"/>
+      <repository
+          url="https://s3-eu-west-1.amazonaws.com/klib.io/www/_repo/idefix-other-tools"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="OS Explorer">
+      <requirement
+          name="de.bastiankrol.startexplorer.feature.feature.group"
+          versionRange="1.6.1"/>
+      <repository
+          url="http://basti1302.github.com/startexplorer/update"/>
+      <description>enables comfort functions to access native os environments</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="EcliPaint">
+      <requirement
+          name="org.eclipaint.feature.feature.group"
+          versionRange="[2.5.1,3.0.0)"/>
+      <repository
+          url="https://raw.githubusercontent.com/jabiercoding/eclipaint/master/updatesite/org.eclipaint.site/"/>
+      <description>https://github.com/jabiercoding/eclipaint</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="InstaSearch">
+      <repository
+          url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
+      <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Markdown Editor">
+      <requirement
+          name="markdown.editor.feature.feature.group"
+          versionRange="[1.1.0,2.0.0)"/>
+      <repository
+          url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
+      <description></description>
+    </setupTask>
+  </setupTask>
+  <version name="latest.cloudbees"
+      label="IDEfix - bndtools.latest ( cloudbees )"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools latest">
+      <requirement
+          name="bndtools.main.feature.feature.group"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <description>IDEfix based on Eclipse Oxygen epp.package.java and latest bndtools build.</description>
+  </version>
+  <version name="bndtools.3.4.0"
+      label="IDEfix - bndtools 3.4.0.RC1"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0.RC1">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.4.0,4.0.0)"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bnd.next/599/artifact/dist/bundles/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <description>IDEfix based on Eclipse Oxygen epp.package.java and bndtools</description>
+  </version>
+  <version name="bndtools.3.3.0"
+      label="IDEfix - bndtools 3.3.0 REL"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.3.0 REL">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.3.0,4.0.0)"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <description>IDEfix based on Eclipse Oxygen epp.package.java and bndtools</description>
+  </version>
+  <description>IDE for OSGi development</description>
+</setup:Product>
