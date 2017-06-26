@@ -115,6 +115,13 @@
           label="HTTPS (read-only, anonymous)"/>
       <description>Choose from the available Git URIs</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="FOLDER"
+        name="git.clone.daimler.ROOT.location"
+        defaultValue="${installation.location/git/}">
+      <description>The root folder for all Daimler Git clones</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:WorkspaceTask"
@@ -138,8 +145,6 @@
         value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProjects.setup"
         vm="true"/>
   </setupTask>
-
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler/project_dev172.setup#/"/>
-
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
