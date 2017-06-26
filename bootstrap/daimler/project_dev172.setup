@@ -48,12 +48,6 @@
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
-  <setupTask
-      xsi:type="setup:VariableTask"
-      name="installation.location"
-      value=""
-      defaultValue="c:/oomph"
-      label="Root Installation Location"/>
   <stream name="master">
     <setupTask
         xsi:type="git:GitCloneTask"
