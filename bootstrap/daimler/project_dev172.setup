@@ -51,8 +51,8 @@
   <stream name="master">
     <setupTask
         xsi:type="git:GitCloneTask"
-        remoteURI="https://${git.user.id}@dev01.in-technology.de/gerrit/CEC-DEV"
-        pushURI="https://${git.user.id}@dev01.in-technology.de/gerrit/CEC-DEV"/>
+        remoteURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV"
+        pushURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV"/>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
