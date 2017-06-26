@@ -55,8 +55,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.cec172"
-      remoteURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV.git"
-      pushURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV">
+      remoteURI="CEC-DEV.git"
+      pushURI="CEC-DEV.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
