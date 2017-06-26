@@ -205,7 +205,7 @@
           name="bndtools.main.feature.feature.group"
           versionRange="[3.4.0,4.0.0)"/>
       <repository
-          url="https://bndtools.ci.cloudbees.com/job/bnd.next/599/artifact/dist/bundles/"/>
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/104/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <description>IDEfix based on Eclipse Oxygen epp.package.java and bndtools</description>
