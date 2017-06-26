@@ -5,17 +5,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.oxygen"
+    name="idefix.daimler.oxygen"
     label="IDEfix Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
         key="folderName">
-      <value>eclipse</value>
+      <value>idefix.daimler</value>
     </detail>
     <detail
         key="folderName.macosx">
-      <value>Eclipse</value>
+      <value>IDEfix.Daimler</value>
     </detail>
   </annotation>
   <setupTask
@@ -195,20 +195,6 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="latest.cloudbees"
-      label="IDEfix - bndtools.latest ( cloudbees )"
-      requiredJavaVersion="1.8">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools latest">
-      <requirement
-          name="bndtools.main.feature.feature.group"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <description>IDEfix based on Eclipse Oxygen epp.package.java and latest bndtools build.</description>
-  </version>
   <version name="bndtools.3.4.0"
       label="IDEfix - bndtools 3.4.0.RC1"
       requiredJavaVersion="1.8">
@@ -238,6 +224,20 @@
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <description>IDEfix based on Eclipse Oxygen epp.package.java and bndtools</description>
+  </version>
+  <version name="latest.cloudbees"
+      label="IDEfix - bndtools.latest ( cloudbees )"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools latest">
+      <requirement
+          name="bndtools.main.feature.feature.group"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <description>IDEfix based on Eclipse Oxygen epp.package.java and latest bndtools build.</description>
   </version>
   <description>IDE for OSGi development</description>
 </setup:Product>
