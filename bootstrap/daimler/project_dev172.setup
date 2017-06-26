@@ -6,6 +6,7 @@
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
     name="cec172"
     label="CEC 172">
@@ -43,6 +44,57 @@
         targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.oomph.setup.ui/dialog_settings.xml"
         encoding="UTF-8">
       <description>Initialize JDT's package explorer to show working sets as its root objects</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Oomph">
+      <requirement
+          name="org.eclipse.emf.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.ide_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.java_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.pde_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.team_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.git.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.builds.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.hudson.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.mylyn.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.projectcopy.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.version.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.ecoretools.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.swtbot.ide.feature.group"/>
+      <requirement
+          name="org.eclipse.swtbot.eclipse.test.junit.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.api.tools.ee.feature.feature.group"
+          optional="true"/>
+      <repository
+          url="http://download.eclipse.org/modeling/emf/emf/updates/nightly/core"/>
+      <repository
+          url="http://download.eclipse.org/egit/updates-stable-nightly"/>
+      <repository
+          url="http://download.eclipse.org/technology/swtbot/snapshots"/>
+      <repository
+          url="${oomph.update.url}"/>
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
