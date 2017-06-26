@@ -74,7 +74,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="oomph - runtime and redirect klib.io ">
+      name="REDIRECTION catalogProduct">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="oomph runtime">
@@ -100,11 +100,6 @@
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
         value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup"
-        vm="true"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
         vm="true"/>
   </setupTask>
   <setupTask
