@@ -10,9 +10,6 @@
     name="cec172"
     label="CEC 172">
   <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"/>
-  <setupTask
       xsi:type="setup:CompoundTask"
       name="preference">
     <setupTask
@@ -58,10 +55,15 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.cec172"
-      remoteURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV"
+      remoteURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV.git"
       pushURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
+      <annotation
+          source="target">
+        <reference
+            href="http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore#//GitCloneTask/remoteURI"/>
+      </annotation>
       <detail
           key="label">
         <value>${scope.project.label} Git repository</value>
@@ -73,7 +75,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.cec172}"
+          rootFolder="${git.clone.cec172.location}"
           locateNestedProjects="true"/>
     </setupTask>
   </stream>
