@@ -69,7 +69,7 @@
     </annotation>
     <description>${scope.project.label}</description>
   </setupTask>
-  <stream name="Master">
+  <stream name="master">
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
