@@ -59,14 +59,13 @@
       pushURI="ssh://${git.user.id}@dev01.in-technology.de:29418/CEC-DEV">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
-      <annotation
-          source="target">
-        <reference
-            href="http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore#//GitCloneTask/remoteURI"/>
-      </annotation>
       <detail
-          key="label">
-        <value>${scope.project.label} Git repository</value>
+          key="inherit">
+        <value>innotec.gerrit.remoteURIs</value>
+      </detail>
+      <detail
+          key="target">
+        <value>remoteURI</value>
       </detail>
     </annotation>
     <description>${scope.project.label}</description>

@@ -6,12 +6,19 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="com.daimler.projects"
     label="Daimler projects">
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+    <detail
+        key="siteURI">
+      <value>https://peterkir.github.io</value>
+    </detail>
+  </annotation>
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Global Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        name="git.user.id"
+        name="innotec.user.id"
         defaultValue="anonymous"
         label="Git user ID"
         documentation="The Eclipse user ID for Git/Gerrit commits.  Use 'anonymous' if you have no Eclipse user ID.">
@@ -19,7 +26,7 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        name="git.author.name"
+        name="innotec.author.name"
         defaultValue=""
         label="Git author name"
         documentation="The Eclipse author name for Git/Gerrit commits.  Use 'Anonymous' if you're not a registered Eclipse Git author or don't plan to commit to Git.">
@@ -27,7 +34,8 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        name="git.author.email"
+        name="innotec.author.email"
+        value=""
         label="Git author email"
         documentation="The Eclipse author email for Git/Gerrit commits.  Use 'anonymous@example.com' if you're not a registered Eclipse Git author or don't plan to commit to Git.">
       <description>The email address associated with Github commits</description>
@@ -35,7 +43,7 @@
     <setupTask
         xsi:type="setup:VariableTask"
         type="PASSWORD"
-        name="git.user.password"
+        name="innotec.user.password"
         label="Git password for issues">
       <annotation
           source="http://www.eclipse.org/oomph/setup/PasswordVerificationDisabled">
@@ -99,21 +107,24 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        name="git.remoteURIs"
-        label="Git repository">
+        name="innotec.gerrit.remoteURIs"
+        label="InnoTec Daimler Gerrit Repository">
       <choice
-          value="git@github.com:@{remoteURI}.git"
-          label="Git (read-write)"/>
+          value="https://dev01.in-technology.de/gerrit/@{remoteURI}"
+          label="HTTPS (read-only, anonymous, Gerrit)"/>
       <choice
-          value="https://${github.user.id|username}@github.com/@{remoteURI}.git"
-          label="HTTPS (read-write)">
+          value="ssh://${innotec.user.id|username}@dev01.in-technology.de:29418/@{remoteURI}"
+          label="SSH (read-write, Gerrit)">
         <annotation
             source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
       </choice>
       <choice
-          value="https://github.com/@{remoteURI}.git"
-          label="HTTPS (read-only, anonymous)"/>
-      <description>Choose from the available Git URIs</description>
+          value="https://${innotec.user.id|username}@dev01.in-technology.de/gerrit/a/@{remoteURI}"
+          label="HTTPS (read-write, Gerrit)">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
+      </choice>
+      <description>Choose from the available remote Gerrit URIs</description>
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
