@@ -30,7 +30,7 @@
       location="${jre.location-1.8}"/>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="Oomph Pre-Requisites">
+      label="Oomph">
     <requirement
         name="org.eclipse.emf.sdk.feature.group"/>
     <requirement
@@ -60,8 +60,6 @@
     <requirement
         name="org.eclipse.oomph.projectcopy.feature.group"/>
     <requirement
-        name="org.eclipse.oomph.setup.feature.group"/>
-    <requirement
         name="org.eclipse.oomph.version.feature.group"/>
     <requirement
         name="org.eclipse.emf.ecoretools.sdk.feature.group"/>
@@ -77,20 +75,9 @@
     <repository
         url="http://download.eclipse.org/egit/updates-stable-nightly"/>
     <repository
-        url="http://download.eclipse.org/mylyn/snapshots/3.19"/>
-    <repository
         url="http://download.eclipse.org/technology/swtbot/snapshots"/>
     <repository
         url="${oomph.update.url}"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="eclipse.ini">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Xmx"
-        value="2048m"
-        vm="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
