@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="DukE.svn"
+    name="duke.svn"
     label="DukE">
   <setupTask
       xsi:type="setup.p2:P2Task">
@@ -17,7 +17,7 @@
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='scout']"/>
+      xsi:type="setup:ProjectCatalog"
+      href="catalogProjects.setup#/"/>
   <description>DukE - Durchgängiger und konsequenter Erprobungsprozess</description>
 </setup:Project>
