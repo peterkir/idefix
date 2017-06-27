@@ -8,11 +8,40 @@
     name="duke.svn"
     label="DukE">
   <setupTask
-      xsi:type="setup.p2:P2Task">
+      xsi:type="setup.p2:P2Task"
+      label="SVN">
     <requirement
         name="org.eclipse.team.svn.feature.group"/>
     <requirement
         name="org.eclipse.team.svn.revision.graph.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.sources.feature.group"/>
+    <repository
+        url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Eclipse Java EE">
+    <requirement
+        name="org.eclipse.jst.enterprise_ui.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.wst.jsdt.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.wst.web_ui.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.wst.xml_ui.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.jst.server_adapters.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.jst.server_adapters.ext.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.jst.server_ui.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.wst.server_adapters.feature.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/releases/oxygen"/>
   </setupTask>
   <stream name="master"
       label="Master"/>
