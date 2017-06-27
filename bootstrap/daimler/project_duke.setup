@@ -14,6 +14,12 @@
         name="org.eclipse.team.svn.feature.group"/>
     <requirement
         name="org.eclipse.team.svn.revision.graph.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/releases/oxygen"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="SVN - Polarion Connector">
     <requirement
         name="org.polarion.eclipse.team.svn.connector.feature.group"/>
     <requirement
