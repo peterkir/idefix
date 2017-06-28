@@ -74,7 +74,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="oomph - runtime and redirect klib.io ">
+      name="REDIRECTION catalogProduct">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="oomph runtime">
@@ -98,13 +98,13 @@
     </setupTask>
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup"
+        option="-Declipse.p2.unsignedPolicy"
+        value="=allow"
         vm="true"/>
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
+        option="-Doomph.redirection.klibProductCatalog"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup"
         vm="true"/>
   </setupTask>
   <setupTask
@@ -166,7 +166,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="misc">
+      name="P2 Director - misc installations">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="QuickREx - regexp">
