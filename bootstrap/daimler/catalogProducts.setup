@@ -18,6 +18,6 @@
         vm="true"/>
   </setupTask>
   
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/product_idefix.oxygen.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/product_idefix.cec.setup#/"/>
 
 </setup:ProductCatalog>
