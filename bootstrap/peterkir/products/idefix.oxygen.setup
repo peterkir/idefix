@@ -168,6 +168,8 @@
       xsi:type="setup.p2:P2Task"
       label="oomph setup">
     <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
         name="org.eclipse.oomph.setup.feature.group"/>
     <repository
         url="${oomph.update.url}"/>
