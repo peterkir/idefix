@@ -168,39 +168,29 @@
       xsi:type="setup.p2:P2Task"
       label="oomph setup">
     <requirement
-        name="org.eclipse.mylyn.ide_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.java_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.pde_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.team_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.git.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.builds.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.hudson.feature.group"/>
-    <requirement
-        name="org.eclipse.egit.feature.group"/>
-    <requirement
-        name="org.eclipse.egit.mylyn.feature.group"/>
-    <requirement
         name="org.eclipse.oomph.setup.feature.group"/>
     <requirement
-        name="org.eclipse.oomph.projectcopy.feature.group"/>
+        name="org.eclipse.oomph.setup.git.feature.group"/>
     <requirement
-        name="org.eclipse.oomph.version.feature.group"/>
+        name="org.eclipse.oomph.setup.jdt.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.maven.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.pde.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.projectset.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.projects.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.targlets.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.workbench.feature.group"/>
+    <requirement
+        name="org.eclipse.oomph.setup.workingsets.feature.group"/>
     <repository
         url="${oomph.update.url}"/>
-    <repository
-        url="http://download.eclipse.org/egit/updates-stable-nightly"/>
     <description></description>
   </setupTask>
   <setupTask

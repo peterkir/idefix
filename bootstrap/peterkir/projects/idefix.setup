@@ -98,15 +98,6 @@
     </annotation>
     <description>${scope.project.label}</description>
   </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="REDIRECTION catalogProject">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
-        vm="true"/>
-  </setupTask>
   <stream name="gh-pages"
       label="">
     <setupTask
