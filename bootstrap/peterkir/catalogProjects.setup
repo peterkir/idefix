@@ -4,6 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="io.klib.projects"
     label="klib.io projects">
   <annotation
@@ -193,22 +194,22 @@
       name="REFERENCE klib.io ">
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup"
-        vm="true"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
         value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
         vm="true"/>
   </setupTask>
-
-  <!-- conferences -->
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="oomph setup">
+    <requirement
+        name="org.eclipse.oomph.setup.feature.group"/>
+    <repository
+        url="${oomph.update.url}"/>
+    <description></description>
+  </setupTask>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ece2016.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/jfs2016.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ece2014.setup#/"/>
-
-  <!-- GitHub projects -->
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/bundlewrap.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ee.j2se-1.8.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/eval.setup#/"/>
@@ -218,19 +219,12 @@
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/org.eclipse.oomph.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/peterkir.github.io.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/reveal.js.setup#/"/>
-
-  <!-- osgi -->
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.design.setup#/"/>
-  
-  <!-- enroute -->
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.examples.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.site.setup#/"/>
-
-  <!-- bndtools -->
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/bnd.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
   <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.manual.setup#/"/>
-
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>

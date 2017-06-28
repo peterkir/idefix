@@ -165,6 +165,15 @@
         url="http://download.eclipse.org/releases/oxygen"/>
   </setupTask>
   <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="oomph setup">
+    <requirement
+        name="org.eclipse.oomph.setup.feature.group"/>
+    <repository
+        url="${oomph.update.url}"/>
+    <description></description>
+  </setupTask>
+  <setupTask
       xsi:type="setup:CompoundTask"
       name="P2 Director - misc installations">
     <setupTask
