@@ -6,7 +6,7 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="osgi.idefix.oxygen"
-    label="OSGi IDEfix Oxygen">
+    label="IDEfix klib.io Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -112,13 +112,13 @@
       label="Eclipse IDE for Java Developers (Oxygen)">
     <requirement
         name="epp.package.java"
-        versionRange="[4.7.0,5.0.0)"/>
+        versionRange="[4.7.0,4.8.0)"/>
     <requirement
         name="org.eclipse.platform.feature.group"
-        versionRange="[4.7.0,5.0.0)"/>
+        versionRange="[4.7.0,4.8.0)"/>
     <requirement
         name="org.eclipse.rcp.feature.group"
-        versionRange="[4.7.0,5.0.0)"/>
+        versionRange="[4.7.0,4.8.0)"/>
     <requirement
         name="org.eclipse.buildship.feature.group"/>
     <requirement
@@ -216,7 +216,7 @@
     </setupTask>
   </setupTask>
   <version name="latest.bintray"
-      label="OSGi IDE - bndtools latest ( bintray REL )"
+      label="IDEfix klib.io - bndtools latest ( bintray REL )"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -227,10 +227,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/latest"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="latest.cloudbees"
-      label="OSGi IDE - bndtools.latest ( cloudbees )"
+      label="IDEfix klib.io - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -241,10 +241,10 @@
           url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and latest bndtools build.</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and latest bndtools build.</description>
   </version>
   <version name="bndtools.3.3.0"
-      label="OSGi IDE - bndtools 3.3.0 REL"
+      label="IDEfix klib.io - bndtools 3.3.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -256,10 +256,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.2.0"
-      label="OSGi IDE - bndtools 3.2.0 REL"
+      label="IDEfix klib.io - bndtools 3.2.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -271,10 +271,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.1"
-      label="OSGi IDE - bndtools 3.1.1 REL"
+      label="IDEfix klib.io - bndtools 3.1.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -286,10 +286,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.0"
-      label="OSGi IDE - bndtools 3.1.0 REL"
+      label="IDEfix klib.io - bndtools 3.1.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -301,10 +301,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.0.0"
-      label="OSGi IDE - bndtools 3.0.0 REL"
+      label="IDEfix klib.io - bndtools 3.0.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -316,10 +316,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.0.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.1"
-      label="OSGi IDE - bndtools 2.4.1 REL"
+      label="IDEfix klib.io - bndtools 2.4.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -331,10 +331,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.0"
-      label="OSGi IDE - bndtools 2.4.0 REL"
+      label="IDEfix klib.io - bndtools 2.4.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -346,7 +346,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Neon epp.package.java and bndtools</description>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
   </version>
   <description>IDE for OSGi development</description>
 </setup:Product>
