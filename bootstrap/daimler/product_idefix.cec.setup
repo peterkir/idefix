@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.daimler.oxygen"
+    name="com.daimler.products"
     label="IDEfix Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -187,7 +187,7 @@
         url="${oomph.update.url}"/>
     <description></description>
   </setupTask>
-  <version name="developer"
+  <version name="idefix.oxygen.developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
     <setupTask
@@ -242,7 +242,7 @@
       bndtools 3.4.0.RC1
     </description>
   </version>
-  <version name="modeling"
+  <version name="idefix.oxygen.modeling"
       label="IDEfix - Modeling"
       requiredJavaVersion="1.8">
     <setupTask
@@ -343,7 +343,7 @@
       bndtools 3.4.0.RC1
     </description>
   </version>
-  <version name="duke"
+  <version name="idefix.oxygen.duke"
       label="IDEfix - DukE">
     <setupTask
         xsi:type="setup.p2:P2Task"
