@@ -187,6 +187,29 @@
         url="${oomph.update.url}"/>
     <description></description>
   </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="SVN">
+    <requirement
+        name="org.eclipse.team.svn.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.revision.graph.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/releases/oxygen"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="SVN - Polarion Connector">
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.javahl19.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.javahl19.win32.feature.group"
+        filter="(&amp;(osgi.arch=x86)(osgi.os=win32))"/>
+    <repository
+        url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/"/>
+  </setupTask>
   <version name="idefix.oxygen.developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
