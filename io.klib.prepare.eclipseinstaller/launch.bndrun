@@ -1,0 +1,21 @@
+-runprovidedcapabilities: ${native_capability}
+
+-resolve.effective: active;skip:="osgi.service"
+
+-runbundles: \
+	io.klip.prepare.eclipseinstaller;version=snapshot,\
+	org.apache.felix.gogo.command;version='[0.16.0,0.16.1)',\
+	org.apache.felix.gogo.runtime;version='[0.16.2,0.16.3)',\
+	org.apache.felix.gogo.shell;version='[0.12.0,0.12.1)',\
+	org.apache.felix.scr;version='[1.8.0,1.8.1)',\
+	org.eclipse.osgi.services;version='[3.5.100,3.5.101)',\
+	org.eclipse.oomph.extractor.lib;version='[1.3.0,1.3.1)'
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(&(osgi.identity=io.klip.prepare.eclipseinstaller)(version>=0.0.0.201706291128))'
+-runfw: org.eclipse.osgi;version='[3.11.1.v20160708-1632,3.11.1.v20160708-1632]'
+-runee: JavaSE-1.8
+
+-runproperties: osgi.console='='
