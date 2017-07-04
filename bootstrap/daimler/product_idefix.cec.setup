@@ -540,6 +540,41 @@
       <requirement
           name="org.eclipse.gmf.runtime.sdk.feature.group"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="SVN">
+      <requirement
+          name="org.eclipse.team.svn.feature.group"/>
+      <requirement
+          name="org.eclipse.team.svn.revision.graph.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/releases/oxygen"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="SVN - Polarion Connector">
+      <requirement
+          name="org.polarion.eclipse.team.svn.connector.feature.group"/>
+      <requirement
+          name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
+      <repository
+          url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="IBM Websphere Application Server V8.0x Developer Tools for Oxygen">
+      <requirement
+          name="com.ibm.websphere.wdt.st.v8.feature.group"
+          filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+      <requirement
+          name="com.ibm.osgi.wdt.feature.feature.group"/>
+      <requirement
+          name="com.ibm.wdt.webtools.top.feature.feature.group"/>
+      <requirement
+          name="com.ibm.wdt.ast.ws.tools.feature.feature.group"/>
+      <repository
+          url="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/wdt/oxygen_comp/"/>
+    </setupTask>
   </version>
   <description>IDE for OSGi development</description>
 </setup:Product>

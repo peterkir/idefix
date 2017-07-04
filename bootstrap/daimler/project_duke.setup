@@ -230,6 +230,21 @@
     <repository
         url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/"/>
   </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="IBM Websphere Application Server V8.0x Developer Tools for Oxygen">
+    <requirement
+        name="com.ibm.websphere.wdt.st.v8.feature.group"
+        filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+    <requirement
+        name="com.ibm.osgi.wdt.feature.feature.group"/>
+    <requirement
+        name="com.ibm.wdt.webtools.top.feature.feature.group"/>
+    <requirement
+        name="com.ibm.wdt.ast.ws.tools.feature.feature.group"/>
+    <repository
+        url="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/wdt/oxygen_comp/"/>
+  </setupTask>
   <stream name="master"
       label="Master">
     <setupTask
