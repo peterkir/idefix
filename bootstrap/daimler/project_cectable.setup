@@ -99,12 +99,6 @@
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
   <setupTask
-      xsi:type="setup:VariableTask"
-      id="install.root"
-      name="install.root"
-      defaultValue="c:/oomph"
-      label="Installation Root"/>
-  <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.cectable"
       location="alm-cec.in-technology.de:29418"
