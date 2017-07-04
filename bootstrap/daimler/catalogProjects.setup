@@ -120,7 +120,7 @@
             source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
       </choice>
       <choice
-          value="https://${innotec.user.id|username}@alm-cec.in-technology.de/gerrit/a/@{remoteURI}"
+          value="https://${innotec.user.id|username}@alm-cec.in-technology.de:29418/gerrit/a/@{remoteURI}"
           label="HTTPS (read-write, Gerrit)">
         <annotation
             source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
