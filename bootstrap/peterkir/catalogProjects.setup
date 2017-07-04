@@ -191,7 +191,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="REFERENCE klib.io ">
+      name="REDIRECTION catalogProject">
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
