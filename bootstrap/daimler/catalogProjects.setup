@@ -20,7 +20,7 @@
     <setupTask
         xsi:type="setup:VariableTask"
         name="innotec.user.id"
-        defaultValue="anonymous"
+        defaultValue=""
         label="Git user ID"
         documentation="The Eclipse user ID for Git/Gerrit commits.  Use 'anonymous' if you have no Eclipse user ID.">
       <description>The user ID of the Github account</description>
