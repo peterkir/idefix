@@ -245,6 +245,10 @@
     <repository
         url="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/wdt/oxygen_comp/"/>
   </setupTask>
+  <setupTask
+      xsi:type="setup:PreferenceTask"
+      key="/instance/org.eclipse.core.resources/encoding"
+      value="CP1252"/>
   <stream name="master"
       label="Master">
     <setupTask
