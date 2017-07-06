@@ -247,15 +247,6 @@
   <version name="idefix.oxygen.putre"
       label="IDEfix klib.io - pure"
       requiredJavaVersion="1.7">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools latest">
-      <requirement
-          name="bndtools.main.feature.feature.group"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and latest bndtools build.</description>
   </version>
   <version name="idefix.oxygen.latest.cloudbees"
