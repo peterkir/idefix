@@ -162,7 +162,7 @@
     <repository
         url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
     <repository
-        url="http://download.eclipse.org/releases/oxygen"/>
+        url="http://download.eclipse.org/releases/oxygen/201706281000"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -244,20 +244,6 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="idefix.oxygen.latest.bintray"
-      label="IDEfix klib.io - bndtools latest ( bintray REL )"
-      requiredJavaVersion="1.7">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools latest REL">
-      <requirement
-          name="bndtools.main.feature.feature.group"/>
-      <repository
-          url="https://dl.bintray.com/bndtools/bndtools/latest"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
-  </version>
   <version name="idefix.oxygen.latest.cloudbees"
       label="IDEfix klib.io - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
@@ -283,6 +269,20 @@
           versionRange="[3.3.0,4.0.0)"/>
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
+  </version>
+  <version name="idefix.oxygen.latest.bintray"
+      label="IDEfix klib.io - bndtools latest ( bintray REL )"
+      requiredJavaVersion="1.7">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools latest REL">
+      <requirement
+          name="bndtools.main.feature.feature.group"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/latest"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <description>IDEfix klib.io based on Eclipse Neon epp.package.java and bndtools</description>
