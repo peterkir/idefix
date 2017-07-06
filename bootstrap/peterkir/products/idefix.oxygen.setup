@@ -244,7 +244,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="idefix.oxygen.putre"
+  <version name="idefix.oxygen.pure"
       label="IDEfix klib.io - pure"
       requiredJavaVersion="1.7">
     <setupTask
