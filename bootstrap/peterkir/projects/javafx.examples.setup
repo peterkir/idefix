@@ -98,7 +98,7 @@
     </annotation>
     <description>${scope.project.label}</description>
   </setupTask>
-  <stream name="gh-pages"
+  <stream name="master"
       label="">
     <setupTask
         xsi:type="projects:ProjectsImportTask">
