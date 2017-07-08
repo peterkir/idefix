@@ -86,7 +86,7 @@ public class EclipseInstallerPatchINI {
 	public EclipseInstallerPatchINI() {
 		iniSuffix.put("peterkir", new String[] { 
 			"-Doomph.setup.installer.mode=advanced",
-			"-Doomph.setup.installer.p2pool=", 
+			"-Doomph.setup.installer.p2pool=true", 
 			"-Doomph.setup.installer.launch=true",
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup",
@@ -97,7 +97,7 @@ public class EclipseInstallerPatchINI {
 		
 		iniSuffix.put("daimler.cec", new String[] {
 			"-Doomph.setup.installer.mode=advanced",
-			"-Doomph.setup.installer.p2pool=",
+			"-Doomph.setup.installer.p2pool=true",
 			"-Doomph.setup.installer.launch=true",
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProjects.setup",
@@ -108,7 +108,7 @@ public class EclipseInstallerPatchINI {
 		
 		iniSuffix.put("daimler.duke", new String[] {
 			"-Doomph.setup.installer.mode=advanced",
-			"-Doomph.setup.installer.p2pool=",
+			"-Doomph.setup.installer.p2pool=true",
 			"-Doomph.setup.installer.launch=true",
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProjects.setup",
@@ -131,9 +131,9 @@ public class EclipseInstallerPatchINI {
 			String patchedArchiveName = archives[archiveIndex][3];
 			String p2PoolPath         = archives[archiveIndex][4];
 
-			String downloadDir = wrkDir + SEP + productVersion + SEP + "1_download";
-			String extractDir  = wrkDir + SEP + productVersion + SEP + "2_extracted";
-			String patchDir    = wrkDir + SEP + productVersion + SEP + "3_patched_INI";
+			String downloadDir = wrkDir + SEP + "1_download"    + SEP + productVersion;
+			String extractDir  = wrkDir + SEP + "2_extracted"   + SEP + productVersion;
+			String patchDir    = wrkDir + SEP + "3_patched_INI" + SEP + productVersion;
 
 			iniSuffix.forEach((variant, iniSuffix) -> {
 
@@ -218,7 +218,7 @@ public class EclipseInstallerPatchINI {
 			String suffix = (
 				Arrays.asList(iniSuffixArguments).stream().collect(Collectors.joining(System.lineSeparator()))
 			);
-			suffix = suffix.replace("-Doomph.setup.installer.p2pool=", "-Doomph.setup.installer.p2pool=" + p2PoolPath);
+			suffix = suffix.replace("-Dsetup.p2.agent=", "-Dsetup.p2.agent=" + p2PoolPath);
 			Path filePathName = new File(iniFile).toPath();
 			Files.write(filePathName, suffix.getBytes("utf-8"), StandardOpenOption.APPEND);
 			System.out.format("  3. creating patched ini file inside %s \n", filePathName);
@@ -379,7 +379,7 @@ public class EclipseInstallerPatchINI {
 				String suffix = (
 					Arrays.asList(iniSuffixArguments).stream().collect(Collectors.joining(System.lineSeparator()))
 				);
-				suffix = suffix.replace("-Doomph.setup.installer.p2pool=", "-Doomph.setup.installer.p2pool=" + p2PoolPath);
+				suffix = suffix.replace("-Dsetup.p2.agent=", "-Dsetup.p2.agent=" + p2PoolPath);
 				Files.write(f.toPath(), suffix.getBytes("utf-8"), StandardOpenOption.APPEND);
 				System.out.format("  3. creating patched ini file inside %s \n", filePathName);
 			}
