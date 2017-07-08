@@ -48,20 +48,20 @@ public class EclipseInstallerPatchINI {
 
 	private static final String DL_PROD    = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
 	String[][] archives = {
-		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
+		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
+		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
+		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "@user.home/oomph/.p2"   },
 		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "eclipse-inst-prod.win32.x86-64.exe",     "C:/oomph/.p2" },
 		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "eclipse-inst-prod.win32.x86.exe",        "C:/oomph/.p2" },
-		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "~/oomph/.p2"  },
-		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "~/oomph/.p2"  },
 	};
 
 	private static final String DL_NIGHTLY = "http://www.eclipse.org/downloads/download.php?file=/oomph/products/latest";
 	String[][] archivesNightly = {
-		{ "nightly.macosx.x86-64", DL_NIGHTLY, "eclipse-inst-mac64.tar.gz",   "eclipse-inst-nightly.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
+		{ "nightly.macosx.x86-64", DL_NIGHTLY, "eclipse-inst-mac64.tar.gz",   "eclipse-inst-nightly.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"  },
+		{ "nightly.linux.x86-64",  DL_NIGHTLY, "eclipse-inst-linux64.tar.gz", "eclipse-inst-nightly.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"  },
+		{ "nightly.linux.x86",     DL_NIGHTLY, "eclipse-inst-linux32.tar.gz", "eclipse-inst-nightly.linux.x86.tar.gz",     "@user.home/oomph/.p2"  },
 		{ "nightly.win32.x86-64",  DL_NIGHTLY, "eclipse-inst-win64.exe",      "eclipse-inst-nightly.win32.x86-64.exe",     "C:/oomph/.p2" },
 		{ "nightly.win32.x86",     DL_NIGHTLY, "eclipse-inst-win32.exe",      "eclipse-inst-nightly.win32.x86.exe",        "C:/oomph/.p2" },
-		{ "nightly.linux.x86-64",  DL_NIGHTLY, "eclipse-inst-linux64.tar.gz", "eclipse-inst-nightly.linux.x86-64.tar.gz",  "~/oomph/.p2"  },
-		{ "nightly.linux.x86",     DL_NIGHTLY, "eclipse-inst-linux32.tar.gz", "eclipse-inst-nightly.linux.x86.tar.gz",     "~/oomph/.p2"  },
 	};
 
 	private static final String ECL_DL_SUFFIX = "&r=1";
@@ -92,7 +92,8 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup",
 			"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
 			"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
-			"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees"
+			"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees",
+			"-Dsetup.p2.agent="
 		});
 		
 		iniSuffix.put("daimler.cec", new String[] {
@@ -103,7 +104,8 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProjects.setup",
 			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
 			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.idefix\\\\.daimler).*",
-			"-Doomph.setup.product.version.filter=.*\\\\.developer"
+			"-Doomph.setup.product.version.filter=.*\\\\.developer",
+			"-Dsetup.p2.agent="	
 		});
 		
 		iniSuffix.put("daimler.duke", new String[] {
@@ -114,7 +116,8 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProjects.setup",
 			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
 			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.idefix\\\\.daimler).*",
-			"-Doomph.setup.product.version.filter=.*\\\\.duke"
+			"-Doomph.setup.product.version.filter=.*\\\\.duke",
+			"-Dsetup.p2.agent="
 		});
 	};
 

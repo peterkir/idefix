@@ -103,7 +103,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.idefix.location}"
+          rootFolder="${git.clone.javafx.examples}"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
