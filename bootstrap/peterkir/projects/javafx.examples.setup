@@ -10,7 +10,7 @@
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
-    name="javafx.examples"
+    name="javafx_examples"
     label="JavaFX examples">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -85,7 +85,7 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.javafx.examples"
+      id="git.clone.javafx_examples"
       remoteURI="https://github.com/kirschners/javafx_examples.git"
       pushURI="https://github.com/kirschners/javafx_examples.git"
       checkoutBranch="master">
@@ -103,7 +103,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.javafx.examples}"
+          rootFolder="${git.clone.javafx_examples}"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
