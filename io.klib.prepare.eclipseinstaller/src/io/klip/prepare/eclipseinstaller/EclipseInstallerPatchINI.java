@@ -46,7 +46,25 @@ import org.osgi.service.component.annotations.Component;
 @Component
 public class EclipseInstallerPatchINI {
 
-	private static final String ECLIPSE_INST_INI = "eclipse-inst.ini";
+	private static final String DL_PROD    = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
+	String[][] archives = {
+		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
+		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "eclipse-inst-prod.win32.x86-64.exe",     "C:/oomph/.p2" },
+		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "eclipse-inst-prod.win32.x86.exe",        "C:/oomph/.p2" },
+		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "~/oomph/.p2"  },
+		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "~/oomph/.p2"  },
+	};
+
+	private static final String DL_NIGHTLY = "http://www.eclipse.org/downloads/download.php?file=/oomph/products/latest";
+	String[][] archivesNightly = {
+		{ "nightly.macosx.x86-64", DL_NIGHTLY, "eclipse-inst-mac64.tar.gz",   "eclipse-inst-nightly.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
+		{ "nightly.win32.x86-64",  DL_NIGHTLY, "eclipse-inst-win64.exe",      "eclipse-inst-nightly.win32.x86-64.exe",     "C:/oomph/.p2" },
+		{ "nightly.win32.x86",     DL_NIGHTLY, "eclipse-inst-win32.exe",      "eclipse-inst-nightly.win32.x86.exe",        "C:/oomph/.p2" },
+		{ "nightly.linux.x86-64",  DL_NIGHTLY, "eclipse-inst-linux64.tar.gz", "eclipse-inst-nightly.linux.x86-64.tar.gz",  "~/oomph/.p2"  },
+		{ "nightly.linux.x86",     DL_NIGHTLY, "eclipse-inst-linux32.tar.gz", "eclipse-inst-nightly.linux.x86.tar.gz",     "~/oomph/.p2"  },
+	};
+
+	private static final String ECL_DL_SUFFIX = "&r=1";
 
 	private static final String EXTRACTOR_EXE    = "extractor.exe";
 	private static final String EXTRACTOR_LIB    = "extractorlib.jar";
@@ -54,30 +72,16 @@ public class EclipseInstallerPatchINI {
 	private static final String PRODUCT          = "product.zip";
 	private static final String MARKER           = "marker.txt";
 
-	private static final String SEP = File.separator;
+	private static final String ECLIPSE_INST_INI = "eclipse-inst.ini";
 
-	private static final String DL_PROD    = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
-	private static final String DL_NIGHTLY = "http://www.eclipse.org/downloads/download.php?file=/oomph/products/latest";
-
-	private static final String ECL_DL_SUFFIX = "&r=1";
-	
-	String[][] archives = {
-		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
-		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "eclipse-inst-prod.win32.x86-64.exe",     "C:/oomph/.p2" },
-		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "eclipse-inst-prod.win32.x86.exe",        "C:/oomph/.p2" },
-		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "~/oomph/.p2"  },
-		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "~/oomph/.p2"  },
-		{ "nightly.win32.x86-64", DL_NIGHTLY, "eclipse-inst-win64.exe",      "eclipse-inst-nightly.win32.x86-64.exe",  "C:/oomph/.p2" },
-		{ "nightly.win32.x86",    DL_NIGHTLY, "eclipse-inst-win32.exe",      "eclipse-inst-nightly.win32.x86.exe",     "C:/oomph/.p2" }
-	};
-
+	private static final String SEP           = File.separator;
 	private static final String DIR           = System.getProperty("user.dir");
 	private static final String wrkDir        = DIR + SEP + "_wrk";
 	private static final String resultRootDir = DIR + SEP + "_result" + SEP + "eclipseInstaller_" + LocalDate.now();
 
 	private static final int BUFFER_SIZE = 4096;
 
-	HashMap<String, String[]> iniSuffix = new LinkedHashMap<String, String[]>();
+	private static final HashMap<String, String[]> iniSuffix = new LinkedHashMap<String, String[]>();
 
 	public EclipseInstallerPatchINI() {
 		iniSuffix.put("peterkir", new String[] { 
@@ -170,13 +174,25 @@ public class EclipseInstallerPatchINI {
 						archiveName, 
 						extractDir
 					);
-
-					patchIni(
-						patchDir, 
-						extractDir + SEP + "Eclipse Installer.app/Contents/Eclipse/"+ SEP + ECLIPSE_INST_INI, 
-						p2PoolPath, 
-						iniSuffix
-					);
+					String iniFile = extractDir + SEP + "Eclipse Installer.app/Contents/Eclipse"+ SEP + ECLIPSE_INST_INI;
+					if (new File(iniFile).exists()) {
+						patchIni(
+							patchDir, 
+							iniFile, 
+							p2PoolPath, 
+							iniSuffix
+						);
+					} else {
+						iniFile = extractDir + SEP + "eclipseInstaller"+ SEP + ECLIPSE_INST_INI;
+						if (new File(iniFile).exists()) {
+							patchIni(
+								patchDir, 
+								iniFile, 
+								p2PoolPath, 
+								iniSuffix
+							);
+						}
+					}
 					
 					packPatchedTarGz(
 						patchedArchiveName, 
@@ -267,7 +283,8 @@ public class EclipseInstallerPatchINI {
 	private void extractTarGz(String downloadDir, String archiveName, String extractDir) {
 
 		System.out.format("  2. extracting %s into %s\n", archiveName, extractDir);
-
+		
+		new File(extractDir).mkdirs();
 		try {
 			File file = new File(downloadDir + SEP + archiveName);
 			GzipCompressorInputStream gzipIn = new GzipCompressorInputStream(new FileInputStream(file));
@@ -279,7 +296,7 @@ public class EclipseInstallerPatchINI {
 					if (entry.isDirectory()) {
 						File f = new File(extractDir + SEP + entry.getName());
 						boolean created = f.mkdirs();
-						if (!created) {
+						if (!f.exists() && !created) {
 							System.out.printf(
 									"Unable to create directory '%s', during extraction of archive contents.\n",
 									f.getAbsolutePath());
