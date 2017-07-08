@@ -62,11 +62,13 @@ public class EclipseInstallerPatchINI {
 	private static final String ECL_DL_SUFFIX = "&r=1";
 	
 	String[][] archives = {
-		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz", "eclipse-inst-prod.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
-		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",    "eclipse-inst-prod.win32.x86-64.exe",     "C:/oomph/.p2" },
-		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",    "eclipse-inst-prod.win32.x86.exe",        "C:/oomph/.p2" },
-		{ "nightly.win32.x86-64", DL_NIGHTLY, "eclipse-inst-win64.exe",    "eclipse-inst-nightly.win32.x86-64.exe",  "C:/oomph/.p2" },
-		{ "nightly.win32.x86",    DL_NIGHTLY, "eclipse-inst-win32.exe",    "eclipse-inst-nightly.win32.x86.exe",     "C:/oomph/.p2" }
+		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "~/oomph/.p2"  },
+		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "eclipse-inst-prod.win32.x86-64.exe",     "C:/oomph/.p2" },
+		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "eclipse-inst-prod.win32.x86.exe",        "C:/oomph/.p2" },
+		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "~/oomph/.p2"  },
+		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "~/oomph/.p2"  },
+		{ "nightly.win32.x86-64", DL_NIGHTLY, "eclipse-inst-win64.exe",      "eclipse-inst-nightly.win32.x86-64.exe",  "C:/oomph/.p2" },
+		{ "nightly.win32.x86",    DL_NIGHTLY, "eclipse-inst-win32.exe",      "eclipse-inst-nightly.win32.x86.exe",     "C:/oomph/.p2" }
 	};
 
 	private static final String DIR           = System.getProperty("user.dir");
@@ -374,10 +376,10 @@ public class EclipseInstallerPatchINI {
 
 		System.out.format("  2. extracting %s into %s\n", executable, targetFolder);
 
-		String markerFile = MARKER;
-		String productFile = PRODUCT;
-		String extractorFile = EXTRACTOR_EXE;
-		String libdataFile = EXTRACTOR_LIB;
+		String markerFile     = MARKER;
+		String productFile    = PRODUCT;
+		String extractorFile  = EXTRACTOR_EXE;
+		String libdataFile    = EXTRACTOR_LIB;
 		String descriptorFile = DESCRIPTOR;
 
 		String[] args = new String[] { 
@@ -431,7 +433,6 @@ public class EclipseInstallerPatchINI {
 	 * system call copy concatenateFilesOsCall
 	 */
 	private void concatenateFiles(String destFileName, String packDir, String... filesToConcatenate) {
-		System.out.format("concatenation into file %s\n", destFileName);
 
 		OutputStream out;
 		try {

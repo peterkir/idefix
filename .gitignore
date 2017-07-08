@@ -2,5 +2,9 @@
 */generated/
 /bin_test/
 enroute.zip
+
+# Eclipse Workspace Meta-data
 .metadata
+
+# Mac OS
 .DS_Store
