@@ -49,7 +49,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.core.resources/encoding"
-          value="UTF-8"/>
+          value="Cp1252"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
