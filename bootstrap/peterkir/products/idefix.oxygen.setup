@@ -232,14 +232,6 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="oomph.setup">
-    <requirement
-        name="org.eclipse.oomph.setup.feature.group"/>
-    <repository
-        url="${oomph.update.url}"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.p2:P2Task"
       label="Eclipse IDE for Java Developers (Oxygen)">
     <requirement
         name="epp.package.java"
