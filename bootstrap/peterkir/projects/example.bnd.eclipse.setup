@@ -72,8 +72,7 @@
       xsi:type="setup.p2:P2Task"
       label="bndtools 3.3.0 REL">
     <requirement
-        name="bndtools.main.feature.feature.group"
-        versionRange="[3.3.0,4.0.0)"/>
+        name="bndtools.main.feature.feature.group"/>
     <repository
         url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
     <description>Install the tools needed in the IDE to work with the source code</description>
