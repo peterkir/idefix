@@ -224,7 +224,7 @@
       <requirement
           name="org.eclipse.oomph.setup.feature.group"/>
       <repository
-          url="${oomph.update.url}"/>
+          url="http://download.eclipse.org/oomph/updates/release"/>
       <description></description>
     </setupTask>
     <setupTask
@@ -251,7 +251,7 @@
       <requirement
           name="org.eclipse.oomph.setup.workingsets.feature.group"/>
       <repository
-          url="${oomph.update.url}"/>
+          url="http://download.eclipse.org/oomph/updates/release"/>
       <description></description>
     </setupTask>
     <setupTask
@@ -282,7 +282,7 @@
       <requirement
           name="org.eclipse.oomph.version.headless.feature.group"/>
       <repository
-          url="${oomph.update.url}"/>
+          url="http://download.eclipse.org/oomph/updates/release"/>
       <description></description>
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
