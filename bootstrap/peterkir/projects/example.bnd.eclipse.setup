@@ -5,14 +5,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
-    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
     name="example.bnd.eclipse"
-    label="Example Eclipse RCP on bndtools">
+    label="example.bnd.eclipse">
   <setupTask
       xsi:type="setup.p2:P2Task"
       label="Oomph Pre-Requisites">
@@ -70,13 +70,13 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="bndtools 3.0.0 REL">
+      label="bndtools 3.3.0 REL">
     <requirement
         name="bndtools.main.feature.feature.group"
-        versionRange="[3.0.0,4.0.0)"/>
+        versionRange="[3.3.0,4.0.0)"/>
     <repository
-        url="http://dl.bintray.com/bndtools/bndtools/3.0.0/"/>
-    <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
+        url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
+    <description>Install the tools needed in the IDE to work with the source code</description>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -145,9 +145,9 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.example_aspectj"
-      remoteURI="https://github.com/peterkir/example.aspectj.git"
-      pushURI="https://github.com/${github.user.id}/example.aspectj.git">
+      id="git.clone.example_bnd_eclipse"
+      remoteURI="https://github.com/peterkir/example.bnd.eclipse.git"
+      pushURI="https://github.com/${github.user.id}/example.bnd.eclipse.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -160,32 +160,6 @@
   <stream name="master"
       label="">
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="AJDT">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="prefs">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
-            value="ignore"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
-            value="ignore"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="AJDT 2.2.4 for Eclipse 4.5">
-        <requirement
-            name="org.eclipse.ajdt.feature.group"
-            versionRange="[2.2.4.e45x-20150610-1700,2.2.4.e45x-20150610-1700]"/>
-        <repository
-            url="http://download.eclipse.org/tools/ajdt/45/dev/update/ajdt-e45x-20150610-1700/"/>
-        <description></description>
-      </setupTask>
-    </setupTask>
-    <setupTask
         xsi:type="jdt:JRETask"
         version="JavaSE-1.7"
         location="${jre.location-1.7}">
@@ -194,50 +168,24 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.clone.example_aspectj.location}"
+          rootFolder="${git.clone.example_bnd_eclipse.location}"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
       <workingSet
-          name="bndtools">
+          name="${scope.project.name}">
         <predicate
-            xsi:type="predicates:OrPredicate">
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="example\.aspectj\.bnd"/>
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="cnf"/>
-        </predicate>
-      </workingSet>
-      <workingSet
-          name="pde">
-        <predicate
-            xsi:type="predicates:OrPredicate">
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="example\.aspectj\.pde.*"/>
-          <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="pde\.target"/>
+            xsi:type="workingsets:ExclusionPredicate">
+          <excludedWorkingSet
+              href="../catalogProjects.setup#//@projects[name='idefix']/@streams[name='gh-pages']/@setupTasks.1/@workingSets.1"/>
         </predicate>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="jdt+pde">
-      <requirement
-          name="org.eclipse.jdt.feature.group"
-          versionRange="3.11.0"/>
-      <requirement
-          name="org.eclipse.pde.feature.group"
-          versionRange="3.11.0"/>
     </setupTask>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
-  <description></description>
+  <description>Example Eclipse RCP on bndtools</description>
 </setup:Project>
