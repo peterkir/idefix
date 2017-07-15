@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="io.klib.products"
+    name="io.klib.idefix.oxygen"
     label="IDEfix klib.io Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -244,7 +244,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="idefix.oxygen.pure"
+  <version name="pure"
       label="IDEfix klib.io - pure"
       requiredJavaVersion="1.7">
     <setupTask
@@ -306,7 +306,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and latest bndtools build.</description>
   </version>
-  <version name="idefix.oxygen.latest.cloudbees"
+  <version name="latest.cloudbees"
       label="IDEfix klib.io - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
     <setupTask
@@ -320,7 +320,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse Neon epp.package.java and latest bndtools build.</description>
   </version>
-  <version name="idefix.oxygen.bndtools.3.3.0"
+  <version name="bndtools.3.3.0"
       label="IDEfix klib.io - bndtools 3.3.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -335,7 +335,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclips epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.latest.bintray"
+  <version name="latest.bintray"
       label="IDEfix klib.io - bndtools latest ( bintray REL )"
       requiredJavaVersion="1.7">
     <setupTask
@@ -349,7 +349,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclips epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.bndtools.3.2.0"
+  <version name="bndtools.3.2.0"
       label="IDEfix klib.io - bndtools 3.2.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -364,7 +364,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.bndtools.3.1.1"
+  <version name="bndtools.3.1.1"
       label="IDEfix klib.io - bndtools 3.1.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -379,7 +379,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.bndtools.3.1.0"
+  <version name="bndtools.3.1.0"
       label="IDEfix klib.io - bndtools 3.1.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -394,7 +394,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.bndtools.3.0.0"
+  <version name="bndtools.3.0.0"
       label="IDEfix klib.io - bndtools 3.0.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -409,7 +409,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.bndtools.2.4.1"
+  <version name="bndtools.2.4.1"
       label="IDEfix klib.io - bndtools 2.4.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
@@ -424,7 +424,7 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
-  <version name="idefix.oxygen.bndtools.2.4.0"
+  <version name="bndtools.2.4.0"
       label="IDEfix klib.io - bndtools 2.4.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
