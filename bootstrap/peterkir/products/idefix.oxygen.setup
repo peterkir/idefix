@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="io.klib.idefix.oxygen"
+    name="idefix.oxygen"
     label="IDEfix klib.io Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -24,10 +24,6 @@
   <setupTask
       xsi:type="setup:CompoundTask"
       name="eclipse.ini">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-perspective"
-        value="bndtools.perspective"/>
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Xmx"
@@ -75,32 +71,6 @@
   <setupTask
       xsi:type="setup:CompoundTask"
       name="REDIRECTION catalogProduct">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="oomph runtime">
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="oomph.setup">
-        <requirement
-            name="org.eclipse.oomph.setup.feature.group"/>
-        <repository
-            url="${oomph.update.url}"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="eclipse.ini">
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Declipse.p2.unsignedPolicy"
-            value="=allow"
-            vm="true"/>
-      </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Declipse.p2.unsignedPolicy"
-        value="=allow"
-        vm="true"/>
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
@@ -228,6 +198,15 @@
           url="http://download.eclipse.org/oomph/updates/release"/>
       <description></description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Declipse.p2.unsignedPolicy"
+          value="=allow"
+          vm="true"/>
+    </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
   <setupTask
@@ -304,6 +283,15 @@
           url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
     <description>IDEfix klib.io based on Eclipse Neon epp.package.java and latest bndtools build.</description>
   </version>
   <version name="bndtools.3.3.0"
@@ -319,6 +307,15 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
     <description>IDEfix klib.io based on Eclips epp.package.java and bndtools</description>
   </version>
   <version name="latest.bintray"
@@ -332,6 +329,15 @@
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/latest"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
     </setupTask>
     <description>IDEfix klib.io based on Eclips epp.package.java and bndtools</description>
   </version>
@@ -348,6 +354,15 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.1"
@@ -362,6 +377,15 @@
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/3.1.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
@@ -378,6 +402,15 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.0.0"
@@ -392,6 +425,15 @@
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/3.0.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
@@ -408,6 +450,15 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.0"
@@ -422,6 +473,15 @@
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/2.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
     </setupTask>
     <description>IDEfix klib.io based on Eclipse epp.package.java and bndtools</description>
   </version>
