@@ -204,7 +204,7 @@
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ee.j2se-1.8.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/eval.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/example.aspectj.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/example.bnd.eclipse.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/example.bnd.rcp.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/idefix.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/io.klib.tools.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/org.eclipse.oomph.setup#/"/>

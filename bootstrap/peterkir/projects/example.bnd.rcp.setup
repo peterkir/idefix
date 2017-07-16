@@ -11,8 +11,8 @@
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
-    name="example.bnd.eclipse"
-    label="example.bnd.eclipse">
+    name="example.bnd.rcp"
+    label="example.bnd.rcp">
   <setupTask
       xsi:type="setup.p2:P2Task"
       label="bndtools 3.3.0 REL">
@@ -105,8 +105,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.example_bnd_eclipse"
-      remoteURI="https://github.com/peterkir/example.bnd.eclipse.git"
-      pushURI="https://github.com/${github.user.id}/example.bnd.eclipse.git">
+      remoteURI="https://github.com/peterkir/example.bnd.rcp.git"
+      pushURI="https://github.com/${github.user.id}/example.bnd.rcp.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
