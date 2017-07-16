@@ -35,6 +35,10 @@
         option="-Declipse.p2.unsignedPolicy"
         value="=allow"
         vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-perspective"
+        value="bndtools.perspective"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
