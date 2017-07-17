@@ -7,7 +7,7 @@
     name="com.daimler.cec.projects"
     label="CEC projects">
   
-  <project href="http://peterkir.github.io/idefix/oomph/cec/projects/dev161.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/oomph/cec/projects/dev171.setup#/"/>
 
   <description>All projects for CEC</description>
 </setup:ProjectCatalog>
