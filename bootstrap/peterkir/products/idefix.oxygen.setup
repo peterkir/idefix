@@ -49,6 +49,14 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
+        name="org.eclipse.debug.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="Console.limitConsoleOutput"
+          value="false"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
         name="org.eclipse.ui.editors">
       <setupTask
           xsi:type="setup:PreferenceTask"
@@ -58,14 +66,6 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.editors/tabWidth"
           value="4"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="org.eclipse.ui">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.ui/defaultPerspectiveId"
-          value="bndtools.perspective"/>
     </setupTask>
   </setupTask>
   <setupTask
