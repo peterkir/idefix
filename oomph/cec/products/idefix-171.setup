@@ -256,7 +256,7 @@
         <repository
             url="http://download.eclipse.org/technology/epp/packages/neon"/>
         <repository
-            url="http://download.eclipse.org/releases/neon/201609281000"/>
+            url="http://download.eclipse.org/releases/neon/201705151400"/>
       </setupTask>
     </setupTask>
     <setupTask
