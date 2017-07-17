@@ -177,22 +177,22 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Eclipse for RCP and RAP Developers (Oxygen)">
+          label="Eclipse for RCP and RAP Developers (Neon)">
         <requirement
             name="epp.package.rcp"
-            versionRange="[4.7.0,5.0.0)"/>
+            versionRange="[4.6.0,4.7.0)"/>
         <requirement
             name="org.eclipse.platform.feature.group"
-            versionRange="[4.7.0,5.0.0)"/>
+            versionRange="[4.6.0,4.7.0)"/>
         <requirement
             name="org.eclipse.rcp.feature.group"
-            versionRange="[4.7.0,5.0.0)"/>
+            versionRange="[4.6.0,4.7.0)"/>
         <requirement
             name="org.eclipse.jdt.feature.group"
-            versionRange="[3.13.0,4.0.0)"/>
+            versionRange="[3.12.0,3.13.0)"/>
         <requirement
             name="org.eclipse.pde.feature.group"
-            versionRange="[3.13.0,4.0.0)"/>
+            versionRange="[3.12.0,3.13.0)"/>
         <requirement
             name="org.eclipse.buildship.feature.group"/>
         <requirement
@@ -240,9 +240,9 @@
         <requirement
             name="org.eclipse.wst.xml_ui.feature.feature.group"/>
         <repository
-            url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
+            url="http://download.eclipse.org/technology/epp/packages/neon"/>
         <repository
-            url="http://download.eclipse.org/releases/oxygen"/>
+            url="http://download.eclipse.org/releases/neon/201705151400"/>
       </setupTask>
     </setupTask>
     <setupTask
