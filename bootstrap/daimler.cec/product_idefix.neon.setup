@@ -127,6 +127,30 @@
       <description></description>
     </setupTask>
   </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="repo.source"
+      defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+      label="repoSource">
+    <choice
+        value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+        label="AWS"/>
+    <choice
+        value="file:/c:/pekirsc/www"
+        label="local Windows"/>
+    <choice
+        value="file:/media/peterkir/BTRFS/www"
+        label="local Linux"/>
+    <choice
+        value="file:/I:/A-D/CEC-Build/repo"
+        label="Daimler"/>
+    <choice
+        value="http://jazz01.rd.corpintra.net/web/repo"
+        label="Daimler Web"/>
+    <choice
+        value="http:/"
+        label="www"/>
+  </setupTask>
   <version name="developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
@@ -381,30 +405,6 @@
             url="${repo.source}/jazz.net/6.x/RTC-Client-p2Repo-6.0.1"/>
         <description></description>
       </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="repo.source"
-        defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
-        label="repoSource">
-      <choice
-          value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
-          label="AWS"/>
-      <choice
-          value="file:/c:/pekirsc/www"
-          label="local Windows"/>
-      <choice
-          value="file:/media/peterkir/BTRFS/www"
-          label="local Linux"/>
-      <choice
-          value="file:/I:/A-D/CEC-Build/repo"
-          label="Daimler"/>
-      <choice
-          value="http://jazz01.rd.corpintra.net/web/repo"
-          label="Daimler Web"/>
-      <choice
-          value="http:/"
-          label="www"/>
     </setupTask>
     <description>
       based on Eclipse Neon epp.package.java
