@@ -642,13 +642,13 @@
         label="Eclipse IDE for Java EE Developers (Mars)">
       <requirement
           name="epp.package.jee"
-          versionRange="[4.5.0,4.6.0)"/>
+          versionRange="[4.5.0,4.5.1)"/>
       <requirement
           name="org.eclipse.platform.feature.group"
-          versionRange="[4.5.0,4.6.0)"/>
+          versionRange="[4.5.0,4.5.1)"/>
       <requirement
           name="org.eclipse.rcp.feature.group"
-          versionRange="[4.5.0,4.6.0)"/>
+          versionRange="[4.5.0,4.5.1)"/>
       <requirement
           name="org.eclipse.jdt.feature.group"
           versionRange="[3.11.0,3.12.0)"/>
