@@ -3,11 +3,8 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
-    xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="com.daimler.projects.duke"
     label="Daimler DukE projects">
   <annotation
@@ -247,132 +244,6 @@
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
-  <project name="duke.svn"
-      label="DukE"
-      logicalProjectContainer="/">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="SVN">
-      <requirement
-          name="org.eclipse.team.svn.feature.group"/>
-      <requirement
-          name="org.eclipse.team.svn.revision.graph.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/releases/oxygen"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="SVN - Polarion Connector">
-      <requirement
-          name="org.polarion.eclipse.team.svn.connector.feature.group"/>
-      <requirement
-          name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
-      <repository
-          url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="Preferences">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="org.eclipse.core.resources">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.core.resources/refresh.enabled"
-            value="true"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.core.resources/encoding"
-            value="Cp1252"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="org.eclipse.wst.validation">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/confirmDialog"
-            value="true"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/DELEGATES_PREFERENCE"
-            value="delegateValidatorList"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/override"
-            value="true"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/saveAuto"
-            value="false"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/stateTS"
-            value="0"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/suspend"
-            value="false"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/USER_BUILD_PREFERENCE"
-            value="enabledBuildValidatorListorg.eclipse.jst.j2ee.internal.validation.UIEarValidator;org.eclipse.jst.j2ee.internal.ejb.workbench.validation.UIEjbValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;org.eclipse.jst.j2ee.internal.validation.UIApplicationClientValidator;org.eclipse.jst.j2ee.internal.web.validation.UIWarValidator;org.eclipse.jst.j2ee.internal.jca.validation.UIConnectorValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/USER_MANUAL_PREFERENCE"
-            value="enabledManualValidatorListorg.eclipse.jst.j2ee.internal.validation.UIEarValidator;org.eclipse.jst.j2ee.internal.ejb.workbench.validation.UIEjbValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;org.eclipse.jst.j2ee.internal.validation.UIApplicationClientValidator;org.eclipse.jst.j2ee.internal.web.validation.UIWarValidator;org.eclipse.jst.j2ee.internal.jca.validation.UIConnectorValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/USER_PREFERENCE"
-            value="saveAutomaticallyfalseprojectsCanOverridetruedisableAllValidationfalseversion1.2.700.v201508251749"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/vals/org.eclipse.wst.wsdl.validation.wsdl/global"
-            value="FF02158org.eclipse.wst.wsdl.validation.internal.eclipse.Validator"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.wst.validation/vf.version"
-            value="3"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="org.eclipse.debug.ui">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="Console.limitConsoleOutput"
-            value="false"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="org.eclipse.ui.editors">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ui.editors/spacesForTabs"
-            value="true"/>
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ui.editors/tabWidth"
-            value="4"/>
-      </setupTask>
-    </setupTask>
-    <stream
-        name="master"
-        label="Master">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="ProjectSet">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            uRL="http://peterkir.github.io/idefix/bootstrap/daimler.duke/projectset/17.1_RC5_workingSet.psf">
-          <description>DukE project set</description>
-        </setupTask>
-      </setupTask>
-      <setupTask
-          xsi:type="projects:ProjectsImportTask">
-        <sourceLocator
-            rootFolder="c:/tmp/${ROOT_CEC-SDK_FOLDER}/app-dev/ecConfiguration"/>
-      </setupTask>
-    </stream>
-    <description>DukE - Durchgängiger und konsequenter Erprobungsprozess</description>
-  </project>
+  <project href="project_duke.setup#/"/>
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
