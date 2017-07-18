@@ -75,6 +75,14 @@
           key="/instance/org.eclipse.ui/defaultPerspectiveId"
           value="bndtools.perspective"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        excludedTriggers="STARTUP MANUAL"
+        content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;section name=&quot;Workbench&quot;>&#xD;&#xA;&#x9;&lt;section name=&quot;SetupWizard&quot;>&#xD;&#xA;&#x9;&#x9;&lt;section name=&quot;ProgressPage&quot;>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;item value=&quot;true&quot; key=&quot;restartIfNeeded&quot;/>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;item value=&quot;true&quot; key=&quot;dismissAutomatically&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;/section>&#xD;&#xA;&#x9;&#x9;&lt;section name=&quot;ConfirmationPage&quot;>&#xD;&#xA;&#x9;&#x9;&lt;/section>&#xD;&#xA;&#x9;&#x9;&lt;section name=&quot;VariablePage&quot;>&#xD;&#xA;&#x9;&#x9;&lt;/section>&#xD;&#xA;&#x9;&lt;/section>&#xD;&#xA;&lt;/section>"
+        targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.oomph.setup.ui/dialog_settings.xml"
+        encoding="UTF-8">
+      <description>Initialize JDT's package explorer to show working sets as its root objects</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
