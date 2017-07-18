@@ -3,11 +3,10 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="duke.svn"
     label="DukE">
   <setupTask
@@ -124,11 +123,6 @@
           uRL="http://peterkir.github.io/idefix/bootstrap/daimler.duke/projectset/17.1_RC5_workingSet.psf">
         <description>DukE project set</description>
       </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="projects:ProjectsImportTask">
-      <sourceLocator
-          rootFolder="c:/tmp/${ROOT_CEC-SDK_FOLDER}/app-dev/ecConfiguration"/>
     </setupTask>
   </stream>
   <logicalProjectContainer
