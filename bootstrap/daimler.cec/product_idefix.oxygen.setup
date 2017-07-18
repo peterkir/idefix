@@ -26,10 +26,6 @@
       name="eclipse.ini">
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-perspective"
-        value="bndtools.perspective"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
         option="-Xmx"
         value="1024m"
         vm="true">
@@ -136,16 +132,6 @@
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0.RC2">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,4.0.0)"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
         label="Eclipse IDE for Java Developers (Oxygen)">
       <requirement
           name="epp.package.java"
@@ -181,14 +167,6 @@
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
     </setupTask>
-    <description>
-      based on Eclipse Oxygen epp.package.java
-      bndtools 3.4.0.RC1
-    </description>
-  </version>
-  <version name="modeling"
-      label="IDEfix - Modeling"
-      requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="bndtools 3.4.0.RC2">
@@ -199,6 +177,23 @@
           url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
+    <description>
+      based on Eclipse Oxygen epp.package.java
+      bndtools 3.4.0.RC1
+    </description>
+  </version>
+  <version name="modeling"
+      label="IDEfix - Modeling"
+      requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse Modeling Tools (Oxygen)">
@@ -281,6 +276,25 @@
           url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0.RC2">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.4.0,4.0.0)"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
     </setupTask>
     <description>
       based on Eclipse Oxygen epp.package.java

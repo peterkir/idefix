@@ -97,5 +97,6 @@
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.cec.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.oxygen.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.neon.setup#/"/>
 </setup:ProductCatalog>
