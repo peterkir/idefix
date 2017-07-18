@@ -117,7 +117,7 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProjects.setup",
 			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products\\\\.duke",
-			"-Doomph.setup.product.filter=(.*duke\\\\.idefix).*",
+			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.duke\\\\.idefix).*",
 			"-Doomph.setup.product.version.filter=mars",
 			"-Dsetup.p2.agent="
 		});

@@ -7,10 +7,111 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="io.klib.products"
     label="klib.io Products">
-
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+    <detail
+        key="folderName">
+      <value>idefix.daimler</value>
+    </detail>
+    <detail
+        key="folderName.macosx">
+      <value>IDEfix.Daimler</value>
+    </detail>
+  </annotation>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="P2 Director - Oomph">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Oomph Setup">
+      <requirement
+          name="org.eclipse.oomph.setup.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/oomph/updates/release/latest"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Oomph Setup Extensions">
+      <requirement
+          name="org.eclipse.oomph.setup.git.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.maven.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.mylyn.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.projectset.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.projects.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.targlets.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.workbench.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.setup.workingsets.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/oomph/updates/release/latest"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Oomph Tools">
+      <requirement
+          name="org.eclipse.oomph.workingsets.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.gitbash.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.launches.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.manifests.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.ostools.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.p2.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.preferences.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.projectconfig.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.projectcopy.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.targlets.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.version.feature.group"/>
+      <requirement
+          name="org.eclipse.oomph.version.headless.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/oomph/updates/release/latest"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Declipse.p2.unsignedPolicy"
+          value="=allow"
+          vm="true"/>
+    </setupTask>
+    <description>http://download.eclipse.org/oomph/updates/latest</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:InstallationTask"
+      id="installation"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="REDIRECTION catalogProduct">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.klibProductCatalog"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup"
+        vm="true"/>
+  </setupTask>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.neon.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.oxygen.setup#/"/>
-
   <product href="http://peterkir.github.io/idefix/bootstrap/cec/products/idefix.172.setup#/"/>
-
 </setup:ProductCatalog>

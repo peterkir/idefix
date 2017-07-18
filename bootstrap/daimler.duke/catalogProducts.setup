@@ -37,10 +37,6 @@
         name="eclipse.ini">
       <setupTask
           xsi:type="setup:EclipseIniTask"
-          option="-perspective"
-          value="bndtools.perspective"/>
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
           option="-Xmx"
           value="1024m"
           vm="true">
@@ -152,7 +148,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="http://download.eclipse.org/oomph/updates/release"/>
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -179,7 +175,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="http://download.eclipse.org/oomph/updates/release"/>
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -210,7 +206,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="http://download.eclipse.org/oomph/updates/release"/>
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
