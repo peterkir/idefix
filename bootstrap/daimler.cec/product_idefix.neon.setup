@@ -205,7 +205,7 @@
       <description></description>
     </setupTask>
     <description>
-      based on Eclipse Oxygen epp.package.java
+      based on Eclipse Neon epp.package.java
       bndtools 3.4.0.RC1
     </description>
   </version>
@@ -407,7 +407,7 @@
           label="www"/>
     </setupTask>
     <description>
-      based on Eclipse Oxygen epp.package.java
+      based on Eclipse Neon epp.package.java
       bndtools 3.4.0.RC1
     </description>
   </version>
