@@ -694,6 +694,20 @@
         <repository
             url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/"/>
       </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="com.ibm.websphere.wdt.st.v8.feature.group"
+            filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+        <requirement
+            name="com.ibm.wdt.ast.ws.tools.feature.feature.group"/>
+        <requirement
+            name="com.ibm.wdt.webtools.top.feature.feature.group"/>
+        <requirement
+            name="com.ibm.osgi.wdt.feature.feature.group"/>
+        <repository
+            url="http://klib.io/wdt-update-site_17.0.0.2.v20170613_0418/"/>
+      </setupTask>
     </version>
     <description>IDE for OSGi development</description>
   </product>
