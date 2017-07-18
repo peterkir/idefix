@@ -121,7 +121,7 @@
         name="ProjectSet">
       <setupTask
           xsi:type="projectset:ProjectSetImportTask"
-          uRL="http://peterkir.github.io/idefix/bootstrap/daimler/projectset/17.1_RC5_workingSet.psf">
+          uRL="http://peterkir.github.io/idefix/bootstrap/daimler.duke/projectset/17.1_RC5_workingSet.psf">
         <description>DukE project set</description>
       </setupTask>
     </setupTask>

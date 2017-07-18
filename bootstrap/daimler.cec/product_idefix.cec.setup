@@ -74,41 +74,6 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="REDIRECTION catalogProduct">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="oomph runtime">
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="oomph.setup">
-        <requirement
-            name="org.eclipse.oomph.setup.feature.group"/>
-        <repository
-            url="${oomph.update.url}"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="eclipse.ini">
-        <setupTask
-            xsi:type="setup:EclipseIniTask"
-            option="-Declipse.p2.unsignedPolicy"
-            value="=allow"
-            vm="true"/>
-      </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Declipse.p2.unsignedPolicy"
-        value="=allow"
-        vm="true"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProducts.setup"
-        vm="true"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
       name="P2 Director - misc installations">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -157,35 +122,6 @@
           url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
       <description></description>
     </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="oomph setup">
-    <requirement
-        name="org.eclipse.oomph.setup.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.git.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.jdt.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.maven.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.mylyn.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.pde.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.projectset.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.projects.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.targlets.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.workbench.feature.group"/>
-    <requirement
-        name="org.eclipse.oomph.setup.workingsets.feature.group"/>
-    <repository
-        url="${oomph.update.url}"/>
-    <description></description>
   </setupTask>
   <version name="idefix.oxygen.developer"
       label="IDEfix - Developer"

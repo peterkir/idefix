@@ -78,7 +78,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProducts.setup"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProducts.setup"
         vm="true"/>
   </setupTask>
   <setupTask
@@ -213,7 +213,7 @@
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
-  <version name="idefix.oxygen"
+  <version name="oxygen"
       label="IDEfix - DukE - oxygen">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -426,7 +426,7 @@
           url="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/wdt/oxygen_comp/"/>
     </setupTask>
   </version>
-  <version name="idefix.neon"
+  <version name="neon"
       label="IDEfix - DukE - neon">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -635,7 +635,7 @@
           url="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/wdt/oxygen_comp/"/>
     </setupTask>
   </version>
-  <version name="idefix.neon"
+  <version name="mars"
       label="IDEfix - DukE - mars">
     <setupTask
         xsi:type="setup.p2:P2Task"

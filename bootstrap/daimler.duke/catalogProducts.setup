@@ -14,11 +14,10 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalogProducts.setup"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProducts.setup"
         vm="true"/>
   </setupTask>
   
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/product_idefix.cec.setup#/"/>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/product_idefix.duke.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.duke/product_idefix.duke.setup#/"/>
 
 </setup:ProductCatalog>
