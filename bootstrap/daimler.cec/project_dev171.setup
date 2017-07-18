@@ -70,5 +70,8 @@
         label="www"/>
   </setupTask>
   <stream name="master"/>
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="catalogProjects.setup#//@projects[name='cec171']"/>
   <description>IDE configurations used inside Daimler CEC project</description>
 </setup:Project>

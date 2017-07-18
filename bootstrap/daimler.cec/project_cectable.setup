@@ -125,5 +125,8 @@
           locateNestedProjects="true"/>
     </setupTask>
   </stream>
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="catalogProjects.setup#//@projects[name='cectable']"/>
   <description>IDE configurations used inside Daimler CEC project</description>
 </setup:Project>
