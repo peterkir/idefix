@@ -13,4 +13,4 @@ javac.source: 1.8
 javac.target: 1.8
 
 Bundle-Version: 0.1.0.${tstamp}
-Private-Package: io.klip.prepare.eclipseinstaller
+Private-Package: io.klib.prepare.eclipseinstaller

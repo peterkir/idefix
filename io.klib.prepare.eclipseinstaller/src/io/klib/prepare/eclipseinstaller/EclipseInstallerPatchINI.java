@@ -1,4 +1,4 @@
-package io.klip.prepare.eclipseinstaller;
+package io.klib.prepare.eclipseinstaller;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
