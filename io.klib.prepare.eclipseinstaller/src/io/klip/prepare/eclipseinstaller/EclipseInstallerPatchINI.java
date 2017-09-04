@@ -12,6 +12,7 @@ import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.charset.Charset;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
@@ -49,8 +50,8 @@ public class EclipseInstallerPatchINI {
 
 	private static final String DL_PROD    = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
 	String[][] archives = {
-//		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
-//		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
+		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
+		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
 //		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "@user.home/oomph/.p2"   },
 		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "eclipse-inst-prod.win32.x86-64.exe",     "C:/oomph/.p2" },
 //		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "eclipse-inst-prod.win32.x86.exe",        "C:/oomph/.p2" },
@@ -78,9 +79,11 @@ public class EclipseInstallerPatchINI {
 	private static final String SEP           = File.separator;
 	private static final String DIR           = System.getProperty("user.dir");
 	private static final String wrkDir        = DIR + SEP + "_wrk";
-	private static final String resultRootDir = DIR + SEP + "_result" 
-	                                                + SEP + "eclipseInstaller_"
-			                                        + DateTimeFormatter.ofPattern("yyyyMMdd-HHmm").format(LocalDateTime.now());
+	private static final String resultRootDir = DIR + SEP + "_result";
+	
+	private static final String ts = DateTimeFormatter.ofPattern("yyyyMMdd-HHmm").format(LocalDateTime.now());
+	private static final String resultVariantDir = resultRootDir + SEP + ts;
+
 	private static final int BUFFER_SIZE = 4096;
 
 	private static final HashMap<String, String[]> iniSuffix = new LinkedHashMap<String, String[]>();
@@ -105,8 +108,8 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup",
 			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products\\\\.cec",
-			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.cec\\\\.idefix\\\\.oxygen).*",
-			"-Doomph.setup.product.version.filter=developer",
+			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.cec\\\\.idefix\\\\.neon).*",
+			"-Doomph.setup.product.version.filter=.*developer",
 			"-Dsetup.p2.agent="	
 		});
 		
@@ -127,7 +130,7 @@ public class EclipseInstallerPatchINI {
 	public void activate() {
 
 		createWorkingDirs();
-
+		
 		for (int archiveIndex = 0; archiveIndex < archives.length; archiveIndex++) {
 
 			String productVersion     = archives[archiveIndex][0];
@@ -142,7 +145,7 @@ public class EclipseInstallerPatchINI {
 
 			iniSuffix.forEach((variant, iniSuffix) -> {
 
-				String resultDir = resultRootDir + SEP + variant;
+				String resultDir = resultVariantDir + SEP + variant;
 				System.out.format("# processing variant <%s> product version <%s>\n", variant, productVersion);
 
 				download(sourceUrl, downloadDir, archiveName, ECL_DL_SUFFIX);
@@ -215,7 +218,53 @@ public class EclipseInstallerPatchINI {
 			});
 		}
 
+		updateIndexFile();
+		
 		System.out.println("done");
+	}
+
+	private void updateIndexFile() {
+		StringBuffer sb = new StringBuffer();
+		sb.append(String.format("<html>\n<head>\n<title>IDEfix installers</title>\n</head>\n<body>\n",ts));
+		sb.append("<h1>Pre-Requisites</h1>\n");
+		sb.append("<p>Download and install the latest Java SDK version (minimum Java 8)</p>\n");
+		sb.append("<a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html'>Java SDK Download</a>\n");
+		Path resultRootPath = Paths.get(resultRootDir);
+		
+		try {
+			Files.list(resultRootPath).filter( f ->
+					!f.toFile().getName().startsWith(".") && 
+					!f.toFile().getName().endsWith("index.html")
+				).forEach(version -> {
+				sb.append(String.format("<h1>Version %s</h1>\n",resultRootPath.relativize(version)));
+				if (version.toFile().isDirectory() ) {
+					try {
+						Files.list(version).filter(f->!f.toFile().getName().startsWith(".")).forEach(customer -> {
+							sb.append(String.format("    <h2>Customer %s</h2>\n", version.relativize(customer)));
+							if (customer.toFile().isDirectory()) {
+								try {
+									Files.list(customer).filter( f -> 
+										!f.toFile().getName().startsWith(".") 
+										&& f.toFile().isFile()).forEach( os -> {
+											if ( !os.toString().startsWith(".") )
+													sb.append(String.format("        <a href='%s'>%s</a><br/>\n", resultRootPath.relativize(os),customer.relativize(os)));
+									});
+								} catch (IOException e) {
+									e.printStackTrace();
+								}
+							}
+						});
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			sb.append("</body>\n</html>");
+			System.out.println(sb.toString());
+			Files.write(resultRootPath.resolve("index.html"), sb.toString().getBytes(Charset.forName("UTF-8")), StandardOpenOption.CREATE,StandardOpenOption.WRITE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void patchIni(String patchDir, String iniFile, String p2PoolPath, String[] iniSuffixArguments) {
