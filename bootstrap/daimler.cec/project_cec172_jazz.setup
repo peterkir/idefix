@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    name="cec172.jazz"
+    label="CEC 172 (from Jazz)">
+  <stream name="master"
+      label="Master"/>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>CEC 172 (from Jazz) provides cool stuff.</description>
+</setup:Project>

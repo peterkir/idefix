@@ -110,7 +110,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="AJDT">
+      name="P2 Director - AJDT">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="prefs">
@@ -132,6 +132,71 @@
       <repository
           url="${repo.source}/build.spring.io/browse/AJDT-AFE46T-4/artifact/shared/update-site"/>
       <description></description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="P2 Director - misc installations">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="QuickREx - regexp">
+      <requirement
+          name="de.babe.eclipse.plugins.QuickREx"
+          versionRange="[3.5.0,4.0.0)"/>
+      <repository
+          url="https://s3-eu-west-1.amazonaws.com/klib.io/www/_repo/idefix-other-tools"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="OS Explorer">
+      <requirement
+          name="de.bastiankrol.startexplorer.feature.feature.group"
+          versionRange="1.6.1"/>
+      <repository
+          url="http://basti1302.github.com/startexplorer/update"/>
+      <description>enables comfort functions to access native os environments</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="EcliPaint">
+      <requirement
+          name="org.eclipaint.feature.feature.group"
+          versionRange="[2.5.1,3.0.0)"/>
+      <repository
+          url="https://raw.githubusercontent.com/jabiercoding/eclipaint/master/updatesite/org.eclipaint.site/"/>
+      <description>https://github.com/jabiercoding/eclipaint</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="InstaSearch">
+      <repository
+          url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
+      <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Markdown Editor">
+      <requirement
+          name="markdown.editor.feature.feature.group"
+          versionRange="[1.1.0,2.0.0)"/>
+      <repository
+          url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
+      <description></description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="P2 Director - bndtools">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.4.0,4.0.0)"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
   </setupTask>
   <version name="developer"
@@ -193,16 +258,6 @@
           url="http://download.eclipse.org/releases/neon/201705151400"/>
     </setupTask>
     <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0.RC2">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,4.0.0)"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <setupTask
         xsi:type="setup:CompoundTask"
         name="eclipse.ini">
       <setupTask
@@ -210,57 +265,6 @@
           option="-perspective"
           value="bndtools.perspective"/>
       <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="P2 Director - misc installations">
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="QuickREx - regexp">
-        <requirement
-            name="de.babe.eclipse.plugins.QuickREx"
-            versionRange="[3.5.0,4.0.0)"/>
-        <repository
-            url="https://s3-eu-west-1.amazonaws.com/klib.io/www/_repo/idefix-other-tools"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="http://basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="EcliPaint">
-        <requirement
-            name="org.eclipaint.feature.feature.group"
-            versionRange="[2.5.1,3.0.0)"/>
-        <repository
-            url="https://raw.githubusercontent.com/jabiercoding/eclipaint/master/updatesite/org.eclipaint.site/"/>
-        <description>https://github.com/jabiercoding/eclipaint</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="InstaSearch">
-        <repository
-            url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
-        <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="Markdown Editor">
-        <requirement
-            name="markdown.editor.feature.feature.group"
-            versionRange="[1.1.0,2.0.0)"/>
-        <repository
-            url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-        <description></description>
-      </setupTask>
     </setupTask>
     <description>
       based on Eclipse Neon epp.package.java
@@ -324,16 +328,6 @@
           url="http://download.eclipse.org/technology/epp/packages/neon"/>
       <repository
           url="http://download.eclipse.org/releases/neon/201705151400"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0.RC2">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,4.0.0)"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -420,16 +414,6 @@
           url="http://download.eclipse.org/technology/epp/packages/neon"/>
       <repository
           url="http://download.eclipse.org/releases/neon/201705151400"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0.RC2">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,4.0.0)"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
