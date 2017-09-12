@@ -396,6 +396,16 @@
           url="http://download.eclipse.org/releases/neon/201705151400"/>
     </setupTask>
     <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0.RC2">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.4.0,4.0.0)"/>
+      <repository
+          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
         xsi:type="setup:CompoundTask"
         name="eclipse.ini">
       <setupTask
