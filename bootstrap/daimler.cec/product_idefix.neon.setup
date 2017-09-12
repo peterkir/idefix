@@ -108,6 +108,32 @@
         value="http:/"
         label="www"/>
   </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="AJDT">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="prefs">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+          value="ignore"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+          value="ignore"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="AJDT 2.2.4 for Eclipse 4.6">
+      <requirement
+          name="org.eclipse.ajdt.feature.group"
+          versionRange="[2.2.4.201512160910,2.2.4.201512160910]"/>
+      <repository
+          url="${repo.source}/build.spring.io/browse/AJDT-AFE46T-4/artifact/shared/update-site"/>
+      <description></description>
+    </setupTask>
+  </setupTask>
   <version name="developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
