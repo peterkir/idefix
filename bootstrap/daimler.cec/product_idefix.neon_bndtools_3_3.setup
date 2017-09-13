@@ -199,6 +199,19 @@
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
   </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="workspace mechanic">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Workspace Mechanic">
+      <requirement
+          name="com.google.eclipse.mechanic.feature.group"
+          versionRange="[0.4.0,0.5.0)"/>
+      <repository
+          url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+    </setupTask>
+  </setupTask>
   <version name="developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
