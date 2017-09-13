@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.neon.bndtools_3_4"
-    label="IDEfix Neon">
+    name="idefix.neon.bndtools_3_3"
+    label="IDEfix Neon - bndtools 3.3.x">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
