@@ -228,7 +228,10 @@ public class EclipseInstallerPatchINI {
 		sb.append(String.format("<html>\n<head>\n<title>IDEfix installers</title>\n</head>\n<body>\n",ts));
 		sb.append("<h1>Pre-Requisites</h1>\n");
 		sb.append("<p>Download and install the latest Java SDK version (minimum Java 8)</p>\n");
+		
 		sb.append("<a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html'>Java SDK Download</a>\n");
+		sb.append("<h1>IDEfix installers</h1>\n");
+		sb.append("<p>Download and store the executable for your platform locally and run it.\n");
 		Path resultRootPath = Paths.get(resultRootDir);
 		
 		try {
@@ -236,7 +239,7 @@ public class EclipseInstallerPatchINI {
 					!f.toFile().getName().startsWith(".") && 
 					!f.toFile().getName().endsWith("index.html")
 				).forEach(version -> {
-				sb.append(String.format("<h1>Version %s</h1>\n",resultRootPath.relativize(version)));
+				sb.append(String.format("<h2>Version %s</h2>\n",resultRootPath.relativize(version)));
 				if (version.toFile().isDirectory() ) {
 					try {
 						Files.list(version).filter(f->!f.toFile().getName().startsWith(".")).forEach(customer -> {

@@ -190,12 +190,12 @@
       name="P2 Director - bndtools">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0">
+        label="bndtools 3.3.0">
       <requirement
           name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,3.5.0)"/>
+          versionRange="[3.3.0,3.4.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
   </setupTask>
