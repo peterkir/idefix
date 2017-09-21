@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.neon.appdev"
-    label="IDEfix Neon - AppDev">
+    name="idefix.appdev"
+    label="IDEfix - AppDev">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -185,7 +185,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="appdev"
+  <version name="neon"
       label="IDEfix - Application Developer"
       requiredJavaVersion="1.8">
     <setupTask
