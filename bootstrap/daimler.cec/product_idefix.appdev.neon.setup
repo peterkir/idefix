@@ -266,13 +266,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/java/cacerts?raw=true"
-          targetURL="${installation.location|uri}/cacerts">
+          targetURL="${installation.location|uri}/${product.name}/cacerts">
         <description>Java cacerts file</description>
       </setupTask>
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Djavax.net.ssl.trustStore"
-          value="=${installation.location}/cacerts"
+          value="=${installation.location}/${product.name}/cacerts"
           vm="true">
         <description>configure a custom cacerts file</description>
       </setupTask>
@@ -283,13 +283,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar?raw=true"
-          targetURL="${installation.location|uri}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
+          targetURL="${installation.location|uri}/${product.name}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
         <description>CIA - Check Internal API</description>
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar?raw=true"
-          targetURL="${installation.location|uri}/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar">
+          targetURL="${installation.location|uri}/${product.name}/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar">
         <description>CEC P2 Touchpoint</description>
       </setupTask>
     </setupTask>
