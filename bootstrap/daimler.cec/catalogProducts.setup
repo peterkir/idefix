@@ -17,5 +17,6 @@
   </setupTask>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.oxygen.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.neon.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.appdev.neon.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.neon_bndtools_3_3.setup#/"/>
 </setup:ProductCatalog>
