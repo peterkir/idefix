@@ -260,6 +260,23 @@
       <repository
           url="http://download.eclipse.org/rcptt/release/2.1.0/repository/"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="cacerts">
+      <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          sourceURL="idefix/bootstrap/daimler.cec/java/cacerts"
+          targetURL="${installation.location|uri}/cacerts">
+        <description>Java cacerts file</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Djavax.net.ssl.trustStore"
+          value="=${installation.location}/cacerts"
+          vm="true">
+        <description>configure a custom cacerts file</description>
+      </setupTask>
+    </setupTask>
     <description>
       based on Eclipse Neon epp.package.java
       bndtools 3.4.0.RC1
