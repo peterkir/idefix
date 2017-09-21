@@ -266,13 +266,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/java/cacerts?raw=true"
-          targetURL="${installation.location/cacerts|uri}">
+          targetURL="${install.root/|uri}${installation.id/cacerts}">
         <description>Java cacerts file</description>
       </setupTask>
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Djavax.net.ssl.trustStore"
-          value="=${installation.location/cacerts}"
+          value="=${install.root/}${installation.id/cacerts}"
           vm="true">
         <description>configure a custom cacerts file</description>
       </setupTask>
