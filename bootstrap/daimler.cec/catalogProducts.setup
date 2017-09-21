@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="com.daimler.products.cec"
+    name="com.daimler.products"
     label="Daimler Products">
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -15,8 +15,8 @@
         value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProducts.setup"
         vm="true"/>
   </setupTask>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.oxygen.setup#/"/>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.neon.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.cec.oxygen.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.cec.neon.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.cec.neon_bndtools_3_3.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.appdev.neon.setup#/"/>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.neon_bndtools_3_3.setup#/"/>
 </setup:ProductCatalog>
