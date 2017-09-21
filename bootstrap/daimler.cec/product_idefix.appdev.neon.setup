@@ -266,13 +266,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/java/cacerts?raw=true"
-          targetURL="${install.root|uri}/${scope.product.name/cacerts}">
+          targetURL="${installation.location/cacerts|uri}">
         <description>Java cacerts file</description>
       </setupTask>
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Djavax.net.ssl.trustStore"
-          value="=${installation.location}/${scope.product.name/cacerts}"
+          value="=${installation.location/cacerts}"
           vm="true">
         <description>configure a custom cacerts file</description>
       </setupTask>
@@ -283,7 +283,7 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar?raw=true"
-          targetURL="${installation.location|uri}/${scope.product.name}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
+          targetURL="${installation.location|uri}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
         <description>CIA - Check Internal API</description>
       </setupTask>
       <setupTask
