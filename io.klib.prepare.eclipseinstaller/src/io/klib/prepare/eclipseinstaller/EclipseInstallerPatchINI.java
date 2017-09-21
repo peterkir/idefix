@@ -107,9 +107,9 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.setup.installer.launch=true",
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup",
-			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products\\\\.cec",
-			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.cec\\\\.idefix\\\\.neon).*",
-			"-Doomph.setup.product.version.filter=.*developer",
+			"-Doomph.setup.product.catalog.filter=(com\\\\.daimler\\\\.products).*",
+			"-Doomph.setup.product.filter=(com\\\\.daimler\\\\.products).*",
+			"-Doomph.setup.product.version.filter=.*appdev.*",
 			"-Dsetup.p2.agent="	
 		});
 		
