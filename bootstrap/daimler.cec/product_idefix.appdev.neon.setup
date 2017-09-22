@@ -166,13 +166,13 @@
     </setupTask>
   </setupTask>
   <version name="idefix.172"
-      label="IDEfix - Application Developer 17.2"
+      label="IDEfix - EC Application Developer 17.2"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="Eclipse IDE for Java Developers (Neon)">
+        label="Eclipse for RCP and RAP Developers (Neon)">
       <requirement
-          name="epp.package.java"
+          name="epp.package.rcp"
           versionRange="[4.6.0,4.7.0)"/>
       <requirement
           name="org.eclipse.platform.feature.group"
@@ -181,15 +181,19 @@
           name="org.eclipse.rcp.feature.group"
           versionRange="[4.6.0,4.7.0)"/>
       <requirement
+          name="org.eclipse.jdt.feature.group"
+          versionRange="[3.12.0,3.13.0)"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"
+          versionRange="[3.12.0,3.13.0)"/>
+      <requirement
           name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
       <requirement
           name="org.eclipse.egit.mylyn.feature.group"/>
-      <requirement
-          name="org.eclipse.jdt.feature.group"/>
-      <requirement
-          name="org.eclipse.jgit.feature.group"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -199,6 +203,8 @@
       <requirement
           name="org.eclipse.mylyn.context_feature.feature.group"/>
       <requirement
+          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+      <requirement
           name="org.eclipse.mylyn.git.feature.group"/>
       <requirement
           name="org.eclipse.mylyn.hudson.feature.group"/>
@@ -207,9 +213,9 @@
       <requirement
           name="org.eclipse.mylyn.java_feature.feature.group"/>
       <requirement
-          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+          name="org.eclipse.mylyn.pde_feature.feature.group"/>
       <requirement
-          name="org.eclipse.mylyn_feature.feature.group"/>
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
       <requirement
           name="org.eclipse.recommenders.mylyn.rcp.feature.feature.group"/>
       <requirement
@@ -217,11 +223,18 @@
       <requirement
           name="org.eclipse.recommenders.snipmatch.rcp.feature.feature.group"/>
       <requirement
+          name="org.eclipse.swtbot.eclipse.feature.group"/>
+      <requirement
+          name="org.eclipse.swtbot.eclipse.gef.feature.group"/>
+      <requirement
+          name="org.eclipse.swtbot.ide.feature.group"/>
+      <requirement
           name="org.eclipse.wst.xml_ui.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/technology/epp/packages/neon"/>
       <repository
           url="http://download.eclipse.org/releases/neon/201705151400"/>
+      <description>removed org.eclipse.rap.tools.feature</description>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -230,6 +243,18 @@
           name="org.eclipse.rcptt.platform.feature.group"/>
       <repository
           url="http://download.eclipse.org/rcptt/release/2.1.0/repository/"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="preference">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.ui">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui/defaultPerspectiveId"
+            value="org.eclipse.pde.ui.PDEPerspective"/>
+      </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -264,10 +289,7 @@
         <description>CEC P2 Touchpoint</description>
       </setupTask>
     </setupTask>
-    <description>
-      based on Eclipse Neon epp.package.java
-      bndtools 3.4.0.RC1
-    </description>
+    <description>based on Eclipse Neon epp.package.rcp</description>
   </version>
   <description>IDE for EC Application Development</description>
 </setup:Product>
