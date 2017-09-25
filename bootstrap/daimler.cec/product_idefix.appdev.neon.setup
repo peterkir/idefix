@@ -5,13 +5,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.appdev.neon"
+    name="idefix.appdev"
     label="IDEfix - AppDev">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
         key="folderName">
-      <value>idefix.appdev.172</value>
+      <value>neon.171</value>
     </detail>
   </annotation>
   <setupTask
@@ -165,8 +165,8 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="172"
-      label="IDEfix - EC Application Developer 17.2"
+  <version name="neon.171"
+      label="IDEfix - EC Application Developer 17.1"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
