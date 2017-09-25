@@ -5,13 +5,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="neon.appdev"
+    name="idefix.appdev"
     label="IDEfix - AppDev">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
         key="folderName">
-      <value>appdev.idefix.172</value>
+      <value>idefix.appdev.172</value>
     </detail>
   </annotation>
   <setupTask
@@ -165,7 +165,7 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <version name="idefix.172"
+  <version name="172"
       label="IDEfix - EC Application Developer 17.2"
       requiredJavaVersion="1.8">
     <setupTask
@@ -262,13 +262,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/java/cacerts?raw=true"
-          targetURL="${installation.location/|uri}${scope.product.name/cacerts}">
+          targetURL="${installation.location/|uri}${scope.product.name/}${scope.product.version.name/cacerts}">
         <description>Java cacerts file</description>
       </setupTask>
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Djavax.net.ssl.trustStore"
-          value="=${installation.location/|uri}${scope.product.name/cacerts}"
+          value="=${installation.location/|uri}${scope.product.version.name/}${scope.product.name/cacerts}"
           vm="true">
         <description>configure a custom cacerts file</description>
       </setupTask>
@@ -279,13 +279,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar?raw=true"
-          targetURL="${installation.location|uri}/${scope.product.name}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
+          targetURL="${installation.location/|uri}${scope.product.name/}${scope.product.version.name}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
         <description>CIA - Check Internal API</description>
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar?raw=true"
-          targetURL="${installation.location|uri}/${scope.product.name}/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar">
+          targetURL="${installation.location/|uri}${scope.product.name/}${scope.product.version.name}/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar">
         <description>CEC P2 Touchpoint</description>
       </setupTask>
     </setupTask>
