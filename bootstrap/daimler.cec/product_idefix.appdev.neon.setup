@@ -136,26 +136,26 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="only on win32"
-      filter="(osgi.os=win32)">
+      filter="(osgi.os=win32)"
+      name="only on win32">
     <setupTask
         xsi:type="setup:VariableTask"
         id="install.root"
         name="install.root"
-        value="C:/IDEfix"
+        value=""
         defaultValue="C:/IDEfix">
       <description></description>
     </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="only on *nix"
-      filter="(|(osgi.os=macosx)(osgi.os=linux))">
+      filter="(|(osgi.os=macosx)(osgi.os=linux))"
+      name="only on *nix">
     <setupTask
         xsi:type="setup:VariableTask"
         id="install.root"
         name="install.root"
-        value="${user.home/IDEfix}"
+        value=""
         defaultValue="${user.home/IDEfix}">
       <description></description>
     </setupTask>
@@ -192,7 +192,8 @@
         xsi:type="setup:VariableTask"
         id="installation.location"
         name="installation.location"
-        value="${install.root/}${scope.product.name}.${scope.product.version.name}"/>
+        value=""
+        defaultValue="${install.root/}${scope.product.name}.${scope.product.version.name}"/>
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse for RCP and RAP Developers (Neon)">
