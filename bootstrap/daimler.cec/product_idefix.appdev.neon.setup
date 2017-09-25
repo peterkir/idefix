@@ -65,30 +65,6 @@
     </setupTask>
   </setupTask>
   <setupTask
-      xsi:type="setup:VariableTask"
-      name="repo.source"
-      defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
-      label="repoSource">
-    <choice
-        value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
-        label="AWS"/>
-    <choice
-        value="file:/c:/pekirsc/www"
-        label="local Windows"/>
-    <choice
-        value="file:/media/peterkir/BTRFS/www"
-        label="local Linux"/>
-    <choice
-        value="file:/I:/A-D/CEC-Build/repo"
-        label="Daimler"/>
-    <choice
-        value="http://jazz01.rd.corpintra.net/web/repo"
-        label="Daimler Web"/>
-    <choice
-        value="http:/"
-        label="www"/>
-  </setupTask>
-  <setupTask
       xsi:type="setup:CompoundTask"
       name="P2 Director - AJDT">
     <setupTask
@@ -164,6 +140,38 @@
           url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
       <description></description>
     </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      id="install.root"
+      name="install.root"
+      value="C:/IDEfix"
+      defaultValue="C:/IDEfix">
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="repo.source"
+      defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+      label="repoSource">
+    <choice
+        value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+        label="AWS"/>
+    <choice
+        value="file:/c:/pekirsc/www"
+        label="local Windows"/>
+    <choice
+        value="file:/media/peterkir/BTRFS/www"
+        label="local Linux"/>
+    <choice
+        value="file:/I:/A-D/CEC-Build/repo"
+        label="Daimler"/>
+    <choice
+        value="http://jazz01.rd.corpintra.net/web/repo"
+        label="Daimler Web"/>
+    <choice
+        value="http:/"
+        label="www"/>
   </setupTask>
   <version name="neon.171"
       label="IDEfix - EC Application Developer 17.1"
@@ -268,7 +276,7 @@
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Djavax.net.ssl.trustStore"
-          value="=${installation.location/|uri}${scope.product.version.name/}${scope.product.name/cacerts}"
+          value="=${installation.root/|uri}${installation.id/cacerts}"
           vm="true">
         <description>configure a custom cacerts file</description>
       </setupTask>
@@ -292,8 +300,4 @@
     <description>based on Eclipse Neon epp.package.rcp</description>
   </version>
   <description>IDE for EC Application Development</description>
-  <setup:VariableTask
-      name="install.root"
-      value="C:/IDEfix"
-      defaultValue="C:/IDEfix"/>
 </setup:Product>
