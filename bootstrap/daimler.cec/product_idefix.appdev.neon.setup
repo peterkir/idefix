@@ -7,13 +7,6 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="idefix.appdev"
     label="IDEfix for EC AppDev">
-  <annotation
-      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
-    <detail
-        key="folderName">
-      <value>neon.171</value>
-    </detail>
-  </annotation>
   <setupTask
       xsi:type="setup:InstallationTask"
       id="installation"/>
@@ -297,6 +290,11 @@
         <description>CEC P2 Touchpoint</description>
       </setupTask>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="_installation.location"
+        name="_installation.location"
+        value="${install.root/}${scope.product.version.name.qualified}"/>
     <description>based on Eclipse Neon epp.package.rcp</description>
   </version>
   <description>IDE for EC Application Development</description>
