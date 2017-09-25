@@ -135,16 +135,35 @@
     </setupTask>
   </setupTask>
   <setupTask
-      xsi:type="setup:VariableTask"
-      id="install.root"
-      name="install.root"
-      value="C:/IDEfix"
-      defaultValue="C:/IDEfix">
-    <description></description>
+      xsi:type="setup:CompoundTask"
+      name="only on win32"
+      filter="(osgi.os=win32)">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="install.root"
+        name="install.root"
+        value="C:/IDEfix"
+        defaultValue="C:/IDEfix">
+      <description></description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="only on *nix"
+      filter="(|(osgi.os=macosx)(osgi.os=linux))">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="install.root"
+        name="install.root"
+        value="${user.home/IDEfix}"
+        defaultValue="${user.home/IDEfix}">
+      <description></description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
       name="repo.source"
+      value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
       defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
       label="repoSource">
     <choice
@@ -173,7 +192,7 @@
         xsi:type="setup:VariableTask"
         id="installation.location"
         name="installation.location"
-        value="${install.root/}${scope.product.name/}${scope.product.version.name}"/>
+        value="${install.root/}${scope.product.name}.${scope.product.version.name}"/>
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse for RCP and RAP Developers (Neon)">
