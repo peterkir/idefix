@@ -292,8 +292,8 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="_installation.location"
-        name="_installation.location"
+        id="installation.location"
+        name="installation.location"
         value="${install.root/}${scope.product.version.name.qualified}"/>
     <description>based on Eclipse Neon epp.package.rcp</description>
   </version>
