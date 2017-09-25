@@ -142,7 +142,7 @@
         xsi:type="setup:VariableTask"
         id="install.root"
         name="install.root"
-        value=""
+        value="C:/IDEfix"
         defaultValue="C:/IDEfix">
       <description></description>
     </setupTask>
@@ -155,7 +155,7 @@
         xsi:type="setup:VariableTask"
         id="install.root"
         name="install.root"
-        value=""
+        value="${user.home/IDEfix}"
         defaultValue="${user.home/IDEfix}">
       <description></description>
     </setupTask>
@@ -189,8 +189,9 @@
       xsi:type="setup:VariableTask"
       id="installation.location"
       name="installation.location"
-      value=""
-      defaultValue="${install.root/}${scope.product.name}.${scope.product.version.name}"/>
+      value="${install.root/}${scope.product.name}.${scope.product.version.name}"
+      defaultValue="${install.root/}${scope.product.name}.${scope.product.version.name}"
+      label="Default installation.location"/>
   <setupTask
       xsi:type="setup:ResourceCreationTask"
       content="MAX_RECENT_WORKSPACES=5&amp;#xD;&amp;#xA;RECENT_WORKSPACES=${workspace.location|property}&amp;#xD;&amp;#xA;RECENT_WORKSPACES_PROTOCOL=3&amp;#xD;&amp;#xA;SHOW_WORKSPACE_SELECTION_DIALOG=false&amp;#xD;&amp;#xA;eclipse.preferences.version=1"
@@ -202,8 +203,8 @@
       xsi:type="setup:VariableTask"
       id="workspace.location"
       name="workspace.location"
+      value="${installation.location}/ws"
       defaultValue="${installation.location}/ws"
-      storageURI="scope://Workspace"
       label="Default Workspace Location"/>
   <version name="neon.171"
       label="IDEfix - EC Application Developer 17.1"
