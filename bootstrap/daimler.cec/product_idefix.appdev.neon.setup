@@ -170,6 +170,11 @@
       label="IDEfix - EC Application Developer 17.1"
       requiredJavaVersion="1.8">
     <setupTask
+        xsi:type="setup:VariableTask"
+        id="installation.location"
+        name="installation.location"
+        value="${install.root/}${scope.product.name/}${scope.product.version.name}"/>
+    <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse for RCP and RAP Developers (Neon)">
       <requirement
@@ -263,13 +268,13 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/java/cacerts?raw=true"
-          targetURL="${install.root/|uri}${installation.id/cacerts}">
+          targetURL="${installation.location/eclipse/|uri}cacerts">
         <description>Java cacerts file</description>
       </setupTask>
       <setupTask
           xsi:type="setup:EclipseIniTask"
           option="-Djavax.net.ssl.trustStore"
-          value="=${install.root/|uri}${installation.id/cacerts}"
+          value="=${installation.location/eclipse/|uri}cacerts"
           vm="true">
         <description>configure a custom cacerts file</description>
       </setupTask>
@@ -280,21 +285,16 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar?raw=true"
-          targetURL="${install.root/|uri}${installation.id}/dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
+          targetURL="${installation.location/eclipse/|uri}dropins/com.daimler.cec.internalapi.search_1.0.0.201607110900.jar">
         <description>CIA - Check Internal API</description>
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.cec/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar?raw=true"
-          targetURL="${install.root/|uri}${installation.id}/dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar">
+          targetURL="${installation.location/eclipse/|uri}dropins/com.daimler.cec.launcher.touchpoints_1.0.0.20170905-113044.jar">
         <description>CEC P2 Touchpoint</description>
       </setupTask>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="installation.location"
-        name="installation.location"
-        value="${install.root/}${scope.product.version.name.qualified}"/>
     <description>based on Eclipse Neon epp.package.rcp</description>
   </version>
   <description>IDE for EC Application Development</description>
