@@ -41,7 +41,7 @@
         name="org.eclipse.debug.ui">
       <setupTask
           xsi:type="setup:PreferenceTask"
-          key="Console.limitConsoleOutput"
+          key="/instance/org.eclipse.debug.ui/Console.limitConsoleOutput"
           value="false"/>
     </setupTask>
     <setupTask
