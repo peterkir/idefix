@@ -107,21 +107,21 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.setup.installer.launch=true",
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup",
-			"-Doomph.setup.product.catalog.filter=(com\\\\.daimler\\\\.products).*",
+			"-Doomph.setup.product.catalog.filter=^((?!eclipse).)*$",
 			"-Doomph.setup.product.filter=(com\\\\.daimler\\\\.products).*",
 			"-Doomph.setup.product.version.filter=.*appdev.*",
 			"-Dsetup.p2.agent="	
 		});
 		
-		iniSuffix.put("daimler.duke", new String[] {
+		iniSuffix.put("daimler.ec", new String[] {
 			"-Doomph.setup.installer.mode=advanced",
 			"-Doomph.setup.installer.p2pool=true",
 			"-Doomph.setup.installer.launch=true",
-			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProducts.setup",
-			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProjects.setup",
-			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products\\\\.duke",
-			"-Doomph.setup.product.filter=(?\\!com\\\\.daimler\\\\.products\\\\.duke\\\\.idefix).*",
-			"-Doomph.setup.product.version.filter=mars",
+			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/catalogProducts.setup",
+			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/catalogProjects.setup",
+			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
+			"-Doomph.setup.product.filter=(.*idefix).*",
+			"-Doomph.setup.product.version.filter=.*?(appdev).*?",
 			"-Dsetup.p2.agent="
 		});
 	};
