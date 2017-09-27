@@ -154,7 +154,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProjects.setup"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/catalogProjects.setup"
         vm="true"/>
   </setupTask>
   <setupTask
@@ -244,6 +244,6 @@
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
-  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.duke/project_duke.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.ec/project_duke.setup#/"/>
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>

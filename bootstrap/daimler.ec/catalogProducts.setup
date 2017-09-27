@@ -5,15 +5,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="com.daimler.products.duke"
-    label="Daimler DukE Products">
+    label="Daimler EngineeringClient Products">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="REDIRECTION catalogProduct">
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
-        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.duke/catalogProducts.setup"
+        value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/catalogProducts.setup"
         vm="true"/>
   </setupTask>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.duke/product_idefix.duke.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.ec/product_idefix.duke.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.ec/product_idefix.appdev.neon.setup#/"/>
 </setup:ProductCatalog>
