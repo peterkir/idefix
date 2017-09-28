@@ -451,6 +451,17 @@
         <description></description>
       </setupTask>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="SpotBugs aka. Findbugs">
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="com.github.spotbugs.plugin.eclipse.feature.group"/>
+        <repository
+            url="https://spotbugs.github.io/eclipse/"/>
+      </setupTask>
+    </setupTask>
     <description>
       based on Eclipse Neon epp.package.java
       bndtools 3.4.0.RC1
