@@ -31,6 +31,12 @@
         vm="true">
       <description>Set the heap space needed to work with the projects</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-nl"
+        value="en_US">
+      <description>Language settings</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"

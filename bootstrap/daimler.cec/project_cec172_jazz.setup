@@ -5,11 +5,36 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     name="cec172.jazz"
-    label="CEC 172 (from Jazz)">
+    label="CEC 172 (from Daimler Jazz)">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="env Daimler settings">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Activate System Proxy">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.core.net">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.core.net/nonProxiedHosts"
+            value="localhost|127.0.0.1"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.core.net/proxiesEnabled"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.core.net/systemProxiesEnabled"
+            value="true"/>
+      </setupTask>
+      <description></description>
+    </setupTask>
+  </setupTask>
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
-  <description>CEC 172 (from Jazz) provides cool stuff.</description>
+  <description>CEC 172 (from Daimler Jazz)</description>
 </setup:Project>
