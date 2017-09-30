@@ -5,6 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xmlns:workbench="http://www.eclipse.org/oomph/setup/workbench/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/workbench/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Workbench.ecore"
     name="idefix.neon.bndtools_3_3"
     label="IDEfix Neon - bndtools 3.3.x">
   <annotation
@@ -467,6 +469,12 @@
         <repository
             url="https://spotbugs.github.io/eclipse/"/>
       </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="workbench:FileAssociationsTask">
+      <mapping
+          filePattern="*.bnd"
+          defaultEditorID="bndtools.bndEditor"/>
     </setupTask>
     <description>
       based on Eclipse Neon epp.package.java
