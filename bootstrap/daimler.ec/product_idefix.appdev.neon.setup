@@ -192,8 +192,8 @@
       value="${install.root/}${scope.product.name}.${scope.product.version.name}"
       defaultValue="${install.root/}${scope.product.name}.${scope.product.version.name}"
       label="Default installation.location"/>
-  <version name="neon.171"
-      label="IDEfix - EC Application Developer 17.1"
+  <version name="neon.172"
+      label="IDEfix - EC Application Developer 17.2"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
