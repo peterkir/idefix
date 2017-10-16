@@ -114,4 +114,5 @@
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.neon.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.oxygen.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/cec/products/idefix.172.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/conference/ece2016/setups/product-osgi.idefix.oxygen-ece2016.setup#/"/>
 </setup:ProductCatalog>

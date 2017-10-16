@@ -4,8 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="io.klib.projects"
-    label="klib.io projects">
+    name="ece2016.projects"
+    label="ece2016 projects">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -190,33 +190,15 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="REDIRECTION catalogProject">
+      name="REFERENCE klib.io ">
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/oomph/public/ece2016/catalogProjects.setup"
         vm="true"/>
   </setupTask>
-  <project href="http://peterkir.github.io/idefix/bootstrap/conference/ece2016/setups/project-ece2016.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/jfs2016.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ece2014.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/bundlewrap.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ee.j2se-1.8.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/eval.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/example.aspectj.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/example.bnd.rcp.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/idefix.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/io.klib.tools.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/org.eclipse.oomph.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/peterkir.github.io.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/reveal.js.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/javafx.examples.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.design.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.examples.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/osgi/projects/osgi.enroute.site.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/peterkir/projects/bnd.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bndtools.setup#/"/>
-  <project href="http://peterkir.github.io/idefix/oomph/bndtools/projects/bnd.manual.setup#/"/>
+
+  <project href="http://peterkir.github.io/idefix/oomph/public/ece2016/project-ece2016.setup#/"/>
+
   <description>All the projects at klib.io that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
