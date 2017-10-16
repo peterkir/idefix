@@ -163,7 +163,7 @@
     <repository
         url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
     <repository
-        url="http://download.eclipse.org/releases/oxygen/201609231000"/>
+        url="http://download.eclipse.org/releases/oxygen"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
