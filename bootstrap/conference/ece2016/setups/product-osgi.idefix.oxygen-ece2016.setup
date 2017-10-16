@@ -161,7 +161,7 @@
     <requirement
         name="org.eclipse.wst.xml_ui.feature.feature.group"/>
     <repository
-        url="http://download.eclipse.org/technology/epp/packages/oxygen/M2"/>
+        url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
     <repository
         url="http://download.eclipse.org/releases/oxygen/201609231000"/>
   </setupTask>
