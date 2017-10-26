@@ -136,6 +136,13 @@
     <repository
         url="http://download.eclipse.org/releases/oxygen"/>
   </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task">
+    <requirement
+        name="org.eclipse.oomph.setup.feature.group"/>
+    <repository
+        url="${oomph.update.url}"/>
+  </setupTask>
   <version name="latest.dev.bndtools.cloudbees"
       label="IDE for OSGi - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
