@@ -5,12 +5,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
-    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
     name="concierge"
     label="Concierge">
   <annotation
@@ -40,13 +38,6 @@
   </setupTask>
   <setupTask
       xsi:type="setup:StringSubstitutionTask"
-      name="git.clone.concierge"
-      value="${git.clone.concierge.location}"
-      documentation="The location of Oomph's Git clone.">
-    <description></description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:StringSubstitutionTask"
       name="launcher.setup.ide.ws"
       value=""
       documentation="The folder location of the workspace for the self hosting setup IDE."/>
@@ -72,9 +63,8 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone.concierge"
-        remoteURI="eclipse/org.eclipse.concierge"
+        remoteURI="concierge/org.eclipse.concierge"
         pushURI=""
-        checkoutBranch="master"
         userID="">
       <annotation
           source="http://www.eclipse.org/oomph/setup/InducedChoices">
@@ -94,186 +84,6 @@
       <description>Concierge</description>
     </setupTask>
     <setupTask
-        xsi:type="setup.targlets:TargletTask">
-      <targlet
-          name="Oomph"
-          activeRepositoryList="${eclipse.target.platform}"
-          includeAllPlatforms="true">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/PomArtifactUpdater">
-          <detail
-              key="skipArtifactIDs">
-            <value>false</value>
-          </detail>
-          <detail
-              key="skipVersions">
-            <value>false</value>
-          </detail>
-        </annotation>
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/PomModulesUpdater">
-          <detail
-              key="location">
-            <value>${git.clone.oomph.location/releng/org.eclipse.oomph.parent/plugins/pom.xml}</value>
-          </detail>
-          <detail
-              key="moduleRoots">
-            <value>${git.clone.oomph.location/plugins}</value>
-          </detail>
-        </annotation>
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/PomModulesUpdater">
-          <detail
-              key="location">
-            <value>${git.clone.oomph.location/releng/org.eclipse.oomph.parent/features/pom.xml}</value>
-          </detail>
-          <detail
-              key="moduleRoots">
-            <value>${git.clone.oomph.location/features}</value>
-          </detail>
-        </annotation>
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${git.clone.oomph.location/releng/org.eclipse.oomph.releng/org.eclipse.oomph.releng.target}</value>
-          </detail>
-          <detail
-              key="extraUnits">
-            <value>org.eclipse.equinox.executable.feature.group</value>
-          </detail>
-          <detail
-              key="singleLocation">
-            <value>true</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>true</value>
-          </detail>
-        </annotation>
-        <requirement
-            name="*"/>
-        <sourceLocator
-            rootFolder="${git.clone.oomph.location}">
-          <predicate
-              xsi:type="predicates:NotPredicate">
-            <operand
-                xsi:type="predicates:FilePredicate"
-                filePattern="prototype.txt"/>
-          </predicate>
-        </sourceLocator>
-        <repositoryList
-            name="Photon">
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-          <repository
-              url="http://download.eclipse.org/egit/updates"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/modeling/emf/emf/updates/2.13milestones"/>
-          <repository
-              url="http://download.eclipse.org/mylyn/snapshots/3.22"/>
-          <repository
-              url="http://download.eclipse.org/technology/m2e/snapshots/1.8.0/latest"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/snapshots"/>
-          <repository
-              url="http://download.eclipse.org/webtools/repository/oxygen"/>
-        </repositoryList>
-        <repositoryList
-            name="Oxygen">
-          <repository
-              url="http://download.eclipse.org/releases/oxygen"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-        </repositoryList>
-        <repositoryList
-            name="Neon">
-          <repository
-              url="http://download.eclipse.org/releases/neon"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-        </repositoryList>
-        <repositoryList
-            name="Mars">
-          <repository
-              url="http://download.eclipse.org/releases/mars"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-        </repositoryList>
-        <repositoryList
-            name="Luna">
-          <repository
-              url="http://download.eclipse.org/releases/luna"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-        </repositoryList>
-        <repositoryList
-            name="Kepler">
-          <repository
-              url="http://download.eclipse.org/releases/kepler"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-          <repository
-              url="http://download.eclipse.org/modeling/emf/emf/updates/2.10.x/core/S201501230452"/>
-        </repositoryList>
-        <repositoryList
-            name="Juno">
-          <repository
-              url="http://download.eclipse.org/releases/juno"/>
-          <repository
-              url="http://download.eclipse.org/technology/nebula/snapshot"/>
-          <repository
-              url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
-          <repository
-              url="http://download.eclipse.org/tools/orbit/downloads/latest-R"/>
-          <repository
-              url="http://download.eclipse.org/usssdk/updates/latest"/>
-          <repository
-              url="http://download.eclipse.org/modeling/emf/emf/updates/2.10.x/core/S201501230452"/>
-          <repository
-              url="http://download.eclipse.org/jetty/updates/jetty-bundles-9.x/"/>
-        </repositoryList>
-      </targlet>
-    </setupTask>
-    <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
       <workingSet
           name="concierge">
@@ -281,25 +91,6 @@
             xsi:type="predicates:RepositoryPredicate"
             project="${scope.project.name}"/>
       </workingSet>
-    </setupTask>
-    <setupTask
-        xsi:type="mylyn:MylynQueriesTask"
-        connectorKind="org.eclipse.mylyn.gerrit"
-        repositoryURL="https://git.eclipse.org/r"
-        userID="${bugzilla.id}"
-        password="${eclipse.user.password}">
-      <query
-          summary="Concierge Reviews in ${git.clone.concierge.checkoutBranch}">
-        <attribute
-            key="gerrit query type"
-            value="custom"/>
-        <attribute
-            key="gerrit query project"
-            value="oomph/org.eclipse.oomph"/>
-        <attribute
-            key="gerrit query string"
-            value="project:oomph/org.eclipse.oomph status:open branch:${git.clone.oomph.checkoutBranch}"/>
-      </query>
     </setupTask>
   </stream>
   <logicalProjectContainer
