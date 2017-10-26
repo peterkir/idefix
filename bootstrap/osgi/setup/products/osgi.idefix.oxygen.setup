@@ -144,8 +144,6 @@
         label="bndtools latest">
       <requirement
           name="bndtools.main.feature.feature.group"/>
-      <requirement
-          name="bndtools.m2e.feature.feature.group"/>
       <repository
           url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
@@ -160,8 +158,6 @@
         label="bndtools latest REL">
       <requirement
           name="bndtools.main.feature.feature.group"/>
-      <requirement
-          name="bndtools.m2e.feature.feature.group"/>
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/latest"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
