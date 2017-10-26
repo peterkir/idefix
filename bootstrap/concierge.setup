@@ -72,7 +72,7 @@
     <setupTask
         xsi:type="git:GitCloneTask"
         id="git.clone.concierge"
-        remoteURI="oomph/org.eclipse.concierge"
+        remoteURI="eclipse/org.eclipse.concierge"
         pushURI=""
         checkoutBranch="master"
         userID="">
@@ -91,7 +91,7 @@
           <value>remoteURI</value>
         </detail>
       </annotation>
-      <description>Oomph</description>
+      <description>Concierge</description>
     </setupTask>
     <setupTask
         xsi:type="setup.targlets:TargletTask">
