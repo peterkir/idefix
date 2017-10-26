@@ -6,7 +6,7 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="osgi.idefix.oxygen"
-    label="OSGi IDEfix Oxygen">
+    label="IDEfix for OSGi Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -210,7 +210,7 @@
         url="http://peterkir.github.io/static/osgi-debug/repo/"/>
   </setupTask>
   <version name="bndtools.3.3.0"
-      label="OSGi IDE - bndtools 3.3.0 REL"
+      label="IDE for OSGi - bndtools 3.3.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -222,7 +222,7 @@
           url="http://dl.bintray.com/bndtools/bndtools/3.3.0/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <description>IDE for OSGi development</description>
 </setup:Product>

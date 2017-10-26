@@ -6,7 +6,7 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="osgi.idefix.oyygen"
-    label="OSGi IDEfix Oxygen">
+    label="IDEfix for OSGi Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -137,7 +137,7 @@
         url="http://download.eclipse.org/releases/oxygen"/>
   </setupTask>
   <version name="latest.dev.bndtools.cloudbees"
-      label="OSGi IDE - bndtools.latest ( cloudbees )"
+      label="IDE for OSGi - bndtools.latest ( cloudbees )"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -148,10 +148,10 @@
           url="https://bndtools.ci.cloudbees.com/job/bndtools.master/lastSuccessfulBuild/artifact/build/generated/p2/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and latest bndtools build.</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and latest bndtools build.</description>
   </version>
   <version name="latest.release.bndtools.bintray"
-      label="OSGi IDE - bndtools latest ( bintray REL )"
+      label="IDE for OSGi - bndtools latest ( bintray REL )"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -162,25 +162,25 @@
           url="https://dl.bintray.com/bndtools/bndtools/latest"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.5.0"
-      label="OSGi IDE - bndtools 3.5.0 REL"
+      label="IDE for OSGi - bndtools 3.5.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.2.0 REL">
+        label="bndtools 3.5.0 REL">
       <requirement
           name="bndtools.main.feature.feature.group"
           versionRange="[3.2.0,4.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.5.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.4.0"
-      label="OSGi IDE - bndtools 3.4.0 REL"
+      label="IDE for OSGi - bndtools 3.4.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -189,28 +189,28 @@
           name="bndtools.main.feature.feature.group"
           versionRange="[3.2.0,4.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.3.0"
-      label="OSGi IDE - bndtools 3.3.0 REL"
+      label="IDE for OSGi - bndtools 3.3.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.2.0 REL">
+        label="bndtools 3.3.0 REL">
       <requirement
           name="bndtools.main.feature.feature.group"
           versionRange="[3.2.0,4.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.2.0"
-      label="OSGi IDE - bndtools 3.2.0 REL"
+      label="IDE for OSGi - bndtools 3.2.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -222,10 +222,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.1"
-      label="OSGi IDE - bndtools 3.1.1 REL"
+      label="IDE for OSGi - bndtools 3.1.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -237,10 +237,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.1.0"
-      label="OSGi IDE - bndtools 3.1.0 REL"
+      label="IDE for OSGi - bndtools 3.1.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -252,10 +252,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.1.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.3.0.0"
-      label="OSGi IDE - bndtools 3.0.0 REL"
+      label="IDE for OSGi - bndtools 3.0.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -267,10 +267,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/3.0.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.1"
-      label="OSGi IDE - bndtools 2.4.1 REL"
+      label="IDE for OSGi - bndtools 2.4.1 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -282,10 +282,10 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.1"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <version name="bndtools.2.4.0"
-      label="OSGi IDE - bndtools 2.4.0 REL"
+      label="IDE for OSGi - bndtools 2.4.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -297,7 +297,7 @@
           url="https://dl.bintray.com/bndtools/bndtools/2.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
-    <description>OSGi IDE based on Eclipse Oxygen epp.package.java and bndtools</description>
+    <description>IDE for OSGi based on Eclipse Oxygen epp.package.java and bndtools</description>
   </version>
   <description>IDE for OSGi development</description>
 </setup:Product>
