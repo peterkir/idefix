@@ -173,8 +173,6 @@
       <requirement
           name="bndtools.main.feature.feature.group"
           versionRange="[3.2.0,4.0.0)"/>
-      <requirement
-          name="bndtools.m2e.feature.feature.group"/>
       <repository
           url="https://dl.bintray.com/bndtools/bndtools/3.2.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
