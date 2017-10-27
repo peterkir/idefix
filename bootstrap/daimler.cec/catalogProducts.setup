@@ -18,7 +18,7 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="oomph.update.url"
-      value="http://download.eclipse.org/oomph/updates/release"
+      value="http://download.eclipse.org/oomph/updates/release/latest"
       defaultValue=""/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.cec.oxygen.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/product_idefix.cec.neon.setup#/"/>
