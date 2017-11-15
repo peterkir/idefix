@@ -15,6 +15,10 @@
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
           rootFolder="${cec-sdk-location}/app-dev/ecConfiguration"/>
+      <sourceLocator
+          rootFolder="${cec-sdk-location}/app-dev/template_pdeBuild"/>
+      <sourceLocator
+          rootFolder="${cec-sdk-location}/app-dev/rcptt.PACE"/>
     </setupTask>
     <setupTask
         xsi:type="pde:TargetPlatformTask"
