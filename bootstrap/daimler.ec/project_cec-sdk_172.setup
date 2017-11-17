@@ -9,6 +9,12 @@
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
     name="CEC-SDK 172"
     label="cec172">
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="cec-sdk-location"
+      defaultValue=""
+      storageURI="scope://Workspace"
+      label="CEC-SDK location"/>
   <stream name="master"
       label="Master">
     <setupTask
