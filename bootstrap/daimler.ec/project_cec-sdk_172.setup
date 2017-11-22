@@ -11,6 +11,7 @@
     label="cec172">
   <setupTask
       xsi:type="setup:VariableTask"
+      type="FOLDER"
       name="cec-sdk-location"
       defaultValue=""
       storageURI="scope://Workspace"
