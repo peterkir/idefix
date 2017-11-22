@@ -23,20 +23,20 @@
         id="resourcecopy2workspace">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
-          sourceURL="${cec-sdk-location|uri}/app-dev/ecConfiguration"
-          targetURL="${workspace.location|uri}/app-dev/ecConfiguration">
+          sourceURL="${cec-sdk-location|uri}/app-dev/ecConfiguration/"
+          targetURL="${workspace.location|uri}/app-dev/ecConfiguration/">
         <description>copy projects into workspace</description>
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCopyTask"
-          sourceURL="${cec-sdk-location|uri}/app-dev/template_pdeBuild"
-          targetURL="${workspace.location|uri}/app-dev/template_pdeBuild">
+          sourceURL="${cec-sdk-location|uri}/app-dev/template_pdeBuild/"
+          targetURL="${workspace.location|uri}/app-dev/template_pdeBuild/">
         <description>copy projects into workspace</description>
       </setupTask>
       <setupTask
           xsi:type="setup:ResourceCopyTask"
-          sourceURL="${cec-sdk-location|uri}/app-dev/rcptt.CEC"
-          targetURL="${workspace.location|uri}/app-dev/rcptt.CEC">
+          sourceURL="${cec-sdk-location|uri}/app-dev/rcptt.CEC/"
+          targetURL="${workspace.location|uri}/app-dev/rcptt.CEC/">
         <description>copy projects into workspace</description>
       </setupTask>
       <description>ResourceCopy into Workspace</description>
