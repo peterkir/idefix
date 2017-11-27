@@ -66,5 +66,8 @@
           rootFolder="${cec-git-checkout-location}"/>
     </setupTask>
   </stream>
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.daimler.projects.cec']/@projects[name='cec181']"/>
   <description>IDE configurations used inside Daimler CEC project</description>
 </setup:Project>
