@@ -95,8 +95,5 @@
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
-  <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="catalogProjects.setup#//@projects[name='cec172']"/>
   <description>IDE configurations used inside Daimler CEC project</description>
 </setup:Project>

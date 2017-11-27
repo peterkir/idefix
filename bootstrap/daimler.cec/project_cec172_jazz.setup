@@ -33,8 +33,5 @@
   </setupTask>
   <stream name="master"
       label="Master"/>
-  <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
   <description>CEC 172 (from Daimler Jazz)</description>
 </setup:Project>
