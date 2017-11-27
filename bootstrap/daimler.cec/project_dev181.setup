@@ -51,11 +51,11 @@
       name="cec-git-checkout-location"
       defaultValue=""
       storageURI="scope://Workspace"
-      label="CEC-LOCAL-GIT-LOCATION">
+      label="Local GIT repo location">
     <description>Location of the local checked out source code repo</description>
   </setupTask>
-  <stream name="Master"
-      label="master">
+  <stream name="Dev"
+      label="develop">
     <setupTask
         xsi:type="setup:ResourceCopyTask"
         sourceURL="${cec-git-checkout-location|uri}"
@@ -64,10 +64,11 @@
     </setupTask>
     <setupTask
         xsi:type="projects:ProjectsImportTask"
-        predecessor="//@streams[name='Master']/@setupTasks.0">
+        predecessor="//@streams[name='Dev']/@setupTasks.0">
       <sourceLocator
           rootFolder="${cec-git-checkout-location}"/>
     </setupTask>
+    <description></description>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

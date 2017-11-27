@@ -96,6 +96,7 @@
       xsi:type="setup:VariableTask"
       name="repo.source"
       defaultValue="https://s3-eu-west-1.amazonaws.com/klib.io/www"
+      storageURI="scope://Installation"
       label="repoSource">
     <choice
         value="https://s3-eu-west-1.amazonaws.com/klib.io/www"
