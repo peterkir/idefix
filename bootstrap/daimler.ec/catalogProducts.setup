@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="com.daimler.products.duke"
+    name="com.daimler.products.ec"
     label="Daimler EngineeringClient Products">
   <setupTask
       xsi:type="setup:CompoundTask"

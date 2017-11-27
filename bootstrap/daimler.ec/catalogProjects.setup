@@ -4,8 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="com.daimler.projects.duke"
-    label="Daimler EC projects">
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    name="com.daimler.projects.cec"
+    label="Daimler EngineeringClient projects">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
