@@ -54,17 +54,10 @@
       label="Local GIT repo location">
     <description>Location of the local checked out source code repo</description>
   </setupTask>
-  <stream name="Dev"
+  <stream name="develop"
       label="develop">
     <setupTask
-        xsi:type="setup:ResourceCopyTask"
-        sourceURL="${cec-git-checkout-location|uri}"
-        targetURL="${workspace.location|uri}">
-      <description>copy projects into workspace</description>
-    </setupTask>
-    <setupTask
-        xsi:type="projects:ProjectsImportTask"
-        predecessor="//@streams[name='Dev']/@setupTasks.0">
+        xsi:type="projects:ProjectsImportTask">
       <sourceLocator
           rootFolder="${cec-git-checkout-location}"/>
     </setupTask>
@@ -73,5 +66,5 @@
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup#/"/>
-  <description>IDE configurations used inside Daimler CEC project</description>
+  <description>Daimler CEC 181 project</description>
 </setup:Project>

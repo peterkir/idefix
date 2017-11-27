@@ -33,5 +33,8 @@
   </setupTask>
   <stream name="master"
       label="Master"/>
-  <description>CEC 172 (from Daimler Jazz)</description>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup#/"/>
+  <description>Daimler CEC 172 (from Daimler Jazz)</description>
 </setup:Project>
