@@ -47,12 +47,15 @@
   </setupTask>
   <setupTask
       xsi:type="setup:VariableTask"
+      type="FOLDER"
       name="cec-git-checkout-location"
+      defaultValue=""
       storageURI="scope://Workspace"
       label="CEC-LOCAL-GIT-LOCATION">
     <description>Location of the local checked out source code repo</description>
   </setupTask>
-  <stream>
+  <stream name="Master"
+      label="master">
     <setupTask
         xsi:type="setup:ResourceCopyTask"
         sourceURL="${cec-git-checkout-location|uri}"
@@ -61,13 +64,13 @@
     </setupTask>
     <setupTask
         xsi:type="projects:ProjectsImportTask"
-        predecessor="//@streams[name=null]/@setupTasks.0">
+        predecessor="//@streams[name='Master']/@setupTasks.0">
       <sourceLocator
           rootFolder="${cec-git-checkout-location}"/>
     </setupTask>
   </stream>
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.daimler.projects.cec']/@projects[name='cec181']"/>
+      xsi:type="setup:ProjectCatalog"
+      href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup#/"/>
   <description>IDE configurations used inside Daimler CEC project</description>
 </setup:Project>
