@@ -208,55 +208,148 @@
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="P2 Director - AJDT">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="prefs">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+          value="ignore"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+          value="ignore"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="AJDT 2.2.4 for Eclipse 4.7">
+      <requirement
+          name="org.eclipse.ajdt.feature.group"/>
+      <requirement
+          name="org.eclipse.equinox.weaving.sdk.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/tools/ajdt/47/dev/update/ajdt-e47-2.2.4.201710301818"/>
+      <description></description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="RCPTT">
+    <requirement
+        name="org.eclipse.rcptt.platform.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/rcptt/release/2.2.0/repository/"/>
+  </setupTask>
   <version name="developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="Eclipse IDE for Java Developers (Oxygen)">
+        label="bndtools 3.3.0">
       <requirement
-          name="epp.package.java"
-          versionRange="[4.7.0,5.0.0)"/>
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.3.0,3.4.0)"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Eclipse IDE for Eclipse Committers (Oxygen)">
+      <requirement
+          name="epp.package.committers"
+          versionRange="[4.7.0,4.8.0)"/>
       <requirement
           name="org.eclipse.platform.feature.group"
-          versionRange="[4.7.0,5.0.0)"/>
+          versionRange="[4.7.0,4.8.0)"/>
       <requirement
           name="org.eclipse.rcp.feature.group"
-          versionRange="[4.7.0,5.0.0)"/>
+          versionRange="[4.7.0,4.8.0)"/>
       <requirement
           name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.cvs.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.feature.group"/>
       <requirement
           name="org.eclipse.eclemma.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
       <requirement
+          name="org.eclipse.egit.gitflow.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.mylyn.feature.group"/>
+      <requirement
           name="org.eclipse.jdt.feature.group"/>
       <requirement
-          name="org.eclipse.jgit.feature.group"/>
+          name="org.eclipse.jdt.source.feature.group"/>
+      <requirement
+          name="org.eclipse.jgit.http.apache.feature.group"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
-          name="org.eclipse.m2e.logback.feature.feature.group"/>
+          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.builds.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.identity.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.notifications.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.http.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.discovery.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.dashboard.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.git.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.hudson.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.monitor.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.reviews.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.team_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.versions.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.source.feature.group"/>
+      <requirement
+          name="org.eclipse.platform.source.feature.group"/>
+      <requirement
+          name="org.eclipse.rcp.source.feature.group"/>
+      <requirement
+          name="org.eclipse.recommenders.mylyn.rcp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.recommenders.news.rcp.feature.feature.group"/>
       <requirement
           name="org.eclipse.recommenders.rcp.feature.feature.group"/>
       <requirement
           name="org.eclipse.recommenders.snipmatch.rcp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.wst.json_ui.feature.feature.group"/>
       <requirement
           name="org.eclipse.wst.xml_ui.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0.RC2">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,4.0.0)"/>
-      <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -360,12 +453,12 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0.RC2">
+        label="bndtools 3.3.0">
       <requirement
           name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,4.0.0)"/>
+          versionRange="[3.3.0,3.4.0)"/>
       <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
