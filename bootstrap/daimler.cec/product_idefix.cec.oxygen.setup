@@ -133,7 +133,7 @@
           name="com.google.eclipse.mechanic.feature.group"
           versionRange="[0.4.0,0.5.0)"/>
       <repository
-          url="${repo.source}/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
+          url="https://s3-eu-west-1.amazonaws.com/klib.io/www/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
     </setupTask>
   </setupTask>
   <setupTask
