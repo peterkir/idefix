@@ -46,5 +46,6 @@
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_cec172_jazz.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_181_cec.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_181_pace.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_181_jarWrapping.setup#/"/>
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
