@@ -257,16 +257,6 @@
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.3.0">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.3.0,3.4.0)"/>
-      <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
         label="Eclipse IDE for Eclipse Committers (Oxygen)">
       <requirement
           name="epp.package.committers"
@@ -359,6 +349,16 @@
           url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
       <repository
           url="http://download.eclipse.org/releases/oxygen"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.4.0,3.5.0)"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -462,12 +462,12 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.3.0">
+        label="bndtools 3.4.0">
       <requirement
           name="bndtools.main.feature.feature.group"
-          versionRange="[3.3.0,3.4.0)"/>
+          versionRange="[3.4.0,3.5.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.3.0"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
