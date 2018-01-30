@@ -75,6 +75,22 @@
           key="/instance/org.eclipse.ui/defaultPerspectiveId"
           value="bndtools.perspective"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="bndtools.core">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/bndtools.core/headlessBuildPlugins"
+          value="Gradle"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/bndtools.core/versionControlIgnoresCreate"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/bndtools.core/versionControlIgnoresPlugins"
+          value="Git"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
