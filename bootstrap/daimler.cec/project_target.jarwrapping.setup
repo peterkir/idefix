@@ -50,7 +50,7 @@
       type="FOLDER"
       name="local-git-root-location"
       defaultValue="c:/_git/cec"
-      label="Location of local GIT root">
+      label="Location of local GIT root (NOT the GIT repo folder)">
     <description>Location root of GIT repos</description>
   </setupTask>
   <setupTask
@@ -71,6 +71,13 @@
           rootFolder="${jarWrapping-git-checkout-location}">
         <excludedPath>/cnf</excludedPath>
       </sourceLocator>
+      <description>import all but cnf</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask"
+        predecessor="//@streams[name='develop']/@setupTasks.0">
+      <sourceLocator
+          rootFolder="${jarWrapping-git-checkout-location}/cnf"/>
     </setupTask>
     <description></description>
   </stream>
