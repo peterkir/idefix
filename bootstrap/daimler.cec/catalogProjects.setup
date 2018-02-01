@@ -21,6 +21,15 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
+      name="eclipse.ini">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Declipse.p2.unsignedPolicy"
+        value="=allow"
+        vm="true"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
       name="REDIRECTION catalogProject">
     <setupTask
         xsi:type="setup:EclipseIniTask"
@@ -35,13 +44,12 @@
       defaultValue="c:/oomph"
       label="Installation Root"/>
   <setupTask
-      xsi:type="setup:CompoundTask"
-      name="eclipse.ini">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Declipse.p2.unsignedPolicy"
-        value="=allow"
-        vm="true"/>
+      xsi:type="setup:VariableTask"
+      type="FOLDER"
+      name="local-git-root-location"
+      defaultValue="c:/_git/cec"
+      label="Location of local GIT root">
+    <description>Location root of GIT repos</description>
   </setupTask>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_cec172_jazz.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_181_cec.setup#/"/>
