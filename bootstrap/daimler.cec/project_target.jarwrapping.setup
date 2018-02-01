@@ -6,8 +6,8 @@
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
-    name="jarWrapping"
-    label="jarWrapping">
+    name="target.jarwrapping"
+    label="target.jarwrapping">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="preference">
@@ -48,8 +48,16 @@
   <setupTask
       xsi:type="setup:VariableTask"
       type="FOLDER"
+      name="local-git-root-location"
+      defaultValue="c:/_git"
+      label="Location of local GIT root">
+    <description>Location root of GIT repos</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      type="FOLDER"
       name="jarWrapping-git-checkout-location"
-      defaultValue=""
+      defaultValue="${local-git-root-location}/target-jarwrapping"
       storageURI="scope://Workspace"
       label="Local GIT repo location">
     <description>Location of the local checked out source code repo</description>
@@ -66,5 +74,5 @@
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup#/"/>
-  <description>Daimler jarWrapping project</description>
+  <description>Daimler target.jarWrapping project</description>
 </setup:Project>
