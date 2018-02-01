@@ -69,7 +69,7 @@
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
           rootFolder="${jarWrapping-git-checkout-location}">
-        <excludedPath>cnf</excludedPath>
+        <excludedPath>/cnf</excludedPath>
       </sourceLocator>
     </setupTask>
     <description></description>
