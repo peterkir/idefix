@@ -57,7 +57,8 @@
       xsi:type="setup:VariableTask"
       type="FOLDER"
       name="jarWrapping-git-checkout-location"
-      defaultValue="${local-git-root-location}/target-jarwrapping"
+      value="${local-git-root-location}/target-jarwrapping"
+      defaultValue=""
       storageURI="scope://Workspace"
       label="Local GIT repo location">
     <description>Location of the local checked out source code repo</description>
