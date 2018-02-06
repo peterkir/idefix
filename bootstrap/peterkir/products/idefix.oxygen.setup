@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.oxygen"
+    name="idefix.oxygen.pk"
     label="IDEfix klib.io Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -90,16 +90,6 @@
       <repository
           url="http://basti1302.github.com/startexplorer/update"/>
       <description>enables comfort functions to access native os environments</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="EcliPaint">
-      <requirement
-          name="org.eclipaint.feature.feature.group"
-          versionRange="[2.5.1,3.0.0)"/>
-      <repository
-          url="https://raw.githubusercontent.com/jabiercoding/eclipaint/master/updatesite/org.eclipaint.site/"/>
-      <description>https://github.com/jabiercoding/eclipaint</description>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -227,17 +217,41 @@
     </setupTask>
     <description>IDEfix klib.io based on Eclips epp.package.java and bndtools</description>
   </version>
-  <version name="bndtools.3.4.0"
-      label="IDEfix klib.io - bndtools 3.4.0 RC2"
+  <version name="bndtools.3.5.0"
+      label="IDEfix klib.io - bndtools 3.5.0 REL"
       requiredJavaVersion="1.7">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0 RC2">
+        label="bndtools 3.5.0">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[3.5.0,3.6.0)"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/3.5.0"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
+    <description>IDEfix klib.io based on Eclips epp.package.java and bndtools</description>
+  </version>
+  <version name="bndtools.3.4.0"
+      label="IDEfix klib.io - bndtools 3.4.0 REL"
+      requiredJavaVersion="1.7">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 3.4.0">
       <requirement
           name="bndtools.main.feature.feature.group"
           versionRange="[3.4.0,3.5.0)"/>
       <repository
-          url="https://bndtools.ci.cloudbees.com/job/bndtools.next/105/artifact/build/generated/p2/"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
