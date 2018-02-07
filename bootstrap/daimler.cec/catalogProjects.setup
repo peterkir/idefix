@@ -56,5 +56,6 @@
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_181_pace.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_181_target.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_target.jarwrapping.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/project_cecoperations.setup#/"/>
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
