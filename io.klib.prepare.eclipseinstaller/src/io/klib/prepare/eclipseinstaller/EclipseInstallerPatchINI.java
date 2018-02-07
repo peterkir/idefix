@@ -49,6 +49,9 @@ import org.osgi.service.component.annotations.Component;
 public class EclipseInstallerPatchINI {
 
 	private static final String DL_PROD    = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
+	
+	// format: archive name, download URL, oomph archive name, IDEfix archive name, setup.p2.agent location
+	
 	String[][] archives = {
 		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
 		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
@@ -300,23 +303,24 @@ public class EclipseInstallerPatchINI {
 				List<Path> files = listFiles(inputDirectoryPath, new LinkedList<Path>());
 
 				files.forEach(f -> {
-
+					File file = f.toFile();
 					String relativeFilePath = new File(inputDirectoryPath.toUri()).toURI()
-							.relativize(new File(f.toFile().getAbsolutePath()).toURI()).getPath();
+							.relativize(new File(file.getAbsolutePath()).toURI()).getPath();
 
-					TarArchiveEntry tarEntry = new TarArchiveEntry(f.toFile(), relativeFilePath);
-					tarEntry.setSize(f.toFile().length());
+					TarArchiveEntry tarEntry = new TarArchiveEntry(file, relativeFilePath);
+					tarEntry.setSize(file.length());
 
 					try {
+						if (Files.isExecutable(FileSystems.getDefault().getPath(file.getAbsolutePath()))) {
+							tarEntry.setMode(493);
+					      }
 						tarArchiveOutputStream.putArchiveEntry(tarEntry);
-						tarArchiveOutputStream.write(IOUtils.toByteArray(new FileInputStream(f.toFile())));
+						tarArchiveOutputStream.write(IOUtils.toByteArray(new FileInputStream(file)));
 						tarArchiveOutputStream.closeArchiveEntry();
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-				}
-
-				);
+				});
 				tarArchiveOutputStream.close();
 			}
 		} catch (IOException e) {
@@ -350,8 +354,9 @@ public class EclipseInstallerPatchINI {
 
 				while ((entry = (TarArchiveEntry) tarIn.getNextEntry()) != null) {
 					/** If the entry is a directory, create the directory. **/
+					String filename = extractDir + SEP + entry.getName();
 					if (entry.isDirectory()) {
-						File f = new File(extractDir + SEP + entry.getName());
+						File f = new File(filename);
 						boolean created = f.mkdirs();
 						if (!f.exists() && !created) {
 							System.out.printf(
@@ -361,12 +366,17 @@ public class EclipseInstallerPatchINI {
 					} else {
 						int count;
 						byte data[] = new byte[BUFFER_SIZE];
-						FileOutputStream fos = new FileOutputStream(extractDir + SEP + entry.getName(), false);
+						FileOutputStream fos = new FileOutputStream(filename, false);
 						try (BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFER_SIZE)) {
 							while ((count = tarIn.read(data, 0, BUFFER_SIZE)) != -1) {
 								dest.write(data, 0, count);
 							}
 							dest.close();
+							if (entry.getMode()==493) {
+								System.out.format("     set execution right file - %s\n", entry);
+								new File(filename).setExecutable(true);
+							}
+							System.out.format("     extracted file %s with permissions %s\n", entry.getName(), entry.getMode());
 						}
 					}
 				}
@@ -469,6 +479,14 @@ public class EclipseInstallerPatchINI {
 			BINExtractor.main(args);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		if (executable.contains("win64")) {
+			try {
+				System.out.println("     --> replacing executable with signed version");
+				Files.copy(Paths.get(DIR,"signed_extractor/win64/extractor.exe"), Paths.get(wrkDir,"2_extracted/prod.win32.x86-64/extractor.exe"), StandardCopyOption.REPLACE_EXISTING);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
