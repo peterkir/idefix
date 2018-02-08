@@ -48,7 +48,16 @@
   <setupTask
       xsi:type="setup:VariableTask"
       type="FOLDER"
+      name="local-git-root-location"
+      defaultValue="c:/_git/cec"
+      label="Location of local GIT root (NOT the GIT repo folder)">
+    <description>Location root of GIT repos</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      type="FOLDER"
       name="pace-git-checkout-location"
+      value="${local-git-root-location}/target"
       defaultValue=""
       storageURI="scope://Workspace"
       label="Local GIT repo location">
