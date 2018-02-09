@@ -199,6 +199,14 @@
     </setupTask>
   </setupTask>
   <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="RCPTT">
+    <requirement
+        name="org.eclipse.rcptt.platform.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/rcptt/release/2.1.0/repository/"/>
+  </setupTask>
+  <setupTask
       xsi:type="setup:CompoundTask"
       name="workspace mechanic">
     <setupTask
