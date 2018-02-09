@@ -199,6 +199,14 @@
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
   </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="RCPTT">
+    <requirement
+        name="org.eclipse.rcptt.platform.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/rcptt/release/2.1.0/repository/"/>
+  </setupTask>
   <version name="developer"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
