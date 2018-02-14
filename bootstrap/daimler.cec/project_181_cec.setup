@@ -59,7 +59,14 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${cec-git-checkout-location}"/>
+          rootFolder="${cec-git-checkout-location}">
+        <excludedPath>/cnf</excludedPath>
+      </sourceLocator>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${cec-git-checkout-location}/cnf"/>
     </setupTask>
     <description></description>
   </stream>
