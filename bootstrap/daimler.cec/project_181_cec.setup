@@ -61,6 +61,11 @@
       <sourceLocator
           rootFolder="${cec-git-checkout-location}">
         <excludedPath>/cnf</excludedPath>
+        <excludedPath>/launcher.validator</excludedPath>
+        <excludedPath>/com.daimler.ec.argus.jbehave</excludedPath>
+        <excludedPath>/proto.client</excludedPath>
+        <excludedPath>/proto.launcher</excludedPath>
+        <excludedPath>/proto.launcher.tests</excludedPath>
       </sourceLocator>
     </setupTask>
     <setupTask
