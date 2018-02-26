@@ -104,6 +104,10 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/bndtools.core/versionControlIgnoresPlugins"
           value="Git"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/bndtools.core/enableTemplateRepo"
+          value="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
