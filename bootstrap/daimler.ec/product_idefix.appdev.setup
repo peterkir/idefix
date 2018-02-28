@@ -403,7 +403,8 @@
     </setupTask>
     <description>based on Eclipse Neon epp.package.rcp</description>
   </version>
-  <version label="IDEfix - EC Application Developer 18.1">
+  <version name="oxygen.181"
+      label="IDEfix - EC Application Developer 18.1">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse for RCP and RAP Developers (Oxygen)">
@@ -609,6 +610,7 @@
         <description>CEC P2 Touchpoint</description>
       </setupTask>
     </setupTask>
+    <description>based on Eclipse Oxygen epp.package.rcp</description>
   </version>
   <description>IDE for EC Application Development</description>
 </setup:Product>
