@@ -15,5 +15,5 @@
         value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/catalogProducts.setup"
         vm="true"/>
   </setupTask>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.ec/product_idefix.appdev.neon.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.ec/product_idefix.appdev.setup#/"/>
 </setup:ProductCatalog>
