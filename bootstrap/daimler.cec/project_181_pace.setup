@@ -57,7 +57,7 @@
       xsi:type="setup:VariableTask"
       type="FOLDER"
       name="pace-git-checkout-location"
-      value="${local-git-root-location}/target"
+      value="${local-git-root-location}/pace"
       defaultValue=""
       storageURI="scope://Workspace"
       label="Local GIT repo location">
