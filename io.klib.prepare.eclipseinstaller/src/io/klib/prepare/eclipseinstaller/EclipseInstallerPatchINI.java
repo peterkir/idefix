@@ -153,9 +153,9 @@ public class EclipseInstallerPatchINI {
 
 				download(sourceUrl, downloadDir, archiveName, ECL_DL_SUFFIX);
 
-				String archiveSuffix = archiveName.replaceFirst(".+?(\\.tar\\.gz|\\.exe)", "$1");
+				String archiveSuffix = archiveName.replaceFirst("eclipse-inst-(.+?)(\\.tar\\.gz|\\.exe)", "$1");
 				switch (archiveSuffix) {
-				case ".exe":
+				case "win64":
 					extractExe(downloadDir + SEP + archiveName, extractDir);
 
 					patchIniInZip(
@@ -179,31 +179,19 @@ public class EclipseInstallerPatchINI {
 					);
 					break;
 
-				case ".tar.gz":
+				case "mac64":
 					extractTarGz(
 						downloadDir, 
 						archiveName, 
 						extractDir
 					);
 					String iniFile = extractDir + SEP + "Eclipse Installer.app/Contents/Eclipse"+ SEP + ECLIPSE_INST_INI;
-					if (new File(iniFile).exists()) {
-						patchIni(
-							patchDir, 
-							iniFile, 
-							p2PoolPath, 
-							iniSuffix
-						);
-					} else {
-						iniFile = extractDir + SEP + "eclipseInstaller"+ SEP + ECLIPSE_INST_INI;
-						if (new File(iniFile).exists()) {
-							patchIni(
-								patchDir, 
-								iniFile, 
-								p2PoolPath, 
-								iniSuffix
-							);
-						}
-					}
+					patchIni(
+						patchDir, 
+						iniFile, 
+						p2PoolPath, 
+						iniSuffix
+					);
 					
 					packPatchedTarGz(
 						patchedArchiveName, 
@@ -212,6 +200,28 @@ public class EclipseInstallerPatchINI {
 					);
 					
 					break;
+
+				case "linux64":
+					extractTarGz(
+							downloadDir, 
+							archiveName, 
+							extractDir
+					);
+                    iniFile = extractDir + SEP + "eclipse-installer"+ SEP + ECLIPSE_INST_INI;
+                    patchIni(
+                    	patchDir, 
+                    	iniFile, 
+                    	p2PoolPath, 
+                    	iniSuffix
+                    );
+						
+                    packPatchedTarGz(
+                    	patchedArchiveName, 
+                    	extractDir, 
+                    	resultDir
+                    );
+				
+                    break;
 
 				default:
 					System.out.format("No strategy for archive <%s> with suffix <%s>", archiveName, archiveSuffix);
