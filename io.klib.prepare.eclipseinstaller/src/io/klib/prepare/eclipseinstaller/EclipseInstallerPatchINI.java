@@ -17,10 +17,12 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.FileAttribute;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -147,7 +149,7 @@ public class EclipseInstallerPatchINI {
 			String patchDir    = wrkDir + SEP + "3_patched_INI" + SEP + productVersion;
 
 			iniSuffix.forEach((variant, iniSuffix) -> {
-
+				
 				String resultDir = resultVariantDir + SEP + variant;
 				System.out.format("# processing variant <%s> product version <%s>\n", variant, productVersion);
 
@@ -232,6 +234,11 @@ public class EclipseInstallerPatchINI {
 		}
 
 		updateIndexFile();
+		try {
+			Files.write(Paths.get(resultRootDir, "LATEST-IDEFIX-BUILD.txt"), ts.getBytes(), StandardOpenOption.CREATE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println("done");
 	}
