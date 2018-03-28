@@ -40,9 +40,17 @@
         name="org.eclipse.ant.ui">
       <setupTask
           xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ant.ui/formatter_max_line_length"
+          value="120"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
           id="sync8"
           key="/instance/org.eclipse.ant.ui/formatter_tab_char"
           value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ant.ui/formatter_tab_size"
+          value="4"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           id="sync9"
@@ -294,7 +302,7 @@
     <repository
         url="http://download.eclipse.org/rcptt/release/2.2.0/repository/"/>
   </setupTask>
-  <version name="developer"
+  <version name="developer.bnd3.5"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
     <setupTask
@@ -394,12 +402,12 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0">
+        label="bndtools 3.5.0">
       <requirement
           name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,3.5.0)"/>
+          versionRange="[3.5.0,3.6.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
+          url="https://dl.bintray.com/bndtools/bndtools/3.5.0"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
@@ -497,128 +505,6 @@
           name="org.eclipse.uml2.sdk.feature.group"/>
       <requirement
           name="org.eclipse.xsd.sdk.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
-      <repository
-          url="http://download.eclipse.org/releases/oxygen"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools 3.4.0">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[3.4.0,3.5.0)"/>
-      <repository
-          url="https://dl.bintray.com/bndtools/bndtools/3.4.0"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini">
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-perspective"
-          value="bndtools.perspective"/>
-      <description></description>
-    </setupTask>
-    <description>
-      based on Eclipse Oxygen epp.package.java
-      bndtools 3.4.0.RC1
-    </description>
-  </version>
-  <version name="developer.bnd3.5"
-      label="IDEfix - Developer - bndtools 3.5"
-      requiredJavaVersion="1.8">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Eclipse IDE for Eclipse Committers (Oxygen)">
-      <requirement
-          name="epp.package.committers"
-          versionRange="[4.7.0,4.8.0)"/>
-      <requirement
-          name="org.eclipse.platform.feature.group"
-          versionRange="[4.7.0,4.8.0)"/>
-      <requirement
-          name="org.eclipse.rcp.feature.group"
-          versionRange="[4.7.0,4.8.0)"/>
-      <requirement
-          name="org.eclipse.buildship.feature.group"/>
-      <requirement
-          name="org.eclipse.cvs.feature.group"/>
-      <requirement
-          name="org.eclipse.e4.core.tools.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.eclemma.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.egit.feature.group"/>
-      <requirement
-          name="org.eclipse.egit.gitflow.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.egit.mylyn.feature.group"/>
-      <requirement
-          name="org.eclipse.jdt.feature.group"/>
-      <requirement
-          name="org.eclipse.jdt.source.feature.group"/>
-      <requirement
-          name="org.eclipse.jgit.http.apache.feature.group"/>
-      <requirement
-          name="org.eclipse.m2e.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.builds.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.commons.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.commons.identity.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.commons.notifications.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.commons.repositories.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.commons.repositories.http.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.discovery.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.gerrit.dashboard.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.git.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.hudson.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.monitor.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.reviews.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.team_feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.versions.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn_feature.feature.group"/>
-      <requirement
-          name="org.eclipse.pde.feature.group"/>
-      <requirement
-          name="org.eclipse.pde.source.feature.group"/>
-      <requirement
-          name="org.eclipse.platform.source.feature.group"/>
-      <requirement
-          name="org.eclipse.rcp.source.feature.group"/>
-      <requirement
-          name="org.eclipse.recommenders.mylyn.rcp.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.recommenders.news.rcp.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.recommenders.rcp.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.recommenders.snipmatch.rcp.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.wst.json_ui.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.wst.xml_ui.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
       <repository
