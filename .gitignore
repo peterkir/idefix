@@ -1,7 +1,7 @@
 .gradle/
 */generated/
 */bin/
-/bin_test/
+*/bin_test/
 enroute.zip
 
 # Eclipse Workspace Meta-data
