@@ -4,8 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="empty-template"
-    label="empty-template">
+    name="template"
+    label="template">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="preference">
@@ -43,8 +43,10 @@
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
+  <stream name="master"
+      label="Master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup#/"/>
-  <description>empty template</description>
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>template project containing only preferences</description>
 </setup:Project>
