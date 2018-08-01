@@ -17,12 +17,10 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
-import java.nio.file.attribute.FileAttribute;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -43,6 +41,9 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 import org.apache.commons.compress.utils.IOUtils;
 import org.eclipse.oomph.extractor.lib.BINExtractor;
+import org.osgi.application.Framework;
+import org.osgi.framework.BundleException;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 
@@ -118,7 +119,7 @@ public class EclipseInstallerPatchINI {
 			"-Dsetup.p2.agent="	
 		});
 		
-		iniSuffix.put("daimler.ec", new String[] {
+		iniSuffix.put("daimler.ec.172", new String[] {
 			"-Doomph.setup.installer.mode=advanced",
 			"-Doomph.setup.installer.p2pool=true",
 			"-Doomph.setup.installer.launch=true",
@@ -129,7 +130,31 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.setup.product.version.filter=.*?(appdev).*?",
 			"-Dsetup.p2.agent="
 		});
-	};
+
+		iniSuffix.put("daimler.ec.181", new String[] {
+				"-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.installer.p2pool=true",
+				"-Doomph.setup.installer.launch=true",
+				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/181/catalogProducts.setup",
+				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/181/catalogProjects.setup",
+				"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
+				"-Doomph.setup.product.filter=(.*idefix).*",
+				"-Doomph.setup.product.version.filter=.*?(appdev).*?",
+				"-Dsetup.p2.agent="
+			});
+
+		iniSuffix.put("daimler.ec.182", new String[] {
+				"-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.installer.p2pool=true",
+				"-Doomph.setup.installer.launch=true",
+				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/182/catalogProducts.setup",
+				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/182/catalogProjects.setup",
+				"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
+				"-Doomph.setup.product.filter=(.*idefix).*",
+				"-Doomph.setup.product.version.filter=.*?(appdev).*?",
+				"-Dsetup.p2.agent="
+			});
+};
 
 	@Activate
 	public void activate() {
@@ -241,6 +266,11 @@ public class EclipseInstallerPatchINI {
 		}
 		
 		System.out.println("done");
+		try {
+			FrameworkUtil.getBundle(FrameworkUtil.class).stop(0);
+		} catch (BundleException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void updateIndexFile() {

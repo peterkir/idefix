@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
+    name="CEC-SDK 182"
+    label="cec182">
+  <setupTask
+      xsi:type="setup:VariableTask"
+      type="FOLDER"
+      name="cec-sdk-location"
+      defaultValue=""
+      storageURI="scope://Workspace"
+      label="CEC-SDK location">
+    <description>Directory of the extracted and installed CEC-SDK</description>
+  </setupTask>
+  <stream name="master"
+      label="Master">
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        sourceURL="${cec-sdk-location|uri}/app-dev/"
+        targetURL="${workspace.location|uri}/"/>
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        predecessor="//@streams[name='master']/@setupTasks.0"
+        sourceURL="https://github.com/peterkir/idefix/blob/gh-pages/bootstrap/daimler.ec/182/metadata/.plugins/org.eclipse.ui.intro/introstate?raw=true"
+        targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.ui.intro/introstate">
+      <description>Hide Welcome Page</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask"
+        predecessor="//@streams[name='master']/@setupTasks.0">
+      <sourceLocator
+          rootFolder="${workspace.location}"/>
+    </setupTask>
+    <setupTask
+        xsi:type="pde:TargetPlatformTask"
+        predecessor="//@streams[name='master']/@setupTasks.2"
+        name="EC_AppDev - win32.win32.x86_64">
+      <description>EC Application Development Target</description>
+    </setupTask>
+  </stream>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="catalogProjects.setup#/"/>
+  <description>CommonEngineeringClient</description>
+</setup:Project>
