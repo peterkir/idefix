@@ -185,6 +185,15 @@
       <repository
           url="https://s3-eu-west-1.amazonaws.com/klib.io/www/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Kotlin Plugin">
+      <requirement
+          name="org.jetbrains.kotlin.feature.feature.group"
+          versionRange="[0.8.5,1.0.0)"/>
+      <repository
+          url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"

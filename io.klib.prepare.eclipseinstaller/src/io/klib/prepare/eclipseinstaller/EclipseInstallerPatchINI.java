@@ -107,12 +107,12 @@ public class EclipseInstallerPatchINI {
 			"-Dsetup.p2.agent="
 		});
 		
-		iniSuffix.put("daimler.cec", new String[] {
+		iniSuffix.put("daimler.cec.182", new String[] {
 			"-Doomph.setup.installer.mode=advanced",
 			"-Doomph.setup.installer.p2pool=true",
 			"-Doomph.setup.installer.launch=true",
-			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProducts.setup",
-			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup",
+			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProducts.setup",
+			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProjects.setup",
 			"-Doomph.setup.product.catalog.filter=^((?!eclipse).)*$",
 			"-Doomph.setup.product.filter=(com\\\\.daimler\\\\.products).*",
 			"-Doomph.setup.product.version.filter=.*appdev.*",
