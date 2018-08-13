@@ -151,16 +151,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="EcliPaint">
-      <requirement
-          name="org.eclipaint.feature.feature.group"
-          versionRange="[2.5.1,3.0.0)"/>
-      <repository
-          url="https://raw.githubusercontent.com/jabiercoding/eclipaint/master/updatesite/org.eclipaint.site/"/>
-      <description>https://github.com/jabiercoding/eclipaint</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
         label="InstaSearch">
       <repository
           url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>

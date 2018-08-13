@@ -7,6 +7,302 @@
     name="com.daimler.projects.cec"
     label="Daimler CEC projects">
   <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Global Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="git.user.id"
+        defaultValue=""
+        label="InnoTec Git/Gerrit user ID">
+      <description>The user ID of the InnoTec Git/Gerrit account</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="git.author.name"
+        label="InnoTec author name for Git/Gerrit">
+      <description>The author name used for Git/Gerrit commits</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="git.author.email"
+        label="InnoTec author email for Git/Gerrit">
+      <description>The email address associated with Git/Gerrit commits</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="gerrit.id"
+        defaultValue=""
+        label="InnoTec user ID for Gerrit">
+      <description>The email associated with the InnoTec Gerrit account</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="PASSWORD"
+        name="innotec.user.password"
+        label="InnoTec password for Bugzilla/Hudson">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/PasswordVerification">
+        <detail
+            key="type">
+          <value>form</value>
+        </detail>
+        <detail
+            key="form.url">
+          <value>https://accounts.eclipse.org/</value>
+        </detail>
+        <detail
+            key="form.parameters">
+          <value>name pass op form_id</value>
+        </detail>
+        <detail
+            key="form.secure.parameters">
+          <value>pass</value>
+        </detail>
+        <detail
+            key="form.filter">
+          <value>name=anonymous\&amp;.*</value>
+        </detail>
+        <detail
+            key="form.parameter.name">
+          <value>$${bugzilla.id}</value>
+        </detail>
+        <detail
+            key="form.parameter.pass">
+          <value>$${value}</value>
+        </detail>
+        <detail
+            key="form.parameter.op">
+          <value>Sign in</value>
+        </detail>
+        <detail
+            key="form.parameter.form_id">
+          <value>user_login</value>
+        </detail>
+        <detail
+            key="form.verification.matches">
+          <value>&lt;https://www.eclipse.org/user/.*>; rel=&quot;canonical&quot;.*</value>
+        </detail>
+        <detail
+            key="form.ok">
+          <value>Valid password for $${form.parameter.name} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.info">
+          <value>Validate the password for $${form.parameter.name} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.warning">
+          <value>Unable to validate the password for $${form.parameter.name} because $${form.url} is unreachable.</value>
+        </detail>
+        <detail
+            key="form.error">
+          <value>Invalid password for $${form.parameter.name} at $${form.url}.</value>
+        </detail>
+      </annotation>
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/PasswordVerification">
+        <detail
+            key="type">
+          <value>form</value>
+        </detail>
+        <detail
+            key="form.url">
+          <value>https://git.eclipse.org/r/login/</value>
+        </detail>
+        <detail
+            key="form.parameters">
+          <value>username password submit</value>
+        </detail>
+        <detail
+            key="form.secure.parameters">
+          <value>password</value>
+        </detail>
+        <detail
+            key="form.filter">
+          <value>username=anonymous\&amp;.*</value>
+        </detail>
+        <detail
+            key="form.parameter.username">
+          <value>$${bugzilla.id}</value>
+        </detail>
+        <detail
+            key="form.parameter.password">
+          <value>$${value}</value>
+        </detail>
+        <detail
+            key="form.parameter.submit">
+          <value>Sign In</value>
+        </detail>
+        <detail
+            key="form.verification.url">
+          <value>https://git.eclipse.org/r/accounts/$${git.user.id|username}</value>
+        </detail>
+        <detail
+            key="form.verification.matches">
+          <value>.*&quot;email&quot;: &quot;$${form.parameter.username}&quot;.*</value>
+        </detail>
+        <detail
+            key="form.ok">
+          <value>Valid password for account $${git.user.id} of $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.info">
+          <value>Validate the password for account $${git.user.id} of $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.warning">
+          <value>Unable to validate the password for account $${git.user.id} of $${form.parameter.username} because $${form.url} is unreachable.</value>
+        </detail>
+        <detail
+            key="form.error">
+          <value>Invalid password for account $${git.user.id} of $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+      </annotation>
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/PasswordVerification">
+        <detail
+            key="type">
+          <value>form-post</value>
+        </detail>
+        <detail
+            key="form.url">
+          <value>https://accounts.eclipse.org/</value>
+        </detail>
+        <detail
+            key="form.filter">
+          <value>anonymous</value>
+        </detail>
+        <detail
+            key="form.user">
+          <value>$${bugzilla.id}</value>
+        </detail>
+        <detail
+            key="form.password">
+          <value>$${value}</value>
+        </detail>
+        <detail
+            key="form.response.location.matches">
+          <value>https://accounts.eclipse.org/users/$${git.user.id}</value>
+        </detail>
+        <detail
+            key="form.ok">
+          <value>Valid password for account $${git.user.id} of $${form.user} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.info">
+          <value>Validate the password for account $${git.user.id} of $${form.user} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.warning">
+          <value>Unable to validate the password for account $${git.user.id} of $${form.user} because $${form.url} is unreachable.</value>
+        </detail>
+        <detail
+            key="form.error">
+          <value>Invalid password for account $${git.user.id} of $${form.user} at $${form.url}.</value>
+        </detail>
+      </annotation>
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/PasswordVerification">
+        <detail
+            key="type">
+          <value>form-post</value>
+        </detail>
+        <detail
+            key="form.url">
+          <value>https://accounts.eclipse.org/</value>
+        </detail>
+        <detail
+            key="form.filter">
+          <value>anonymous</value>
+        </detail>
+        <detail
+            key="form.user">
+          <value>$${bugzilla.id}</value>
+        </detail>
+        <detail
+            key="form.password">
+          <value>$${value}</value>
+        </detail>
+        <detail
+            key="form.response.location.matches">
+          <value>https://accounts.eclipse.org/users/.*</value>
+        </detail>
+        <detail
+            key="form.ok">
+          <value>Valid password for $${form.user} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.info">
+          <value>Validate the password for $${form.user} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.warning">
+          <value>Unable to validate the password for $${form.user} because $${form.url} is unreachable.</value>
+        </detail>
+        <detail
+            key="form.error">
+          <value>Invalid password for $${form.user} at $${form.url}.</value>
+        </detail>
+      </annotation>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="innotec.gerrit.uri.pattern"
+        value="(https|ssh)://([^@/]+@)?(alm-cec.in-technology.de/gerrit/a/.*|alm-cec.in-technology.de:29418/.*)"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="innotec.gerrit.remoteURIs"
+        label="InnoTec Gerrit Repository">
+      <choice
+          value="https://git.eclipse.org/r/@{remoteURI}"
+          label="HTTPS (read-only, anonymous, Gerrit)"/>
+      <choice
+          value="ssh://${git.user.id|username}@git.eclipse.org:29418/@{remoteURI}"
+          label="SSH (read-write, Gerrit)">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
+      </choice>
+      <choice
+          value="https://${git.user.id|username}@git.eclipse.org/r/@{remoteURI}"
+          label="HTTPS (read-write, Gerrit)">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
+      </choice>
+      <description>Choose from the available remote Gerrit URIs</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="innotec.git.remoteURIs"
+        label="InnoTec Git Repository">
+      <choice
+          value="http://git.eclipse.org/gitroot/@{remoteURI}.git"
+          label="HTTP (read-only, anonymous, direct)"/>
+      <choice
+          value="ssh://${git.user.id|username}@git.eclipse.org/gitroot/@{remoteURI}.git"
+          label="SSH (read-write, direct)">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
+      </choice>
+      <choice
+          value="git://git.eclipse.org/gitroot/@{remoteURI}"
+          label="Git (read-only, anonymous, direct)"/>
+      <description>Choose from the available Git URIs</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="innotec.git.gerrit.remoteURIs"
+        label="InnoTec Gerrit or Git Repository">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InheritedChoices">
+        <detail
+            key="inherit">
+          <value>eclipse.gerrit.remoteURIs eclipse.git.remoteURIs</value>
+        </detail>
+      </annotation>
+      <description>Choose from the available Gerrit or Git URIs</description>
+    </setupTask>
+  </setupTask>
+  <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
   <setupTask
