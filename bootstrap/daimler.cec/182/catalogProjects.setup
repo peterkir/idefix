@@ -51,6 +51,6 @@
       label="Location of local GIT root (NOT the GIT repo folder)">
     <description>Location root of GIT repos</description>
   </setupTask>
-  <project href="project_182_cec.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/project_182_cec.setup#/"/>
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
