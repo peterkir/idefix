@@ -267,7 +267,7 @@ public class EclipseInstallerPatchINI {
 		
 		System.out.println("done");
 		try {
-			FrameworkUtil.getBundle(FrameworkUtil.class).stop(0);
+			FrameworkUtil.getBundle(FrameworkUtil.class).getBundleContext().getBundle(0).stop();
 		} catch (BundleException e) {
 			e.printStackTrace();
 		}

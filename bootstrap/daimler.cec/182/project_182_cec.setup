@@ -6,8 +6,8 @@
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
-    name="cec181"
-    label="CEC 181">
+    name="cec1812"
+    label="CEC 1812 - local">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="preference">
