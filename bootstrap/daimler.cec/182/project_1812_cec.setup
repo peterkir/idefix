@@ -48,7 +48,7 @@
   <setupTask
       xsi:type="setup:VariableTask"
       type="FOLDER"
-      name="cec-git-checkout-location"
+      name="cec1812-git-checkout-location"
       defaultValue=""
       storageURI="scope://Workspace"
       label="Local GIT repo location">
@@ -59,7 +59,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${cec-git-checkout-location}">
+          rootFolder="${cec1812-git-checkout-location}">
         <excludedPath>/cnf</excludedPath>
         <excludedPath>/launcher.validator</excludedPath>
         <excludedPath>/com.daimler.ec.argus.jbehave</excludedPath>
@@ -71,7 +71,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${cec-git-checkout-location}/cnf"/>
+          rootFolder="${cec1812-git-checkout-location}/cnf"/>
     </setupTask>
     <description></description>
   </stream>
