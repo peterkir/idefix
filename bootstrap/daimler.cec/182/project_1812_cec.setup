@@ -4,8 +4,9 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
+    xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="cec1812"
     label="CEC 1812 - local">
   <setupTask
@@ -31,6 +32,32 @@
           key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
           value="${scope.project.name}"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.core.resources">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          id="sync1"
+          key="/instance/org.eclipse.core.resources/encoding"
+          value="UTF-8"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          id="sync2"
+          key="/instance/org.eclipse.core.resources/refresh.enabled"
+          value="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="com.google.eclipse.mechanic">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/com.google.eclipse.mechanic/blockedTaskIds"
+          value="[]"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/com.google.eclipse.mechanic/mechanicSourceDirectories"
+          value="[&quot;${ENGINE_LIB_DIR/tooling/workspace-mechanic/1812|&quot;]"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -46,18 +73,34 @@
     <description>automate restart and dismiss oomph dialog automatically</description>
   </setupTask>
   <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-DENGINE_LIB_DIR="
+      value="${ENGINE_LIB_DIR}"
+      vm="true"/>
+  <setupTask
       xsi:type="setup:VariableTask"
       type="FOLDER"
       name="cec1812-git-checkout-location"
       defaultValue=""
-      storageURI="scope://Workspace"
-      label="Local GIT repo location">
-    <description>Location of the local checked out source code repo</description>
-  </setupTask>
+      storageURI="scope://Workspace"/>
   <stream name="develop"
       label="develop">
     <setupTask
-        xsi:type="projects:ProjectsImportTask">
+        xsi:type="setup:CompoundTask"
+        name="Automated Build - OFF">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          id="autobuilding_off"
+          key="/instance/org.eclipse.core.resources/description.autobuilding"
+          value="false">
+        <description>Automated Build - OFF</description>
+      </setupTask>
+      <description>org.eclipse.core.resources</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask"
+        id="prj_import_all_but_cnf"
+        predecessor="//@streams[name='develop']/@setupTasks.0">
       <sourceLocator
           rootFolder="${cec1812-git-checkout-location}">
         <excludedPath>/cnf</excludedPath>
@@ -67,11 +110,32 @@
         <excludedPath>/proto.launcher</excludedPath>
         <excludedPath>/proto.launcher.tests</excludedPath>
       </sourceLocator>
+      <description>prj_import_all_but_cnf</description>
     </setupTask>
     <setupTask
-        xsi:type="projects:ProjectsImportTask">
+        xsi:type="projects:ProjectsImportTask"
+        id="prj_import_cnf">
       <sourceLocator
           rootFolder="${cec1812-git-checkout-location}/cnf"/>
+      <description>prj_import_cnf</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projectset:ProjectSetImportTask"
+        uRL="${cec1812-git-checkout-location/com.daimler.ec/Eclipse Team Project Sets/CEC-project-types.psf|uri}">
+      <description>import project set</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        predecessor="prj_import_all_but_cnf prj_import_cnf"
+        name="Automated Build -ON">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          id="autobuilding_on"
+          key="/instance/org.eclipse.core.resources/description.autobuilding"
+          value="true">
+        <description>Automated Build - ON</description>
+      </setupTask>
+      <description>org.eclipse.core.resources</description>
     </setupTask>
     <description></description>
   </stream>
