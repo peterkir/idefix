@@ -4,12 +4,11 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
-    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
-    name="Common EngineeringClient"
-    label="cec">
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
+    name="cec"
+    label="Common EngineeringClient">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -261,7 +260,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProjects.setup"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.project.cec.setup"
         vm="true"/>
   </setupTask>
   <setupTask
@@ -283,71 +282,6 @@
         targetURL="${installation.location|uri}/oomphVariables.txt"
         encoding="UTF-8"/>
   </setupTask>
-  <project href="user:/cecProjectCatalog.setup?name='user.project',label='&lt;User>',description='A container project for local user projects that are virtual members of the cec project catalog'#/"/>
-  <project name="cec1812"
-      label="cec1812">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="cec1812-git-checkout-location"
-        storageURI="scope://Workspace"
-        label="Checkout location of the GIT repository">
-      <description>cec1812-git-checkout-location</description>
-    </setupTask>
-    <stream
-        name="develop"
-        label="develop">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Automated Build - OFF">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            id="autobuilding_off"
-            key="/instance/org.eclipse.core.resources/description.autobuilding"
-            value="false">
-          <description>Automated Build - OFF</description>
-        </setupTask>
-        <description>org.eclipse.core.resources</description>
-      </setupTask>
-      <setupTask
-          xsi:type="projects:ProjectsImportTask"
-          id="prj_import_all_but_cnf"
-          predecessor="//@projects[name='cec1812']/@streams[name='develop']/@setupTasks.0">
-        <sourceLocator
-            rootFolder="${cec1812-git-checkout-location}">
-          <excludedPath>/cnf</excludedPath>
-          <excludedPath>/launcher.validator</excludedPath>
-          <excludedPath>/com.daimler.ec.argus.jbehave</excludedPath>
-          <excludedPath>/proto.client</excludedPath>
-          <excludedPath>/proto.launcher</excludedPath>
-          <excludedPath>/proto.launcher.tests</excludedPath>
-        </sourceLocator>
-        <description>prj_import_all_but_cnf</description>
-      </setupTask>
-      <setupTask
-          xsi:type="projects:ProjectsImportTask"
-          id="prj_import_cnf">
-        <sourceLocator
-            rootFolder="${cec1812-git-checkout-location}/cnf"/>
-        <description>prj_import_cnf</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          predecessor="prj_import_all_but_cnf prj_import_cnf"
-          name="Automated Build -ON">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            id="autobuilding_on"
-            key="/instance/org.eclipse.core.resources/description.autobuilding"
-            value="true">
-          <description>Automated Build - ON</description>
-        </setupTask>
-        <description>org.eclipse.core.resources</description>
-      </setupTask>
-    </stream>
-    <logicalProjectContainer
-        xsi:type="setup:ProjectCatalog"
-        href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
-    <description>IDE for CEC development</description>
-  </project>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/cec1812.setup#/"/>
   <description>IDE for Daimler EngineeringClient</description>
 </setup:ProjectCatalog>

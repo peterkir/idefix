@@ -152,6 +152,6 @@
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+      href="catalog.project.cec.setup#/"/>
   <description>IDE for CEC development</description>
 </setup:Project>
