@@ -107,6 +107,19 @@ public class EclipseInstallerPatchINI {
 			"-Dsetup.p2.agent="
 		});
 		
+		iniSuffix.put("IDEfix.cec.1812", new String[] {
+				"-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.installer.p2pool=true",
+				"-Doomph.setup.installer.launch=true",
+				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
+				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.product.idefix.setup",
+				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.project.cec.setup",
+				"-Doomph.setup.product.catalog.filter=idefix\\\\.products",
+				"-Doomph.setup.product.filter=(?\\!idefix\\\\.products).*",
+				"-Doomph.setup.product.version.filter=.*oxygen.*",
+				"-Dsetup.p2.agent="	
+			});
+			
 		iniSuffix.put("daimler.cec.182", new String[] {
 			"-Doomph.setup.installer.mode=advanced",
 			"-Doomph.setup.installer.p2pool=true",

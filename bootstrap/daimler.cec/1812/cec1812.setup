@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
+    name="cec1812"
+    label="cec1812">
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="cec1812-git-checkout-location"
+      storageURI="scope://Workspace"
+      label="Checkout location of the GIT repository">
+    <description>cec1812-git-checkout-location</description>
+  </setupTask>
+  <stream name="develop"
+      label="develop">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Automated Build - OFF">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          id="autobuilding_off"
+          key="/instance/org.eclipse.core.resources/description.autobuilding"
+          value="false">
+        <description>Automated Build - OFF</description>
+      </setupTask>
+      <description>org.eclipse.core.resources</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask"
+        id="prj_import_all_but_cnf"
+        predecessor="//@streams[name='develop']/@setupTasks.0">
+      <sourceLocator
+          rootFolder="${cec1812-git-checkout-location}">
+        <excludedPath>/cnf</excludedPath>
+        <excludedPath>/launcher.validator</excludedPath>
+        <excludedPath>/com.daimler.ec.argus.jbehave</excludedPath>
+        <excludedPath>/proto.client</excludedPath>
+        <excludedPath>/proto.launcher</excludedPath>
+        <excludedPath>/proto.launcher.tests</excludedPath>
+      </sourceLocator>
+      <description>prj_import_all_but_cnf</description>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask"
+        id="prj_import_cnf">
+      <sourceLocator
+          rootFolder="${cec1812-git-checkout-location}/cnf"/>
+      <description>prj_import_cnf</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        predecessor="prj_import_all_but_cnf prj_import_cnf"
+        name="Automated Build -ON">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          id="autobuilding_on"
+          key="/instance/org.eclipse.core.resources/description.autobuilding"
+          value="true">
+        <description>Automated Build - ON</description>
+      </setupTask>
+      <description>org.eclipse.core.resources</description>
+    </setupTask>
+  </stream>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>IDE for CEC development</description>
+</setup:Project>
