@@ -10,19 +10,6 @@
     name="cec1812"
     label="cec1812">
   <setupTask
-      xsi:type="setup:VariableTask"
-      type="FOLDER"
-      name="cec1812-git-checkout-location"
-      storageURI="scope://Workspace"
-      label="Checkout location of the GIT repository">
-    <description>cec1812-git-checkout-location</description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-DENGINE_LIB_DIR="
-      value="${ENGINE_LIB_DIR}"
-      vm="true"/>
-  <setupTask
       xsi:type="setup:CompoundTask"
       name="preference">
     <setupTask
@@ -84,6 +71,29 @@
       <description>Initialize JDT's package explorer to show working sets as its root objects</description>
     </setupTask>
     <description>automate restart and dismiss oomph dialog automatically</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="WorkspaceVariables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="FOLDER"
+        name="ENGINE_LIB_DIR"
+        storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="FOLDER"
+        name="cec1812-git-checkout-location"
+        storageURI="scope://Workspace"
+        label="Checkout location of the GIT repository">
+      <description>cec1812-git-checkout-location</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-DENGINE_LIB_DIR="
+        value="${ENGINE_LIB_DIR}"
+        vm="true"/>
+    <description></description>
   </setupTask>
   <stream name="develop"
       label="develop">
