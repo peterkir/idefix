@@ -330,7 +330,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/catalogProjects.setup"
+        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProjects.setup"
         vm="true"/>
   </setupTask>
   <setupTask

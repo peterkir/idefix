@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix.oxygen"
+    name="idefix.oxygen.1812"
     label="IDEfix Oxygen">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -27,7 +27,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Xmx"
-        value="1024m"
+        value="2048m"
         vm="true">
       <description>Set the heap space needed to work with the projects</description>
     </setupTask>
@@ -125,6 +125,14 @@
           key="/instance/org.eclipse.egit.core/core_autoIgnoreDerivedResources"
           value="false"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="ENGINE_LIB_DIR"
+        name="ENGINE_LIB_DIR"
+        defaultValue="${JBE}"
+        label="ENGINE_LIB_DIR">
+      <description>CDN for development tools</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -186,7 +194,7 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="SpotBugs">
+        label="Spotbugs">
       <requirement
           name="com.github.spotbugs.plugin.eclipse.feature.group"/>
       <repository
@@ -310,7 +318,7 @@
     <repository
         url="http://download.eclipse.org/rcptt/release/2.2.0/repository/"/>
   </setupTask>
-  <version name="developer.bnd3.5"
+  <version name="developer.bnd.4.0"
       label="IDEfix - Developer"
       requiredJavaVersion="1.8">
     <setupTask
@@ -429,10 +437,10 @@
     </setupTask>
     <description>
       based on Eclipse Oxygen epp.package.java
-      bndtools 3.4.0.RC1
+      bndtools
     </description>
   </version>
-  <version name="modeling"
+  <version name="modeling.bnd.4.0"
       label="IDEfix - Modeling"
       requiredJavaVersion="1.8">
     <setupTask
@@ -539,7 +547,7 @@
     </setupTask>
     <description>
       based on Eclipse Oxygen epp.package.java
-      bndtools 3.4.0.RC1
+      bndtools
     </description>
   </version>
   <description>IDE for OSGi development</description>

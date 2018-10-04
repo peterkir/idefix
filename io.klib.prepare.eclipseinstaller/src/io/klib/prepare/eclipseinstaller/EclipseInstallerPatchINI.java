@@ -56,11 +56,11 @@ public class EclipseInstallerPatchINI {
 	// format: archive name, download URL, oomph archive name, IDEfix archive name, setup.p2.agent location
 	
 	String[][] archives = {
-		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "eclipse-inst-prod.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
-		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "eclipse-inst-prod.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
-//		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "eclipse-inst-prod.linux.x86.tar.gz",     "@user.home/oomph/.p2"   },
-		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "eclipse-inst-prod.win32.x86-64.exe",     "C:/IDEfix/.p2" },
-//		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "eclipse-inst-prod.win32.x86.exe",        "C:/IDEfix/.p2" },
+		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "IDEfix.inst.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
+		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "IDEfix.inst.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
+//		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "IDEfix.inst.linux.x86.tar.gz",     "@user.home/oomph/.p2"   },
+		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "IDEfix.inst.win32.x86-64.exe",     "C:/IDEfix/.p2" },
+//		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "IDEfix.inst.win32.x86.exe",        "C:/IDEfix/.p2" },
 	};
 
 	private static final String DL_NIGHTLY = "http://www.eclipse.org/downloads/download.php?file=/oomph/products/latest";
@@ -111,11 +111,12 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.setup.installer.mode=advanced",
 			"-Doomph.setup.installer.p2pool=true",
 			"-Doomph.setup.installer.launch=true",
+			"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
 			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProducts.setup",
 			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProjects.setup",
-			"-Doomph.setup.product.catalog.filter=^((?!eclipse).)*$",
-			"-Doomph.setup.product.filter=(com\\\\.daimler\\\\.products).*",
-			"-Doomph.setup.product.version.filter=.*appdev.*",
+			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
+			"-Doomph.setup.product.filter=(.*idefix).*",
+			"-Doomph.setup.product.version.filter=(.*idefix.*)",
 			"-Dsetup.p2.agent="	
 		});
 		
@@ -530,7 +531,13 @@ public class EclipseInstallerPatchINI {
 		if (executable.contains("win64")) {
 			try {
 				System.out.println("     --> replacing executable with signed version");
-				Files.copy(Paths.get(DIR,"signed_extractor/win64/extractor.exe"), Paths.get(wrkDir,"2_extracted/prod.win32.x86-64/extractor.exe"), StandardCopyOption.REPLACE_EXISTING);
+				Path source = Paths.get(DIR,"signed_extractor/win64/extractor.exe");
+				Path destination = Paths.get(wrkDir,"2_extracted/prod.win32.x86-64/extractor.exe");
+				if (source.toFile().exists()) {
+					Path copy = Files.copy(source,destination, StandardCopyOption.REPLACE_EXISTING);
+				} else {
+					System.out.println("no source file exists " + source);
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
