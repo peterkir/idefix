@@ -109,6 +109,7 @@ public class EclipseInstallerPatchINI {
 		
 		iniSuffix.put("IDEfix.cec.1812", new String[] {
 				"-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.stats.skip=true",
 				"-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
@@ -117,6 +118,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
 				"-Doomph.setup.product.filter=(.*oxygen.*)",
 				"-Doomph.setup.product.version.filter=(.*1812.*)",
+				"-Doomph.setup.jre.choice=false",
 				"-Dsetup.p2.agent="	
 			});
 			
