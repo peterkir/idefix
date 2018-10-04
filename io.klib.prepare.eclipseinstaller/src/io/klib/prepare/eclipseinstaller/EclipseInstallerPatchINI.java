@@ -114,9 +114,9 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
 				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.product.idefix.setup",
 				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.project.cec.setup",
-				"-Doomph.setup.product.catalog.filter=idefix\\\\.products",
-				"-Doomph.setup.product.filter=(?\\!idefix\\\\.products).*",
-				"-Doomph.setup.product.version.filter=.*oxygen.*",
+				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
+				"-Doomph.setup.product.filter=(.*oxygen.*)",
+				"-Doomph.setup.product.version.filter=(.*1812.*)",
 				"-Dsetup.p2.agent="	
 			});
 			
