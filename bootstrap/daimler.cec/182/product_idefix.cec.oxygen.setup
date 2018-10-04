@@ -184,6 +184,15 @@
       <repository
           url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="SpotBugs">
+      <requirement
+          name="com.github.spotbugs.plugin.eclipse.feature.group"/>
+      <repository
+          url="https://spotbugs.github.io/eclipse/"/>
+      <description>SpotBugs</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
