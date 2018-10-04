@@ -99,6 +99,7 @@
       label="develop">
     <setupTask
         xsi:type="setup:CompoundTask"
+        id="pref.automated.build.off"
         name="Automated Build - OFF">
       <setupTask
           xsi:type="setup:PreferenceTask"
@@ -112,7 +113,7 @@
     <setupTask
         xsi:type="projects:ProjectsImportTask"
         id="prj_import_all_but_cnf"
-        predecessor="//@streams[name='develop']/@setupTasks.0">
+        predecessor="pref.automated.build.off">
       <sourceLocator
           rootFolder="${cec1812-git-checkout-location}">
         <excludedPath>/cnf</excludedPath>
@@ -126,14 +127,16 @@
     </setupTask>
     <setupTask
         xsi:type="projects:ProjectsImportTask"
-        id="prj_import_cnf">
+        id="prj_import_cnf"
+        predecessor="prj_import_all_but_cnf">
       <sourceLocator
           rootFolder="${cec1812-git-checkout-location}/cnf"/>
       <description>prj_import_cnf</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        predecessor="prj_import_all_but_cnf prj_import_cnf"
+        id="pref.automated.build.on"
+        predecessor="prj_import_cnf"
         name="Automated Build -ON">
       <setupTask
           xsi:type="setup:PreferenceTask"
