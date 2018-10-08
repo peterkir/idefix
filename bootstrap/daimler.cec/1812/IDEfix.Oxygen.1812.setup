@@ -173,15 +173,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="Workspace Mechanic">
-      <requirement
-          name="com.google.eclipse.mechanic.feature.group"
-          versionRange="[0.4.0,0.5.0)"/>
-      <repository
-          url="https://s3-eu-west-1.amazonaws.com/klib.io/www/workspacemechanic.eclipselabs.org.codespot.com/git.update/mechanic"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
         label="Kotlin Plugin">
       <requirement
           name="org.jetbrains.kotlin.feature.feature.group"
