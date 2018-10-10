@@ -886,6 +886,42 @@
           key="/instance/org.eclipse.ui.workbench/RUN_IN_BACKGROUND"
           value="true"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="net.sf.eclipsecs.core">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.core/background.full.build"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.core/include.module.ids"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.core/include.rule.names"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.core/limit.markers.per.resource"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.core/marker.amount.limit"
+          value="100"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="net.sf.eclipsecs.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.ui/ask.before.rebuild"
+          value="prompt"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/net.sf.eclipsecs.ui/warn.before.losing.filesets"
+          value="true"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
