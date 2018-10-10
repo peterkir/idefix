@@ -909,6 +909,14 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/net.sf.eclipsecs.core/marker.amount.limit"
           value="100"/>
+      <setupTask
+          xsi:type="setup:ResourceCreationTask"
+          excludedTriggers="STARTUP MANUAL"
+          content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&#xA;&lt;checkstyle-configurations file-format-version=&quot;5.0.0&quot; default-check-configuration=&quot;CEC CheckStyle configuration&quot;>&#xA;    &lt;check-configuration name=&quot;CEC CheckStyle configuration&quot; location=&quot;/com.daimler.cec.qa.client/cec_checkstyle.xml&quot; type=&quot;project&quot; description=&quot;&quot;>&#xA;        &lt;additional-data name=&quot;protect-config-file&quot; value=&quot;false&quot;/>&#xA;    &lt;/check-configuration>&#xA;&lt;/checkstyle-configurations>&#xA;"
+          targetURL="${workspace.location|uri}/.metadata/.plugins/net.sf.eclipsecs.core/checkstyle-config.xml"
+          encoding="UTF-8">
+        <description>Initialize JDT's package explorer to show working sets as its root objects</description>
+      </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
