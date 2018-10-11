@@ -11,8 +11,8 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
-    name="bnd"
-    label="bnd">
+    name="bndtools"
+    label="bndtools">
   <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-1.7"
@@ -65,7 +65,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
-          value="${scope.project.name}"/>
+          value="bndtools"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -87,9 +87,9 @@
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.bnd"
-      remoteURI="https://github.com/bndtools/bnd.git"
-      pushURI="https://github.com/${github.user.id}/bnd.git">
+      id="git.clone.bndtools"
+      remoteURI="https://github.com/bndtools/bndtools.git"
+      pushURI="https://github.com/${github.user.id}/bndtools.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -102,31 +102,55 @@
   <stream name="master"
       label="Master">
     <setupTask
-        xsi:type="projects:ProjectsImportTask">
-      <sourceLocator
-          rootFolder="${git.clone.bnd.location}"/>
-    </setupTask>
-    <setupTask
         xsi:type="setup.workingsets:WorkingSetTask">
       <workingSet
           name="${scope.project.name}">
         <predicate
-            xsi:type="predicates:NotPredicate">
+            xsi:type="predicates:AndPredicate">
           <operand
-              xsi:type="predicates:NamePredicate"
-              pattern="org\.osgi\.impl\.bundle\.repoindex.*"/>
+              xsi:type="predicates:RepositoryPredicate"
+              project="bndtools.core"/>
         </predicate>
-      </workingSet>
-      <workingSet
-          name="repoindex">
-        <predicate
-            xsi:type="predicates:NamePredicate"
-            pattern="org\.osgi\.impl\.bundle\.repoindex.*"/>
       </workingSet>
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.bndtools.location}"
+          locateNestedProjects="true">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern="test.*"/>
+          </operand>
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern="validators.*"/>
+          </operand>
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern="_project_"/>
+          </operand>
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern="launch.*"/>
+          </operand>
+        </predicate>
+      </sourceLocator>
+    </setupTask>
   </stream>
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']/@projects[name='io.klib.tools']"/>
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']"/>
+  <description>The easy, powerful and productive way to develop with OSGi. Based on bnd and Eclipse.</description>
 </setup:Project>
