@@ -319,8 +319,8 @@
     <repository
         url="http://download.eclipse.org/rcptt/release/2.2.0/repository/"/>
   </setupTask>
-  <version name="cec.1812"
-      label="IDEfix for CEC 1812"
+  <version name="osgi.bndtools.4.0.0"
+      label="IDEfix for OSGi development"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -436,7 +436,7 @@
           value="bndtools.perspective"/>
       <description></description>
     </setupTask>
-    <description>IDEfix Oxygen for Oxygen.</description>
+    <description>IDEfix for OSGi development</description>
   </version>
   <description>IDEfix Oxygen provides Eclipse based IDE</description>
 </setup:Product>
