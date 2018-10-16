@@ -97,16 +97,6 @@
     </setupTask>
   </setupTask>
   <setupTask
-      xsi:type="setup:CompoundTask"
-      name="REDIRECTION catalogProject">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.redirection.klibProjectCatalog"
-        value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup"
-        vm="true"/>
-    <description></description>
-  </setupTask>
-  <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.example_bnd_eclipse"
       remoteURI="https://github.com/peterkir/example.bnd.rcp.git"

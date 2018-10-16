@@ -113,4 +113,5 @@
   </setupTask>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/idefix.oxygen.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/osgi/setup/products/osgi.idefix.oxygen.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/osgi/setup/products/IDEfix.Oxygen.pk.setup#/"/>
 </setup:ProductCatalog>
