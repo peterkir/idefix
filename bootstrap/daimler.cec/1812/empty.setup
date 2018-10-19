@@ -23,7 +23,7 @@
         xsi:type="setup:VariableTask"
         name="workspaceName"
         value=""
-        defaultValue="${scope.project.name}"
+        defaultValue=""
         storageURI="scope://Workspace"/>
     <description></description>
   </setupTask>
