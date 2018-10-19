@@ -848,7 +848,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.text.custom_code_templates"
-          value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;templates>&lt;template autoinsert=&quot;false&quot; context=&quot;newtype_context&quot; deleted=&quot;false&quot; description=&quot;Newly created files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.newtype&quot; name=&quot;newtype&quot;>$${filecomment}&#xD;&#xA;$${package_declaration}&#xD;&#xA;&#xD;&#xA;$${typecomment}&#xD;&#xA;$${type_declaration}&#xD;&#xA;&lt;/template>&lt;/templates>"/>
+          value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xA;&lt;templates>&#xA;   &lt;template autoinsert=&quot;false&quot; context=&quot;newtype_context&quot; deleted=&quot;false&quot; description=&quot;Newly created files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.newtype&quot; name=&quot;newtype&quot;>$${filecomment}&#xA;$${package_declaration}&#xA;&#xA;$${typecomment}&#xA;$${type_declaration}&lt;/template>&#xA;&lt;/templates>"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
