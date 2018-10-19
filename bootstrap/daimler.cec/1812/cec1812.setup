@@ -845,6 +845,10 @@
           filter=""
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.text.custom_templates"
           value="&lt;?xml version\=&quot;1.0&quot; encoding\=&quot;UTF-8&quot; standalone\=&quot;no&quot;?>&#xA;    &lt;templates>&lt;template autoinsert\=&quot;true&quot; context\=&quot;java&quot; deleted\=&quot;false&quot; description\=&quot;//@formatter\:off&quot; enabled\=&quot;true&quot; name\=&quot;fof&quot;>//@formatter\:off&lt;/template>&#xA;    &lt;template autoinsert\=&quot;true&quot; context\=&quot;java&quot; deleted\=&quot;false&quot; description\=&quot;//@formatter\:on&quot; enabled\=&quot;true&quot; name\=&quot;fon&quot;>//@formatter\:on&lt;/template>&#xA;    &lt;template autoinsert\=&quot;true&quot; context\=&quot;java&quot; deleted\=&quot;false&quot; description\=&quot;JUL LOGGER &quot; enabled\=&quot;true&quot; name\=&quot;logj&quot;>private static final Logger LOGGER \= Logger.getLogger($${enclosing_type}.class.getName());&lt;/template>&#xA;    &lt;template autoinsert\=&quot;true&quot; context\=&quot;java&quot; deleted\=&quot;false&quot; description\=&quot;SLF4J LOGGER&quot; enabled\=&quot;true&quot; name\=&quot;logs&quot;>private static final Logger LOGGER \= LoggerFactory.getLogger($${enclosing_type}.class.getName());&lt;/template>&#xA;&lt;/templates>&#xA;"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.text.custom_code_templates"
+          value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;templates>&lt;template autoinsert=&quot;false&quot; context=&quot;newtype_context&quot; deleted=&quot;false&quot; description=&quot;Newly created files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.newtype&quot; name=&quot;newtype&quot;>$${filecomment}&#xD;&#xA;$${package_declaration}&#xD;&#xA;&#xD;&#xA;$${typecomment}&#xD;&#xA;$${type_declaration}&#xD;&#xA;&lt;/template>&lt;/templates>"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
