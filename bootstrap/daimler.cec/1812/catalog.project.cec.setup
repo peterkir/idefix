@@ -284,5 +284,6 @@
   </setupTask>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/empty.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/cec1812.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/cec1906.setup#/"/>
   <description>IDE for Daimler EngineeringClient</description>
 </setup:ProjectCatalog>
