@@ -301,13 +301,13 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="AJDT 2.2.4 for Eclipse 4.7">
+        label="AJDT 2.2.4 for Eclipse 4.8">
       <requirement
           name="org.eclipse.ajdt.feature.group"/>
       <requirement
           name="org.eclipse.equinox.weaving.sdk.feature.group"/>
       <repository
-          url="http://download.eclipse.org/tools/ajdt/47/dev/update/ajdt-e47-2.2.4.201710301818"/>
+          url="http://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201811011643"/>
       <description></description>
     </setupTask>
   </setupTask>
