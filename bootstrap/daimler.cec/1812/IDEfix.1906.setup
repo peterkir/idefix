@@ -335,8 +335,6 @@
           name="org.eclipse.rcp.feature.group"
           versionRange="[4.10.0,5.0.0)"/>
       <requirement
-          name="org.eclipse.buildship.feature.group"/>
-      <requirement
           name="org.eclipse.cvs.feature.group"/>
       <requirement
           name="org.eclipse.e4.core.tools.feature.feature.group"/>
