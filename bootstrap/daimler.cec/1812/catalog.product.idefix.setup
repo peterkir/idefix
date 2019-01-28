@@ -38,5 +38,6 @@
   </setupTask>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/IDEfix.Oxygen.1812.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/IDEfix.1906.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/IDEfix.1912.setup#/"/>
   <description>IDEfix provides Eclipse based products</description>
 </setup:ProductCatalog>
