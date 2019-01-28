@@ -329,8 +329,8 @@
       name="jdk1.8.0_162">
     <description></description>
   </setupTask>
-  <version name="cec.1906"
-      label="IDEfix for CEC 1906"
+  <version name="cec.1912"
+      label="IDEfix for CEC 1912"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
