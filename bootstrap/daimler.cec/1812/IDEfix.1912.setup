@@ -421,12 +421,12 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="bndtools 4.0.0">
+        label="bndtools 4.1.0">
       <requirement
           name="bndtools.main.feature.feature.group"
           versionRange="[4.0.0,5.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/4.0.0/"/>
+          url="https://dl.bintray.com/bndtools/bndtools/4.1.0/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
