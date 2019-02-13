@@ -309,7 +309,7 @@
       <requirement
           name="org.eclipse.equinox.weaving.sdk.feature.group"/>
       <repository
-          url="http://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201811011643"/>
+          url="https://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201901092148"/>
       <description></description>
     </setupTask>
   </setupTask>
@@ -344,6 +344,8 @@
       <requirement
           name="org.eclipse.rcp.feature.group"
           versionRange="[4.10.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.buildship.feature.group"/>
       <requirement
           name="org.eclipse.cvs.feature.group"/>
       <requirement
@@ -438,7 +440,7 @@
           value="bndtools.perspective"/>
       <description></description>
     </setupTask>
-    <description>IDEfix Oxygen for Oxygen.</description>
+    <description></description>
   </version>
-  <description>IDEfix 2018-12 provides Eclipse based IDE</description>
+  <description>Eclipse based IDE</description>
 </setup:Product>

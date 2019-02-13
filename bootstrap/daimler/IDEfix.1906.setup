@@ -307,7 +307,7 @@
       <requirement
           name="org.eclipse.equinox.weaving.sdk.feature.group"/>
       <repository
-          url="http://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201811011643"/>
+          url="https://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201901092148"/>
       <description></description>
     </setupTask>
   </setupTask>
@@ -430,7 +430,7 @@
           value="bndtools.perspective"/>
       <description></description>
     </setupTask>
-    <description>IDEfix Oxygen for Oxygen.</description>
+    <description></description>
   </version>
-  <description>IDEfix Oxygen provides Eclipse based IDE</description>
+  <description>Eclipse based IDE</description>
 </setup:Product>
