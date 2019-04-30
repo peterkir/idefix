@@ -418,7 +418,7 @@
           name="bndtools.main.feature.feature.group"
           versionRange="[4.0.0,5.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/4.0.0/"/>
+          url="http://dl.bintray.com/bndtools/bndtools/4.0.0/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
