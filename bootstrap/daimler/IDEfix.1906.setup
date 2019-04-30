@@ -138,8 +138,7 @@
         xsi:type="setup.p2:P2Task"
         label="QuickREx - regexp">
       <requirement
-          name="de.babe.eclipse.plugins.QuickREx"
-          versionRange="[3.5.0,4.0.0)"/>
+          name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
       <repository
           url="http://netceteragroup.github.io/quickrex/updatesite"/>
       <description></description>
