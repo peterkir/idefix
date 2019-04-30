@@ -178,7 +178,7 @@
           name="org.jetbrains.kotlin.feature.feature.group"
           versionRange="[0.8.5,1.0.0)"/>
       <repository
-          url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
+          url="http://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -186,7 +186,7 @@
       <requirement
           name="com.github.spotbugs.plugin.eclipse.feature.group"/>
       <repository
-          url="https://spotbugs.github.io/eclipse/"/>
+          url="http://spotbugs.github.io/eclipse/"/>
       <description>SpotBugs</description>
     </setupTask>
     <setupTask
@@ -196,7 +196,7 @@
           name="net.sf.eclipsecs.feature.group"
           versionRange="8.12.0"/>
       <repository
-          url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.12.0/"/>
+          url="http://dl.bintray.com/eclipse-cs/eclipse-cs/8.12.0/"/>
       <description>
         CheckStyle
         https://checkstyle.org/eclipse-cs/#!/
