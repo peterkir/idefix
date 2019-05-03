@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="idefix1906.ecl2018-12"
+    name="idefix1906"
     label="IDEfix 1906">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -138,10 +138,9 @@
         xsi:type="setup.p2:P2Task"
         label="QuickREx - regexp">
       <requirement
-          name="de.babe.eclipse.plugins.QuickREx"
-          versionRange="[3.5.0,4.0.0)"/>
+          name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
       <repository
-          url="https://s3-eu-west-1.amazonaws.com/klib.io/www/_repo/idefix-other-tools"/>
+          url="http://netceteragroup.github.io/quickrex/updatesite"/>
       <description></description>
     </setupTask>
     <setupTask
@@ -178,7 +177,7 @@
           name="org.jetbrains.kotlin.feature.feature.group"
           versionRange="[0.8.5,1.0.0)"/>
       <repository
-          url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
+          url="http://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -186,7 +185,7 @@
       <requirement
           name="com.github.spotbugs.plugin.eclipse.feature.group"/>
       <repository
-          url="https://spotbugs.github.io/eclipse/"/>
+          url="http://spotbugs.github.io/eclipse/"/>
       <description>SpotBugs</description>
     </setupTask>
     <setupTask
@@ -196,7 +195,7 @@
           name="net.sf.eclipsecs.feature.group"
           versionRange="8.12.0"/>
       <repository
-          url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.12.0/"/>
+          url="http://dl.bintray.com/eclipse-cs/eclipse-cs/8.12.0/"/>
       <description>
         CheckStyle
         https://checkstyle.org/eclipse-cs/#!/
@@ -307,7 +306,7 @@
       <requirement
           name="org.eclipse.equinox.weaving.sdk.feature.group"/>
       <repository
-          url="http://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201811011643"/>
+          url="http://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201901092148"/>
       <description></description>
     </setupTask>
   </setupTask>
@@ -319,8 +318,127 @@
     <repository
         url="http://download.eclipse.org/rcptt/release/2.2.0/repository/"/>
   </setupTask>
-  <version name="cec.1906"
-      label="IDEfix for CEC 1906"
+  <version name="cec.1906.oxygen"
+      label="IDEfix for CEC 1906 - Oxygen"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Eclipse IDE for Eclipse Committers (Oxygen)">
+      <requirement
+          name="epp.package.committers"
+          versionRange="[4.7.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.platform.feature.group"
+          versionRange="[4.7.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.rcp.feature.group"
+          versionRange="[4.7.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.cvs.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.eclemma.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.gitflow.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.mylyn.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.source.feature.group"/>
+      <requirement
+          name="org.eclipse.jgit.http.apache.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.builds.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.identity.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.notifications.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.http.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.discovery.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.dashboard.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.git.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.hudson.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.monitor.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.reviews.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.team_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.versions.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.source.feature.group"/>
+      <requirement
+          name="org.eclipse.platform.source.feature.group"/>
+      <requirement
+          name="org.eclipse.rcp.source.feature.group"/>
+      <requirement
+          name="org.eclipse.recommenders.mylyn.rcp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.recommenders.news.rcp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.recommenders.rcp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.recommenders.snipmatch.rcp.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.wst.json_ui.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.wst.xml_ui.feature.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/technology/epp/packages/oxygen"/>
+      <repository
+          url="http://download.eclipse.org/releases/oxygen/201804111000"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 4.0.0">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[4.0.0,5.0.0)"/>
+      <repository
+          url="http://dl.bintray.com/bndtools/bndtools/4.0.0/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
+    <description></description>
+  </version>
+  <version name="cec.1906.2018-12"
+      label="IDEfix for CEC 1906 - 2018-12"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -418,7 +536,7 @@
           name="bndtools.main.feature.feature.group"
           versionRange="[4.0.0,5.0.0)"/>
       <repository
-          url="https://dl.bintray.com/bndtools/bndtools/4.0.0/"/>
+          url="http://dl.bintray.com/bndtools/bndtools/4.0.0/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
@@ -430,7 +548,120 @@
           value="bndtools.perspective"/>
       <description></description>
     </setupTask>
-    <description>IDEfix Oxygen for Oxygen.</description>
+    <description></description>
+  </version>
+  <version name="cec.1906.2018-12.bnd4.2"
+      label="IDEfix for CEC 1906 - 2018-12 - bnd 4.2"
+      requiredJavaVersion="1.8">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Eclipse IDE for Eclipse Committers (2018-12)">
+      <requirement
+          name="epp.package.committers"
+          versionRange="[4.10.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.platform.feature.group"
+          versionRange="[4.10.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.rcp.feature.group"
+          versionRange="[4.10.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.cvs.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.eclemma.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.gitflow.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.mylyn.feature.group"/>
+      <requirement
+          name="org.eclipse.epp.mpc.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.source.feature.group"/>
+      <requirement
+          name="org.eclipse.jgit.http.apache.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.builds.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.identity.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.notifications.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.http.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.discovery.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.dashboard.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.git.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.hudson.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.monitor.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.reviews.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.team_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.versions.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.source.feature.group"/>
+      <requirement
+          name="org.eclipse.platform.source.feature.group"/>
+      <requirement
+          name="org.eclipse.rcp.source.feature.group"/>
+      <requirement
+          name="org.eclipse.wst.json_ui.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.wst.xml_ui.feature.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/technology/epp/packages/2018-12"/>
+      <repository
+          url="http://download.eclipse.org/releases/2018-12/201812191000"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="bndtools 4.x">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[4.0.0,5.0.0)"/>
+      <repository
+          url="http://dl.bintray.com/bndtools/bndtools/4.2.0/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
+    <description></description>
   </version>
   <description>IDEfix Oxygen provides Eclipse based IDE</description>
 </setup:Product>
