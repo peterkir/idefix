@@ -272,7 +272,8 @@
         value="=allow"
         vm="true"/>
   </setupTask>
-  <project href="http://peterkir.github.io/idefix/bootstrap/daimler/empty.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler/cec1906.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler/empty.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler/importAll.setup#/"/>
   <description>IDE for Daimler EngineeringClient</description>
 </setup:ProjectCatalog>
