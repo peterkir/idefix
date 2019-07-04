@@ -7,8 +7,8 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
-    name="idefix1912.ecl2018-12"
-    label="IDEfix 1912">
+    name="idefix.cec1912"
+    label="IDEfix Framework 1912">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -140,10 +140,9 @@
         xsi:type="setup.p2:P2Task"
         label="QuickREx - regexp">
       <requirement
-          name="de.babe.eclipse.plugins.QuickREx"
-          versionRange="[3.5.0,4.0.0)"/>
+          name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
       <repository
-          url="https://s3-eu-west-1.amazonaws.com/klib.io/www/_repo/idefix-other-tools"/>
+          url="http://netceteragroup.github.io/quickrex/updatesite/"/>
       <description></description>
     </setupTask>
     <setupTask
@@ -180,7 +179,7 @@
           name="org.jetbrains.kotlin.feature.feature.group"
           versionRange="[0.8.5,1.0.0)"/>
       <repository
-          url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.5/"/>
+          url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.9/"/>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
@@ -193,16 +192,12 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="CheckStyle">
+        label="CheckStyle 8.18">
       <requirement
-          name="net.sf.eclipsecs.feature.group"
-          versionRange="8.12.0"/>
+          name="net.sf.eclipsecs.feature.group"/>
       <repository
-          url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.12.0/"/>
-      <description>
-        CheckStyle
-        https://checkstyle.org/eclipse-cs/#!/
-      </description>
+          url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
+      <description>CheckStyle</description>
     </setupTask>
   </setupTask>
   <setupTask
@@ -303,13 +298,13 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="AJDT 2.2.4 for Eclipse 4.8">
+        label="AJDT">
       <requirement
           name="org.eclipse.ajdt.feature.group"/>
       <requirement
           name="org.eclipse.equinox.weaving.sdk.feature.group"/>
       <repository
-          url="https://download.eclipse.org/tools/ajdt/48/dev/update/ajdt-e48-2.2.4.201901092148"/>
+          url="https://download.eclipse.org/tools/ajdt/410/dev/update/ajdt-e410-2.2.4.201905102027"/>
       <description></description>
     </setupTask>
   </setupTask>
@@ -319,7 +314,7 @@
     <requirement
         name="org.eclipse.rcptt.platform.feature.group"/>
     <repository
-        url="http://download.eclipse.org/rcptt/release/2.2.0/repository/"/>
+        url="http://download.eclipse.org/rcptt/release/2.4.2/repository/"/>
   </setupTask>
   <setupTask
       xsi:type="jdt:JRETask"
@@ -329,21 +324,40 @@
       name="jdk1.8.0_162">
     <description></description>
   </setupTask>
-  <version name="cec.1912"
+  <version name="fw.eclipse2019.06"
       label="IDEfix for CEC 1912"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="Eclipse IDE for Eclipse Committers (2018-12)">
+        label="bndtools">
+      <requirement
+          name="bndtools.main.feature.feature.group"
+          versionRange="[4.0.0,5.0.0)"/>
+      <repository
+          url="https://dl.bintray.com/bndtools/bndtools/4.2.0/"/>
+      <description>Install the tools needed in the IDE to work with the source code</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-perspective"
+          value="bndtools.perspective"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Eclipse IDE for Eclipse Committers (2019-06)">
       <requirement
           name="epp.package.committers"
-          versionRange="[4.10.0,5.0.0)"/>
+          versionRange="[4.12.0,5.0.0)"/>
       <requirement
           name="org.eclipse.platform.feature.group"
-          versionRange="[4.10.0,5.0.0)"/>
+          versionRange="[4.12.0,5.0.0)"/>
       <requirement
           name="org.eclipse.rcp.feature.group"
-          versionRange="[4.10.0,5.0.0)"/>
+          versionRange="[4.12.0,5.0.0)"/>
       <requirement
           name="org.eclipse.buildship.feature.group"/>
       <requirement
@@ -417,28 +431,12 @@
       <requirement
           name="org.eclipse.wst.xml_ui.feature.feature.group"/>
       <repository
-          url="http://download.eclipse.org/technology/epp/packages/2018-12"/>
+          url="http://download.eclipse.org/technology/epp/packages/2019-06"/>
       <repository
-          url="http://download.eclipse.org/releases/2018-12/201812191000"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools 4.1.0">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[4.0.0,5.0.0)"/>
-      <repository
-          url="https://dl.bintray.com/bndtools/bndtools/4.1.0/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini">
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-perspective"
-          value="bndtools.perspective"/>
-      <description></description>
+          url="http://download.eclipse.org/releases/2019-06/201906191000">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
+      </repository>
     </setupTask>
     <description></description>
   </version>
