@@ -870,10 +870,6 @@
         name="org.eclipse.ui.ide">
       <setupTask
           xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
-          value="${workspaceName}"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.ide/unassociatedEditorStrategy"
           value="org.eclipse.ui.ide.textEditor"/>
     </setupTask>
@@ -954,7 +950,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="pref.automated.build.off"
-        name="Automated Build - OFF">
+        name="OFF during import">
       <setupTask
           xsi:type="setup:PreferenceTask"
           id="autobuilding_off"
@@ -962,6 +958,14 @@
           value="false">
         <description>Automated Build - OFF</description>
       </setupTask>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/refresh.enabled"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/refresh.lightweight.enabled"
+          value="false"/>
       <description>org.eclipse.core.resources</description>
     </setupTask>
     <setupTask
@@ -975,7 +979,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="pref.automated.build.on"
-        name="Automated Build -ON">
+        name="ON after import">
       <setupTask
           xsi:type="setup:PreferenceTask"
           id="autobuilding_on"
@@ -983,6 +987,14 @@
           value="true">
         <description>Automated Build - ON</description>
       </setupTask>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/refresh.enabled"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.core.resources/refresh.lightweight.enabled"
+          value="false"/>
       <description>org.eclipse.core.resources</description>
     </setupTask>
   </stream>
