@@ -174,15 +174,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="Kotlin Plugin">
-      <requirement
-          name="org.jetbrains.kotlin.feature.feature.group"
-          versionRange="[0.8.5,1.0.0)"/>
-      <repository
-          url="https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/0.8.9/"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
         label="Spotbugs">
       <requirement
           name="com.github.spotbugs.plugin.eclipse.feature.group"/>
