@@ -107,49 +107,7 @@ public class EclipseInstallerPatchINI {
 			"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees",
 			"-Dsetup.p2.agent="
 		});
-		
-		iniSuffix.put("IDEfix.cec.1812", new String[] {
-				"-Doomph.setup.installer.mode=advanced",
-				"-Doomph.setup.stats.skip=true",
-				"-Doomph.setup.installer.p2pool=true",
-				"-Doomph.setup.installer.launch=true",
-				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
-				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.product.idefix.setup",
-				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/1812/catalog.project.cec.setup",
-				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
-				"-Doomph.setup.product.filter=(.*oxygen.*)",
-				"-Doomph.setup.product.version.filter=(.*1812.*)",
-				"-Doomph.setup.jre.choice=false",
-				"-Dsetup.p2.agent="	
-			});
-			
-		iniSuffix.put("daimler.cec.182", new String[] {
-			"-Doomph.setup.installer.mode=advanced",
-			"-Doomph.setup.installer.p2pool=true",
-			"-Doomph.setup.installer.launch=true",
-			"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
-			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProducts.setup",
-			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.cec/182/catalogProjects.setup",
-			"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
-			"-Doomph.setup.product.filter=(.*idefix).*",
-			"-Doomph.setup.product.version.filter=(.*idefix.*)",
-			"-Dsetup.p2.agent="	
-		});
-		
-		iniSuffix.put("daimler.ec.182", new String[] {
-				"-Doomph.setup.installer.mode=advanced",
-				"-Doomph.setup.installer.p2pool=true",
-				"-Doomph.setup.installer.launch=true",
-				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
-				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/182/catalogProducts.setup",
-				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler.ec/182/catalogProjects.setup",
-				"-Doomph.setup.product.catalog.filter=com\\\\.daimler\\\\.products",
-				"-Doomph.setup.product.filter=(.*idefix).*",
-				"-Doomph.setup.product.version.filter=.*?(appdev).*?",
-				"-Dsetup.p2.agent="
-			});
-
-		iniSuffix.put("IDEfix.1906", new String[] {
+		iniSuffix.put("IDEfix.fw.1912", new String[] {
 				"-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true",
 				"-Doomph.setup.installer.p2pool=true",
@@ -159,7 +117,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalog.project.cec.setup",
 				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
 				"-Doomph.setup.product.filter=(.*idefix.*)",
-				"-Doomph.setup.product.version.filter=(.*1906.*)",
+				"-Doomph.setup.product.version.filter=(.*1912.*)",
 				"-Doomph.setup.jre.choice=false",
 				"-Dsetup.p2.agent="	
 			});
