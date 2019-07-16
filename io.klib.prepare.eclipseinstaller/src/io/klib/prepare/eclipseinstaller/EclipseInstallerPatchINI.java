@@ -43,7 +43,6 @@ import org.apache.commons.compress.utils.IOUtils;
 import org.eclipse.oomph.extractor.lib.BINExtractor;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
-import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 
