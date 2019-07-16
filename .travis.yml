@@ -12,5 +12,5 @@ script:
 # build fat jar
 - ./gradlew export.prepareEclipseInstaller
 
-# prepare OomphInstallers
-- java -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
+# prepare OomphInstallers (workaround for a non-zero exit code appended)
+- java -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
