@@ -1,3 +1,5 @@
+https://travis-ci.org/peterkir/idefix.svg?branch=master
+
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/peterkir/idefix?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # IDEfix
