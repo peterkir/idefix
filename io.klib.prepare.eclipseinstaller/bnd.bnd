@@ -4,10 +4,11 @@
 	osgi.annotation;version=6.0.1,\
 	org.eclipse.oomph.extractor.lib;version=1.3,\
 	org.apache.commons.compress;version=1.6,\
-	org.tukaani.xz;version=1.5
+	org.tukaani.xz;version=1.5,\
+	slf4j.api;version=1.7
 
 -testpath: \
-	osgi.enroute.junit.wrapper
+	${junit}
 
 javac.source: 1.8
 javac.target: 1.8

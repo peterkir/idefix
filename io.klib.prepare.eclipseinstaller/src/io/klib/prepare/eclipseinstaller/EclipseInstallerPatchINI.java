@@ -41,7 +41,7 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 import org.apache.commons.compress.utils.IOUtils;
 import org.eclipse.oomph.extractor.lib.BINExtractor;
-import org.osgi.application.Framework;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
@@ -51,42 +51,52 @@ import org.osgi.service.component.annotations.Component;
 @Component
 public class EclipseInstallerPatchINI {
 
-	private static final String DL_PROD    = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
-	
-	// format: archive name, download URL, oomph archive name, IDEfix archive name, setup.p2.agent location
-	
+	private static final String DL_PROD = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
+
+	// format: archive name, download URL, oomph archive name, IDEfix archive name,
+	// setup.p2.agent location
+
 	String[][] archives = {
-		{ "prod.macosx.x86-64",   DL_PROD,    "eclipse-inst-mac64.tar.gz",   "IDEfix.inst.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"   },
-		{ "prod.linux.x86-64",    DL_PROD,    "eclipse-inst-linux64.tar.gz", "IDEfix.inst.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"   },
-//		{ "prod.linux.x86",       DL_PROD,    "eclipse-inst-linux32.tar.gz", "IDEfix.inst.linux.x86.tar.gz",     "@user.home/oomph/.p2"   },
-		{ "prod.win32.x86-64",    DL_PROD,    "eclipse-inst-win64.exe",      "IDEfix.inst.win32.x86-64.exe",     "C:/IDEfix/.p2" },
-//		{ "prod.win32.x86",       DL_PROD,    "eclipse-inst-win32.exe",      "IDEfix.inst.win32.x86.exe",        "C:/IDEfix/.p2" },
+			{ "prod.macosx.x86-64", DL_PROD, "eclipse-inst-mac64.tar.gz", "IDEfix.inst.macosx.x86-64.tar.gz",
+					"@user.home/oomph/.p2" },
+			{ "prod.linux.x86-64", DL_PROD, "eclipse-inst-linux64.tar.gz", "IDEfix.inst.linux.x86-64.tar.gz",
+					"@user.home/oomph/.p2" },
+			// { "prod.linux.x86", DL_PROD, "eclipse-inst-linux32.tar.gz",
+			// "IDEfix.inst.linux.x86.tar.gz", "@user.home/oomph/.p2" },
+			{ "prod.win32.x86-64", DL_PROD, "eclipse-inst-win64.exe", "IDEfix.inst.win32.x86-64.exe", "C:/IDEfix/.p2" },
+			// { "prod.win32.x86", DL_PROD, "eclipse-inst-win32.exe",
+			// "IDEfix.inst.win32.x86.exe", "C:/IDEfix/.p2" },
 	};
 
 	private static final String DL_NIGHTLY = "http://www.eclipse.org/downloads/download.php?file=/oomph/products/latest";
 	String[][] archivesNightly = {
-//		{ "nightly.macosx.x86-64", DL_NIGHTLY, "eclipse-inst-mac64.tar.gz",   "eclipse-inst-nightly.macosx.x86-64.tar.gz", "@user.home/oomph/.p2"  },
-//		{ "nightly.linux.x86-64",  DL_NIGHTLY, "eclipse-inst-linux64.tar.gz", "eclipse-inst-nightly.linux.x86-64.tar.gz",  "@user.home/oomph/.p2"  },
-//		{ "nightly.linux.x86",     DL_NIGHTLY, "eclipse-inst-linux32.tar.gz", "eclipse-inst-nightly.linux.x86.tar.gz",     "@user.home/oomph/.p2"  },
-//		{ "nightly.win32.x86-64",  DL_NIGHTLY, "eclipse-inst-win64.exe",      "eclipse-inst-nightly.win32.x86-64.exe",     "C:/IDEfix/.p2" },
-//		{ "nightly.win32.x86",     DL_NIGHTLY, "eclipse-inst-win32.exe",      "eclipse-inst-nightly.win32.x86.exe",        "C:/IDEfix/.p2" },
+			// { "nightly.macosx.x86-64", DL_NIGHTLY, "eclipse-inst-mac64.tar.gz",
+			// "eclipse-inst-nightly.macosx.x86-64.tar.gz", "@user.home/oomph/.p2" },
+			// { "nightly.linux.x86-64", DL_NIGHTLY, "eclipse-inst-linux64.tar.gz",
+			// "eclipse-inst-nightly.linux.x86-64.tar.gz", "@user.home/oomph/.p2" },
+			// { "nightly.linux.x86", DL_NIGHTLY, "eclipse-inst-linux32.tar.gz",
+			// "eclipse-inst-nightly.linux.x86.tar.gz", "@user.home/oomph/.p2" },
+			// { "nightly.win32.x86-64", DL_NIGHTLY, "eclipse-inst-win64.exe",
+			// "eclipse-inst-nightly.win32.x86-64.exe", "C:/IDEfix/.p2" },
+			// { "nightly.win32.x86", DL_NIGHTLY, "eclipse-inst-win32.exe",
+			// "eclipse-inst-nightly.win32.x86.exe", "C:/IDEfix/.p2" },
 	};
 
 	private static final String ECL_DL_SUFFIX = "&r=1";
 
-	private static final String EXTRACTOR_EXE    = "extractor.exe";
-	private static final String EXTRACTOR_LIB    = "extractorlib.jar";
-	private static final String DESCRIPTOR       = "product-descriptor";
-	private static final String PRODUCT          = "product.zip";
-	private static final String MARKER           = "marker.txt";
+	private static final String EXTRACTOR_EXE = "extractor.exe";
+	private static final String EXTRACTOR_LIB = "extractorlib.jar";
+	private static final String DESCRIPTOR = "product-descriptor";
+	private static final String PRODUCT = "product.zip";
+	private static final String MARKER = "marker.txt";
 
 	private static final String ECLIPSE_INST_INI = "eclipse-inst.ini";
 
-	private static final String SEP           = File.separator;
-	private static final String DIR           = System.getProperty("user.dir");
-	private static final String wrkDir        = DIR + SEP + "_wrk";
+	private static final String SEP = File.separator;
+	private static final String DIR = System.getProperty("user.dir");
+	private static final String wrkDir = DIR + SEP + "_wrk";
 	private static final String resultRootDir = DIR + SEP + "_result";
-	
+
 	private static final String ts = DateTimeFormatter.ofPattern("yyyyMMdd-HHmm").format(LocalDateTime.now());
 	private static final String resultVariantDir = resultRootDir + SEP + ts;
 
@@ -95,54 +105,45 @@ public class EclipseInstallerPatchINI {
 	private static final HashMap<String, String[]> iniSuffix = new LinkedHashMap<String, String[]>();
 
 	public EclipseInstallerPatchINI() {
-		iniSuffix.put("peterkir", new String[] { 
-			"-Doomph.setup.installer.mode=advanced",
-			"-Doomph.setup.installer.p2pool=true", 
-			"-Doomph.setup.installer.launch=true",
-			"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
-			"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup",
-			"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup",
-			"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
-			"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
-			"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees",
-			"-Dsetup.p2.agent="
-		});
-		iniSuffix.put("IDEfix.fw.1912", new String[] {
-				"-Doomph.setup.installer.mode=advanced",
-				"-Doomph.setup.stats.skip=true",
-				"-Doomph.setup.installer.p2pool=true",
+		iniSuffix.put("peterkir", new String[] { "-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.installer.p2pool=true", "-Doomph.setup.installer.launch=true",
+				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
+				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup",
+				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProjects.setup",
+				"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
+				"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
+				"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees", "-Dsetup.p2.agent=" });
+		iniSuffix.put("IDEfix.fw.1912", new String[] { "-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
 				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalog.product.idefix.setup",
 				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalog.project.cec.setup",
 				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
-				"-Doomph.setup.product.filter=(.*idefix.*)",
-				"-Doomph.setup.product.version.filter=(.*1912.*)",
-				"-Doomph.setup.jre.choice=false",
-				"-Dsetup.p2.agent="	
-			});
-	
-};
+				"-Doomph.setup.product.filter=(.*idefix.*)", "-Doomph.setup.product.version.filter=(.*1912.*)",
+				"-Doomph.setup.jre.choice=false", "-Dsetup.p2.agent=" });
+
+	};
 
 	@Activate
-	public void activate() {
+	public void activate(BundleContext ctx) {
 
 		createWorkingDirs();
-		
+
 		for (int archiveIndex = 0; archiveIndex < archives.length; archiveIndex++) {
 
-			String productVersion     = archives[archiveIndex][0];
-			String sourceUrl          = archives[archiveIndex][1];
-			String archiveName        = archives[archiveIndex][2];
+			String productVersion = archives[archiveIndex][0];
+			String sourceUrl = archives[archiveIndex][1];
+			String archiveName = archives[archiveIndex][2];
 			String patchedArchiveName = archives[archiveIndex][3];
-			String p2PoolPath         = archives[archiveIndex][4];
+			String p2PoolPath = archives[archiveIndex][4];
 
-			String downloadDir = wrkDir + SEP + "1_download"    + SEP + productVersion;
-			String extractDir  = wrkDir + SEP + "2_extracted"   + SEP + productVersion;
-			String patchDir    = wrkDir + SEP + "3_patched_INI" + SEP + productVersion;
+			String downloadDir = wrkDir + SEP + "1_download" + SEP + productVersion;
+			String extractDir = wrkDir + SEP + "2_extracted" + SEP + productVersion;
+			String patchDir = wrkDir + SEP + "3_patched_INI" + SEP + productVersion;
 
 			iniSuffix.forEach((variant, iniSuffix) -> {
-				
+
 				String resultDir = resultVariantDir + SEP + variant;
 				System.out.format("# processing variant <%s> product version <%s>\n", variant, productVersion);
 
@@ -153,70 +154,32 @@ public class EclipseInstallerPatchINI {
 				case "win64":
 					extractExe(downloadDir + SEP + archiveName, extractDir);
 
-					patchIniInZip(
-						patchDir, 
-						extractDir + SEP + PRODUCT, 
-						ECLIPSE_INST_INI, 
-						p2PoolPath, 
-						iniSuffix
-					);
-					
-					replaceWithPatchedINI(
-						extractDir + SEP + PRODUCT, 
-						patchDir + SEP + ECLIPSE_INST_INI, 
-						SEP + ECLIPSE_INST_INI
-					);
-					
-					packPatchedExe(
-						patchedArchiveName, 
-						extractDir, 
-						resultDir
-					);
+					patchIniInZip(patchDir, extractDir + SEP + PRODUCT, ECLIPSE_INST_INI, p2PoolPath, iniSuffix);
+
+					replaceWithPatchedINI(extractDir + SEP + PRODUCT, patchDir + SEP + ECLIPSE_INST_INI,
+							SEP + ECLIPSE_INST_INI);
+
+					packPatchedExe(patchedArchiveName, extractDir, resultDir);
 					break;
 
 				case "mac64":
-					extractTarGz(
-						downloadDir, 
-						archiveName, 
-						extractDir
-					);
-					String iniFile = extractDir + SEP + "Eclipse Installer.app/Contents/Eclipse"+ SEP + ECLIPSE_INST_INI;
-					patchIni(
-						patchDir, 
-						iniFile, 
-						p2PoolPath, 
-						iniSuffix
-					);
-					
-					packPatchedTarGz(
-						patchedArchiveName, 
-						extractDir, 
-						resultDir
-					);
-					
+					extractTarGz(downloadDir, archiveName, extractDir);
+					String iniFile = extractDir + SEP + "Eclipse Installer.app/Contents/Eclipse" + SEP
+							+ ECLIPSE_INST_INI;
+					patchIni(patchDir, iniFile, p2PoolPath, iniSuffix);
+
+					packPatchedTarGz(patchedArchiveName, extractDir, resultDir);
+
 					break;
 
 				case "linux64":
-					extractTarGz(
-							downloadDir, 
-							archiveName, 
-							extractDir
-					);
-                    iniFile = extractDir + SEP + "eclipse-installer"+ SEP + ECLIPSE_INST_INI;
-                    patchIni(
-                    	patchDir, 
-                    	iniFile, 
-                    	p2PoolPath, 
-                    	iniSuffix
-                    );
-						
-                    packPatchedTarGz(
-                    	patchedArchiveName, 
-                    	extractDir, 
-                    	resultDir
-                    );
-				
-                    break;
+					extractTarGz(downloadDir, archiveName, extractDir);
+					iniFile = extractDir + SEP + "eclipse-installer" + SEP + ECLIPSE_INST_INI;
+					patchIni(patchDir, iniFile, p2PoolPath, iniSuffix);
+
+					packPatchedTarGz(patchedArchiveName, extractDir, resultDir);
+
+					break;
 
 				default:
 					System.out.format("No strategy for archive <%s> with suffix <%s>", archiveName, archiveSuffix);
@@ -232,10 +195,10 @@ public class EclipseInstallerPatchINI {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("done");
 		try {
-			FrameworkUtil.getBundle(FrameworkUtil.class).getBundleContext().getBundle(0).stop();
+			ctx.getBundle(0).stop();
 		} catch (BundleException e) {
 			e.printStackTrace();
 		}
@@ -243,46 +206,53 @@ public class EclipseInstallerPatchINI {
 
 	private void updateIndexFile() {
 		StringBuffer sb = new StringBuffer();
-		sb.append(String.format("<html>\n<head>\n<title>IDEfix installers</title>\n</head>\n<body>\n",ts));
+		sb.append(String.format("<html>\n<head>\n<title>IDEfix installers</title>\n</head>\n<body>\n", ts));
 		sb.append("<h1>Pre-Requisites</h1>\n");
 		sb.append("<p>Download and install the latest Java SDK version (minimum Java 8)</p>\n");
-		
-		sb.append("<a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html'>Java SDK Download</a>\n");
+
+		sb.append(
+				"<a href='http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html'>Java SDK Download</a>\n");
 		sb.append("<h1>IDEfix installers</h1>\n");
 		sb.append("<p>Download and store the executable for your platform locally and run it.\n");
 		Path resultRootPath = Paths.get(resultRootDir);
-		
+
 		try {
-			Files.list(resultRootPath).filter( f ->
-					!f.toFile().getName().startsWith(".") && 
-					!f.toFile().getName().endsWith("index.html")
-				).forEach(version -> {
-				sb.append(String.format("<h2>Version %s</h2>\n",resultRootPath.relativize(version)));
-				if (version.toFile().isDirectory() ) {
-					try {
-						Files.list(version).filter(f->!f.toFile().getName().startsWith(".")).forEach(customer -> {
-							sb.append(String.format("    <h2>Customer %s</h2>\n", version.relativize(customer)));
-							if (customer.toFile().isDirectory()) {
-								try {
-									Files.list(customer).filter( f -> 
-										!f.toFile().getName().startsWith(".") 
-										&& f.toFile().isFile()).forEach( os -> {
-											if ( !os.toString().startsWith(".") )
-													sb.append(String.format("        <a href='%s'>%s</a><br/>\n", resultRootPath.relativize(os),customer.relativize(os)));
-									});
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
+			Files.list(resultRootPath)
+					.filter(f -> !f.toFile().getName().startsWith(".") && !f.toFile().getName().endsWith("index.html"))
+					.forEach(version -> {
+						sb.append(String.format("<h2>Version %s</h2>\n", resultRootPath.relativize(version)));
+						if (version.toFile().isDirectory()) {
+							try {
+								Files.list(version).filter(f -> !f.toFile().getName().startsWith("."))
+										.forEach(customer -> {
+											sb.append(String.format("    <h2>Customer %s</h2>\n",
+													version.relativize(customer)));
+											if (customer.toFile().isDirectory()) {
+												try {
+													Files.list(customer)
+															.filter(f -> !f.toFile().getName().startsWith(".")
+																	&& f.toFile().isFile())
+															.forEach(os -> {
+																if (!os.toString().startsWith("."))
+																	sb.append(String.format(
+																			"        <a href='%s'>%s</a><br/>\n",
+																			resultRootPath.relativize(os),
+																			customer.relativize(os)));
+															});
+												} catch (IOException e) {
+													e.printStackTrace();
+												}
+											}
+										});
+							} catch (IOException e) {
+								e.printStackTrace();
 							}
-						});
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			});
+						}
+					});
 			sb.append("</body>\n</html>");
 			System.out.println(sb.toString());
-			Files.write(resultRootPath.resolve("index.html"), sb.toString().getBytes(Charset.forName("UTF-8")), StandardOpenOption.CREATE,StandardOpenOption.WRITE);
+			Files.write(resultRootPath.resolve("index.html"), sb.toString().getBytes(Charset.forName("UTF-8")),
+					StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -290,9 +260,8 @@ public class EclipseInstallerPatchINI {
 
 	private void patchIni(String patchDir, String iniFile, String p2PoolPath, String[] iniSuffixArguments) {
 		try {
-			String suffix = (
-				Arrays.asList(iniSuffixArguments).stream().collect(Collectors.joining(System.lineSeparator()))
-			);
+			String suffix = (Arrays.asList(iniSuffixArguments).stream()
+					.collect(Collectors.joining(System.lineSeparator())));
 			suffix = suffix.replace("-Dsetup.p2.agent=", "-Dsetup.p2.agent=" + p2PoolPath);
 			Path filePathName = new File(iniFile).toPath();
 			Files.write(filePathName, suffix.getBytes("utf-8"), StandardOpenOption.APPEND);
@@ -328,7 +297,7 @@ public class EclipseInstallerPatchINI {
 					try {
 						if (Files.isExecutable(FileSystems.getDefault().getPath(file.getAbsolutePath()))) {
 							tarEntry.setMode(493);
-					      }
+						}
 						tarArchiveOutputStream.putArchiveEntry(tarEntry);
 						tarArchiveOutputStream.write(IOUtils.toByteArray(new FileInputStream(file)));
 						tarArchiveOutputStream.closeArchiveEntry();
@@ -359,7 +328,7 @@ public class EclipseInstallerPatchINI {
 	private void extractTarGz(String downloadDir, String archiveName, String extractDir) {
 
 		System.out.format("  2. extracting %s into %s\n", archiveName, extractDir);
-		
+
 		new File(extractDir).mkdirs();
 		try {
 			File file = new File(downloadDir + SEP + archiveName);
@@ -387,11 +356,12 @@ public class EclipseInstallerPatchINI {
 								dest.write(data, 0, count);
 							}
 							dest.close();
-							if (entry.getMode()==493) {
+							if (entry.getMode() == 493) {
 								System.out.format("     set execution right file - %s\n", entry);
 								new File(filename).setExecutable(true);
 							}
-							System.out.format("     extracted file %s with permissions %s\n", entry.getName(), entry.getMode());
+							System.out.format("     extracted file %s with permissions %s\n", entry.getName(),
+									entry.getMode());
 						}
 					}
 				}
@@ -429,7 +399,8 @@ public class EclipseInstallerPatchINI {
 		System.out.format("  4. replacing INI file with patched one inside %s \n", zipArchive);
 	}
 
-	private void patchIniInZip(String extractDir, String jarName, String filename, String p2PoolPath, String[] iniSuffixArguments) {
+	private void patchIniInZip(String extractDir, String jarName, String filename, String p2PoolPath,
+			String[] iniSuffixArguments) {
 		JarFile jar = null;
 		try {
 			jar = new JarFile(jarName);
@@ -458,9 +429,8 @@ public class EclipseInstallerPatchINI {
 				is.close();
 				fos.close();
 
-				String suffix = (
-					Arrays.asList(iniSuffixArguments).stream().collect(Collectors.joining(System.lineSeparator()))
-				);
+				String suffix = (Arrays.asList(iniSuffixArguments).stream()
+						.collect(Collectors.joining(System.lineSeparator())));
 				suffix = suffix.replace("-Dsetup.p2.agent=", "-Dsetup.p2.agent=" + p2PoolPath);
 				Files.write(f.toPath(), suffix.getBytes("utf-8"), StandardOpenOption.APPEND);
 				System.out.format("  3. creating patched ini file inside %s \n", filePathName);
@@ -475,21 +445,15 @@ public class EclipseInstallerPatchINI {
 
 		System.out.format("  2. extracting %s into %s\n", executable, targetFolder);
 
-		String markerFile     = MARKER;
-		String productFile    = PRODUCT;
-		String extractorFile  = EXTRACTOR_EXE;
-		String libdataFile    = EXTRACTOR_LIB;
+		String markerFile = MARKER;
+		String productFile = PRODUCT;
+		String extractorFile = EXTRACTOR_EXE;
+		String libdataFile = EXTRACTOR_LIB;
 		String descriptorFile = DESCRIPTOR;
 
-		String[] args = new String[] { 
-			executable, 
-			targetFolder + SEP + productFile, 
-			"-export",
-			targetFolder + SEP + markerFile, 
-			targetFolder + SEP + extractorFile, 
-			targetFolder + SEP + libdataFile,
-			targetFolder + SEP + descriptorFile 
-		};
+		String[] args = new String[] { executable, targetFolder + SEP + productFile, "-export",
+				targetFolder + SEP + markerFile, targetFolder + SEP + extractorFile, targetFolder + SEP + libdataFile,
+				targetFolder + SEP + descriptorFile };
 		try {
 			BINExtractor.main(args);
 		} catch (Exception e) {
@@ -498,10 +462,10 @@ public class EclipseInstallerPatchINI {
 		if (executable.contains("win64")) {
 			try {
 				System.out.println("     --> replacing executable with signed version");
-				Path source = Paths.get(DIR,"signed_extractor/win64/extractor.exe");
-				Path destination = Paths.get(wrkDir,"2_extracted/prod.win32.x86-64/extractor.exe");
+				Path source = Paths.get(DIR, "signed_extractor/win64/extractor.exe");
+				Path destination = Paths.get(wrkDir, "2_extracted/prod.win32.x86-64/extractor.exe");
 				if (source.toFile().exists()) {
-					Path copy = Files.copy(source,destination, StandardCopyOption.REPLACE_EXISTING);
+					Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
 				} else {
 					System.out.println("no source file exists " + source);
 				}
