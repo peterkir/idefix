@@ -1,3 +1,5 @@
+_wrk/
+_result/
 .gradle/
 */generated/
 */bin/
