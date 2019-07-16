@@ -3,14 +3,14 @@ sudo: false
 language: java
 
 jdk:
-  - openjdk8
+- openjdk8
 
 install: ./gradlew --version
 
 script: 
 
 # build fat jar
-./gradlew export.prepareEclipseInstaller
+- ./gradlew export.prepareEclipseInstaller
 
 # prepare OomphInstallers
-java -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
+- java -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
