@@ -35,3 +35,6 @@ deploy:
   file_glob: true
   file: _result/**/*
   skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|develop)$
