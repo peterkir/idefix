@@ -26,6 +26,7 @@ before_deploy:
 - git config --local user.email "peter@kirschners.de"
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
 - if [[ "$TRAVIS_BRANCH"=="master" ]]; then export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}; else export TRAVIS_TAG=$version.SNAPSHOT;fi
+- echo TRAVIS_TAG=$TRAVIS_TAG
 - git tag $TRAVIS_TAG
 
 deploy:
