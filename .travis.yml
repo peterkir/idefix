@@ -25,16 +25,15 @@ before_deploy:
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
-- if [[ "$TRAVIS_BRANCH"=="master" ]]; 
-    then
-      export draft=false
-      export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}; 
-      echo "creating a release $TRAVIS_TAG"
-    else 
-      export draft=true
-      export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}.SNAPSHOT; 
-      echo "creating a prerelease/developer/snapshot release $TRAVIS_TAG"
+- >
+  if [[ "$TRAVIS_BRANCH"=="master" ]]; then
+    export draft=false
+    export snapshot=
+  else 
+    export draft=true
+    export snapshot=.SNAPSHOT
   fi
+- export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}$snapshot 
 - git tag $TRAVIS_TAG
 
 deploy:
