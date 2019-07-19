@@ -10,7 +10,7 @@ javac.target:           1.8
 javac.compliance:       1.8
 javac.debug:            on
 
-base.version=0.1.0
+base.version=0.2.0
 
 ########################
 ## REPOSITORY SETTINGS ##
