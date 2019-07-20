@@ -41,8 +41,8 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 import org.apache.commons.compress.utils.IOUtils;
 import org.eclipse.oomph.extractor.lib.BINExtractor;
-import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 
@@ -50,21 +50,23 @@ import org.osgi.service.component.annotations.Component;
 @Component
 public class EclipseInstallerPatchINI {
 
+	private static final String USCORE = "_";
+
 	private static final String DL_PROD = "http://www.eclipse.org/downloads/download.php?file=/oomph/products";
 
 	// format: archive name, download URL, oomph archive name, IDEfix archive name,
 	// setup.p2.agent location
 
 	String[][] archives = {
-			{ "prod.macosx.x86-64", DL_PROD, "eclipse-inst-mac64.tar.gz", "IDEfix.inst.macosx.x86-64.tar.gz",
+			{ "prod.macosx.x86-64", DL_PROD, "eclipse-inst-mac64.tar.gz", "macosx.x86-64.tar.gz",
 					"@user.home/oomph/.p2" },
-			{ "prod.linux.x86-64", DL_PROD, "eclipse-inst-linux64.tar.gz", "IDEfix.inst.linux.x86-64.tar.gz",
+			{ "prod.linux.x86-64", DL_PROD, "eclipse-inst-linux64.tar.gz", "linux.x86-64.tar.gz",
 					"@user.home/oomph/.p2" },
 			// { "prod.linux.x86", DL_PROD, "eclipse-inst-linux32.tar.gz",
-			// "IDEfix.inst.linux.x86.tar.gz", "@user.home/oomph/.p2" },
-			{ "prod.win32.x86-64", DL_PROD, "eclipse-inst-win64.exe", "IDEfix.inst.win32.x86-64.exe", "C:/IDEfix/.p2" },
+			// ".linux.x86.tar.gz", "@user.home/oomph/.p2" },
+			{ "prod.win32.x86-64", DL_PROD, "eclipse-inst-win64.exe", "win32.x86-64.exe", "C:/IDEfix/.p2" },
 			// { "prod.win32.x86", DL_PROD, "eclipse-inst-win32.exe",
-			// "IDEfix.inst.win32.x86.exe", "C:/IDEfix/.p2" },
+			// ".win32.x86.exe", "C:/IDEfix/.p2" },
 	};
 
 	private static final String DL_NIGHTLY = "http://www.eclipse.org/downloads/download.php?file=/oomph/products/latest";
@@ -96,15 +98,17 @@ public class EclipseInstallerPatchINI {
 	private static final String wrkDir = DIR + SEP + "_wrk";
 	private static final String resultRootDir = DIR + SEP + "_result";
 
-	private static final String ts = DateTimeFormatter.ofPattern("yyyyMMdd-HHmm").format(LocalDateTime.now());
+	private static final String ts = System.getProperty("timestamp",
+			DateTimeFormatter.ofPattern("yyyyMMdd-HHmm").format(LocalDateTime.now()));
 	private static final String resultVariantDir = resultRootDir + SEP + ts;
 
 	private static final int BUFFER_SIZE = 4096;
 
-	private static final HashMap<String, String[]> iniSuffix = new LinkedHashMap<String, String[]>();
+	private static final HashMap<String, String[]> prodVariant = new LinkedHashMap<String, String[]>();
 
 	public EclipseInstallerPatchINI() {
-		iniSuffix.put("peterkir", new String[] { "-Doomph.setup.installer.mode=advanced",
+
+		prodVariant.put("peterkir", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.installer.p2pool=true", "-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
 				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup",
@@ -112,7 +116,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
 				"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
 				"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees", "-Dsetup.p2.agent=" });
-		iniSuffix.put("IDEfix.fw.1912", new String[] { "-Doomph.setup.installer.mode=advanced",
+		prodVariant.put("fw.1912", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
@@ -125,7 +129,7 @@ public class EclipseInstallerPatchINI {
 	};
 
 	@Activate
-	public void activate(BundleContext ctx) {
+	public void activate() {
 
 		createWorkingDirs();
 
@@ -134,17 +138,18 @@ public class EclipseInstallerPatchINI {
 			String productVersion = archives[archiveIndex][0];
 			String sourceUrl = archives[archiveIndex][1];
 			String archiveName = archives[archiveIndex][2];
-			String patchedArchiveName = archives[archiveIndex][3];
 			String p2PoolPath = archives[archiveIndex][4];
 
 			String downloadDir = wrkDir + SEP + "1_download" + SEP + productVersion;
 			String extractDir = wrkDir + SEP + "2_extracted" + SEP + productVersion;
 			String patchDir = wrkDir + SEP + "3_patched_INI" + SEP + productVersion;
 
-			iniSuffix.forEach((variant, iniSuffix) -> {
+			for (String prod : prodVariant.keySet()) {
 
-				String resultDir = resultVariantDir + SEP + variant;
-				System.out.format("# processing variant <%s> product version <%s>\n", variant, productVersion);
+				String patchedArchiveName = "IDEfix" + USCORE + prod + USCORE + archives[archiveIndex][3];
+				String[] iniSuffix = prodVariant.get(prod);
+				String resultDir = resultVariantDir + SEP + prod;
+				System.out.format("# processing variant <%s> product version <%s>\n", prod, productVersion);
 
 				download(sourceUrl, downloadDir, archiveName, ECL_DL_SUFFIX);
 
@@ -184,8 +189,8 @@ public class EclipseInstallerPatchINI {
 					System.out.format("No strategy for archive <%s> with suffix <%s>", archiveName, archiveSuffix);
 					break;
 				}
-
-			});
+			}
+			;
 		}
 
 		updateIndexFile();
@@ -197,7 +202,7 @@ public class EclipseInstallerPatchINI {
 
 		System.out.println("done");
 		try {
-			ctx.getBundle(0).stop();
+			FrameworkUtil.getBundle(FrameworkUtil.class).getBundleContext().getBundle(0).stop();
 		} catch (BundleException e) {
 			e.printStackTrace();
 		}
@@ -464,7 +469,7 @@ public class EclipseInstallerPatchINI {
 				Path source = Paths.get(DIR, "signed_extractor/win64/extractor.exe");
 				Path destination = Paths.get(wrkDir, "2_extracted/prod.win32.x86-64/extractor.exe");
 				if (source.toFile().exists()) {
-					Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+					Path copy = Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
 				} else {
 					System.out.println("no source file exists " + source);
 				}
