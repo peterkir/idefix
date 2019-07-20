@@ -18,7 +18,7 @@ script:
 - ./gradlew export.prepareEclipseInstaller
 
 # prepare OomphInstallers (workaround for a non-zero exit code appended)
-- export DATE=`$(date +'%Y%m%d%H%M%S'`
+- export DATE=`$(date +'%Y%m%d%H%M%S')`
 - >
   java 
   -Dtimestamp=$DATE
