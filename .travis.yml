@@ -25,7 +25,11 @@ before_deploy:
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
-- if [[ "$TRAVIS_BRANCH"=="master" ]]; then  export prerelease=false && export snapshot= else export prerelease=true &&export snapshot=.SNAPSHOT fi
+- >
+  if [ "${TRAVIS_BRANCH}" == "master" ]; then
+    export prerelease=false; 
+    export snapshot="";
+  fi
 - export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}$snapshot 
 - git tag $TRAVIS_TAG
 
