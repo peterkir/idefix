@@ -25,6 +25,8 @@ before_deploy:
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
+- export prerelease=false
+- export snapshot=""
 - >
   if [ "${TRAVIS_BRANCH}" == "master" ]; then
     export prerelease=false; 
