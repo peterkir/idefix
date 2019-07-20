@@ -26,14 +26,16 @@ before_deploy:
 - git config --local user.email "peter@kirschners.de"
 - export DATE=`$(date +'%Y%m%d%H%M%S'`
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
+- export tagstamp=.${TRAVIS_TAG:-$DATE)-$(git log --format=%h -1)}
 - export prerelease=true
 - export snapshot=".SNAPSHOT"
 - >
   if [ "${TRAVIS_BRANCH}" == "master" ]; then
+    export tagstamp=.$(git log --format=%h -1)}
     export prerelease=false; 
     export snapshot="";
   fi
-- export TRAVIS_TAG=$version.${TRAVIS_TAG:-$DATE)-$(git log --format=%h -1)}$snapshot 
+- export TRAVIS_TAG=$version$tagstamp$snapshot 
 - git tag $TRAVIS_TAG
 
 # release REL1
