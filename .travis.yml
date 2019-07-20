@@ -45,7 +45,7 @@ before_deploy:
 - export REL2="IDEfix.fw.1912"
 - export REL2_NAME="$REL2 $TRAVIS_TAG"
 - export REL2_CONTENT="t.b.d. - $REL2"
-
+trav
 deploy:
   provider: releases
   prerelease: $prerelease
