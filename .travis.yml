@@ -33,6 +33,8 @@ before_deploy:
     export snapshot="";
   fi
 - export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}$snapshot 
+- export RELEASE_NAME="IDEfix $TRAVIS_TAG"
+- export RELEASE_CONTENT="t.b.d."
 - git tag $TRAVIS_TAG
 
 deploy:
@@ -46,3 +48,5 @@ deploy:
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^(master|develop)$
+  name: $RELEASE_NAME
+  body: $RELEASE_CONTENT
