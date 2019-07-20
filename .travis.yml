@@ -24,6 +24,7 @@ before_deploy:
 # Set up git user name and tag this commit
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
+- export DATE=`$(date +'%Y%m%d%H%M%S'`
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
 - export prerelease=true
 - export snapshot=".SNAPSHOT"
@@ -32,10 +33,18 @@ before_deploy:
     export prerelease=false; 
     export snapshot="";
   fi
-- export TRAVIS_TAG=$version.${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}$snapshot 
-- export RELEASE_NAME="IDEfix $TRAVIS_TAG"
-- export RELEASE_CONTENT="t.b.d."
+- export TRAVIS_TAG=$version.${TRAVIS_TAG:-$DATE)-$(git log --format=%h -1)}$snapshot 
 - git tag $TRAVIS_TAG
+
+# release REL1
+- export REL1="IDEfix.fw.1912"
+- export REL1_NAME="$REL1 $TRAVIS_TAG"
+- export REL1_CONTENT="t.b.d. - $REL1"
+
+# release REL2
+- export REL2="IDEfix.fw.1912"
+- export REL2_NAME="$REL2 $TRAVIS_TAG"
+- export REL2_CONTENT="t.b.d. - $REL2"
 
 deploy:
   provider: releases
@@ -43,10 +52,24 @@ deploy:
   api_key:
     secure: In29qlp4RJ9P8Lo4dEZQCKWwaLGzVul/ElMf4kLdOg0MJBtVyTstMR+R61AfCM66VMeF2B1M2McadjOd5d2GWx8cWgPs5bR5tJJZuqztEX2aZYVj/OBO51vhHy3xFuS525JouzomVIuVeOXVIcEl0MarVKdU4lCMuAO8umJlprRJRNRo26B5iYQ2O06V11CxrLMWOfJM6eay7NdX2/W9LcchX7+aqvacjsJ7MX5KsA00AQjRZ9Mzv9nH0YJa6wAL+jDud0IIW1BE3+7IGeAovDwTjMXZY587BPQHFZS0+IBg5NR2qCK2uVVRx3L5qVEOUAEjIuU2I0LB8N4qWBcIEk4pfZXear9SfGm7W8b1PviwSdafmz6BdlQqPALlDfs/Pp+Z9bdU6jRR4H5GQg0dDp6KnO6P6ofuvNirb2JmygOGNC+cuTbgb5oIKfjcIgw5D/MCiJOntiPwUV4WyiewpzHY6mc4kUpRIXZe2T+ZK3UQzyf+JGpTmkKLOnNQ9xXXjJvaEgd8qGa0qX5ATWxZV4Y1KRH9pH0I6CZ+WrqjYM4Sj4aexamPp+PQPnHt7o6gnRy2Bnoz80vEVXoYKtMIwft4IJDvwc70UjUO7auPOzwHCLH7dAZ8YGey5D7wwU0tp3xk5NyDCm6NSRFrfN+tukz9RYwqI2skewIpLPIrJlE=
   file_glob: true
-  file: _result/**/*
+  file: _result/$DATE/$REL1/*
   skip_cleanup: true
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^(master|develop)$
-  name: $RELEASE_NAME
-  body: $RELEASE_CONTENT
+  name: $REL1_NAME
+  body: $REL1_CONTENT
+
+deploy:
+  provider: releases
+  prerelease: $prerelease
+  api_key:
+    secure: In29qlp4RJ9P8Lo4dEZQCKWwaLGzVul/ElMf4kLdOg0MJBtVyTstMR+R61AfCM66VMeF2B1M2McadjOd5d2GWx8cWgPs5bR5tJJZuqztEX2aZYVj/OBO51vhHy3xFuS525JouzomVIuVeOXVIcEl0MarVKdU4lCMuAO8umJlprRJRNRo26B5iYQ2O06V11CxrLMWOfJM6eay7NdX2/W9LcchX7+aqvacjsJ7MX5KsA00AQjRZ9Mzv9nH0YJa6wAL+jDud0IIW1BE3+7IGeAovDwTjMXZY587BPQHFZS0+IBg5NR2qCK2uVVRx3L5qVEOUAEjIuU2I0LB8N4qWBcIEk4pfZXear9SfGm7W8b1PviwSdafmz6BdlQqPALlDfs/Pp+Z9bdU6jRR4H5GQg0dDp6KnO6P6ofuvNirb2JmygOGNC+cuTbgb5oIKfjcIgw5D/MCiJOntiPwUV4WyiewpzHY6mc4kUpRIXZe2T+ZK3UQzyf+JGpTmkKLOnNQ9xXXjJvaEgd8qGa0qX5ATWxZV4Y1KRH9pH0I6CZ+WrqjYM4Sj4aexamPp+PQPnHt7o6gnRy2Bnoz80vEVXoYKtMIwft4IJDvwc70UjUO7auPOzwHCLH7dAZ8YGey5D7wwU0tp3xk5NyDCm6NSRFrfN+tukz9RYwqI2skewIpLPIrJlE=
+  file_glob: true
+  file: _result/$DATE/$REL2/*
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|develop)$
+  name: $REL2_NAME
+  body: $REL2_CONTENT
