@@ -16,23 +16,22 @@ script:
 - ./gradlew export.prepareEclipseInstaller
 
 # prepare OomphInstallers (workaround for a non-zero exit code appended)
-- export DATE=$(date +'%Y%m%d-%H%M%S')
+- export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2` 
+- export currDate=$(date +'%Y%m%d-%H%M%S')
+- export gitTag=$(git log --format=%h -1)
+- export snapshot=".SNAPSHOT"
+- export prerelease=true
 - >
   java 
-  -Dtimestamp=$DATE
+  -Dtimestamp=${currDate}
   -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
 
 before_deploy:
 # Set up git user name and tag this commit
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
-- export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
-- export tagstamp=.${TRAVIS_TAG:-$DATE)_$(git log --format=%h -1)
-- export prerelease=true
-- export snapshot=".SNAPSHOT"
 - >
   if [ "${TRAVIS_BRANCH}" == "master" ]; then
-    export tagstamp=.$(git log --format=%h -1)
     export prerelease=false; 
     export snapshot="";
   fi
