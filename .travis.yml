@@ -12,10 +12,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script: 
-# build fat jar
 - ./gradlew export.prepareEclipseInstaller
-
-# prepare OomphInstallers (workaround for a non-zero exit code appended)
 - >
   export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`;
   export currDate=`date +'%Y%m%d-%H%M%S'`;
@@ -25,6 +22,7 @@ script:
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot};
   echo "TRAVIS_TAG=${TRAVIS_TAG}";
   env | sort
+# prepare OomphInstallers (workaround for a non-zero exit code appended)
 #  java 
 #  -Dtimestamp=${currDate} 
 #  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
@@ -45,7 +43,6 @@ before_deploy:
 - export RELEASE="IDEfix"
 - export RELEASE_NAME="$RELEASE $TRAVIS_TAG"
 - export RELEASE_CONTENT="t.b.d. - $RELEASE"
-- echo "creating deployment for $RELEASE_NAME with $TRAVIS_TAG"
 - env | sort
 
 deploy:
