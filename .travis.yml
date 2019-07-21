@@ -21,8 +21,7 @@ script:
   export prerelease=true;
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot};
   echo "TRAVIS_TAG=${TRAVIS_TAG}";
-  env | sort
-# prepare OomphInstallers (workaround for a non-zero exit code appended)
+  env | sort;
   java 
   -Dtimestamp=${currDate} 
   -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
