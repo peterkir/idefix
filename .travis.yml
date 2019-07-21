@@ -24,7 +24,7 @@ script:
   export prerelease=true;
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot};
   echo "TRAVIS_TAG=${TRAVIS_TAG}";
-  env
+  env | sort
 #  java 
 #  -Dtimestamp=${currDate} 
 #  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
