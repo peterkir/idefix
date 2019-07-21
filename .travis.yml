@@ -23,9 +23,9 @@ script:
   echo "TRAVIS_TAG=${TRAVIS_TAG}";
   env | sort
 # prepare OomphInstallers (workaround for a non-zero exit code appended)
-#  java 
-#  -Dtimestamp=${currDate} 
-#  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
+  java 
+  -Dtimestamp=${currDate} 
+  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
 
 before_deploy:
 # Set up git user name and tag this commit
