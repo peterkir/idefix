@@ -46,6 +46,7 @@ before_deploy:
 - export RELEASE_NAME="$RELEASE $TRAVIS_TAG"
 - export RELEASE_CONTENT="t.b.d. - $RELEASE"
 - echo "creating deployment for $RELEASE_NAME with $TRAVIS_TAG"
+- env | sort
 
 deploy:
   provider: releases
