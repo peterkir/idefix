@@ -23,7 +23,7 @@ script:
   export snapshot=".SNAPSHOT";
   export prerelease=true;
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot}
-  echo "
+  echo "TRAVIS_TAG=${TRAVIS_TAG}"
   java 
   -Dtimestamp=${currDate}
   -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
