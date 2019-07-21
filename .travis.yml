@@ -1,7 +1,5 @@
 sudo: false
-
 language: java
-
 jdk:
 - openjdk8
 
@@ -18,7 +16,7 @@ script:
 - ./gradlew export.prepareEclipseInstaller
 
 # prepare OomphInstallers (workaround for a non-zero exit code appended)
-- export DATE=$(date +'%Y%m%d%H%M%S')
+- export DATE=$(date +'%Y%m%d-%H%M%S')
 - >
   java 
   -Dtimestamp=$DATE
@@ -29,7 +27,7 @@ before_deploy:
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
 - export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`
-- export tagstamp=.${TRAVIS_TAG:-$DATE)-$(git log --format=%h -1)}
+- export tagstamp=.${TRAVIS_TAG:-$DATE)_$(git log --format=%h -1)}
 - export prerelease=true
 - export snapshot=".SNAPSHOT"
 - >
@@ -41,10 +39,11 @@ before_deploy:
 - export TRAVIS_TAG=$version$tagstamp$snapshot 
 - git tag $TRAVIS_TAG
 
-# release REL1
+# release 
 - export RELEASE="IDEfix"
 - export RELEASE_NAME="$RELEASE $TRAVIS_TAG"
 - export RELEASE_CONTENT="t.b.d. - $RELEASE"
+- echo "creating deployment for $RELEASE_NAME with $TRAVIS_TAG"
 
 deploy:
   provider: releases
