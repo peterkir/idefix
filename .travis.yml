@@ -29,7 +29,7 @@ before_deploy:
   export currDate=`date +'%Y%m%d-%H%M%S'`;
   java 
   -Dtimestamp=${currDate} 
-  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
+  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
 
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"

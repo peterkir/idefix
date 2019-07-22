@@ -201,11 +201,7 @@ public class EclipseInstallerPatchINI {
 		}
 
 		System.out.println("done");
-		try {
-			FrameworkUtil.getBundle(FrameworkUtil.class).getBundleContext().getBundle(0).stop();
-		} catch (BundleException e) {
-			e.printStackTrace();
-		}
+		System.exit(0);
 	}
 
 	private void updateIndexFile() {
