@@ -23,7 +23,7 @@ script:
     export prerelease=false; 
   fi;
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot};
-  ./gradlew export.prepareEclipseInstaller
+  ./gradlew export.prepareEclipseInstaller;
   java 
   -Dtimestamp=${currDate} 
   -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
