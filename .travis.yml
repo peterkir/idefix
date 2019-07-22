@@ -14,6 +14,7 @@ cache:
 script: 
 - >
   export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`;
+  export currDate=`date +'%Y%m%d-%H%M%S'`;
   export gitTag=$(git log --format=%h -1);
   export snapshot=".SNAPSHOT";
   export prerelease=true;
@@ -23,14 +24,11 @@ script:
   fi;
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot};
   ./gradlew export.prepareEclipseInstaller
-
-before_deploy:
-- >
-  export currDate=`date +'%Y%m%d-%H%M%S'`;
   java 
   -Dtimestamp=${currDate} 
   -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
 
+before_deploy:
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
 - git tag $TRAVIS_TAG 
