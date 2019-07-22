@@ -13,6 +13,8 @@ cache:
 
 script: 
 - ./gradlew export.prepareEclipseInstaller
+
+before_deploy:
 - >
   export version=`grep "base.version" cnf/build.bnd |cut -d'=' -f2`;
   export currDate=`date +'%Y%m%d-%H%M%S'`;
@@ -20,14 +22,12 @@ script:
   export snapshot=".SNAPSHOT";
   export prerelease=true;
   export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot};
-  echo "TRAVIS_TAG=${TRAVIS_TAG}";
-  env | sort;
+
+- >
   java 
   -Dtimestamp=${currDate} 
-  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar || true
+  -jar io.klib.prepare.eclipseinstaller/generated/distributions/executable/prepareEclipseInstaller.jar
 
-before_deploy:
-# Set up git user name and tag this commit
 - git config --local user.name "Peter Kirschner"
 - git config --local user.email "peter@kirschners.de"
 - >
@@ -36,13 +36,10 @@ before_deploy:
     export snapshot="";
   fi
 - export TRAVIS_TAG=${version}.${currDate}_${gitTag}${snapshot}
-- git tag $TRAVIS_TAG
-
-# release 
+- git tag $TRAVIS_TAG 
 - export RELEASE="IDEfix"
 - export RELEASE_NAME="$RELEASE $TRAVIS_TAG"
 - export RELEASE_CONTENT="t.b.d. - $RELEASE"
-- env | sort
 
 deploy:
   provider: releases
