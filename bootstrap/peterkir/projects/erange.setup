@@ -131,6 +131,37 @@
       xsi:type="setup:VariableTask"
       id="truck17.username"
       name="truck17.username"/>
+  <stream name="develop"
+      label="">
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.erange.location}"
+          locateNestedProjects="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="${scope.project.name}">
+        <predicate
+            xsi:type="workingsets:ExclusionPredicate"
+            excludedWorkingSet="//@streams[name='develop']/@setupTasks.1/@workingSets.1"/>
+      </workingSet>
+      <workingSet
+          name="${scope.project.name}.tools">
+        <predicate
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="cnf"/>
+          <operand
+              xsi:type="predicates:NamePredicate"
+              pattern="io.klib.prepare.eclipseinstaller"/>
+        </predicate>
+      </workingSet>
+      <description>The dynamic working sets for ${scope.project.label}</description>
+    </setupTask>
+  </stream>
   <stream name="master"
       label="">
     <setupTask
