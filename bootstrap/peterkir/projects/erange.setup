@@ -115,8 +115,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.erange"
-      remoteURI="https://${truck17.username}:${truck17.accesstoken}@truck17.visualstudio.com/CoBa/_git/cef_erange"
-      pushURI="https://${truck17.username}:${truck17.accesstoken}@truck17.visualstudio.com/CoBa/_git/cef_erange"
+      remoteURI="https://${truck17.username}@truck17.visualstudio.com/CoBa/_git/cef_erange"
+      pushURI="https://${truck17.username}@truck17.visualstudio.com/CoBa/_git/cef_erange"
       checkoutBranch="master">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
@@ -131,11 +131,6 @@
       xsi:type="setup:VariableTask"
       id="truck17.username"
       name="truck17.username"/>
-  <setupTask
-      xsi:type="setup:VariableTask"
-      id="truck17.accesstoken"
-      type="PASSWORD"
-      name="truck17.accesstoken"/>
   <stream name="master"
       label="">
     <setupTask
