@@ -279,21 +279,21 @@
       name="jdk1.8.0">
     <description></description>
   </setupTask>
-  <version name="2019-09"
-      label="IDEfix CoBa CEF based on Eclipse 2019-09"
+  <version name="2019-06"
+      label="IDEfix CoBa CEF based on Eclipse 2019-06"
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        label="Eclipse Modeling Tools (2019-09)">
+        label="Eclipse Modeling Tools (2019-06)">
       <requirement
           name="epp.package.modeling"
-          versionRange="[4.13.0,5.0.0)"/>
+          versionRange="[4.12.0,5.0.0)"/>
       <requirement
           name="org.eclipse.platform.feature.group"
-          versionRange="[4.13.0,5.0.0)"/>
+          versionRange="[4.12.0,5.0.0)"/>
       <requirement
           name="org.eclipse.rcp.feature.group"
-          versionRange="[4.13.0,5.0.0)"/>
+          versionRange="[4.12.0,5.0.0)"/>
       <requirement
           name="org.eclipse.e4.core.tools.feature.feature.group"/>
       <requirement
@@ -311,7 +311,9 @@
       <requirement
           name="org.eclipse.emf.ecoretools.design.feature.group"/>
       <requirement
-          name="org.eclipse.emf.ecp.emfforms.sdk.feature.feature.group"/>
+          name="org.eclipse.emf.ecp.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.emfstore.sdk.feature.feature.group"/>
       <requirement
           name="org.eclipse.emf.parsley.sdk.feature.group"/>
       <requirement
@@ -359,9 +361,9 @@
       <requirement
           name="org.eclipse.xsd.sdk.feature.group"/>
       <repository
-          url="http://download.eclipse.org/technology/epp/packages/2019-09"/>
+          url="http://download.eclipse.org/technology/epp/packages/2019-06"/>
       <repository
-          url="http://download.eclipse.org/releases/2019-09">
+          url="http://download.eclipse.org/releases/2019-06/201906191000">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -389,11 +391,6 @@
           url="https://download.springsource.com/release/TOOLS/update/e4.12"/>
       <repository
           url="https://download.springsource.com/release/TOOLS/sts4-language-servers/e4.8"/>
-      <repository
-          url="http://download.eclipse.org/releases/2019-09">
-        <annotation
-            source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
-      </repository>
     </setupTask>
     <description></description>
   </version>
