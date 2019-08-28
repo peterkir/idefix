@@ -284,6 +284,17 @@
       requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
+        label="AJDT">
+      <requirement
+          name="org.eclipse.ajdt.feature.group"/>
+      <requirement
+          name="org.eclipse.equinox.weaving.sdk.feature.group"/>
+      <repository
+          url="https://download.eclipse.org/tools/ajdt/410/dev/update/ajdt-e410-2.2.4.201908130916/"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
         label="Eclipse Modeling Tools (2019-09)">
       <requirement
           name="epp.package.modeling"
@@ -377,13 +388,16 @@
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
-        xsi:type="setup.p2:P2Task">
+        xsi:type="setup.p2:P2Task"
+        label="Spring Tools Suite">
       <requirement
           name="201906181741-RELEASE-e412.Core / Spring IDE"/>
       <requirement
           name="201906181741-RELEASE-e412.Extensions / Spring IDE"/>
       <repository
           url="https://download.springsource.com/release/TOOLS/update/e4.12"/>
+      <repository
+          url="https://download.springsource.com/release/TOOLS/sts4-language-servers/e4.8"/>
     </setupTask>
     <description></description>
   </version>
