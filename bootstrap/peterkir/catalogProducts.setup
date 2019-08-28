@@ -51,4 +51,5 @@
   <product href="http://peterkir.github.io/idefix/bootstrap/osgi/setup/products/osgi.idefix.oxygen.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/IDEfix.Oxygen.pk.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/IDEfix.peterkir.2019-03.setup#/"/>
-</setup:ProductCatalog>
+  <product href="http://peterkir.github.io/idefix/bootstrap/peterkir/products/IDEfix.cef.setup#/"/>
+</</setup:ProductCatalog>

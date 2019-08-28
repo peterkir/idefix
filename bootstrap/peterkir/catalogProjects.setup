@@ -198,6 +198,8 @@
         vm="true"/>
   </setupTask>
   <project href="http://peterkir.github.io/idefix/bootstrap/conference/ece2016/setups/project-ece2016.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/atlas.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/erange.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/jfs2016.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/ece2014.setup#/"/>
   <project href="http://peterkir.github.io/idefix/bootstrap/peterkir/projects/bundlewrap.setup#/"/>
