@@ -392,6 +392,14 @@
       <repository
           url="https://download.springsource.com/release/TOOLS/sts4-language-servers/e4.8"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="PyDev">
+      <requirement
+          name="org.python.pydev.feature.feature.group"/>
+      <repository
+          url="http://www.pydev.org/updates"/>
+    </setupTask>
     <description></description>
   </version>
   <description></description>
