@@ -376,6 +376,15 @@
           url="https://dl.bintray.com/bndtools/bndtools/4.2.0/"/>
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="201906181741-RELEASE-e412.Core / Spring IDE"/>
+      <requirement
+          name="201906181741-RELEASE-e412.Extensions / Spring IDE"/>
+      <repository
+          url="https://download.springsource.com/release/TOOLS/update/e4.12"/>
+    </setupTask>
     <description></description>
   </version>
   <description></description>
