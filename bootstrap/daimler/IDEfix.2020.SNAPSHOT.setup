@@ -276,12 +276,15 @@
         id="oomph.additional.tasks"
         name="Oomph Additional Tasks">
       <setupTask
-          xsi:type="setup.p2:P2Task">
+          xsi:type="setup.p2:P2Task"
+          id="oomph-task-unzip"
+          label="Task Unzip">
         <requirement
             name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
             filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
         <repository
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
+        <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
@@ -328,6 +331,14 @@
       location="${jre.location-1.8}"
       name="jdk1.8.0_162">
     <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="jdt:JRETask"
+      filter=""
+      location="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7"
+      name="AdoptOpenJDK 11.0.3"
+      vmInstallType="org.eclipse.jdt.launching.Standard11xVMType">
+    <description>java11</description>
   </setupTask>
   <version name="fw.eclipse2020.01"
       label="IDEfix SNAPSHOT for CEC 20.06"
