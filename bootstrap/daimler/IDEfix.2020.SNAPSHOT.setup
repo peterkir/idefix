@@ -453,12 +453,22 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.adoptopenjdk-11.0.3_7"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
+          targetURL="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
-          id="adoptopenjdk-11.0.3_7"
-          filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
-          zipFile="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
+          id="unzip.adoptopenjdk-11.0.3_7"
+          predecessor="mirror.locally.adoptopenjdk-11.0.3_7"
+          filter=""
+          zipFile="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
           destinationDir="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
