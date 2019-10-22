@@ -3,10 +3,11 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:com.github.maybeec.oomph.task="http://maybeec.github.io/oomph-task-unzip/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
+    xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="idefix.cec2020.snapshot"
     label="IDEfix Framework 2020 SNAPSHOT">
   <annotation
@@ -270,6 +271,19 @@
           value="=allow"
           vm="true"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id="oomph.additional.tasks"
+        name="Oomph Additional Tasks">
+      <setupTask
+          xsi:type="setup.p2:P2Task">
+        <requirement
+            name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
+            filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+        <repository
+            url="https://maybeec.github.io/oomph-task-unzip/update"/>
+      </setupTask>
+    </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
   <setupTask
@@ -429,6 +443,14 @@
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
         name="AdoptOpenJDK11">
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="adoptopenjdk-11.0.3_7"
+          filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
+          zipFile="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
+          destinationDir="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7">
+        <description>Adopt OpenJDK 11</description>
+      </setupTask>
       <description>JDK</description>
     </setupTask>
     <description></description>
