@@ -319,6 +319,11 @@
       label="IDEfix SNAPSHOT for CEC 20.06"
       requiredJavaVersion="1.8">
     <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <description></description>
+    </setupTask>
+    <setupTask
         xsi:type="setup.p2:P2Task"
         label="bndtools">
       <requirement
@@ -329,14 +334,9 @@
       <description>Install the tools needed in the IDE to work with the source code</description>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini">
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-perspective"
-          value="bndtools.perspective"/>
-      <description></description>
-    </setupTask>
+        xsi:type="setup:EclipseIniTask"
+        option="-perspective"
+        value="bndtools.perspective"/>
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse IDE for Eclipse Committers (2019-09)">
@@ -424,6 +424,12 @@
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id="AdoptOpenJDK11"
+        name="AdoptOpenJDK11">
+      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
