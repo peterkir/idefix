@@ -460,7 +460,7 @@
           id="mirror.locally.adoptopenjdk-11.0.3_7"
           excludedTriggers="STARTUP MANUAL"
           sourceURL="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
-          targetURL="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip">
+          targetURL="${ENGINE_LIB_DIR|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
       <setupTask
