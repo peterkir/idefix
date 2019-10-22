@@ -476,6 +476,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           id="jdk.extract.dir_11.0.3"
+          excludedTriggers="STARTUP MANUAL"
           name="jdk.extract.dir_11.0.3"
           defaultValue="jdk-11.0.3+7"
           label="jdk.extract.dir_11.0.3"/>
@@ -501,8 +502,7 @@
           predecessor="unzip.adoptopenjdk-11.0.3_7"
           filter=""
           location="${ENGINE_LIB_DIR}/java/win32/${jdk.extract.dir_11.0.3}"
-          name="AdoptOpenJDK 11.0.3"
-          vmInstallType="org.eclipse.jdt.launching.Standard11xVMType">
+          name="AdoptOpenJDK 11.0.3">
         <description>java11</description>
       </setupTask>
       <description>JDK</description>

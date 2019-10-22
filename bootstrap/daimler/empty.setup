@@ -21,6 +21,7 @@
         vm="true"/>
     <setupTask
         xsi:type="setup:VariableTask"
+        id="workspaceName"
         excludedTriggers="STARTUP MANUAL"
         value="workspaceName"
         defaultValue="emptyWorkspace"
