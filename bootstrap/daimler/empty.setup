@@ -19,6 +19,13 @@
         option="-DENGINE_LIB_DIR="
         value="${ENGINE_LIB_DIR}"
         vm="true"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        excludedTriggers="STARTUP MANUAL"
+        value="workspaceName"
+        defaultValue="emptyWorkspace"
+        storageURI="scope://Workspace"
+        label="workspaceName"/>
     <description></description>
   </setupTask>
   <setupTask
