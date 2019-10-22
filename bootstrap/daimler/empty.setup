@@ -19,12 +19,6 @@
         option="-DENGINE_LIB_DIR="
         value="${ENGINE_LIB_DIR}"
         vm="true"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="workspaceName"
-        value=""
-        defaultValue=""
-        storageURI="scope://Workspace"/>
     <description></description>
   </setupTask>
   <setupTask

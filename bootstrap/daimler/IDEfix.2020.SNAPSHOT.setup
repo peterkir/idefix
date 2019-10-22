@@ -31,6 +31,31 @@
         vm="true">
       <description>Set the heap space needed to work with the projects</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id="user.variables"
+        name="user.variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          type="FOLDER"
+          name="ENGINE_LIB_DIR"
+          storageURI="scope://Workspace"/>
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-DENGINE_LIB_DIR="
+          value="${ENGINE_LIB_DIR}"
+          vm="true"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="io.klib.cdn"
+          excludedTriggers="STARTUP MANUAL"
+          name="io.klib.cdn"
+          defaultValue="https://idefix.fra1.digitaloceanspaces.com"
+          label="Description&#x9;io.klib.cdn">
+        <description>io.klib.cdn</description>
+      </setupTask>
+      <description>user.variables</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -459,7 +484,7 @@
           xsi:type="setup:ResourceCopyTask"
           id="mirror.locally.adoptopenjdk-11.0.3_7"
           excludedTriggers="STARTUP MANUAL"
-          sourceURL="https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.3%2B7/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
           targetURL="${ENGINE_LIB_DIR|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
