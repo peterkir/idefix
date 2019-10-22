@@ -350,14 +350,6 @@
     <repository
         url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
   </setupTask>
-  <setupTask
-      xsi:type="jdt:JRETask"
-      id="win32.x86-64.jdk1.8.0_162"
-      version="JavaSE-1.8"
-      location="${jre.location-1.8}"
-      name="jdk1.8.0_162">
-    <description></description>
-  </setupTask>
   <version name="fw.eclipse2020.01"
       label="IDEfix SNAPSHOT for CEC 20.06"
       requiredJavaVersion="1.8">
@@ -472,14 +464,7 @@
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
-        name="AdoptOpenJDK11">
-      <setupTask
-          xsi:type="setup:VariableTask"
-          id="jdk.extract.dir_11.0.3"
-          excludedTriggers="STARTUP MANUAL"
-          name="jdk.extract.dir_11.0.3"
-          defaultValue="jdk-11.0.3+7"
-          label="jdk.extract.dir_11.0.3"/>
+        name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           id="mirror.locally.adoptopenjdk-11.0.3_7"
@@ -501,9 +486,9 @@
           xsi:type="jdt:JRETask"
           predecessor="unzip.adoptopenjdk-11.0.3_7"
           filter=""
-          location="${ENGINE_LIB_DIR}/java/win32/${jdk.extract.dir_11.0.3}"
+          location="${ENGINE_LIB_DIR}/java/win32/jdk-11.0.3+7"
           name="AdoptOpenJDK 11.0.3">
-        <description>java11</description>
+        <description></description>
       </setupTask>
       <description>JDK</description>
     </setupTask>
