@@ -16,7 +16,7 @@
         xsi:type="setup:VariableTask"
         id="cec2006-git-checkout-location"
         type="FOLDER"
-        name="cec1906-git-checkout-location"
+        name="cec2006-git-checkout-location"
         storageURI="scope://Workspace"
         label="Checkout location of the GIT repository">
       <description>cec2006-git-checkout-location</description>
