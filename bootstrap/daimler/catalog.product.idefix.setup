@@ -7,10 +7,6 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="idefix.products"
     label="Daimler IDEfix Products">
-  <setup:VariableTask
-      name="install.root"
-      value="C:/IDEfix"
-      defaultValue="C:/IDEfix"/>
   <setupTask
       xsi:type="setup:InstallationTask"
       id="installation"/>

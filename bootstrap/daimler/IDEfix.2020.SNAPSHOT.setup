@@ -32,37 +32,10 @@
       <description>Set the heap space needed to work with the projects</description>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask"
-        id="user.variables"
-        name="user.variables">
-      <setup:VariableTask
-          name="install.dir"
-          value=""/>
-      <setup:VariableTask
-          name="installation.location"
-          value="${install.root}/${install.dir}"/>
-      <setupTask
-          xsi:type="setup:VariableTask"
-          excludedTriggers="STARTUP MANUAL"
-          type="FOLDER"
-          name="ENGINE_LIB_DIR"
-          storageURI="scope://Workspace"/>
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-DENGINE_LIB_DIR="
-          value="${ENGINE_LIB_DIR}"
-          vm="true"/>
-      <setupTask
-          xsi:type="setup:VariableTask"
-          id="io.klib.cdn"
-          excludedTriggers="STARTUP MANUAL"
-          name="io.klib.cdn"
-          defaultValue="https://idefix.fra1.digitaloceanspaces.com"
-          label="Description&#x9;io.klib.cdn">
-        <description>io.klib.cdn</description>
-      </setupTask>
-      <description>user.variables</description>
-    </setupTask>
+        xsi:type="setup:EclipseIniTask"
+        option="-Declipse.p2.unsignedPolicy"
+        value="=allow"
+        vm="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -361,6 +334,15 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
+        id="io.klib.cdn"
+        excludedTriggers="STARTUP MANUAL"
+        name="io.klib.cdn"
+        defaultValue="https://idefix.fra1.digitaloceanspaces.com"
+        label="Description&#x9;io.klib.cdn">
+      <description>io.klib.cdn</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
         type="FOLDER"
         name="ENGINE_LIB_DIR"
         storageURI="scope://Workspace"/>
@@ -542,8 +524,8 @@
           excludedTriggers="STARTUP MANUAL"
           predecessor="mirror.locally.pai-adoptopenjdk-11.0.3_7"
           filter=""
-          zipFile="${ENGINE_LIB_DIR}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip"
-          destinationDir="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7">
+          zipFile="${ENGINE_LIB_DIR|uri}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip"
+          destinationDir="${ENGINE_LIB_DIR}/java/win32/">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
       <setupTask

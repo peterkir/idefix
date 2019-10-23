@@ -3,10 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
     name="daimler.cec.projects"
     label="Daimler CEC Projects">
   <annotation
@@ -20,96 +17,6 @@
       <value>https://projects.eclipse.org/</value>
     </detail>
   </annotation>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="Global Variables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="eclipse.target.platform"
-        defaultValue="None"
-        storageURI="scope://Workspace"
-        label="Target Platform">
-      <annotation
-          source="http://www.eclipse.org/oomph/setup/GlobalVariable"/>
-      <choice
-          value="Photon"
-          label="Eclipse Photon - 4.8"/>
-      <choice
-          value="Oxygen"
-          label="Eclipse Oxygen - 4.7"/>
-      <choice
-          value="Neon"
-          label="Eclipse Neon - 4.6"/>
-      <choice
-          value="Mars"
-          label="Eclipse Mars - 4.5"/>
-      <choice
-          value="Luna"
-          label="Eclipse Luna - 4.4"/>
-      <choice
-          value="Kepler"
-          label="Eclipse Kepler - 4.3"/>
-      <choice
-          value="Juno"
-          label="Eclipse Juno - 4.2"/>
-      <choice
-          value="Indigo"
-          label="Eclipse Indigo - 3.7"/>
-      <choice
-          value="Helios"
-          label="Eclipse Helios - 3.6"/>
-      <choice
-          value="Galileo"
-          label="Eclipse Galileo - 3.5"/>
-      <choice
-          value="None"
-          label="None"/>
-      <description>Choose the compatibility level of the target platform</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="eclipse.api.baseline.target.platform"
-        value="None"
-        storageURI="scope://Workspace"
-        label="API Baseline Target Platform">
-      <annotation
-          source="http://www.eclipse.org/oomph/setup/GlobalVariable"/>
-      <choice
-          value="Photon"
-          label="Eclipse Photon - 4.8"/>
-      <choice
-          value="Oxygen"
-          label="Eclipse Oxygen - 4.7"/>
-      <choice
-          value="Neon"
-          label="Eclipse Neon - 4.6"/>
-      <choice
-          value="Mars"
-          label="Eclipse Mars - 4.5"/>
-      <choice
-          value="Luna"
-          label="Eclipse Luna - 4.4"/>
-      <choice
-          value="Kepler"
-          label="Eclipse Kepler - 4.3"/>
-      <choice
-          value="Juno"
-          label="Eclipse Juno - 4.2"/>
-      <choice
-          value="Indigo"
-          label="Eclipse Indigo - 3.7"/>
-      <choice
-          value="Helios"
-          label="Eclipse Helios - 3.6"/>
-      <choice
-          value="Galileo"
-          label="Eclipse Galileo - 3.5"/>
-      <choice
-          value="None"
-          label="None"/>
-      <description>Choose the compatibility level of the target platform for the modular API baseline</description>
-    </setupTask>
-  </setupTask>
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
@@ -126,150 +33,12 @@
     </modification>
   </setupTask>
   <setupTask
-      xsi:type="setup.targlets:TargletTask">
-    <targlet
-        name="Eclipse Platform"
-        activeRepositoryList="${eclipse.target.platform}">
-      <repositoryList
-          name="None"/>
-      <repositoryList
-          name="Photon">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.8-I-builds"/>
-      </repositoryList>
-      <repositoryList
-          name="Oxygen">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.7"/>
-      </repositoryList>
-      <repositoryList
-          name="Neon">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.6"/>
-      </repositoryList>
-      <repositoryList
-          name="Mars">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.5"/>
-      </repositoryList>
-      <repositoryList
-          name="Luna">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.4"/>
-      </repositoryList>
-      <repositoryList
-          name="Kepler">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.3"/>
-      </repositoryList>
-      <repositoryList
-          name="Juno">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.2"/>
-      </repositoryList>
-      <repositoryList
-          name="Indigo">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/3.7"/>
-      </repositoryList>
-      <repositoryList
-          name="Helios">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/3.6"/>
-      </repositoryList>
-      <repositoryList
-          name="Galileo">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/3.5"/>
-      </repositoryList>
-    </targlet>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.targlets:TargletTask"
-      id="api.baseline.targlet"
-      targetName="Modular API Baseline Target"
-      activateTarget="false">
-    <targlet
-        name="Eclipse Platform"
-        activeRepositoryList="${eclipse.api.baseline.target.platform}"
-        includeSources="false">
-      <repositoryList
-          name="None"/>
-      <repositoryList
-          name="Photon">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.8-I-builds"/>
-      </repositoryList>
-      <repositoryList
-          name="Oxygen">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.7"/>
-      </repositoryList>
-      <repositoryList
-          name="Neon">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.6"/>
-      </repositoryList>
-      <repositoryList
-          name="Mars">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.5"/>
-      </repositoryList>
-      <repositoryList
-          name="Luna">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.4"/>
-      </repositoryList>
-      <repositoryList
-          name="Kepler">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.3"/>
-      </repositoryList>
-      <repositoryList
-          name="Juno">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/4.2"/>
-      </repositoryList>
-      <repositoryList
-          name="Indigo">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/3.7"/>
-      </repositoryList>
-      <repositoryList
-          name="Helios">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/3.6"/>
-      </repositoryList>
-      <repositoryList
-          name="Galileo">
-        <repository
-            url="http://download.eclipse.org/eclipse/updates/3.5"/>
-      </repositoryList>
-    </targlet>
-  </setupTask>
-  <setupTask
-      xsi:type="pde:APIBaselineFromTargetTask"
-      predecessor="api.baseline.targlet"
-      name="Modular API Baseline"
-      targetName="Modular API Baseline Target">
-    <description>An API baseline based on the target platform named 'Modular API Baseline Target'</description>
-  </setupTask>
-  <setupTask
       xsi:type="setup:CompoundTask"
       name="REDIRECTION catalogProject">
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProjectCatalog"
         value="=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/catalog.project.cec.setup"
-        vm="true"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="eclipse.ini">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Declipse.p2.unsignedPolicy"
-        value="=allow"
         vm="true"/>
   </setupTask>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler/cec1906.setup#/"/>
