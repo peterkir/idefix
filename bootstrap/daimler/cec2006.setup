@@ -7,8 +7,8 @@
     xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
-    name="cec_20.06"
-    label="cec_20.06">
+    name="cec_2006"
+    label="cec_2006">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="WorkspaceVariables">
