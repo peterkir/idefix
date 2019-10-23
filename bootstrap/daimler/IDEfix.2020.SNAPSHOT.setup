@@ -359,9 +359,18 @@
         name="ENGINE_LIB_DIR"
         storageURI="scope://Workspace"/>
     <setupTask
+        xsi:type="setup:VariableTask"
+        id="fileUri_ENGINE_LIB_DIR"
+        excludedTriggers="STARTUP MANUAL"
+        name="fileUri_ENGINE_LIB_DIR"
+        value="${ENGINE_LIB_DIR|uri}"
+        defaultValue=""
+        storageURI="scope://Installation"
+        label="fileUri_ENGINE_LIB_DIR"/>
+    <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-DENGINE_LIB_DIR="
-        value="${ENGINE_LIB_DIR|uri|path}"
+        value="${fileUri_ENGINE_LIB_DIR|path}"
         vm="true"/>
     <description></description>
   </setupTask>
