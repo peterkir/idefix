@@ -27,8 +27,7 @@
     <setupTask
         xsi:type="setup:VariableTask"
         type="FOLDER"
-        name="ENGINE_LIB_DIR"
-        storageURI="scope://Workspace"/>
+        name="ENGINE_LIB_DIR"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="io.klib.cdn"
