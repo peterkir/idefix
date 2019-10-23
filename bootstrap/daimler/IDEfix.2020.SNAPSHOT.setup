@@ -23,6 +23,25 @@
   </annotation>
   <setupTask
       xsi:type="setup:CompoundTask"
+      name="variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="FOLDER"
+        name="ENGINE_LIB_DIR"
+        storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="io.klib.cdn"
+        excludedTriggers="STARTUP MANUAL"
+        name="io.klib.cdn"
+        defaultValue="https://idefix.fra1.digitaloceanspaces.com"
+        label="Description&#x9;io.klib.cdn">
+      <description>io.klib.cdn</description>
+    </setupTask>
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
       name="eclipse.ini">
     <setupTask
         xsi:type="setup:EclipseIniTask"
@@ -33,8 +52,18 @@
     </setupTask>
     <setupTask
         xsi:type="setup:EclipseIniTask"
+        option="-perspective"
+        value="bndtools.perspective"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
         option="-Declipse.p2.unsignedPolicy"
         value="=allow"
+        vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        excludedTriggers="STARTUP MANUAL"
+        option="-DENGINE_LIB_DIR="
+        value="${ENGINE_LIB_DIR}"
         vm="true"/>
   </setupTask>
   <setupTask
@@ -104,39 +133,11 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="bndtools.core">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/bndtools.core/headlessBuildPlugins"
-          value="Gradle"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/bndtools.core/versionControlIgnoresCreate"
-          value="false"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/bndtools.core/versionControlIgnoresPlugins"
-          value="Git"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/bndtools.core/enableTemplateRepo"
-          value="true"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="org.eclipse.egit.core">
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.egit.core/core_autoIgnoreDerivedResources"
           value="false"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="ENGINE_LIB_DIR"
-        name="ENGINE_LIB_DIR"
-        defaultValue="${JBE}"
-        label="ENGINE_LIB_DIR">
-      <description>CDN for development tools</description>
     </setupTask>
   </setupTask>
   <setupTask
@@ -268,29 +269,15 @@
       <description></description>
     </setupTask>
     <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini">
-      <setupTask
-          xsi:type="setup:EclipseIniTask"
-          option="-Declipse.p2.unsignedPolicy"
-          value="=allow"
-          vm="true"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        id="oomph.additional.tasks"
-        name="Oomph Additional Tasks">
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          id="oomph-task-unzip"
-          label="Task Unzip">
-        <requirement
-            name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
-            filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
-        <repository
-            url="https://maybeec.github.io/oomph-task-unzip/update"/>
-        <description>https://github.com/maybeec/oomph-task-unzip</description>
-      </setupTask>
+        xsi:type="setup.p2:P2Task"
+        id="oomph-task-unzip"
+        label="Additional Task - Unzip">
+      <requirement
+          name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
+          filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+      <repository
+          url="https://maybeec.github.io/oomph-task-unzip/update"/>
+      <description>https://github.com/maybeec/oomph-task-unzip</description>
     </setupTask>
     <description>http://download.eclipse.org/oomph/updates/latest</description>
   </setupTask>
@@ -329,53 +316,9 @@
     <repository
         url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
   </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="Variables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="io.klib.cdn"
-        excludedTriggers="STARTUP MANUAL"
-        name="io.klib.cdn"
-        defaultValue="https://idefix.fra1.digitaloceanspaces.com"
-        label="Description&#x9;io.klib.cdn">
-      <description>io.klib.cdn</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        type="FOLDER"
-        name="ENGINE_LIB_DIR"
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        excludedTriggers="STARTUP MANUAL"
-        option="-DENGINE_LIB_DIR="
-        value="${ENGINE_LIB_DIR}"
-        vm="true"/>
-    <description></description>
-  </setupTask>
   <version name="fw.eclipse2020.01"
       label="IDEfix SNAPSHOT for CEC 20.06"
       requiredJavaVersion="1.8">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="eclipse.ini">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="bndtools">
-      <requirement
-          name="bndtools.main.feature.feature.group"
-          versionRange="[4.0.0,5.0.0)"/>
-      <repository
-          url="https://dl.bintray.com/bndtools/bndtools/4.3.0/"/>
-      <description>Install the tools needed in the IDE to work with the source code</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-perspective"
-        value="bndtools.perspective"/>
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse IDE for Eclipse Committers (2019-09)">
@@ -466,6 +409,41 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
+        id="bndtools_4.3"
+        name="bndtools">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="bndtools">
+        <requirement
+            name="bndtools.main.feature.feature.group"
+            versionRange="[4.0.0,5.0.0)"/>
+        <repository
+            url="https://dl.bintray.com/bndtools/bndtools/4.3.0/"/>
+        <description>Install the tools needed in the IDE to work with the source code</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/headlessBuildPlugins"
+            value="Gradle"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/versionControlIgnoresCreate"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/versionControlIgnoresPlugins"
+            value="Git"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/enableTemplateRepo"
+            value="true"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JavaSE-11 AdoptOpenJDK11">
@@ -516,8 +494,8 @@
           excludedTriggers="STARTUP MANUAL"
           predecessor="mirror.locally.pai-adoptopenjdk-11.0.3_7"
           filter=""
-          zipFile="${ENGINE_LIB_DIR|uri}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip"
-          destinationDir="${ENGINE_LIB_DIR}/java/win32/">
+          zipFile="${ENGINE_LIB_DIR}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip"
+          destinationDir="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
       <setupTask
