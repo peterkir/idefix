@@ -985,7 +985,7 @@
     </setupTask>
     <setupTask
         xsi:type="projectset:ProjectSetImportTask"
-        uRL="${cec1906-git-checkout-location/com.daimler.ec/Eclipse Team Project Sets/CEC-project-types.psf|uri}">
+        uRL="${cec2006-git-checkout-location/com.daimler.ec/Eclipse Team Project Sets/CEC-project-types.psf|uri}">
       <description>import project set</description>
     </setupTask>
   </stream>
