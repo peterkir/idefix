@@ -8,21 +8,6 @@
     label="empty">
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="WorkspaceVariables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        type="FOLDER"
-        name="ENGINE_LIB_DIR"
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-DENGINE_LIB_DIR="
-        value="${ENGINE_LIB_DIR}"
-        vm="true"/>
-    <description></description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
       name="preference">
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -850,7 +835,7 @@
           xsi:type="setup:PreferenceTask"
           excludedTriggers="STARTUP"
           key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
-          value="${workspaceName}"/>
+          value="${scope.workspace.name}"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.ide/unassociatedEditorStrategy"
