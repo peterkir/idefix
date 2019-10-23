@@ -352,7 +352,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="WorkspaceVariables">
+      name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
         type="FOLDER"
@@ -370,7 +370,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-DENGINE_LIB_DIR="
-        value="${fileUri_ENGINE_LIB_DIR|path}"
+        value="${ENGINE_LIB_DIR}xx${fileUri_ENGINE_LIB_DIR}xx${fileUri_ENGINE_LIB_DIR|path}"
         vm="true"/>
     <description></description>
   </setupTask>
@@ -537,7 +537,7 @@
           predecessor="mirror.locally.pai-adoptopenjdk-11.0.3_7"
           filter=""
           zipFile="${ENGINE_LIB_DIR|uri}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip"
-          destinationDir="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7">
+          destinationDir="${ENGINE_LIB_DIR}/java/win32/">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
       <setupTask
