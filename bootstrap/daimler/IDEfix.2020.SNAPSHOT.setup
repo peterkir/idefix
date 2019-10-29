@@ -407,6 +407,15 @@
       </repository>
     </setupTask>
     <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="patch Eclipse PDE Lauch - bug143023">
+      <requirement
+          name="com.daimler.patch.org.eclipse.pde.feature.feature.group"/>
+      <repository
+          url="http://klib.io/patch_bug143023_20190826/"/>
+      <description></description>
+    </setupTask>
+    <setupTask
         xsi:type="setup:CompoundTask"
         id="bndtools_4.3"
         name="bndtools">
