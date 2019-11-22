@@ -498,10 +498,12 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          predecessor="unzip.pai-adoptopenjdk-11.0.3_7"
           filter=""
-          location="${installation.location}/../java/win32/pai-jre-11.0.3+7"
+          location="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7"
           name="PAI JRE - AdoptOpenJDK 11.0.3">
+        <predecessor
+            xsi:type="com.github.maybeec.oomph.task:unzipTask"
+            href="../../IDEfix.2020.SNAPSHOT.setup#unzip.pai-adoptopenjdk-11.0.3_7"/>
         <description></description>
       </setupTask>
       <description>JDK</description>

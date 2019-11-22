@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="com.daimler.projects.cec"
-    label="Daimler EngineeringClient projects">
+    name="com.daimler.cec.projects"
+    label="Daimler EC projects">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
@@ -30,5 +30,6 @@
         vm="true"/>
   </setupTask>
   <project href="http://peterkir.github.io/idefix/bootstrap/daimler/appdev/project/cec-sdk_2006.setup#/"/>
+  <project href="http://peterkir.github.io/idefix/bootstrap/daimler/appdev/project/empty.setup#/"/>
   <description>All the projects at Daimler that provide automated setup support along with additional user-added projects</description>
 </setup:ProjectCatalog>
