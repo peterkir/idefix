@@ -43,7 +43,6 @@ import org.apache.commons.compress.utils.IOUtils;
 import org.eclipse.oomph.extractor.lib.BINExtractor;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
-import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 
@@ -113,7 +112,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
 				"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
 				"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees", "-Dsetup.p2.agent=" });
-		iniSuffix.put("IDEfix.fw.1912", new String[] { "-Doomph.setup.installer.mode=advanced",
+		iniSuffix.put("IDEfix.fw.2006", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
@@ -122,7 +121,15 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
 				"-Doomph.setup.product.filter=(.*idefix.*)", "-Doomph.setup.product.version.filter=(.*1912.*)",
 				"-Doomph.setup.jre.choice=false", "-Dsetup.p2.agent=" });
-
+		iniSuffix.put("IDEfix.appdev.2006", new String[] { "-Doomph.setup.installer.mode=advanced",
+				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
+				"-Doomph.setup.installer.launch=true",
+				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
+				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/appdev/product/catalogProducts.setup",
+				"-Doomph.redirection.idefixProjectCatalog=index:/redirectable.projects.setup->http://peterkir.github.io/idefix/bootstrap/daimler/appdev/project/catalogProjects.setup",
+				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
+				"-Doomph.setup.product.filter=(.*idefix.*)", "-Doomph.setup.product.version.filter=(.*1912.*)",
+				"-Doomph.setup.jre.choice=false", "-Dsetup.p2.agent=" });
 	};
 
 	@Activate
