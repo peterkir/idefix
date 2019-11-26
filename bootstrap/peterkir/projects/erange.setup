@@ -193,7 +193,6 @@
       <description>The dynamic working sets for ${scope.project.label}</description>
     </setupTask>
   </stream>
-  <stream/>
   <logicalProjectContainer
       xsi:type="setup:Project"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='io.klib.projects']/@projects[name='io.klib.tools']"/>
