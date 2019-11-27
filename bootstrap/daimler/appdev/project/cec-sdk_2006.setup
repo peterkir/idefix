@@ -16,6 +16,25 @@
       name="cec-sdk-location"
       defaultValue=""
       label="CEC-SDK location"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      id="cacerts"
+      name="cacerts">
+    <setupTask
+        xsi:type="setup:ResourceCopyTask"
+        id="mirror.locally.20.06_cacerts"
+        excludedTriggers="STARTUP MANUAL"
+        sourceURL="http://peterkir.github.io/idefix/bootstrap/daimler/appdev/java/20.06_cacerts"
+        targetURL="${installation.location|uri}/20.06_cacerts">
+      <description>copy cacerts locally</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Djavax.net.ssl.trustStore"
+        value="=${installation.location}/20.06_cacerts"
+        vm="true"/>
+    <description>Configure CEC-SDK cacerts for IDEfix Eclipse</description>
+  </setupTask>
   <stream name="master"
       label="Master">
     <setupTask
@@ -25,7 +44,7 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="${cec-sdk-location|uri}/app-dev/"
-          targetURL="${workspace.location|uri}/app-dev/">
+          targetURL="${workspace.location|uri}/">
         <description>copy projects into workspace</description>
       </setupTask>
       <description>ResourceCopy into Workspace</description>
@@ -34,7 +53,7 @@
         xsi:type="projects:ProjectsImportTask"
         predecessor="resourcecopy2workspace">
       <sourceLocator
-          rootFolder="${workspace.location}/app-dev/"
+          rootFolder="${workspace.location}/"
           locateNestedProjects="true"/>
     </setupTask>
     <setupTask
