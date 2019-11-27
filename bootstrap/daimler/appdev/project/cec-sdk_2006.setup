@@ -24,14 +24,8 @@
         name="copy sdk files">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
-          sourceURL="${cec-sdk-location|uri}/app-dev/ecConfiguration/"
-          targetURL="${workspace.location|uri}/app-dev/ecConfiguration/">
-        <description>copy projects into workspace</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:ResourceCopyTask"
-          sourceURL="${cec-sdk-location|uri}/app-dev/template_pdeBuild/"
-          targetURL="${workspace.location|uri}/app-dev/template_pdeBuild/">
+          sourceURL="${cec-sdk-location|uri}/app-dev/"
+          targetURL="${workspace.location|uri}/app-dev/">
         <description>copy projects into workspace</description>
       </setupTask>
       <description>ResourceCopy into Workspace</description>
@@ -40,9 +34,8 @@
         xsi:type="projects:ProjectsImportTask"
         predecessor="resourcecopy2workspace">
       <sourceLocator
-          rootFolder="${workspace.location}/app-dev/ecConfiguration"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/app-dev/template_pdeBuild"/>
+          rootFolder="${workspace.location}/app-dev/"
+          locateNestedProjects="true"/>
     </setupTask>
     <setupTask
         xsi:type="pde:TargetPlatformTask"
