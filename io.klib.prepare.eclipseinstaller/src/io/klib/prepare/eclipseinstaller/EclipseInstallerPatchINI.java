@@ -112,7 +112,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
 				"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
 				"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees", "-Dsetup.p2.agent=" });
-		iniSuffix.put("IDEfix.fw.2006", new String[] { "-Doomph.setup.installer.mode=advanced",
+		iniSuffix.put("IDEfix.CEC", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
@@ -121,7 +121,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
 				"-Doomph.setup.product.filter=(.*idefix.*)", "-Doomph.setup.product.version.filter=(.*1912.*)",
 				"-Doomph.setup.jre.choice=false", "-Dsetup.p2.agent=" });
-		iniSuffix.put("IDEfix.appdev.2006", new String[] { "-Doomph.setup.installer.mode=advanced",
+		iniSuffix.put("IDEfix.AppDev", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
