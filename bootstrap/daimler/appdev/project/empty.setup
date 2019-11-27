@@ -907,8 +907,5 @@
   </setupTask>
   <stream name="develop"
       label="develop"/>
-  <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="catalog.project.cec.setup#/"/>
   <description>IDE for CEC development</description>
 </setup:Project>

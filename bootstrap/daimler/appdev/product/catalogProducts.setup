@@ -13,11 +13,11 @@
   <setupTask
       xsi:type="setup:CompoundTask"
       name="REDIRECTION catalogProduct">
-    <setupTask
+  <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.klibProductCatalog"
         value="=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/daimler/appdev/product/catalogProducts.setup"
         vm="true"/>
   </setupTask>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/appdev/product/IDEfix.Daimler.AppDev.SNAPSHOT.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/appdev/product/IDEfix.AppDev.setup#/"/>
 </setup:ProductCatalog>

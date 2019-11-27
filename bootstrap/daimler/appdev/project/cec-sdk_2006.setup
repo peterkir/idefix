@@ -20,7 +20,8 @@
       label="Master">
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="resourcecopy2workspace">
+        id="resourcecopy2workspace"
+        name="copy sdk files">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           sourceURL="${cec-sdk-location|uri}/app-dev/ecConfiguration/"
@@ -42,8 +43,6 @@
           rootFolder="${workspace.location}/app-dev/ecConfiguration"/>
       <sourceLocator
           rootFolder="${workspace.location}/app-dev/template_pdeBuild"/>
-      <sourceLocator
-          rootFolder="${workspace.location}/app-dev/rcptt.CEC"/>
     </setupTask>
     <setupTask
         xsi:type="pde:TargetPlatformTask"

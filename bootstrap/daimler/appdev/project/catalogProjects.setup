@@ -5,8 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    name="com.daimler.cec.projects"
-    label="Daimler EC projects">
+    name="com.daimler.idefix.appdev.projects"
+    label="Daimler IDEfix AppDev Projects">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"/>
