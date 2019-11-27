@@ -8,7 +8,7 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
-    name="idefix.cec2020.snapshot"
+    name="idefix.daimler.cec"
     label="IDEfix Framework 2020 SNAPSHOT">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
@@ -27,7 +27,10 @@
     <setupTask
         xsi:type="setup:VariableTask"
         type="FOLDER"
-        name="ENGINE_LIB_DIR"/>
+        name="ENGINE_LIB_DIR"
+        label="ENGINE_LIB_DIR">
+      <description>Directory on local machine used for ENGINE_LIB_DIR</description>
+    </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
         id="io.klib.cdn"
@@ -308,14 +311,18 @@
     </setupTask>
   </setupTask>
   <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="RCPTT">
-    <requirement
-        name="org.eclipse.rcptt.platform.feature.group"/>
-    <repository
-        url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
+      xsi:type="setup:CompoundTask"
+      name="P2 Director - RCPTT">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="RCPTT">
+      <requirement
+          name="org.eclipse.rcptt.platform.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
+    </setupTask>
   </setupTask>
-  <version name="fw.eclipse2020.01"
+  <version name="2006.01"
       label="IDEfix SNAPSHOT for CEC 20.06"
       requiredJavaVersion="1.8">
     <setupTask
@@ -475,17 +482,19 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
+          id="jdk-11.0.3_7"
           predecessor="unzip.adoptopenjdk-11.0.3_7"
           filter=""
+          version="JavaSE-11"
           location="${ENGINE_LIB_DIR}/java/win32/jdk-11.0.3+7"
-          name="AdoptOpenJDK 11.0.3">
+          name="SDK - AdoptOpenJDK 11.0.3">
         <description></description>
       </setupTask>
       <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="AdoptOpenJDK11"
+        id="PAI_JRE-AdoptOpenJDK11"
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
@@ -508,8 +517,10 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
+          id="pai-jre-11.0.3_7"
           predecessor="unzip.pai-adoptopenjdk-11.0.3_7"
           filter=""
+          version="JavaSE-11"
           location="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7"
           name="PAI JRE - AdoptOpenJDK 11.0.3">
         <description></description>
