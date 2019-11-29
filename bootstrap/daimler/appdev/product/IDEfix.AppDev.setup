@@ -26,10 +26,6 @@
       name="variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        type="FOLDER"
-        name="ENGINE_LIB_DIR"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="io.klib.cdn"
         excludedTriggers="STARTUP MANUAL"
         name="io.klib.cdn"

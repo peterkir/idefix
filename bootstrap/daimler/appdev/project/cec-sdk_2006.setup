@@ -10,13 +10,6 @@
     name="cec-sdk.2006"
     label="CEC-SDK 20.06">
   <setupTask
-      xsi:type="setup:VariableTask"
-      id="cec-sdk-location-20.06"
-      type="FOLDER"
-      name="cec-sdk-location"
-      defaultValue=""
-      label="CEC-SDK location"/>
-  <setupTask
       xsi:type="setup:CompoundTask"
       id="cacerts"
       name="cacerts">
@@ -34,6 +27,25 @@
         value="=${installation.location}/20.06_cacerts"
         vm="true"/>
     <description>Configure CEC-SDK cacerts for IDEfix Eclipse</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      id="config.cec-sdk"
+      name="CEC-SDK location">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="cec-sdk-location-20.06"
+        type="FOLDER"
+        name="cec-sdk-location"
+        defaultValue=""
+        label="CEC-SDK location"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        excludedTriggers="STARTUP MANUAL"
+        option="-DCEC-SDK="
+        value="${cec-sdk-location}"
+        vm="true"/>
+    <description>Configuration of the CEC-SDK</description>
   </setupTask>
   <stream name="master"
       label="Master">
