@@ -310,7 +310,7 @@
     </setupTask>
   </setupTask>
   <version name="20.06"
-      label="20.06 SNAPSHOT"
+      label="20.06"
       requiredJavaVersion="11">
     <setupTask
         xsi:type="setup.p2:P2Task"
