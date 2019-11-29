@@ -56,13 +56,13 @@ public class EclipseInstallerPatchINI {
 	// setup.p2.agent location
 
 	String[][] archives = {
-			{ "prod.macosx.x86-64", DL_PROD, "eclipse-inst-mac64.tar.gz", "IDEfix.inst.macosx.x86-64.tar.gz",
+			{ "prod.macosx.x86-64", DL_PROD, "eclipse-inst-mac64.tar.gz", ".macosx.x86-64.tar.gz",
 					"@user.home/oomph/.p2" },
-			{ "prod.linux.x86-64", DL_PROD, "eclipse-inst-linux64.tar.gz", "IDEfix.inst.linux.x86-64.tar.gz",
+			{ "prod.linux.x86-64", DL_PROD, "eclipse-inst-linux64.tar.gz", ".linux.x86-64.tar.gz",
 					"@user.home/oomph/.p2" },
 			// { "prod.linux.x86", DL_PROD, "eclipse-inst-linux32.tar.gz",
 			// "IDEfix.inst.linux.x86.tar.gz", "@user.home/oomph/.p2" },
-			{ "prod.win32.x86-64", DL_PROD, "eclipse-inst-win64.exe", "IDEfix.inst.win32.x86-64.exe", "C:/IDEfix/.p2" },
+			{ "prod.win32.x86-64", DL_PROD, "eclipse-inst-win64.exe", ".win32.x86-64.exe", "C:/IDEfix/.p2" },
 			// { "prod.win32.x86", DL_PROD, "eclipse-inst-win32.exe",
 			// "IDEfix.inst.win32.x86.exe", "C:/IDEfix/.p2" },
 	};
@@ -104,7 +104,7 @@ public class EclipseInstallerPatchINI {
 	private static final HashMap<String, String[]> iniSuffix = new LinkedHashMap<String, String[]>();
 
 	public EclipseInstallerPatchINI() {
-		iniSuffix.put("peterkir", new String[] { "-Doomph.setup.installer.mode=advanced",
+		iniSuffix.put("IDEfix.klib.io", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.installer.p2pool=true", "-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
 				"-Doomph.redirection.idefixProductCatalog=index:/redirectable.products.setup->http://peterkir.github.io/idefix/bootstrap/peterkir/catalogProducts.setup",
@@ -112,7 +112,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=io\\\\.klib\\\\.products",
 				"-Doomph.setup.product.filter=(?\\!io\\\\.klib\\\\.products\\\\.idefix\\\\.oxygen).*",
 				"-Doomph.setup.product.version.filter=.*\\\\.latest\\\\.cloudbees", "-Dsetup.p2.agent=" });
-		iniSuffix.put("IDEfix.CEC", new String[] { "-Doomph.setup.installer.mode=advanced",
+		iniSuffix.put("IDEfix.Daimler.CEC", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
@@ -121,7 +121,7 @@ public class EclipseInstallerPatchINI {
 				"-Doomph.setup.product.catalog.filter=(idefix\\\\.products)",
 				"-Doomph.setup.product.filter=(.*idefix.*)", "-Doomph.setup.product.version.filter=(.*1912.*)",
 				"-Doomph.setup.jre.choice=false", "-Dsetup.p2.agent=" });
-		iniSuffix.put("IDEfix.AppDev", new String[] { "-Doomph.setup.installer.mode=advanced",
+		iniSuffix.put("IDEfix.Daimler.AppDev", new String[] { "-Doomph.setup.installer.mode=advanced",
 				"-Doomph.setup.stats.skip=true", "-Doomph.setup.installer.p2pool=true",
 				"-Doomph.setup.installer.launch=true",
 				"-Doomph.update.url=http://download.eclipse.org/oomph/updates/release/latest/",
@@ -142,7 +142,7 @@ public class EclipseInstallerPatchINI {
 			String productVersion = archives[archiveIndex][0];
 			String sourceUrl = archives[archiveIndex][1];
 			String archiveName = archives[archiveIndex][2];
-			String patchedArchiveName = archives[archiveIndex][3];
+			String patchedArchiveSuffix = archives[archiveIndex][3];
 			String p2PoolPath = archives[archiveIndex][4];
 
 			String downloadDir = wrkDir + SEP + "1_download" + SEP + productVersion;
@@ -156,6 +156,7 @@ public class EclipseInstallerPatchINI {
 
 				download(sourceUrl, downloadDir, archiveName, ECL_DL_SUFFIX);
 
+				String patchedArchiveName = variant + patchedArchiveSuffix;
 				String archiveSuffix = archiveName.replaceFirst("eclipse-inst-(.+?)(\\.tar\\.gz|\\.exe)", "$1");
 				switch (archiveSuffix) {
 				case "win64":
@@ -165,7 +166,6 @@ public class EclipseInstallerPatchINI {
 
 					replaceWithPatchedINI(extractDir + SEP + PRODUCT, patchDir + SEP + ECLIPSE_INST_INI,
 							SEP + ECLIPSE_INST_INI);
-
 					packPatchedExe(patchedArchiveName, extractDir, resultDir);
 					break;
 
@@ -174,18 +174,14 @@ public class EclipseInstallerPatchINI {
 					String iniFile = extractDir + SEP + "Eclipse Installer.app/Contents/Eclipse" + SEP
 							+ ECLIPSE_INST_INI;
 					patchIni(patchDir, iniFile, p2PoolPath, iniSuffix);
-
 					packPatchedTarGz(patchedArchiveName, extractDir, resultDir);
-
 					break;
 
 				case "linux64":
 					extractTarGz(downloadDir, archiveName, extractDir);
 					iniFile = extractDir + SEP + "eclipse-installer" + SEP + ECLIPSE_INST_INI;
 					patchIni(patchDir, iniFile, p2PoolPath, iniSuffix);
-
 					packPatchedTarGz(patchedArchiveName, extractDir, resultDir);
-
 					break;
 
 				default:
