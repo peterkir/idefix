@@ -43,8 +43,8 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           excludedTriggers="STARTUP MANUAL"
-          sourceURL="${cec-sdk-location|uri}/app-dev/pde/dropins"
-          targetURL="${installation.location/eclipse|uri}/dropins">
+          sourceURL="${cec-sdk-location|uri}/app-dev/pde/dropins/"
+          targetURL="${installation.location/eclipse|uri}/dropins/">
         <description>CIA - Check Internal API</description>
       </setupTask>
     </setupTask>
