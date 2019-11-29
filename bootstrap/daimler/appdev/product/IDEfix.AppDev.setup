@@ -9,7 +9,7 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="idefix.appdev"
-    label="IDEfix AppDev">
+    label="IDEfix Daimler AppDev">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
@@ -34,8 +34,8 @@
         excludedTriggers="STARTUP MANUAL"
         name="io.klib.cdn"
         defaultValue="https://idefix.fra1.digitaloceanspaces.com"
-        label="Description&#x9;io.klib.cdn">
-      <description>io.klib.cdn</description>
+        label="CDN klib.io">
+      <description>CDN used for downloading artifacts</description>
     </setupTask>
     <description></description>
   </setupTask>

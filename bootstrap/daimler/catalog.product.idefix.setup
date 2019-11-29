@@ -22,6 +22,6 @@
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler/IDEfix.1906.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler/IDEfix.1912.setup#/"/>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler/IDEfix.1912.SNAPSHOT.setup#/"/>
-  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/IDEfix.Daimler.CEC.SNAPSHOT.setup#/"/>
+  <product href="http://peterkir.github.io/idefix/bootstrap/daimler/IDEfix.Daimler.CEC.setup#/"/>
   <description>IDEfix provides Eclipse based products</description>
 </setup:ProductCatalog>
