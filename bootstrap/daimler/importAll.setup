@@ -15,7 +15,9 @@
         xsi:type="setup:VariableTask"
         type="FOLDER"
         name="ENGINE_LIB_DIR"
-        storageURI="scope://Workspace"/>
+        label="ENGINE_LIB_DIR">
+      <description>Directory on local machine used for ENGINE_LIB_DIR</description>
+    </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
         type="FOLDER"
@@ -27,7 +29,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-DENGINE_LIB_DIR="
-        value="${ENGINE_LIB_DIR}"
+        value="${ENGINE_LIB_DIR|path}"
         vm="true"/>
     <description></description>
   </setupTask>
