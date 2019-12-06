@@ -68,7 +68,7 @@
           xsi:type="setup:ResourceCopyTask"
           excludedTriggers="STARTUP MANUAL"
           sourceURL="${cec-sdk-location|uri}/app-dev/"
-          targetURL="${workspace.location|uri}">
+          targetURL="${workspace.location|uri}/">
         <description>copy projects into workspace</description>
       </setupTask>
       <description>ResourceCopy into Workspace</description>

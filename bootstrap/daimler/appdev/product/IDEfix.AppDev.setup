@@ -485,7 +485,7 @@
           id="mirror.locally.pai-adoptopenjdk-11.0.3_7"
           excludedTriggers="STARTUP MANUAL"
           sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/openjre11-win-pai-cc_11.0.3_7.zip"
-          targetURL="${installation.location/../|uri}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip">
+          targetURL="${installation.location/..|uri}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
       <setupTask
