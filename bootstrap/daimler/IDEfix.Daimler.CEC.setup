@@ -468,7 +468,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(${skipJRE}=true)))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
@@ -483,7 +483,7 @@
           id="unzip.adoptopenjdk-11.0.3_7"
           excludedTriggers="STARTUP MANUAL"
           predecessor="mirror.locally.adoptopenjdk-11.0.3_7"
-          filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
+          filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(${skipJRE}=true)))"
           zipFile="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
           destinationDir="${ENGINE_LIB_DIR}/java/win32/">
         <description>Adopt OpenJDK 11</description>
@@ -503,7 +503,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="PAI_JRE-AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(${skipJRE}=true)))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
@@ -518,7 +518,7 @@
           id="unzip.pai-adoptopenjdk-11.0.3_7"
           excludedTriggers="STARTUP MANUAL"
           predecessor="mirror.locally.pai-adoptopenjdk-11.0.3_7"
-          filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
+          filter=""
           zipFile="${ENGINE_LIB_DIR}/java/win32/openjre11-win-pai-cc_11.0.3_7.zip"
           destinationDir="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7">
         <description>PAI JRE - Adopt OpenJDK 11</description>
