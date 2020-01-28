@@ -45,8 +45,7 @@
         type="BOOLEAN"
         name="skipJRE"
         value=""
-        defaultValue="false"
-        storageURI="scope://Installation"
+        defaultValue=""
         label=""/>
     <description></description>
   </setupTask>
@@ -468,7 +467,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(${skipJRE}=true)))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
@@ -503,7 +502,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="PAI_JRE-AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(${skipJRE}=true)))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
