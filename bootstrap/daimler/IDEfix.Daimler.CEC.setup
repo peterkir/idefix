@@ -468,7 +468,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
@@ -503,7 +503,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="PAI_JRE-AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
