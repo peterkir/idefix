@@ -40,6 +40,14 @@
         label="Description&#x9;io.klib.cdn">
       <description>io.klib.cdn</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="BOOLEAN"
+        name="skipJRE"
+        value=""
+        defaultValue="false"
+        storageURI="scope://Installation"
+        label=""/>
     <description></description>
   </setupTask>
   <setupTask
