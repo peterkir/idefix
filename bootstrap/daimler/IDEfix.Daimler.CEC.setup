@@ -43,10 +43,12 @@
     <setupTask
         xsi:type="setup:VariableTask"
         type="BOOLEAN"
-        name="skipJRE"
+        name="skip..local.JRE.extraction"
         value=""
         defaultValue=""
-        label=""/>
+        label="">
+      <description></description>
+    </setupTask>
     <description></description>
   </setupTask>
   <setupTask
@@ -467,7 +469,7 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         id="AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skip..local.JRE.extraction=true)))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
@@ -482,27 +484,17 @@
           id="unzip.adoptopenjdk-11.0.3_7"
           excludedTriggers="STARTUP MANUAL"
           predecessor="mirror.locally.adoptopenjdk-11.0.3_7"
-          filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(${skipJRE}=true)))"
+          filter=""
           zipFile="${ENGINE_LIB_DIR}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.3_7.zip"
           destinationDir="${ENGINE_LIB_DIR}/java/win32/">
         <description>Adopt OpenJDK 11</description>
-      </setupTask>
-      <setupTask
-          xsi:type="jdt:JRETask"
-          id="jdk-11.0.3_7"
-          predecessor="unzip.adoptopenjdk-11.0.3_7"
-          filter=""
-          version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/java/win32/jdk-11.0.3+7"
-          name="SDK - AdoptOpenJDK 11.0.3">
-        <description></description>
       </setupTask>
       <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
         id="PAI_JRE-AdoptOpenJDK11"
-        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skipJRE=true)))"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64)(!(skip..local.JRE.extraction=true)))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
@@ -522,6 +514,11 @@
           destinationDir="${ENGINE_LIB_DIR}/java/win32/pai-jre-11.0.3+7">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="configure-Java-ExecutionEnvironment">
       <setupTask
           xsi:type="jdt:JRETask"
           id="pai-jre-11.0.3_7"
@@ -532,7 +529,16 @@
           name="PAI JRE - AdoptOpenJDK 11.0.3">
         <description></description>
       </setupTask>
-      <description>JDK</description>
+      <setupTask
+          xsi:type="jdt:JRETask"
+          id="jdk-11.0.3_7"
+          predecessor="unzip.adoptopenjdk-11.0.3_7"
+          filter=""
+          version="JavaSE-11"
+          location="${ENGINE_LIB_DIR}/java/win32/jdk-11.0.3+7"
+          name="SDK - AdoptOpenJDK 11.0.3">
+        <description></description>
+      </setupTask>
     </setupTask>
     <description></description>
   </version>
