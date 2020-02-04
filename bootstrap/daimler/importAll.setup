@@ -975,7 +975,8 @@
         id="prj_import_all_but_cnf"
         predecessor="pref.automated.build.off">
       <sourceLocator
-          rootFolder="${import-all-git-checkout-location}"/>
+          rootFolder="${import-all-git-checkout-location}/"
+          locateNestedProjects="true"/>
       <description>prj_import_all_but_cnf</description>
     </setupTask>
     <setupTask
