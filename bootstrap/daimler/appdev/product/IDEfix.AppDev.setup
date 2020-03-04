@@ -691,7 +691,7 @@
           xsi:type="setup:ResourceCopyTask"
           id="mirror.locally.pai-adoptopenjdk-11.0.5_10"
           excludedTriggers="STARTUP MANUAL"
-          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
           targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>

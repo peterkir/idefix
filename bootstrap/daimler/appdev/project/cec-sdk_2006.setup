@@ -38,6 +38,7 @@
         type="FOLDER"
         name="cec-sdk-location"
         defaultValue=""
+        storageURI="scope://Installation"
         label="CEC-SDK location"/>
     <setupTask
         xsi:type="setup:EclipseIniTask"
