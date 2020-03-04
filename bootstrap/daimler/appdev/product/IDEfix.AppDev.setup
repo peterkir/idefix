@@ -701,7 +701,7 @@
           excludedTriggers="STARTUP MANUAL"
           predecessor="mirror.locally.pai-adoptopenjdk-11.0.5_10"
           filter=""
-          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
+          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
