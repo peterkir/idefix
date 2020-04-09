@@ -486,7 +486,7 @@
           predecessor="mirror.locally.jdk8u202-b08-jfx"
           filter=""
           zipFile="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip"
-          destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx">
+          destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
         <description>Adopt OpenJDK 8</description>
       </setupTask>
       <setupTask
@@ -521,7 +521,7 @@
           predecessor="mirror.locally.jdk8u202-b08-jre-jfx"
           filter=""
           zipFile="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx.zip"
-          destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx">
+          destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
         <description>JRE - Adopt OpenJDK 8</description>
       </setupTask>
       <setupTask
