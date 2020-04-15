@@ -307,7 +307,7 @@
   </setupTask>
   <version name="20.06"
       label="20.06"
-      requiredJavaVersion="8">
+      requiredJavaVersion="1.8">
     <setupTask
         xsi:type="setup.p2:P2Task"
         label="Eclipse IDE for Eclipse Committers (2019-09)">
