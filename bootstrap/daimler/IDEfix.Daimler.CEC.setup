@@ -640,7 +640,7 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="bndtools_4.3"
+        id="bndtools_4.3_2nd"
         name="bndtools">
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -685,7 +685,6 @@
             value="120"/>
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id="sync8"
             key="/instance/org.eclipse.ant.ui/formatter_tab_char"
             value="false"/>
         <setupTask
@@ -694,7 +693,6 @@
             value="4"/>
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id="sync9"
             key="/instance/org.eclipse.ant.ui/formatter_wrap_long"
             value="true"/>
       </setupTask>
@@ -877,7 +875,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          id="oomph-task-unzip"
           label="Additional Task - Unzip">
         <requirement
             name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
@@ -1101,7 +1098,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="bndtools_4.3"
         name="bndtools">
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -1149,7 +1145,6 @@
             value="120"/>
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id="sync8"
             key="/instance/org.eclipse.ant.ui/formatter_tab_char"
             value="false"/>
         <setupTask
@@ -1158,7 +1153,6 @@
             value="4"/>
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id="sync9"
             key="/instance/org.eclipse.ant.ui/formatter_wrap_long"
             value="true"/>
       </setupTask>
@@ -1341,7 +1335,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          id="oomph-task-unzip"
           label="Additional Task - Unzip">
         <requirement
             name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
@@ -1393,12 +1386,10 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="AdoptOpenJDK11"
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
-          id="mirror.locally.adoptopenjdk-11.0.5_10"
           excludedTriggers="STARTUP MANUAL"
           sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
           targetURL="${installation.location/..|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip">
@@ -1406,9 +1397,8 @@
       </setupTask>
       <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
-          id="unzip.adoptopenjdk-11.0.5_10"
           excludedTriggers="STARTUP MANUAL"
-          predecessor="mirror.locally.adoptopenjdk-11.0.5_10"
+          predecessor="//@versions[name='2011.02']/@setupTasks.8/@setupTasks.0"
           filter=""
           zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
           destinationDir="${installation.location}/../java/win32/">
@@ -1416,8 +1406,7 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          id="jdk-11.0.5_10"
-          predecessor="unzip.adoptopenjdk-11.0.5_10"
+          predecessor="//@versions[name='2011.02']/@setupTasks.8/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/jdk-11.0.5+10"
@@ -1428,12 +1417,10 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="PAI_JRE-AdoptOpenJDK11"
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
           xsi:type="setup:ResourceCopyTask"
-          id="mirror.locally.pai-adoptopenjdk-11.0.5_10"
           excludedTriggers="STARTUP MANUAL"
           sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
           targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
@@ -1441,9 +1428,8 @@
       </setupTask>
       <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
-          id="unzip.pai-adoptopenjdk-11.0.5_10"
           excludedTriggers="STARTUP MANUAL"
-          predecessor="mirror.locally.pai-adoptopenjdk-11.0.5_10"
+          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.0"
           filter=""
           zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
@@ -1451,8 +1437,7 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          id="pai-jre-11.0.5_10"
-          predecessor="unzip.pai-adoptopenjdk-11.0.5_10"
+          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"

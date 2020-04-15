@@ -454,19 +454,8 @@
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
       <setupTask
-          xsi:type="com.github.maybeec.oomph.task:unzipTask"
-          id="unzip.jdk8u202-b08-jfx"
-          excludedTriggers="STARTUP MANUAL"
-          predecessor="mirror.locally.jdk8u202-b08-jfx"
-          filter=""
-          zipFile="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip"
-          destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx">
-        <description>Adopt OpenJDK 8</description>
-      </setupTask>
-      <setupTask
           xsi:type="jdt:JRETask"
           id="jdk8u202-b08-jfx"
-          predecessor="unzip.jdk8u202-b08-jfx"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx"
@@ -489,19 +478,8 @@
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
       <setupTask
-          xsi:type="com.github.maybeec.oomph.task:unzipTask"
-          id="unzip.jdk8u202-b08-jre-jfx"
-          excludedTriggers="STARTUP MANUAL"
-          predecessor="mirror.locally.jdk8u202-b08-jre-jfx"
-          filter=""
-          zipFile="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx.zip"
-          destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx">
-        <description>JRE - Adopt OpenJDK 8</description>
-      </setupTask>
-      <setupTask
           xsi:type="jdt:JRETask"
           id="jdk8u202-b08-jre-jfx"
-          predecessor="unzip.jdk8u202-b08-jre-jfx"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
@@ -614,7 +592,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        id="bndtools_4.3"
         name="bndtools">
       <setupTask
           xsi:type="setup.p2:P2Task"
