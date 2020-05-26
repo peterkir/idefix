@@ -1420,7 +1420,7 @@
           predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
-          location="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx"
+          location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
         <description></description>
       </setupTask>
