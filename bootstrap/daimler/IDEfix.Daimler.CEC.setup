@@ -1097,6 +1097,17 @@
       <description></description>
     </setupTask>
     <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="gradle buildship">
+      <requirement
+          name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.buildship.oomph.feature.group"/>
+      <repository
+          url="https://download.eclipse.org/buildship/updates/e415/releases/3.x/3.1.4.v20200326-1743"/>
+      <description></description>
+    </setupTask>
+    <setupTask
         xsi:type="setup:CompoundTask"
         name="bndtools">
       <setupTask
@@ -1398,7 +1409,7 @@
       <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
           excludedTriggers="STARTUP MANUAL"
-          predecessor="//@versions[name='2011.02-java8']/@setupTasks.8/@setupTasks.0"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.0"
           filter=""
           zipFile="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip"
           destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
@@ -1406,7 +1417,7 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          predecessor="//@versions[name='2011.02-java8']/@setupTasks.8/@setupTasks.1"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx"
@@ -1429,7 +1440,7 @@
       <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
           excludedTriggers="STARTUP MANUAL"
-          predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.0"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.10/@setupTasks.0"
           filter=""
           zipFile="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx.zip"
           destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
@@ -1437,7 +1448,7 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.1"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
@@ -1546,6 +1557,17 @@
           name="com.daimler.patch.org.eclipse.pde.feature.feature.group"/>
       <repository
           url="http://klib.io/patch_bug143023_20190826/"/>
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="gradle buildship">
+      <requirement
+          name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.buildship.oomph.feature.group"/>
+      <repository
+          url="https://download.eclipse.org/buildship/updates/e415/releases/3.x/3.1.4.v20200326-1743"/>
       <description></description>
     </setupTask>
     <setupTask
@@ -1850,7 +1872,7 @@
       <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
           excludedTriggers="STARTUP MANUAL"
-          predecessor="//@versions[name='2011.02']/@setupTasks.8/@setupTasks.0"
+          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.0"
           filter=""
           zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
           destinationDir="${installation.location}/../java/win32/">
@@ -1858,7 +1880,7 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          predecessor="//@versions[name='2011.02']/@setupTasks.8/@setupTasks.1"
+          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/jdk-11.0.5+10"
@@ -1881,7 +1903,7 @@
       <setupTask
           xsi:type="com.github.maybeec.oomph.task:unzipTask"
           excludedTriggers="STARTUP MANUAL"
-          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.0"
+          predecessor="//@versions[name='2011.02']/@setupTasks.10/@setupTasks.0"
           filter=""
           zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
@@ -1889,7 +1911,7 @@
       </setupTask>
       <setupTask
           xsi:type="jdt:JRETask"
-          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.1"
+          predecessor="//@versions[name='2011.02']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
