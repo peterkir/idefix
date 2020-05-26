@@ -495,7 +495,7 @@
           predecessor="unzip.jdk8u202-b08-jfx"
           filter=""
           version="JavaSE-1.8"
-          location="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx"
+          location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
         <description></description>
       </setupTask>
