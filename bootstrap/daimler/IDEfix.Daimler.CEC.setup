@@ -1120,7 +1120,7 @@
         <requirement
             name="bndtools.pde.feature.feature.group"/>
         <repository
-            url="https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.0.1/org.bndtools.p2-5.0.1.jar!/"/>
+            url="https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.1.0/org.bndtools.p2-5.1.0.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
@@ -1583,7 +1583,7 @@
         <requirement
             name="bndtools.pde.feature.feature.group"/>
         <repository
-            url="https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.0.1/org.bndtools.p2-5.0.1.jar!/"/>
+            url="https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.1.0/org.bndtools.p2-5.1.0.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
@@ -2044,7 +2044,7 @@
         <requirement
             name="bndtools.pde.feature.feature.group"/>
         <repository
-            url="https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.0.1/org.bndtools.p2-5.0.1.jar!/"/>
+            url="https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.1.0/org.bndtools.p2-5.1.0.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
