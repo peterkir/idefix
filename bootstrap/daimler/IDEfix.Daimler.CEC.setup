@@ -36,7 +36,8 @@
         id="download.server"
         excludedTriggers="STARTUP MANUAL"
         name="download.server"
-        defaultValue=""
+        value=""
+        defaultValue="http://download.eclipse.org"
         label="download.server">
       <choice
           value="http://download.eclipse.org"
@@ -44,6 +45,9 @@
       <choice
           value="https://gsep.daimler.com/artifactory/CECSDK_P2_VIRTUAL/"
           label="Daimler German Artifactory"/>
+      <choice
+          value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
+          label="Daimler India Artifactory"/>
       <description>download.server</description>
     </setupTask>
     <setupTask
