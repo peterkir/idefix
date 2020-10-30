@@ -37,7 +37,7 @@
         excludedTriggers="STARTUP MANUAL"
         name="cdn.download.server"
         value=""
-        defaultValue="http://download.eclipse.org"
+        defaultValue=""
         storageURI="scope://Installation"
         label="cdn.download.server">
       <choice
