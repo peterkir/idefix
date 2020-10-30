@@ -33,26 +33,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="cdn.download.server"
-        excludedTriggers="STARTUP MANUAL"
-        name="cdn.download.server"
-        value=""
-        defaultValue=""
-        storageURI="scope://Installation"
-        label="cdn.download.server">
-      <choice
-          value="http://download.eclipse.org"
-          label="Public Internet"/>
-      <choice
-          value="https://gsep.daimler.com/artifactory/CECSDK_P2_VIRTUAL/"
-          label="Daimler German Artifactory"/>
-      <choice
-          value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
-          label="Daimler India Artifactory"/>
-      <description>cdn.download.server</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
         type="BOOLEAN"
         name="skip.JRE.extraction"
         value=""
@@ -68,6 +48,24 @@
         defaultValue="https://idefix.fra1.digitaloceanspaces.com"
         label="Description&#x9;io.klib.cdn">
       <description>io.klib.cdn</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="cdn.server.download"
+        name="cdn.server.download"
+        defaultValue="http://download.eclipse.org"
+        storageURI="scope://Installation"
+        label="cdn.server.download">
+      <choice
+          value="http://download.eclipse.org"
+          label="Public Internet"/>
+      <choice
+          value="https://gsep.daimler.com/artifactory/CECSDK_P2_VIRTUAL/"
+          label="Daimler German Artifactory"/>
+      <choice
+          value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
+          label="Daimler India Artifactory"/>
+      <description>Download Server for p2 repositories</description>
     </setupTask>
     <description></description>
   </setupTask>
