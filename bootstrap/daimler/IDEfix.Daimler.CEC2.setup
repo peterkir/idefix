@@ -2022,9 +2022,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${cdn.download.server/technology/epp/packages/2019-09}"/>
+          url="${cdn.download.server/technology/epp/packages/2019-09|uri}"/>
       <repository
-          url="${cdn.download.server/releases/2019-09/201909181001}">
+          url="${cdn.download.server/releases/2019-09/201909181001|uri}">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
