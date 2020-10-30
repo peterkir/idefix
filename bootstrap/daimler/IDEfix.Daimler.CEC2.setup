@@ -2022,9 +2022,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${cdn.download.server/technology/epp/packages/2019-09|uri}"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${cdn.download.server/releases/2019-09/201909181001|uri}">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -2344,7 +2344,7 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           excludedTriggers="STARTUP MANUAL"
-          sourceURL="${io.klib.cdn/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip}"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
           targetURL="${installation.location/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip|uri}">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
