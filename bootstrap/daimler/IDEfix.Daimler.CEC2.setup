@@ -9,7 +9,7 @@
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="idefix.daimler.cec"
-    label="IDEfix Daimler CEC">
+    label="IDEfix Daimler CEC eval">
   <annotation
       source="http://www.eclipse.org/oomph/setup/BrandingInfo">
     <detail
