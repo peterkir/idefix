@@ -3,10 +3,11 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:com.github.maybeec.oomph.task="http://maybeec.github.io/oomph-task-unzip/1.0"
     xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
+    xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="idefix.daimler.cec"
     label="IDEfix Daimler CEC">
   <annotation
@@ -37,6 +38,7 @@
         name="download.server"
         value=""
         defaultValue="http://download.eclipse.org"
+        storageURI="scope://Installation"
         label="download.server">
       <choice
           value="http://download.eclipse.org"
@@ -48,6 +50,15 @@
           value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
           label="Daimler India Artifactory"/>
       <description>download.server</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="BOOLEAN"
+        name="skip.JRE.extraction"
+        value=""
+        defaultValue=""
+        label="">
+      <description>use only if you can extraction error in task unzip.adoptopenjdk-11.0.3_7</description>
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
@@ -481,11 +492,30 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JDK AdoptOpenJDK8">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.jdk8u202-b08-jfx"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/jdk8u202-b08-jfx.zip"
+          targetURL="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="unzip.jdk8u202-b08-jfx"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="mirror.locally.jdk8u202-b08-jfx"
+          filter=""
+          zipFile="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip"
+          destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
+        <description>Adopt OpenJDK 8</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
           id="jdk8u202-b08-jfx"
+          predecessor="unzip.jdk8u202-b08-jfx"
           filter=""
           version="JavaSE-1.8"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk8u202-b08-jfx"
+          location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
         <description></description>
       </setupTask>
@@ -497,11 +527,30 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JRE - AdoptOpenJDK8">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.jdk8u202-b08-jre-jfx"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/jdk8u202-b08-jre-jfx.zip"
+          targetURL="${installation.location/..|uri}/java/win32/jdk8u202-b08-jre-jfx.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="unzip.jdk8u202-b08-jre-jfx"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="mirror.locally.jdk8u202-b08-jre-jfx"
+          filter=""
+          zipFile="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx.zip"
+          destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
+        <description>JRE - Adopt OpenJDK 8</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
           id="jdk8u202-b08-jre-jfx"
+          predecessor="unzip.jdk8u202-b08-jre-jfx"
           filter=""
           version="JavaSE-1.8"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk8u202-b08-jre-jfx"
+          location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
           name="JRE - AdoptOpenJDK 8.0.202_b08-jre-jfx">
         <description></description>
       </setupTask>
@@ -901,11 +950,30 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          targetURL="${installation.location/..|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="unzip.adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="mirror.locally.adoptopenjdk-11.0.5_10"
+          filter=""
+          zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          destinationDir="${installation.location}/../java/win32/">
+        <description>Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
           id="jdk-11.0.5_10"
+          predecessor="unzip.adoptopenjdk-11.0.5_10"
           filter=""
           version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk-11.0.5+10"
+          location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
         <description></description>
       </setupTask>
@@ -917,11 +985,30 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.pai-adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
+          targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="unzip.pai-adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="mirror.locally.pai-adoptopenjdk-11.0.5_10"
+          filter=""
+          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
+          destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
+        <description>PAI JRE - Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
           id="pai-jre-11.0.5_10"
+          predecessor="unzip.pai-adoptopenjdk-11.0.5_10"
           filter=""
           version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/pai-openjdk-11.0.5.10_windows-x64"
+          location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
         <description></description>
       </setupTask>
@@ -1333,10 +1420,27 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JDK AdoptOpenJDK8">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/jdk8u202-b08-jfx.zip"
+          targetURL="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.0"
+          filter=""
+          zipFile="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx.zip"
+          destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
+        <description>Adopt OpenJDK 8</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk8u202-b08-jfx"
+          location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
         <description></description>
       </setupTask>
@@ -1347,10 +1451,27 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JRE - AdoptOpenJDK8">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/jdk8u202-b08-jre-jfx.zip"
+          targetURL="${installation.location/..|uri}/java/win32/jdk8u202-b08-jre-jfx.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.10/@setupTasks.0"
+          filter=""
+          zipFile="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx.zip"
+          destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
+        <description>JRE - Adopt OpenJDK 8</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
+          predecessor="//@versions[name='2011.02-java8']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk8u202-b08-jre-jfx"
+          location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
           name="JRE - AdoptOpenJDK 8.0.202_b08-jre-jfx">
         <description></description>
       </setupTask>
@@ -1762,10 +1883,27 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          targetURL="${installation.location/..|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.0"
+          filter=""
+          zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          destinationDir="${installation.location}/../java/win32/">
+        <description>Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
+          predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk-11.0.5+10"
+          location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
         <description></description>
       </setupTask>
@@ -1776,10 +1914,27 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
+          targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="//@versions[name='2011.02']/@setupTasks.10/@setupTasks.0"
+          filter=""
+          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
+          destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
+        <description>PAI JRE - Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
+          predecessor="//@versions[name='2011.02']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/pai-openjdk-11.0.5.10_windows-x64"
+          location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
         <description></description>
       </setupTask>
@@ -2189,10 +2344,27 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="JavaSE-11 AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          targetURL="${installation.location/..|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="//@versions[name='2021.06']/@setupTasks.9/@setupTasks.0"
+          filter=""
+          zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          destinationDir="${installation.location}/../java/win32/">
+        <description>Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
+          predecessor="//@versions[name='2021.06']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/jdk-11.0.5+10"
+          location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
         <description></description>
       </setupTask>
@@ -2203,10 +2375,27 @@
         filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
         name="PAI JRE - AdoptOpenJDK11">
       <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
+          targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="//@versions[name='2021.06']/@setupTasks.10/@setupTasks.0"
+          filter=""
+          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
+          destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
+        <description>PAI JRE - Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
           xsi:type="jdt:JRETask"
+          predecessor="//@versions[name='2021.06']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
-          location="${ENGINE_LIB_DIR}/build/java/win32/x86_64/pai-openjdk-11.0.5.10_windows-x64"
+          location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
         <description></description>
       </setupTask>
