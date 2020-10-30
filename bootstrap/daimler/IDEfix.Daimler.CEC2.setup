@@ -51,11 +51,11 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="cdn.server.download"
-        name="cdn.server.download"
+        id="cdn.download.server"
+        name="cdn.download.server"
         defaultValue="http://download.eclipse.org"
         storageURI="scope://Installation"
-        label="cdn.server.download">
+        label="cdn.download.server">
       <choice
           value="http://download.eclipse.org"
           label="Public Internet"/>
