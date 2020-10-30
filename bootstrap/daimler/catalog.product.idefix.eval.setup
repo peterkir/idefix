@@ -20,5 +20,5 @@
         vm="true"/>
   </setupTask>
   <product href="http://peterkir.github.io/idefix/bootstrap/daimler/IDEfix.Daimler.CEC2.setup#/"/>
-  <description>IDEfix provides Eclipse based products</description>
+  <description>IDEfix provides Eclipse based products evaluation</description>
 </setup:ProductCatalog>
