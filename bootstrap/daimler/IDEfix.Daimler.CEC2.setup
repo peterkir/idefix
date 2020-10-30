@@ -33,13 +33,13 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="download.server"
+        id="cdn.download.server"
         excludedTriggers="STARTUP MANUAL"
-        name="download.server"
+        name="cdn.download.server"
         value=""
         defaultValue="http://download.eclipse.org"
         storageURI="scope://Installation"
-        label="download.server">
+        label="cdn.download.server">
       <choice
           value="http://download.eclipse.org"
           label="Public Internet"/>
@@ -49,7 +49,7 @@
       <choice
           value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
           label="Daimler India Artifactory"/>
-      <description>download.server</description>
+      <description>cdn.download.server</description>
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
@@ -181,9 +181,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -373,7 +373,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -400,7 +400,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -431,7 +431,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -445,7 +445,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -483,7 +483,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -642,9 +642,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -832,7 +832,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -859,7 +859,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -890,7 +890,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -903,7 +903,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -941,7 +941,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -1100,9 +1100,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -1303,7 +1303,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1330,7 +1330,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1361,7 +1361,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1374,7 +1374,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1412,7 +1412,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -1563,9 +1563,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -1766,7 +1766,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1793,7 +1793,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1824,7 +1824,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1837,7 +1837,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1875,7 +1875,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -2024,9 +2024,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -2227,7 +2227,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -2254,7 +2254,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -2285,7 +2285,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -2298,7 +2298,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -2336,7 +2336,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
