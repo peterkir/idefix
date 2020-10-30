@@ -4,10 +4,10 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:com.github.maybeec.oomph.task="http://maybeec.github.io/oomph-task-unzip/1.0"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:jdt_1.0="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
+    xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore"
     name="idefix.daimler.cec"
     label="IDEfix Daimler CEC">
   <annotation
@@ -33,25 +33,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="download.server"
-        excludedTriggers="STARTUP MANUAL"
-        name="download.server"
-        value=""
-        defaultValue="http://download.eclipse.org"
-        label="download.server">
-      <choice
-          value="http://download.eclipse.org"
-          label="Public Internet"/>
-      <choice
-          value="https://gsep.daimler.com/artifactory/CECSDK_P2_VIRTUAL/"
-          label="Daimler German Artifactory"/>
-      <choice
-          value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
-          label="Daimler India Artifactory"/>
-      <description>download.server</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
         type="BOOLEAN"
         name="skip.JRE.extraction"
         value=""
@@ -67,6 +48,24 @@
         defaultValue="https://idefix.fra1.digitaloceanspaces.com"
         label="Description&#x9;io.klib.cdn">
       <description>io.klib.cdn</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="cdn.download.server"
+        name="cdn.download.server"
+        defaultValue="http://download.eclipse.org"
+        storageURI="scope://Installation"
+        label="cdn.download.server">
+      <choice
+          value="http://download.eclipse.org"
+          label="Public Internet"/>
+      <choice
+          value="https://gsep.daimler.com/artifactory/CECSDK_P2_VIRTUAL/"
+          label="Daimler German Artifactory"/>
+      <choice
+          value="https://gsep.in623.corpintra.net/artifactory/CECSDK_P2_VIRTUAL/"
+          label="Daimler India Artifactory"/>
+      <description>Download Server for p2 repositories</description>
     </setupTask>
     <description></description>
   </setupTask>
@@ -180,9 +179,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -372,7 +371,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -399,7 +398,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -430,7 +429,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -444,7 +443,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -482,7 +481,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -508,17 +507,17 @@
           destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
         <description>Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="jdk8u202-b08-jfx"
           predecessor="unzip.jdk8u202-b08-jfx"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -543,17 +542,17 @@
           destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
         <description>JRE - Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JRE</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="jdk8u202-b08-jre-jfx"
           predecessor="unzip.jdk8u202-b08-jre-jfx"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
           name="JRE - AdoptOpenJDK 8.0.202_b08-jre-jfx">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JRE</description>
     </setupTask>
     <description></description>
   </version>
@@ -641,9 +640,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -831,7 +830,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -858,7 +857,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -889,7 +888,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -902,7 +901,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -940,7 +939,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -966,17 +965,17 @@
           destinationDir="${installation.location}/../java/win32/">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="jdk-11.0.5_10"
           predecessor="unzip.adoptopenjdk-11.0.5_10"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1001,17 +1000,17 @@
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="pai-jre-11.0.5_10"
           predecessor="unzip.pai-adoptopenjdk-11.0.5_10"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
@@ -1099,9 +1098,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -1302,7 +1301,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1329,7 +1328,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1360,7 +1359,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1373,7 +1372,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1411,7 +1410,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -1434,16 +1433,16 @@
           destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
         <description>Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1465,16 +1464,16 @@
           destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
         <description>JRE - Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JRE</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02-java8']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
           name="JRE - AdoptOpenJDK 8.0.202_b08-jre-jfx">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JRE</description>
     </setupTask>
     <description></description>
   </version>
@@ -1562,9 +1561,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -1765,7 +1764,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1792,7 +1791,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1823,7 +1822,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -1836,7 +1835,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1874,7 +1873,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -1897,16 +1896,16 @@
           destinationDir="${installation.location}/../java/win32/">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1928,16 +1927,16 @@
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
@@ -2023,9 +2022,9 @@
       <requirement
           name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
       <repository
-          url="${download.server}/technology/epp/packages/2019-09"/>
+          url="${cdn.download.server}/technology/epp/packages/2019-09"/>
       <repository
-          url="${download.server}/releases/2019-09/201909181001">
+          url="${cdn.download.server}/releases/2019-09/201909181001">
         <annotation
             source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
       </repository>
@@ -2226,7 +2225,7 @@
         <requirement
             name="org.eclipse.oomph.setup.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -2253,7 +2252,7 @@
         <requirement
             name="org.eclipse.oomph.setup.workingsets.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -2284,7 +2283,7 @@
         <requirement
             name="org.eclipse.oomph.version.headless.feature.group"/>
         <repository
-            url="${download.server}/oomph/updates/release/latest"/>
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
         <description></description>
       </setupTask>
       <setupTask
@@ -2297,7 +2296,7 @@
             url="https://maybeec.github.io/oomph-task-unzip/update"/>
         <description>https://github.com/maybeec/oomph-task-unzip</description>
       </setupTask>
-      <description>${download.server}/oomph/updates/latest</description>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -2335,7 +2334,7 @@
         <requirement
             name="org.eclipse.rcptt.platform.feature.group"/>
         <repository
-            url="${download.server}/rcptt/release/2.4.3/repository/"/>
+            url="${cdn.download.server}/rcptt/release/2.4.3/repository/"/>
       </setupTask>
     </setupTask>
     <setupTask
@@ -2346,7 +2345,7 @@
           xsi:type="setup:ResourceCopyTask"
           excludedTriggers="STARTUP MANUAL"
           sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
-          targetURL="${installation.location/..|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip">
+          targetURL="${installation.location/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip|uri}">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
       <setupTask
@@ -2354,20 +2353,20 @@
           excludedTriggers="STARTUP MANUAL"
           predecessor="//@versions[name='2021.06']/@setupTasks.9/@setupTasks.0"
           filter=""
-          zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
-          destinationDir="${installation.location}/../java/win32/">
+          zipFile="${installation.location/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip}"
+          destinationDir="${installation.location/../java/win32/}">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2021.06']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
-          location="${installation.location}/../java/win32/jdk-11.0.5+10"
+          location="${installation.location/../java/win32/jdk-11.0.5+10}"
           name="SDK - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -2376,8 +2375,8 @@
       <setupTask
           xsi:type="setup:ResourceCopyTask"
           excludedTriggers="STARTUP MANUAL"
-          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
-          targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
+          sourceURL="${io.klib.cdn/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip}"
+          targetURL="${installation.location/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip|uri}">
         <description>Mirror AdoptOpenJDK locally</description>
       </setupTask>
       <setupTask
@@ -2385,20 +2384,20 @@
           excludedTriggers="STARTUP MANUAL"
           predecessor="//@versions[name='2021.06']/@setupTasks.10/@setupTasks.0"
           filter=""
-          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
-          destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
+          zipFile="${installation.location/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip}"
+          destinationDir="${installation.location/../java/win32/pai-openjdk-11.0.5.10_windows-x64}">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2021.06']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
-          location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
+          location="${installation.location/../java/win32/pai-openjdk-11.0.5.10_windows-x64}"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
