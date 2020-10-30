@@ -11,14 +11,14 @@ javac.compliance:       1.8
 javac.debug:            on
 
 # Eclipse Release repositories 
-eclipse.version          = 4.10
-eclipse.name             = 2018-12
-eclipse.platform.version = R-4.10-201812060815
-eclipse.simu.version     = 201812191000
+eclipse.version          = 4.17
+eclipse.name             = 2020-09
+eclipse.simu.version     = https://download.eclipse.org/releases/2020-09/
 
 eclipse.platform.baseurl = http://download.eclipse.org/eclipse/updates
-eclipse.platform.name    = "Eclipse Platform ${eclipse.platform.version}"
-eclipse.platform.url     = "${eclipse.platform.baseurl}/${eclipse.version}/${eclipse.platform.version}"
+eclipse.platform.name    = EclipsePlatform_${eclipse.version}
+#eclipse.platform.url     = "${eclipse.platform.baseurl}/${eclipse.version}"
+eclipse.platform.url     = "file:/C:/cec/ENGINE_LIB_DIR/repo/download.eclipse.org/eclipse/updates/4.17_noPacked"
 
 eclipse.simu.baseurl = http://download.eclipse.org/releases
 eclipse.simu.name    = "Eclipse Simu Release ${eclipse.name} - ${eclipse.simu.version}"
@@ -39,11 +39,16 @@ eclipse.simu.url     = "${eclipse.simu.baseurl}/${eclipse.name}/${eclipse.simu.v
         name='Maven Central';\
         readOnly=true,\
    \
-   aQute.bnd.repository.osgi.OSGiRepository;\
-        name="Eclipse Platform ${eclipse.platform.version}";\
-        locations=${fileuri;${workspace}/cnf/fixedIndices/p2-Eclipse_Platform_R-4.10-201812060815/index.xml.gz}; \
-        poll.time=-1; \
-        cache=${build}/cache/stable/EclipsePlatform,
+   aQute.bnd.repository.p2.provider.P2Repository; \
+      name  = ${eclipse.platform.name}; \
+      url   = ${eclipse.platform.url},\
+   \
+   aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+		snapshotUrls=https://oss.sonatype.org/content/repositories/osgi/; \
+		releaseUrls=https://repo.maven.apache.org/maven2/; \
+		revision=org.osgi.enroute:debug-bundles:7.0.0; \
+		readOnly=true; \
+		name="Debug Bundles"        
 
 # used only during initial creation of static index for OSGi repo
 #   aQute.bnd.repository.p2.provider.P2Repository; \

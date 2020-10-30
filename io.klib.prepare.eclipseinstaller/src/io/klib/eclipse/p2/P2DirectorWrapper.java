@@ -6,7 +6,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.equinox.internal.p2.director.app.DirectorApplication;
 import org.eclipse.equinox.internal.p2.director.app.ILog;
 
-@SuppressWarnings("restriction")
 public class P2DirectorWrapper extends DirectorApplication {
 
     private final DirectorApplication directorApp;
@@ -80,9 +79,11 @@ public class P2DirectorWrapper extends DirectorApplication {
 
         // actual p2.director call
         try {
-            for (String arg: args) {
+/*
+        	for (String arg: args) {
                 System.out.println(arg);
             }
+*/
             directorApp.run(args);
         }
         catch (Exception e) {

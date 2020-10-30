@@ -47,15 +47,20 @@ import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 import org.apache.commons.compress.utils.IOUtils;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
+import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.oomph.extractor.lib.BINExtractor;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+import io.klib.eclipse.p2.P2DirectorWrapper;
 
 // @formatter:off
 @SuppressWarnings("unused")
-@Component
+@Component(immediate = true)
 public class EclipseInstallerPatchINI {
 
 	private static final String DL_PROD = "https://www.eclipse.org/downloads/download.php?file=/oomph/products";
@@ -168,6 +173,7 @@ public class EclipseInstallerPatchINI {
 				case "win64":
 					extractExe(downloadDir + SEP + archiveName, processDir);
 					unzipWith7zip(productArchive, extractedProductPath);
+					installAdditions(extractedProductPath);
 					patchIniFile(extractedProductPath.resolve(ECLIPSE_INST_INI), iniSuffix, p2PoolPath);
 					try {
 						Files.move(productArchive, productArchiveBak);
@@ -217,6 +223,50 @@ public class EclipseInstallerPatchINI {
 		} catch (BundleException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void installAdditions(Path extractedProductPath) {
+		String repoURIs="https://maybeec.github.io/oomph-task-unzip/update,http://download.eclipse.org/releases/2020-09/";
+		repoURIs="file:/C:/cec/ENGINE_LIB_DIR/repo/maybeec.github.io/oomph-task-unzip/update/,file:/C:/cec/ENGINE_LIB_DIR/repo/download.eclipse.org/eclipse/updates/4.17";
+		String app = "org.eclipse.equinox.p2.director";
+		String installIUs="com.github.maybeec.oomph.task.unzip";
+		String destination=extractedProductPath.toString();
+		String profile="DefaultProfile";
+		String p2os="win32";
+		String p2ws="win32";
+		String p2arch="x86_64";
+
+		/*
+		P2DirectorWrapper p2director = new P2DirectorWrapper();
+		p2director.install(repoURIs, installIUs, destination, profile, p2os, p2ws, p2arch);
+		 */
+		//@formatter:off
+		try {
+			Path tempDir = Files.createTempDirectory("p2_");
+			List<String> args = Arrays.asList(new String[] {
+				"C:/cec/ENGINE_LIB_DIR/build/tooling/OSGi-StarterKit/EclipseRT-OSGi-StarterKit-4.17-win32-win32-x86_64/rt/rt.exe",
+				"-configuration", tempDir.toString(),
+				"-application", app,
+				"-repository", repoURIs,
+				"-installIU", installIUs,
+				"-destination", destination,
+				"-profile", profile,
+				"-profileProperties", "org.eclipse.update.install.feature=true",
+				"-roaming",
+				"-p2.os", p2os,
+				"-p2.ws", p2ws,
+				"-p2.arch", p2arch
+      		});
+      		ProcessBuilder pb = new ProcessBuilder(args);
+			pb.start();
+			Thread.sleep(20*1000);
+			deletePath(tempDir);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//@formatter:on
 	}
 
 	private void deletePath(Path rootPath) {
