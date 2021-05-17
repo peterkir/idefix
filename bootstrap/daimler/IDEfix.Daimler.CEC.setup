@@ -318,16 +318,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="http://basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="InstaSearch">
         <repository
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
@@ -774,16 +764,6 @@
         <repository
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="http://basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -1248,16 +1228,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="http://basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="InstaSearch">
         <repository
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
@@ -1711,16 +1681,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="http://basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="InstaSearch">
         <repository
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
@@ -2169,16 +2129,6 @@
         <repository
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="OS Explorer">
-        <requirement
-            name="de.bastiankrol.startexplorer.feature.feature.group"
-            versionRange="1.6.1"/>
-        <repository
-            url="http://basti1302.github.com/startexplorer/update"/>
-        <description>enables comfort functions to access native os environments</description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
