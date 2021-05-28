@@ -325,16 +325,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Markdown Editor">
-        <requirement
-            name="markdown.editor.feature.feature.group"
-            versionRange="[1.1.0,2.0.0)"/>
-        <repository
-            url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="Spotbugs">
         <requirement
             name="com.github.spotbugs.plugin.eclipse.feature.group"/>
@@ -771,16 +761,6 @@
         <repository
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="Markdown Editor">
-        <requirement
-            name="markdown.editor.feature.feature.group"
-            versionRange="[1.1.0,2.0.0)"/>
-        <repository
-            url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-        <description></description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -1235,16 +1215,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Markdown Editor">
-        <requirement
-            name="markdown.editor.feature.feature.group"
-            versionRange="[1.1.0,2.0.0)"/>
-        <repository
-            url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="Spotbugs">
         <requirement
             name="com.github.spotbugs.plugin.eclipse.feature.group"/>
@@ -1688,16 +1658,6 @@
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Markdown Editor">
-        <requirement
-            name="markdown.editor.feature.feature.group"
-            versionRange="[1.1.0,2.0.0)"/>
-        <repository
-            url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-        <description></description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
           label="Spotbugs">
         <requirement
             name="com.github.spotbugs.plugin.eclipse.feature.group"/>
@@ -2136,16 +2096,6 @@
         <repository
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
-      </setupTask>
-      <setupTask
-          xsi:type="setup.p2:P2Task"
-          label="Markdown Editor">
-        <requirement
-            name="markdown.editor.feature.feature.group"
-            versionRange="[1.1.0,2.0.0)"/>
-        <repository
-            url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-        <description></description>
       </setupTask>
       <setupTask
           xsi:type="setup.p2:P2Task"
