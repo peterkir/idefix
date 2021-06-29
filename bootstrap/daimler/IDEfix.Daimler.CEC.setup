@@ -206,7 +206,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[4.0.0,5.0.0)"/>
         <repository
-            url="https://dl.bintray.com/bndtools/bndtools/4.3.1/"/>
+            url="jar:https://bndtools.jfrog.io/artifactory/update-latest/org/bndtools/org.bndtools.p2/4.3.1/org.bndtools.p2-4.3.1.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
@@ -316,6 +316,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -323,6 +324,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -332,6 +334,8 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
+
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -341,6 +345,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -647,7 +652,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[4.0.0,5.0.0)"/>
         <repository
-            url="https://dl.bintray.com/bndtools/bndtools/4.3.1/"/>
+            url="jar:https://bndtools.jfrog.io/artifactory/update-latest/org/bndtools/org.bndtools.p2/4.3.1/org.bndtools.p2-4.3.1.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
@@ -755,6 +760,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -762,6 +768,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -771,6 +778,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -780,6 +788,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1206,6 +1215,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -1213,6 +1223,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -1222,6 +1233,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -1231,6 +1243,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1649,6 +1662,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -1656,6 +1670,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -1665,6 +1680,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -1674,6 +1690,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -2090,6 +2107,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -2097,6 +2115,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -2106,6 +2125,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -2115,6 +2135,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"

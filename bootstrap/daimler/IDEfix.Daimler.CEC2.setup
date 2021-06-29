@@ -4,10 +4,10 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:com.github.maybeec.oomph.task="http://maybeec.github.io/oomph-task-unzip/1.0"
-    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:jdt_1.0="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
+    xsi:schemaLocation="http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore"
     name="idefix.daimler.cec.eval"
     label="IDEfix Daimler CEC eval">
   <annotation
@@ -206,7 +206,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[4.0.0,5.0.0)"/>
         <repository
-            url="https://dl.bintray.com/bndtools/bndtools/4.3.1/"/>
+            url="jar:https://bndtools.jfrog.io/artifactory/update-latest/org/bndtools/org.bndtools.p2/4.3.1/org.bndtools.p2-4.3.1.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
@@ -316,6 +316,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -323,6 +324,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -332,6 +334,8 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
+
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -341,6 +345,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -487,17 +492,17 @@
           destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
         <description>Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="jdk8u202-b08-jfx"
           predecessor="unzip.jdk8u202-b08-jfx"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -522,17 +527,17 @@
           destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
         <description>JRE - Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JRE</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="jdk8u202-b08-jre-jfx"
           predecessor="unzip.jdk8u202-b08-jre-jfx"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
           name="JRE - AdoptOpenJDK 8.0.202_b08-jre-jfx">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JRE</description>
     </setupTask>
     <description></description>
   </version>
@@ -647,7 +652,7 @@
             name="bndtools.main.feature.feature.group"
             versionRange="[4.0.0,5.0.0)"/>
         <repository
-            url="https://dl.bintray.com/bndtools/bndtools/4.3.1/"/>
+            url="jar:https://bndtools.jfrog.io/artifactory/update-latest/org/bndtools/org.bndtools.p2/4.3.1/org.bndtools.p2-4.3.1.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
@@ -755,6 +760,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -762,6 +768,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -771,6 +778,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -780,6 +788,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -925,17 +934,17 @@
           destinationDir="${installation.location}/../java/win32/">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="jdk-11.0.5_10"
           predecessor="unzip.adoptopenjdk-11.0.5_10"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -960,17 +969,17 @@
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           id="pai-jre-11.0.5_10"
           predecessor="unzip.pai-adoptopenjdk-11.0.5_10"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
@@ -1206,6 +1215,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -1213,6 +1223,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -1222,6 +1233,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -1231,6 +1243,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1373,16 +1386,16 @@
           destinationDir="${installation.location/..|uri}/java/win32/jdk8u202-b08-jfx/">
         <description>Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02-java8']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jfx"
           name="JDK - AdoptOpenJDK 8">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1404,16 +1417,16 @@
           destinationDir="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx/">
         <description>JRE - Adopt OpenJDK 8</description>
       </setupTask>
+      <description>JRE</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02-java8']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-1.8"
           location="${installation.location}/../java/win32/jdk8u202-b08-jre-jfx"
           name="JRE - AdoptOpenJDK 8.0.202_b08-jre-jfx">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JRE</description>
     </setupTask>
     <description></description>
   </version>
@@ -1649,6 +1662,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -1656,6 +1670,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -1665,6 +1680,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -1674,6 +1690,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1816,16 +1833,16 @@
           destinationDir="${installation.location}/../java/win32/">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/jdk-11.0.5+10"
           name="SDK - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1847,16 +1864,16 @@
           destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2011.02']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
@@ -2090,6 +2107,7 @@
             url="http://netceteragroup.github.io/quickrex/updatesite/"/>
         <description></description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="InstaSearch">
@@ -2097,6 +2115,7 @@
             url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
         <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
       </setupTask>
+-->
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="Spotbugs">
@@ -2106,6 +2125,7 @@
             url="https://spotbugs.github.io/eclipse/"/>
         <description>SpotBugs</description>
       </setupTask>
+<!--
       <setupTask
           xsi:type="setup.p2:P2Task"
           label="CheckStyle 8.18">
@@ -2115,6 +2135,7 @@
             url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
         <description>CheckStyle</description>
       </setupTask>
+-->
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -2257,16 +2278,16 @@
           destinationDir="${installation.location/../java/win32/}">
         <description>Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2021.06']/@setupTasks.9/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location/../java/win32/jdk-11.0.5+10}"
           name="SDK - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -2288,16 +2309,16 @@
           destinationDir="${installation.location/../java/win32/pai-openjdk-11.0.5.10_windows-x64}">
         <description>PAI JRE - Adopt OpenJDK 11</description>
       </setupTask>
+      <description>JDK</description>
       <setupTask
-          xsi:type="jdt:JRETask"
+          xsi:type="jdt_1.0:JRETask"
           predecessor="//@versions[name='2021.06']/@setupTasks.10/@setupTasks.1"
           filter=""
           version="JavaSE-11"
           location="${installation.location/../java/win32/pai-openjdk-11.0.5.10_windows-x64}"
           name="PAI JRE - AdoptOpenJDK 11.0.5">
-        <description></description>
+        <description/>
       </setupTask>
-      <description>JDK</description>
     </setupTask>
     <description></description>
   </version>
