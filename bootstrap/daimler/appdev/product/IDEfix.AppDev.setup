@@ -40,13 +40,6 @@
       name="eclipse.ini">
     <setupTask
         xsi:type="setup:EclipseIniTask"
-        option="-Xmx"
-        value="2048m"
-        vm="true">
-      <description>Set the heap space needed to work with the projects</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
         option="-Declipse.p2.unsignedPolicy"
         value="=allow"
         vm="true"/>
@@ -123,186 +116,6 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.egit.core/core_autoIgnoreDerivedResources"
           value="false"/>
-    </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="P2 Director - misc installations">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="QuickREx - regexp">
-      <requirement
-          name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
-      <repository
-          url="http://netceteragroup.github.io/quickrex/updatesite/"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="OS Explorer">
-      <requirement
-          name="de.bastiankrol.startexplorer.feature.feature.group"
-          versionRange="1.6.1"/>
-      <repository
-          url="http://basti1302.github.com/startexplorer/update"/>
-      <description>enables comfort functions to access native os environments</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="InstaSearch">
-      <repository
-          url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
-      <description>InstaSearch - Eclipse plug-in for quick code search - https://github.com/ajermakovics/eclipse-instasearch</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Markdown Editor">
-      <requirement
-          name="markdown.editor.feature.feature.group"
-          versionRange="[1.1.0,2.0.0)"/>
-      <repository
-          url="http://dl.bintray.com/enide/Markdown/1.1.0/"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Spotbugs">
-      <requirement
-          name="com.github.spotbugs.plugin.eclipse.feature.group"/>
-      <repository
-          url="https://spotbugs.github.io/eclipse/"/>
-      <description>SpotBugs</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="CheckStyle 8.18">
-      <requirement
-          name="net.sf.eclipsecs.feature.group"/>
-      <repository
-          url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
-      <description>CheckStyle</description>
-    </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="P2 Director - Oomph">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Oomph Setup">
-      <requirement
-          name="org.eclipse.oomph.setup.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/oomph/updates/release/latest"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Oomph Setup Extensions">
-      <requirement
-          name="org.eclipse.oomph.setup.git.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.jdt.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.maven.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.mylyn.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.pde.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.projectset.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.projects.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.targlets.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.workbench.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.setup.workingsets.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/oomph/updates/release/latest"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Oomph Tools">
-      <requirement
-          name="org.eclipse.oomph.workingsets.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.gitbash.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.launches.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.manifests.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.ostools.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.p2.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.preferences.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.projectconfig.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.projectcopy.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.targlets.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.version.feature.group"/>
-      <requirement
-          name="org.eclipse.oomph.version.headless.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/oomph/updates/release/latest"/>
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        id="oomph-task-unzip"
-        label="Additional Task - Unzip">
-      <requirement
-          name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
-          filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
-      <repository
-          url="https://maybeec.github.io/oomph-task-unzip/update"/>
-      <description>https://github.com/maybeec/oomph-task-unzip</description>
-    </setupTask>
-    <description>http://download.eclipse.org/oomph/updates/latest</description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="P2 Director - AJDT">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="prefs">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
-          value="ignore"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
-          value="ignore"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="AJDT">
-      <requirement
-          name="org.eclipse.ajdt.feature.group"/>
-      <requirement
-          name="org.eclipse.equinox.weaving.sdk.feature.group"/>
-      <repository
-          url="https://download.eclipse.org/tools/ajdt/410/dev/update/ajdt-e410-2.2.4.201908130916/"/>
-      <description></description>
-    </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="P2 Director - RCPTT">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="RCPTT">
-      <requirement
-          name="org.eclipse.rcptt.platform.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
     </setupTask>
   </setupTask>
   <version name="20.06"
@@ -404,6 +217,180 @@
       <repository
           url="http://klib.io/patch_bug143023_20190826/"/>
       <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Xmx"
+          value="2048m"
+          vm="true">
+        <description>Set the heap space needed to work with the projects</description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - misc installations">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="QuickREx - regexp">
+        <requirement
+            name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
+        <repository
+            url="http://netceteragroup.github.io/quickrex/updatesite/"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="OS Explorer">
+        <requirement
+            name="de.bastiankrol.startexplorer.feature.feature.group"
+            versionRange="1.6.1"/>
+        <repository
+            url="http://basti1302.github.com/startexplorer/update"/>
+        <description>enables comfort functions to access native os environments</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Spotbugs">
+        <requirement
+            name="com.github.spotbugs.plugin.eclipse.feature.group"/>
+        <repository
+            url="https://spotbugs.github.io/eclipse/"/>
+        <description>SpotBugs</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="CheckStyle 8.18">
+        <requirement
+            name="net.sf.eclipsecs.feature.group"/>
+        <repository
+            url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
+        <description>CheckStyle</description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - Oomph">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Setup">
+        <requirement
+            name="org.eclipse.oomph.setup.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Setup Extensions">
+        <requirement
+            name="org.eclipse.oomph.setup.git.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.jdt.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.maven.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.mylyn.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.pde.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.projectset.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.projects.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.targlets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.workbench.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.workingsets.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Tools">
+        <requirement
+            name="org.eclipse.oomph.workingsets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.gitbash.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.launches.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.manifests.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.ostools.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.p2.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.preferences.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.projectconfig.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.projectcopy.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.targlets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.version.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.version.headless.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          id="oomph-task-unzip"
+          label="Additional Task - Unzip">
+        <requirement
+            name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
+            filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+        <repository
+            url="https://maybeec.github.io/oomph-task-unzip/update"/>
+        <description>https://github.com/maybeec/oomph-task-unzip</description>
+      </setupTask>
+      <description>http://download.eclipse.org/oomph/updates/latest</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - AJDT">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+            value="ignore"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="AJDT">
+        <requirement
+            name="org.eclipse.ajdt.feature.group"/>
+        <requirement
+            name="org.eclipse.equinox.weaving.sdk.feature.group"/>
+        <repository
+            url="https://download.eclipse.org/tools/ajdt/410/dev/update/ajdt-e410-2.2.4.201908130916/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - RCPTT">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="RCPTT">
+        <requirement
+            name="org.eclipse.rcptt.platform.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
+      </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -592,6 +579,180 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
+        name="eclipse.ini">
+      <setupTask
+          xsi:type="setup:EclipseIniTask"
+          option="-Xmx"
+          value="2048m"
+          vm="true">
+        <description>Set the heap space needed to work with the projects</description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - misc installations">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="QuickREx - regexp">
+        <requirement
+            name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
+        <repository
+            url="http://netceteragroup.github.io/quickrex/updatesite/"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="OS Explorer">
+        <requirement
+            name="de.bastiankrol.startexplorer.feature.feature.group"
+            versionRange="1.6.1"/>
+        <repository
+            url="http://basti1302.github.com/startexplorer/update"/>
+        <description>enables comfort functions to access native os environments</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Spotbugs">
+        <requirement
+            name="com.github.spotbugs.plugin.eclipse.feature.group"/>
+        <repository
+            url="https://spotbugs.github.io/eclipse/"/>
+        <description>SpotBugs</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="CheckStyle 8.18">
+        <requirement
+            name="net.sf.eclipsecs.feature.group"/>
+        <repository
+            url="https://dl.bintray.com/eclipse-cs/eclipse-cs/8.18.0/"/>
+        <description>CheckStyle</description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - Oomph">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Setup">
+        <requirement
+            name="org.eclipse.oomph.setup.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Setup Extensions">
+        <requirement
+            name="org.eclipse.oomph.setup.git.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.jdt.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.maven.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.mylyn.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.pde.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.projectset.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.projects.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.targlets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.workbench.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.workingsets.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Tools">
+        <requirement
+            name="org.eclipse.oomph.workingsets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.gitbash.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.launches.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.manifests.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.ostools.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.p2.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.preferences.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.projectconfig.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.projectcopy.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.targlets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.version.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.version.headless.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          id="oomph-task-unzip"
+          label="Additional Task - Unzip">
+        <requirement
+            name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
+            filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+        <repository
+            url="https://maybeec.github.io/oomph-task-unzip/update"/>
+        <description>https://github.com/maybeec/oomph-task-unzip</description>
+      </setupTask>
+      <description>http://download.eclipse.org/oomph/updates/latest</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - AJDT">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+            value="ignore"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="AJDT">
+        <requirement
+            name="org.eclipse.ajdt.feature.group"/>
+        <requirement
+            name="org.eclipse.equinox.weaving.sdk.feature.group"/>
+        <repository
+            url="https://download.eclipse.org/tools/ajdt/410/dev/update/ajdt-e410-2.2.4.201908130916/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - RCPTT">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="RCPTT">
+        <requirement
+            name="org.eclipse.rcptt.platform.feature.group"/>
+        <repository
+            url="http://download.eclipse.org/rcptt/release/2.4.3/repository/"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
         name="bndtools">
       <setupTask
           xsi:type="setup.p2:P2Task"
@@ -601,6 +762,359 @@
             versionRange="[4.0.0,5.0.0)"/>
         <repository
             url="https://dl.bintray.com/bndtools/bndtools/4.3.0/"/>
+        <description>Install the tools needed in the IDE to work with the source code</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/headlessBuildPlugins"
+            value="Gradle"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/versionControlIgnoresCreate"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/versionControlIgnoresPlugins"
+            value="Git"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/bndtools.core/enableTemplateRepo"
+            value="true"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id="AdoptOpenJDK11"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
+        name="JavaSE-11 AdoptOpenJDK11">
+      <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          targetURL="${installation.location/..|uri}/java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="unzip.adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="mirror.locally.adoptopenjdk-11.0.5_10"
+          filter=""
+          zipFile="${installation.location}/../java/win32/OpenJDK11U-jdk_x64_windows_hotspot_11.0.5_10.zip"
+          destinationDir="${installation.location}/../java/win32/">
+        <description>Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
+          xsi:type="jdt:JRETask"
+          id="jdk-11.0.5_10"
+          predecessor="unzip.adoptopenjdk-11.0.5_10"
+          filter=""
+          version="JavaSE-11"
+          location="${installation.location}/../java/win32/jdk-11.0.5+10"
+          name="SDK - AdoptOpenJDK 11.0.5">
+        <description></description>
+      </setupTask>
+      <description>JDK</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id="PAI_JRE-AdoptOpenJDK11"
+        filter=" (&amp;(osgi.os=win32)(osgi.arch=x86_64))"
+        name="PAI JRE - AdoptOpenJDK11">
+      <setupTask
+          xsi:type="setup:ResourceCopyTask"
+          id="mirror.locally.pai-adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          sourceURL="${io.klib.cdn}/java/AdoptOpenJDK/pai-openjdk-11.0.5.10_windows-x64.zip"
+          targetURL="${installation.location/..|uri}/java/win32/pai-openjdk-11.0.5.10_windows-x64.zip">
+        <description>Mirror AdoptOpenJDK locally</description>
+      </setupTask>
+      <setupTask
+          xsi:type="com.github.maybeec.oomph.task:unzipTask"
+          id="unzip.pai-adoptopenjdk-11.0.5_10"
+          excludedTriggers="STARTUP MANUAL"
+          predecessor="mirror.locally.pai-adoptopenjdk-11.0.5_10"
+          filter=""
+          zipFile="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64.zip"
+          destinationDir="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64">
+        <description>PAI JRE - Adopt OpenJDK 11</description>
+      </setupTask>
+      <setupTask
+          xsi:type="jdt:JRETask"
+          id="pai-jre-11.0.5_10"
+          predecessor="unzip.pai-adoptopenjdk-11.0.5_10"
+          filter=""
+          version="JavaSE-11"
+          location="${installation.location}/../java/win32/pai-openjdk-11.0.5.10_windows-x64"
+          name="PAI JRE - AdoptOpenJDK 11.0.5">
+        <description></description>
+      </setupTask>
+      <description>JDK</description>
+    </setupTask>
+    <description></description>
+  </version>
+  <version name="21.11"
+      label="21.11"
+      requiredJavaVersion="11">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Eclipse IDE for Eclipse Committers (2021-06)">
+      <requirement
+          name="epp.package.committers"
+          versionRange="[4.20.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.platform.feature.group"
+          versionRange="[4.20.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.rcp.feature.group"
+          versionRange="[4.20.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.buildship.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.eclemma.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.gitflow.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.mylyn.feature.group"/>
+      <requirement
+          name="org.eclipse.epp.mpc.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.feature.group"/>
+      <requirement
+          name="org.eclipse.jdt.source.feature.group"/>
+      <requirement
+          name="org.eclipse.jgit.http.apache.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.lemminx.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.pde.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.builds.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.identity.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.notifications.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.commons.repositories.http.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.discovery.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.dashboard.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.git.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.hudson.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.monitor.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.reviews.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.team_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.versions.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.feature.group"/>
+      <requirement
+          name="org.eclipse.pde.source.feature.group"/>
+      <requirement
+          name="org.eclipse.platform.source.feature.group"/>
+      <requirement
+          name="org.eclipse.rcp.source.feature.group"/>
+      <requirement
+          name="org.eclipse.swt.tools.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.test.feature.group"/>
+      <requirement
+          name="org.eclipse.wildwebdeveloper.embedder.node.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.wildwebdeveloper.feature.feature.group"/>
+      <repository
+          url="${cdn.download.server}/technology/epp/packages/2021-06/202106121200"/>
+      <repository
+          url="${cdn.download.server}/releases/2021-06/202106161001">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/ReleaseTrain"/>
+      </repository>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - misc installations">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="QuickREx - regexp">
+        <requirement
+            name="com.netcetera.eclipse.quickrex.feature.feature.group"/>
+        <repository
+            url="http://netceteragroup.github.io/quickrex/updatesite/"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Spotbugs">
+        <requirement
+            name="com.github.spotbugs.plugin.eclipse.feature.group"/>
+        <repository
+            url="https://spotbugs.github.io/eclipse/"/>
+        <description>SpotBugs</description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - Oomph">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Setup">
+        <requirement
+            name="org.eclipse.oomph.setup.feature.group"/>
+        <repository
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Setup Extensions">
+        <requirement
+            name="org.eclipse.oomph.setup.git.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.jdt.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.maven.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.mylyn.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.pde.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.projectset.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.projects.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.targlets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.workbench.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.setup.workingsets.feature.group"/>
+        <repository
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Oomph Tools">
+        <requirement
+            name="org.eclipse.oomph.workingsets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.gitbash.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.launches.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.manifests.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.ostools.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.p2.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.preferences.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.projectconfig.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.projectcopy.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.targlets.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.version.feature.group"/>
+        <requirement
+            name="org.eclipse.oomph.version.headless.feature.group"/>
+        <repository
+            url="${cdn.download.server}/oomph/updates/release/latest"/>
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="Additional Task - Unzip">
+        <requirement
+            name="com.github.maybeec.oomph.task.unzip.feature.feature.group"
+            filter="(|(osgi.os=linux)(osgi.os=macosx)(osgi.os=win32))"/>
+        <repository
+            url="https://maybeec.github.io/oomph-task-unzip/update"/>
+        <description>https://github.com/maybeec/oomph-task-unzip</description>
+      </setupTask>
+      <description>${cdn.download.server}/oomph/updates/latest</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - AJDT">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="prefs">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.adviceDidNotMatch"
+            value="ignore"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ajdt.ui/org.aspectj.ajdt.core.compiler.lint.TypeNotExposedToWeaver"
+            value="ignore"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="AJDT">
+        <requirement
+            name="org.eclipse.ajdt.feature.group"/>
+        <requirement
+            name="org.eclipse.equinox.weaving.sdk.feature.group"/>
+        <repository
+            url="https://download.eclipse.org/tools/ajdt/410/dev/update/ajdt-e410-2.2.4.202007241909/"/>
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="P2 Director - RCPTT">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="RCPTT">
+        <requirement
+            name="org.eclipse.rcptt.platform.feature.group"/>
+        <repository
+            url="https://download.eclipse.org/rcptt/release/2.5.1/repository/"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="bndtools">
+      <setupTask
+          xsi:type="setup.p2:P2Task"
+          label="bndtools">
+        <requirement
+            name="bndtools.main.feature.feature.group"/>
+        <requirement
+            name="bndtools.m2e.feature.feature.group"/>
+        <requirement
+            name="bndtools.pde.feature.feature.group"/>
+        <repository
+            url="jar:https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/5.3.0/org.bndtools.p2-5.3.0.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
