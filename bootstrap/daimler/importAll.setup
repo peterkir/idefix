@@ -1012,7 +1012,8 @@
           xsi:type="setup:CompoundTask"
           href="cec2006.setup#pref.automated.build.off"/>
       <sourceLocator
-          rootFolder="${import-all-git-checkout-location}">
+          rootFolder="${import-all-git-checkout-location}"
+          locateNestedProjects="true">
         <excludedPath>/cnf</excludedPath>
       </sourceLocator>
       <description>prj_import_all_but_cnf</description>
