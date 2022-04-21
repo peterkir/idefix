@@ -909,6 +909,6 @@
       label="develop"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="catalog.project.cec.setup#/"/>
+      href="catalog-projects.setup#/"/>
   <description>IDE for CEC development</description>
 </setup:Project>
