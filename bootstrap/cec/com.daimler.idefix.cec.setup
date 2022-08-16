@@ -673,7 +673,7 @@
         name="bndtools">
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="bndtools 6.2.0"
+          label="bndtools 6.3.1"
           licenseConfirmationDisabled="true">
         <requirement
             name="bndtools.main.feature.feature.group"/>
@@ -682,7 +682,7 @@
         <requirement
             name="bndtools.pde.feature.feature.group"/>
         <repository
-            url="jar:https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/6.2.0/org.bndtools.p2-6.2.0.jar!/"/>
+            url="jar:https://bndtools.jfrog.io/bndtools/libs-release-local/org/bndtools/org.bndtools.p2/6.3.1/org.bndtools.p2-6.3.1.jar!/"/>
         <description>Install the tools needed in the IDE to work with the source code</description>
       </setupTask>
       <setupTask
